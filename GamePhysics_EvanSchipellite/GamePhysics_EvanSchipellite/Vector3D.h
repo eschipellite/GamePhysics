@@ -26,8 +26,8 @@ public:
 	Vector3D operator+(const Vector3D&) const;
 	Vector3D operator-(const Vector3D&) const;
 	
-	float operatordot(const Vector3D&) const;
-	Vector3D operatorcross(const Vector3D&) const;
+	float Dot(const Vector3D&) const;
+	Vector3D Cross(const Vector3D&) const;
 	
 	bool operator==(const Vector3D&) const;
 	bool operator!=(const Vector3D&) const;

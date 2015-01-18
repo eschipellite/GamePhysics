@@ -8,8 +8,13 @@
 #ifndef GAMEAPP_H
 #define GAMEAPP_H
 //=============================================================================
+#include "Camera.h"
+//=============================================================================
 class GameApp
 {
+private:
+	Camera* mp_Camera;
+
 public:
 	GameApp();
 	~GameApp();
@@ -17,6 +22,8 @@ public:
 	void Initialize();
 	void CleanUp();
 	void Update();
+	void HandleMouse(Vector3D mousePosition);
+	void HandleKeyboard(unsigned char key);
 };
 //=============================================================================
 #endif // GAMEAPP_H

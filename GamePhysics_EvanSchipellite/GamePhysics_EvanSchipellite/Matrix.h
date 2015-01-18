@@ -25,6 +25,7 @@ private:
 
 public:
 	Matrix();
+	Matrix(const Matrix&);
 	Matrix(int length, bool identity);
 	Matrix(int rows, int columns);
 	Matrix(int rows, int columns, float* matrixArray);
@@ -43,6 +44,9 @@ public:
 	Matrix operator*(const Matrix&) const;
 	Matrix operator*(const float&) const;
 	Matrix operator*(const Vector3D&) const;
+	bool operator==(const Matrix&) const;
+	bool operator!=(const Matrix&) const;
+	Matrix& operator=(const Matrix&);
 };
 //=============================================================================
 #endif // MATRIX_H

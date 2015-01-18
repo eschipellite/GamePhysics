@@ -9,13 +9,17 @@
 #include <Windows.h>
 #include <GL/glut.h>
 #include "GameApp.h"
+
 using namespace std;
 //=============================================================================
 void initialize();
 void cleanUp();
 void idle();
 void update();
+void handleMouse(int x, int y);
+void handleKeyboard(unsigned char key, int x, int y);
 void display();
+void reshape(int w, int h);
 //=============================================================================
 const unsigned int FPS = 60;
 const double MILLISECONDS = 1000.0;
@@ -48,11 +52,23 @@ void initialize()
 	glutInitWindowPosition(0, 0);
 	glutCreateWindow("GamePsychics_EvanSchipellite");
 
+	float lightPosition[] = { 0.0, 0.0, -10.0, 0.0 };
+	glLightfv(GL_LIGHT0, GL_POSITION, lightPosition);
+	glEnable(GL_DEPTH_TEST);
+	glEnable(GL_LIGHTING);
+	glEnable(GL_LIGHT0);
+	glShadeModel(GL_SMOOTH);
+
+	glutSetCursor(GLUT_CURSOR_NONE);
+
 	gp_GameApp->Initialize();
-	
+
 	atexit(cleanUp);
 	glutDisplayFunc(display);
 	glutIdleFunc(idle);
+	glutPassiveMotionFunc(handleMouse);
+	glutKeyboardFunc(handleKeyboard);
+	glutReshapeFunc(reshape);
 	glutMainLoop();
 }
 
@@ -90,14 +106,39 @@ void update()
 }
 
 //-----------------------------------------------------------------------------
+void handleMouse(int x, int y)
+{
+	gp_GameApp->HandleMouse(Vector3D((float)x, (float)y, 0));
+}
+
+//-----------------------------------------------------------------------------
+void handleKeyboard(unsigned char key, int x, int y)
+{
+	gp_GameApp->HandleKeyboard(key);
+}
+
+//-----------------------------------------------------------------------------
 void display()
 {
-	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-	glClear(GL_COLOR_BUFFER_BIT);
+	glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	glRotatef(1, 0, 50, 0);
-	glutWireCube(1);
+	glRotatef(1, 0, .45f, .45f);
+	
+	glutSolidCube(.25);
 
-	glFlush();
+	glutSwapBuffers();
+}
+
+//-----------------------------------------------------------------------------
+void reshape(int w, int h) 
+{
+	glViewport(0, 0, (GLsizei)w, (GLsizei)h);
+	glMatrixMode(GL_PROJECTION);
+
+	glLoadIdentity();
+	gluPerspective(60, (GLfloat)w / (GLfloat)h, 1.0, 1000.0);
+	glMatrixMode(GL_MODELVIEW);
+
 }
 //=============================================================================

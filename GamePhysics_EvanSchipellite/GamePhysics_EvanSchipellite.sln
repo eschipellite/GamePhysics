@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GamePhysics_EvanSchipellite", "GamePhysics_EvanSchipellite\GamePhysics_EvanSchipellite.vcxproj", "{D6535071-8247-470A-A9AF-4F6283EA896F}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnitTesting_GamePhysics_EvanSchipellite", "UnitTesting_GamePhysics_EvanSchipellite\UnitTesting_GamePhysics_EvanSchipellite.vcxproj", "{07F4626E-AA61-408B-8E30-608BA9E2B091}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -15,6 +17,10 @@ Global
 		{D6535071-8247-470A-A9AF-4F6283EA896F}.Debug|Win32.Build.0 = Debug|Win32
 		{D6535071-8247-470A-A9AF-4F6283EA896F}.Release|Win32.ActiveCfg = Release|Win32
 		{D6535071-8247-470A-A9AF-4F6283EA896F}.Release|Win32.Build.0 = Release|Win32
+		{07F4626E-AA61-408B-8E30-608BA9E2B091}.Debug|Win32.ActiveCfg = Debug|Win32
+		{07F4626E-AA61-408B-8E30-608BA9E2B091}.Debug|Win32.Build.0 = Debug|Win32
+		{07F4626E-AA61-408B-8E30-608BA9E2B091}.Release|Win32.ActiveCfg = Release|Win32
+		{07F4626E-AA61-408B-8E30-608BA9E2B091}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
