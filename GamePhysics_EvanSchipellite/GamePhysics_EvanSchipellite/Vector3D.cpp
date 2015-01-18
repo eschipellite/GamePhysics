@@ -3,7 +3,7 @@
 //
 // Written by Evan Schipellite
 //
-// Vector storage and information
+// Vector storage and information for (x, y, z)
 //=============================================================================
 #include "Vector3D.h"
 #include <cmath>

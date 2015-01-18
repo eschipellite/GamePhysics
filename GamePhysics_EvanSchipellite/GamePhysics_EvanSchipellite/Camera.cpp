@@ -13,9 +13,9 @@
 //=============================================================================
 Camera::Camera()
 {
-	m_Position = Vector3D(0, 0, 0);
-	m_LastMousePosition = Vector3D(0, 0, 0);
-	m_Rotation = Vector3D(0, 0, 0);
+	m_Position = Vector3D();
+	m_LastMousePosition = Vector3D();
+	m_Rotation = Vector3D();
 
 	m_MouseSpeed = 1.0f / 10.0f;
 	m_CameraSpeed = 1.0f / 2.0f;
@@ -29,7 +29,7 @@ Camera::~Camera()
 //-----------------------------------------------------------------------------
 void Camera::HandleKey(unsigned char key)
 {
-	Vector3D radianRotation = Vector3D(0, 0, 0);
+	Vector3D radianRotation = Vector3D();
 	float speed = .01f;
 
 	if (key == 'w')

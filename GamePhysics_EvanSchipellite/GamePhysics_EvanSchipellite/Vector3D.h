@@ -3,7 +3,7 @@
 //
 // Written by Evan Schipellite
 //
-// Vector storage and information
+// Vector storage and information for (x, y, z)
 //=============================================================================
 #ifndef VECTOR3D_H
 #define VECTOR3D_H
@@ -17,7 +17,7 @@ public:
 
 public:
 	Vector3D();
-	Vector3D(float x, float y, float z);
+	Vector3D(float x, float y, float z = 0);
 	~Vector3D();
 
 	Vector3D operator*(const float&) const;

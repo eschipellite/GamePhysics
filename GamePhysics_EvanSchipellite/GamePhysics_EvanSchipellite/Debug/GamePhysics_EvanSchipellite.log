@@ -1,8 +1,11 @@
-﻿Build started 1/17/2015 9:25:54 PM.
+﻿Build started 1/18/2015 1:07:06 PM.
      1>Project "C:\Users\Evan.Schipellite\Documents\Game Physics\GamePhysics\GamePhysics_EvanSchipellite\GamePhysics_EvanSchipellite\GamePhysics_EvanSchipellite.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\Evan.Schipellite\Documents\Game Physics\GamePhysics\GamePhysics_EvanSchipellite\packages\nupengl.core.0.0.0.1\build\native\../..//build/native/include/" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Camera.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\Evan.Schipellite\Documents\Game Physics\GamePhysics\GamePhysics_EvanSchipellite\packages\nupengl.core.0.0.0.1\build\native\../..//build/native/include/" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Camera.cpp Source.cpp
+         Source.cpp
          Camera.cpp
+         Generating Code...
+     1>cl : Command line warning D9028: minimal rebuild failure, reverting to normal build
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Evan.Schipellite\Documents\Game Physics\GamePhysics\GamePhysics_EvanSchipellite\Debug\GamePhysics_EvanSchipellite.exe" /INCREMENTAL /NOLOGO "C:\Users\Evan.Schipellite\Documents\Game Physics\GamePhysics\GamePhysics_EvanSchipellite\packages\nupengl.core.0.0.0.1\build\native\../..//build/native/lib/Win32\v120\glew32.lib" "C:\Users\Evan.Schipellite\Documents\Game Physics\GamePhysics\GamePhysics_EvanSchipellite\packages\nupengl.core.0.0.0.1\build\native\../..//build/native/lib/Win32\v120\glfw3dll.lib" "C:\Users\Evan.Schipellite\Documents\Game Physics\GamePhysics\GamePhysics_EvanSchipellite\packages\nupengl.core.0.0.0.1\build\native\../..//build/native/lib/Win32\v120\freeglut.lib" OpenGL32.lib glu32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Evan.Schipellite\Documents\Game Physics\GamePhysics\GamePhysics_EvanSchipellite\Debug\GamePhysics_EvanSchipellite.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Evan.Schipellite\Documents\Game Physics\GamePhysics\GamePhysics_EvanSchipellite\Debug\GamePhysics_EvanSchipellite.lib" /MACHINE:X86 Debug\Camera.obj
          Debug\GameApp.obj
@@ -14,4 +17,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.02
+Time Elapsed 00:00:01.59

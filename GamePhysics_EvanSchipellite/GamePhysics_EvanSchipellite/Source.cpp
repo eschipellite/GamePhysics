@@ -24,6 +24,8 @@ void reshape(int w, int h);
 const unsigned int FPS = 60;
 const double MILLISECONDS = 1000.0;
 const double FRAME_TIME = MILLISECONDS / FPS;
+
+const unsigned int KEY_ESCAPE = 27;
 //=============================================================================
 int g_StartTime;
 int g_CurrentFrame;
@@ -58,8 +60,10 @@ void initialize()
 	glEnable(GL_LIGHTING);
 	glEnable(GL_LIGHT0);
 	glShadeModel(GL_SMOOTH);
+	glDepthFunc(GL_LEQUAL);
+	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
 
-	glutSetCursor(GLUT_CURSOR_NONE);
+	//glutSetCursor(GLUT_CURSOR_NONE);
 
 	gp_GameApp->Initialize();
 
@@ -101,6 +105,8 @@ void update()
 {
 	gp_GameApp->Update();
 
+	//SetCursorPos(GLUT_SCREEN_WIDTH, GLUT_SCREEN_HEIGHT);
+
 	glutPostRedisplay();
 	g_CurrentFrame++;
 }
@@ -108,13 +114,18 @@ void update()
 //-----------------------------------------------------------------------------
 void handleMouse(int x, int y)
 {
-	gp_GameApp->HandleMouse(Vector3D((float)x, (float)y, 0));
+	gp_GameApp->HandleMouse(Vector3D((float)x, (float)y));
 }
 
 //-----------------------------------------------------------------------------
 void handleKeyboard(unsigned char key, int x, int y)
 {
 	gp_GameApp->HandleKeyboard(key);
+
+	if (key == KEY_ESCAPE)
+	{
+		exit(0);
+	}
 }
 
 //-----------------------------------------------------------------------------
@@ -137,7 +148,7 @@ void reshape(int w, int h)
 	glMatrixMode(GL_PROJECTION);
 
 	glLoadIdentity();
-	gluPerspective(60, (GLfloat)w / (GLfloat)h, 1.0, 1000.0);
+	gluPerspective(60, (GLfloat)w / (GLfloat)h, 0.1f, 100.0);
 	glMatrixMode(GL_MODELVIEW);
 
 }
