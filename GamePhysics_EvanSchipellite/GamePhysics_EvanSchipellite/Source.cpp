@@ -48,6 +48,7 @@ int g_Angle;
 
 bool g_FullScreen;
 bool g_MouseActive;
+bool g_Paused;
 
 Vector3D g_ScreenSize = INITIAL_SCREEN_SIZE;
 
@@ -56,6 +57,7 @@ int g_MainWindow;
 GameApp* gp_GameApp;
 
 GLUI* g_GluiSubWindow;
+GLUI_StaticText* g_StaticText;
 //=============================================================================
 int main(int argc, char** argv) 
 {
@@ -75,6 +77,7 @@ void initialize()
 	g_Angle = 0;
 	g_FullScreen = false;
 	g_MouseActive = false;
+	g_Paused = false;
 
 	glutInitWindowSize((int)INITIAL_SCREEN_SIZE.X, (int)INITIAL_SCREEN_SIZE.Y);
 	glutInitWindowPosition((int)INITIAL_WINDOW_POSITION.X, (int)INITIAL_WINDOW_POSITION.Y);
@@ -110,6 +113,8 @@ void initialize()
 	g_GluiSubWindow->add_button("Play", ID_PLAY, eh_HandleUI);
 	g_GluiSubWindow->add_button("Pause", ID_PAUSE, eh_HandleUI);
 	g_GluiSubWindow->add_button("Stop", ID_STOP, eh_HandleUI);
+	g_StaticText = g_GluiSubWindow->add_statictext("Playing");
+	g_StaticText->set_alignment(GLUI_ALIGN_RIGHT);
 
 	SetCursorPos((int)(g_ScreenSize.X / 2.0f), (int)(g_ScreenSize.Y / 2.0f));
 
@@ -145,9 +150,12 @@ void idle()
 //-----------------------------------------------------------------------------
 void update()
 {
-	g_Angle = (g_Angle + 1) % 360;
+	if (!g_Paused)
+	{
+		g_Angle = (g_Angle + 1) % 360;
 
-	gp_GameApp->Update();
+		gp_GameApp->Update();
+	}
 
 	glutPostRedisplay();
 	g_CurrentFrame++;
@@ -258,12 +266,26 @@ void reshape(int w, int h)
 	glLoadIdentity();
 	gluPerspective(60, (GLfloat)w / (GLfloat)h, 0.1f, 100.0);
 	glMatrixMode(GL_MODELVIEW);
-
 }
 
 //-----------------------------------------------------------------------------
 void eh_HandleUI(int buttonUI)
 {
-
+	switch (buttonUI)
+	{
+	case ID_PLAY:
+		g_Paused = false;
+		g_StaticText->set_text("Playing");
+		break;
+	case ID_PAUSE:
+		g_Paused = true;
+		g_StaticText->set_text("Paused");
+		break;
+	case ID_STOP:
+		g_Paused = true;
+		g_Angle = 0;
+		g_StaticText->set_text("Stopped");
+		break;
+	}
 }
 //=============================================================================
