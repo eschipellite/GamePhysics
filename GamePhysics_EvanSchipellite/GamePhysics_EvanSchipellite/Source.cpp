@@ -10,13 +10,17 @@
 #include <GL/glut.h>
 #include "GameApp.h"
 #include "GL/glui.h"
+#include "EditorState.h"
+#include <stdlib.h>
+#include <time.h>
 
 using namespace std;
 //=============================================================================
 void initialize();
+void start();
 void cleanUp();
 void idle();
-void update();
+void update(int deltaTime);
 void handleMouse(int x, int y);
 void handleKeyPressed(unsigned char key, int x, int y);
 void handleKeyReleased(unsigned char key, int x, int y);
@@ -24,6 +28,7 @@ void handleMouseUI(int mouseButton, int state, int x, int y);
 void display();
 void reshape(int w, int h);
 void updateScreenSize();
+void reset();
 
 void eh_HandleUI(int buttonID);
 //=============================================================================
@@ -44,17 +49,12 @@ const unsigned int ID_STOP = 2;
 int g_StartTime;
 int g_CurrentFrame;
 
-int g_Angle;
-
-bool g_FullScreen;
-bool g_MouseActive;
-bool g_Paused;
-
 Vector3D g_ScreenSize = INITIAL_SCREEN_SIZE;
 
 int g_MainWindow;
 
 GameApp* gp_GameApp;
+EditorState* gp_EditorState;
 
 GLUI* g_GluiSubWindow;
 GLUI_StaticText* g_StaticText;
@@ -62,6 +62,7 @@ GLUI_StaticText* g_StaticText;
 int main(int argc, char** argv) 
 {
 	gp_GameApp = new GameApp();
+	gp_EditorState = new EditorState();
 
 	glutInit(&argc, argv);
 	initialize();
@@ -72,12 +73,10 @@ int main(int argc, char** argv)
 //-----------------------------------------------------------------------------
 void initialize()
 {
+	srand(static_cast<unsigned int>(time(NULL)));
+
 	g_StartTime = glutGet(GLUT_ELAPSED_TIME);
 	g_CurrentFrame = 0;
-	g_Angle = 0;
-	g_FullScreen = false;
-	g_MouseActive = false;
-	g_Paused = false;
 
 	glutInitWindowSize((int)INITIAL_SCREEN_SIZE.X, (int)INITIAL_SCREEN_SIZE.Y);
 	glutInitWindowPosition((int)INITIAL_WINDOW_POSITION.X, (int)INITIAL_WINDOW_POSITION.Y);
@@ -118,7 +117,15 @@ void initialize()
 
 	SetCursorPos((int)(g_ScreenSize.X / 2.0f), (int)(g_ScreenSize.Y / 2.0f));
 
+	start();
+
 	glutMainLoop();
+}
+
+//-----------------------------------------------------------------------------
+void start()
+{
+	gp_GameApp->Start();
 }
 
 //-----------------------------------------------------------------------------
@@ -137,30 +144,27 @@ void idle()
 {
 	glutSetWindow(g_MainWindow);
 
-	double endFrameTime = g_StartTime + (g_CurrentFrame + 1) * FRAME_TIME;
-	double endRenderingTime = glutGet(GLUT_ELAPSED_TIME);
-	double idleTime = endFrameTime - endRenderingTime;
+	int endFrameTime = (int)(g_StartTime + (g_CurrentFrame + 1) * FRAME_TIME);
+	int endRenderingTime = glutGet(GLUT_ELAPSED_TIME);
+	int idleTime = endFrameTime - endRenderingTime;
+
+	int deltaTime = (int)(endRenderingTime - (g_StartTime + (g_CurrentFrame)* FRAME_TIME));
 
 	if (idleTime < 0.0)
 	{
-		update();
+		update(deltaTime);
 	}
 }
 
 //-----------------------------------------------------------------------------
-void update()
+void update(int deltaTime)
 {
-	if (!g_Paused)
-	{
-		g_Angle = (g_Angle + 1) % 360;
-
-		gp_GameApp->Update();
-	}
+	gp_GameApp->Update(deltaTime, gp_EditorState);
 
 	glutPostRedisplay();
 	g_CurrentFrame++;
 
-	if (!g_MouseActive)
+	if (!gp_EditorState->GetIsMouseActive())
 	{
 		SetCursorPos((int)(g_ScreenSize.X / 2.0f) + glutGet(GLUT_WINDOW_X), (int)(g_ScreenSize.Y / 2.0f) + glutGet(GLUT_WINDOW_Y));
 	}
@@ -181,7 +185,7 @@ void updateScreenSize()
 //-----------------------------------------------------------------------------
 void handleMouse(int x, int y)
 {
-	if (!g_MouseActive)
+	if (!gp_EditorState->GetIsMouseActive())
 	{
 		gp_GameApp->HandleMouse(Vector3D((float)x, (float)y));
 	}
@@ -205,7 +209,7 @@ void handleKeyPressed(unsigned char key, int x, int y)
 
 	if (key == 'f')
 	{
-		if (!g_FullScreen)
+		if (!gp_EditorState->GetIsFullScreen())
 		{
 			glutFullScreen();
 		}
@@ -216,12 +220,12 @@ void handleKeyPressed(unsigned char key, int x, int y)
 		}
 
 		updateScreenSize();
-		g_FullScreen = !g_FullScreen;
+		gp_EditorState->SetIsFullScreen(!gp_EditorState->GetIsFullScreen());
 	}
 
 	if (key == KEY_SPACE)
 	{
-		if (!g_MouseActive)
+		if (!gp_EditorState->GetIsMouseActive())
 		{	
 			glutSetCursor(GLUT_CURSOR_INHERIT);
 		}
@@ -231,7 +235,7 @@ void handleKeyPressed(unsigned char key, int x, int y)
 		}
 
 		SetCursorPos((int)(g_ScreenSize.X / 2.0f) + glutGet(GLUT_WINDOW_X), (int)(g_ScreenSize.Y / 2.0f) + glutGet(GLUT_WINDOW_Y));
-		g_MouseActive = !g_MouseActive;
+		gp_EditorState->SetIsMouseActive(!gp_EditorState->GetIsMouseActive());
 	}
 }
 
@@ -247,10 +251,7 @@ void display()
 	glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	glPushMatrix();
-	glRotatef((float)g_Angle, 0, .45f, .45f);
-	glutSolidCube(1);
-	glPopMatrix();
+	gp_GameApp->Draw();
 
 	glutSwapBuffers();
 }
@@ -274,18 +275,24 @@ void eh_HandleUI(int buttonUI)
 	switch (buttonUI)
 	{
 	case ID_PLAY:
-		g_Paused = false;
+		gp_EditorState->SetIsPaused(false);
 		g_StaticText->set_text("Playing");
 		break;
 	case ID_PAUSE:
-		g_Paused = true;
+		gp_EditorState->SetIsPaused(true);
 		g_StaticText->set_text("Paused");
 		break;
 	case ID_STOP:
-		g_Paused = true;
-		g_Angle = 0;
+		gp_EditorState->SetIsPaused(true);
+		reset();
 		g_StaticText->set_text("Stopped");
 		break;
 	}
+}
+
+//-----------------------------------------------------------------------------
+void reset()
+{
+	gp_GameApp->Reset();
 }
 //=============================================================================

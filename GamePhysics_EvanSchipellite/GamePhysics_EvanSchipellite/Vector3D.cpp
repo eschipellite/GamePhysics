@@ -8,6 +8,8 @@
 #include "Vector3D.h"
 #include <cmath>
 //=============================================================================
+Vector3D const Vector3D::Zero = Vector3D(0, 0, 0);
+//=============================================================================
 Vector3D::Vector3D()
 {
 	X = 0;
@@ -35,9 +37,25 @@ Vector3D Vector3D::operator*(const float& rhs) const
 }
 
 //-----------------------------------------------------------------------------
+void Vector3D::operator*=(const float& rhs)
+{
+	X *= rhs;
+	Y *= rhs;
+	Z *= rhs;
+}
+
+//-----------------------------------------------------------------------------
 Vector3D Vector3D::operator/(const float& rhs) const
 {
 	return Vector3D(X / rhs, Y / rhs, Z / rhs);
+}
+
+//-----------------------------------------------------------------------------
+void Vector3D::operator/=(const float& rhs)
+{
+	X /= rhs;
+	Y /= rhs;
+	Z /= rhs;
 }
 
 //-----------------------------------------------------------------------------
@@ -50,6 +68,22 @@ Vector3D Vector3D::operator+(const Vector3D& rhs) const
 Vector3D Vector3D::operator-(const Vector3D& rhs) const
 {
 	return Vector3D(X - rhs.X, Y - rhs.Y, Z - rhs.Z);
+}
+
+//-----------------------------------------------------------------------------
+void Vector3D::operator+=(const Vector3D& rhs)
+{
+	X += rhs.X;
+	Y += rhs.Y;
+	Z += rhs.Z;
+}
+
+//-----------------------------------------------------------------------------
+void Vector3D::operator-=(const Vector3D& rhs)
+{
+	X -= rhs.X;
+	Y -= rhs.Y;
+	Z -= rhs.Z;
 }
 
 //-----------------------------------------------------------------------------

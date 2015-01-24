@@ -14,6 +14,7 @@ public:
 	float X;
 	float Y;
 	float Z;
+	static const Vector3D Zero;
 
 public:
 	Vector3D();
@@ -21,10 +22,14 @@ public:
 	~Vector3D();
 
 	Vector3D operator*(const float&) const;
+	void operator*=(const float&);
 	Vector3D operator/(const float&) const;
+	void operator/=(const float&);
 
 	Vector3D operator+(const Vector3D&) const;
 	Vector3D operator-(const Vector3D&) const;
+	void operator+=(const Vector3D&);
+	void operator-=(const Vector3D&);
 	
 	float Dot(const Vector3D&) const;
 	Vector3D Cross(const Vector3D&) const;
