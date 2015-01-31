@@ -10,16 +10,16 @@
 //=============================================================================
 #include "Camera.h"
 #include "EditorState.h"
-#include "PhysicsObject.h"
-#include "FireworkLauncher.h"
+#include "PhysicsHandler.h"
+#include "PlanetHandler.h"
 //=============================================================================
 class GameApp
 {
 private:
 	Camera* mp_Camera;
 
-	PhysicsObject* mp_PhysicsObject;
-	FireworkLauncher* mp_FireworkLauncher;
+	PhysicsHandler* m_PhysicsHandler;
+	PlanetHandler* m_PlanetHandler;
 
 public:
 	GameApp();
@@ -28,7 +28,7 @@ public:
 	void Initialize();
 	void Start();
 	void CleanUp();
-	void Update(int deltaTime, const EditorState* physicsState);
+	void Update(float deltaTime, const EditorState* physicsState);
 	void Draw();
 	void Reset();
 

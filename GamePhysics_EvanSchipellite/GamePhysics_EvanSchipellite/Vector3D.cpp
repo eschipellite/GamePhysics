@@ -136,4 +136,16 @@ Vector3D Vector3D::Normalized()
 {
 	return (*this / Magnitude());
 }
+
+//-----------------------------------------------------------------------------
+float Vector3D::GetDistanceSquared(Vector3D rhs)
+{
+	return pow(X - rhs.X, 2) + pow(Y - rhs.Y, 2) + pow(Z - rhs.Z, 2);
+}
+
+//-----------------------------------------------------------------------------
+float Vector3D::GetDistance(Vector3D rhs)
+{
+	return sqrt(GetDistanceSquared(rhs));
+}
 //=============================================================================

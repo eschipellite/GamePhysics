@@ -13,28 +13,28 @@ using namespace std;
 GameApp::GameApp()
 {
 	mp_Camera = new Camera();
-	mp_PhysicsObject = new PhysicsObject();
-	mp_FireworkLauncher = new FireworkLauncher();
+	m_PhysicsHandler = new PhysicsHandler();
+	m_PlanetHandler = new PlanetHandler();
 }
 
 //-----------------------------------------------------------------------------
 GameApp::~GameApp()
 {
+	CleanUp();
 }
 
 //-----------------------------------------------------------------------------
 void GameApp::Initialize()
 {
 	mp_Camera->Initialize(Vector3D(0, 0, 0));
+	m_PhysicsHandler->Initialize();
+	m_PlanetHandler->Initialize();
 
-	mp_PhysicsObject->Initialize(.5f, Vector3D::Zero, Vector3D(.01f, 0, 0));
-
-	mp_FireworkLauncher->Initialize(Vector3D::Zero, .05f, .01f, .02f, 5, 10, .4f, 3000, 3000, 3);
+	m_PhysicsHandler->AddToRegistry(m_PlanetHandler->GetForceRegisters());
 }
 
 void GameApp::Start()
 {
-	mp_FireworkLauncher->Start();
 }
 
 //-----------------------------------------------------------------------------
@@ -47,48 +47,46 @@ void GameApp::CleanUp()
 	delete mp_Camera;
 	mp_Camera = nullptr;
 
-	if (mp_PhysicsObject != NULL)
+	if (m_PhysicsHandler != NULL)
 	{
-		mp_PhysicsObject->CleanUp();
+		m_PhysicsHandler->CleanUp();
 	}
-	delete mp_PhysicsObject;
-	mp_PhysicsObject = nullptr;
+	delete m_PhysicsHandler;
+	m_PhysicsHandler = nullptr;
 
-	if (mp_FireworkLauncher != NULL)
+	if (m_PlanetHandler != NULL)
 	{
-		mp_FireworkLauncher->CleanUp();
+		m_PlanetHandler->CleanUp();
 	}
-	delete mp_FireworkLauncher;
-	mp_FireworkLauncher = nullptr;
+	delete m_PlanetHandler;
+	m_PlanetHandler = nullptr;
 }
 
 //-----------------------------------------------------------------------------
-void GameApp::Update(int deltaTime, const EditorState* physicsState)
+void GameApp::Update(float deltaTime, const EditorState* physicsState)
 {
 	mp_Camera->Update();
 
 	if (!physicsState->GetIsPaused())
 	{
-		mp_PhysicsObject->Update(deltaTime);
+		m_PhysicsHandler->Update(deltaTime);
 
-		mp_FireworkLauncher->Update(deltaTime);
+		m_PlanetHandler->Update(deltaTime);
 	}
 }
 
 //-----------------------------------------------------------------------------
 void GameApp::Draw()
 {
-	mp_PhysicsObject->Draw();
-
-	mp_FireworkLauncher->Draw();
+	m_PlanetHandler->Draw();
 }
 
 //-----------------------------------------------------------------------------
 void GameApp::Reset()
 {
-	mp_PhysicsObject->Reset();
+	m_PhysicsHandler->Reset();
 
-	mp_FireworkLauncher->Reset();
+	m_PlanetHandler->Reset();
 }
 
 //-----------------------------------------------------------------------------

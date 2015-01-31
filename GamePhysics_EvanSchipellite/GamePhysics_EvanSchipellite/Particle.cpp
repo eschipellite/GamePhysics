@@ -19,15 +19,15 @@ Particle::~Particle()
 }
 
 //-----------------------------------------------------------------------------
-void Particle::Initialize(int activeTime, float size, Vector3D initialPosition, Vector3D initialVelocity, Vector3D initialAcceleration, Vector3D initialRotation)
+void Particle::Initialize(float activeTime, float radius, Vector3D initialPosition, Vector3D initialVelocity, Vector3D initialAcceleration, Vector3D initialRotation)
 {
-	PhysicsObject::Initialize(size, initialPosition, initialVelocity, initialAcceleration, initialRotation);
+	PhysicsObject::Initialize(radius, 1, initialPosition, initialVelocity, initialAcceleration, initialRotation);
 
 	m_ActiveTime = activeTime;
 }
 
 //-----------------------------------------------------------------------------
-void Particle::Update(int deltaTime)
+void Particle::Update(float deltaTime)
 {
 	PhysicsObject::Update(deltaTime);
 

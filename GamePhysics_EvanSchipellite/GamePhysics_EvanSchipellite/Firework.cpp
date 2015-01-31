@@ -19,9 +19,9 @@ Firework::~Firework()
 }
 
 //-----------------------------------------------------------------------------
-void Firework::Initialize(bool shouldExplode, int currentLevel, int activeTime, float size, Vector3D initialPosition, Vector3D initialVelocity, Vector3D initialAcceleration, Vector3D initialRotation)
+void Firework::Initialize(bool shouldExplode, int currentLevel, float activeTime, float radius, Vector3D initialPosition, Vector3D initialVelocity, Vector3D initialAcceleration, Vector3D initialRotation)
 {
-	Particle::Initialize(activeTime, size, initialPosition, initialVelocity, initialAcceleration, initialRotation);
+	Particle::Initialize(activeTime, radius, initialPosition, initialVelocity, initialAcceleration, initialRotation);
 
 	m_ShouldExplode = shouldExplode;
 	m_CurrentLevel = currentLevel;

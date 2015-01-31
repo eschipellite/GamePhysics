@@ -37,7 +37,7 @@ private:
 private:
 	Firework* createInitialFirework();
 	void createExplosion(Vector3D position, int numFireworks);
-	Firework* createFirework(Vector3D position, int lifeTime);
+	Firework* createFirework(Vector3D position, float lifeTime);
 
 	int getNumFireworksToCreate();
 	int getExplosionLifeTime();
@@ -52,7 +52,7 @@ public:
 
 	void Initialize(Vector3D position, float fireworkSize, float minSpeed, float maxSpeed, int minFireworksPerExplosion, int maxFireworksPerExplosion, float explosionChance, int minLifeTime, int maxLifeTime, int maxLevel = 0);
 	void Start();
-	void Update(int delataTime);
+	void Update(float deltaTime);
 	void CleanUp();
 	void Draw();
 	void Reset();

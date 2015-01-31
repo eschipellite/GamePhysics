@@ -20,7 +20,7 @@ void initialize();
 void start();
 void cleanUp();
 void idle();
-void update(int deltaTime);
+void update(float deltaTime);
 void handleMouse(int x, int y);
 void handleKeyPressed(unsigned char key, int x, int y);
 void handleKeyReleased(unsigned char key, int x, int y);
@@ -152,12 +152,12 @@ void idle()
 
 	if (idleTime < 0.0)
 	{
-		update(deltaTime);
+		update(deltaTime / 1000.0f);
 	}
 }
 
 //-----------------------------------------------------------------------------
-void update(int deltaTime)
+void update(float deltaTime)
 {
 	gp_GameApp->Update(deltaTime, gp_EditorState);
 

@@ -24,13 +24,20 @@ protected:
 	Vector3D m_InitialAcceleration;
 	Vector3D m_InitialRotation;
 
-	float m_CurrentSize;
+	float m_Radius;
+	float m_InverseMass;
+
+	Vector3D m_TotalForce;
+
+protected:
+	void updateForces(float deltaTime);
+
 public:
 	PhysicsObject();
 	~PhysicsObject();
 
-	virtual void Initialize(float size, Vector3D initialPosition, Vector3D initialVelocity = Vector3D::Zero, Vector3D initialAcceleration = Vector3D::Zero, Vector3D initialRotation = Vector3D::Zero);
-	virtual void Update(int deltaTime);
+	virtual void Initialize(float radius, float mass, Vector3D initialPosition, Vector3D initialVelocity = Vector3D::Zero, Vector3D initialAcceleration = Vector3D::Zero, Vector3D initialRotation = Vector3D::Zero);
+	virtual void Update(float deltaTime);
 	virtual void Draw();
 	virtual void Reset();
 	virtual void CleanUp();
@@ -39,9 +46,13 @@ public:
 	void SetVelocity(Vector3D velocity);
 	void SetAcceleration(Vector3D acceleration);
 	void SetRotation(Vector3D rotation);
-	void SetSize(float size);
+	void SetRadius(float radius);
+	void SetInverseMass(float mass);
+
+	void AddForce(const Vector3D force);
 
 	Vector3D GetPosition();
+	float GetMass();
 };
 //=============================================================================
 #endif // PHYSICSOBJECT_H

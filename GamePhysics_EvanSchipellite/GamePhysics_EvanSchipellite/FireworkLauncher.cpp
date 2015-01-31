@@ -67,7 +67,7 @@ void FireworkLauncher::Start()
 }
 
 //-----------------------------------------------------------------------------
-void FireworkLauncher::Update(int deltaTime)
+void FireworkLauncher::Update(float deltaTime)
 {
 	bool spawnAtNextLevel = false;
 	int currentSize = m_Fireworks.size();
@@ -143,7 +143,7 @@ Firework* FireworkLauncher::createInitialFirework()
 {
 	Firework* firework = new Firework();
 
-	int lifeTime = getExplosionLifeTime();
+	float lifeTime = (float)getExplosionLifeTime();
 
 	Vector3D launchVelocity = getLaunchVelocity();
 
@@ -155,7 +155,7 @@ Firework* FireworkLauncher::createInitialFirework()
 //-----------------------------------------------------------------------------
 void FireworkLauncher::createExplosion(Vector3D position, int numFireworks)
 {
-	int lifeTime = getExplosionLifeTime();
+	float lifeTime = (float)getExplosionLifeTime();
 
 	for (int index = 0; index < numFireworks; index++)
 	{
@@ -164,7 +164,7 @@ void FireworkLauncher::createExplosion(Vector3D position, int numFireworks)
 }
 
 //-----------------------------------------------------------------------------
-Firework* FireworkLauncher::createFirework(Vector3D position, int lifeTime)
+Firework* FireworkLauncher::createFirework(Vector3D position, float lifeTime)
 {
 	Firework* firework = new Firework();
 

@@ -42,6 +42,9 @@ public:
 
 	void Normalize();
 	Vector3D Normalized();
+
+	float GetDistanceSquared(Vector3D rhs);
+	float GetDistance(Vector3D rhs);
 };
 //=============================================================================
 #endif // VECTOR3D_H

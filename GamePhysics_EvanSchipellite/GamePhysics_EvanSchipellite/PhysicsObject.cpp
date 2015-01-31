@@ -19,7 +19,9 @@ PhysicsObject::PhysicsObject()
 	m_InitialAcceleration = Vector3D::Zero;
 	m_InitialRotation = Vector3D::Zero;
 
-	m_CurrentSize = 1;
+	m_TotalForce = Vector3D::Zero;
+
+	m_Radius = 1;
 }
 
 //-----------------------------------------------------------------------------
@@ -28,7 +30,7 @@ PhysicsObject::~PhysicsObject()
 }
 
 //-----------------------------------------------------------------------------
-void PhysicsObject::Initialize(float size, Vector3D initialPosition, Vector3D initialVelocity, Vector3D initialAcceleration, Vector3D initialRotation)
+void PhysicsObject::Initialize(float radius, float mass, Vector3D initialPosition, Vector3D initialVelocity, Vector3D initialAcceleration, Vector3D initialRotation)
 {
 	m_CurrentPosition = initialPosition;
 	m_CurrentVelocity = initialVelocity;
@@ -40,14 +42,15 @@ void PhysicsObject::Initialize(float size, Vector3D initialPosition, Vector3D in
 	m_InitialAcceleration = initialAcceleration;
 	m_InitialRotation = initialRotation;
 
-	m_CurrentSize = size;
+	m_Radius = radius;
+
+	SetInverseMass(mass);
 }
 
 //-----------------------------------------------------------------------------
-void PhysicsObject::Update(int deltaTime)
+void PhysicsObject::Update(float deltaTime)
 {
-	m_CurrentPosition += m_CurrentVelocity;
-	m_CurrentVelocity += m_CurrentAcceleration;
+	updateForces(deltaTime);
 }
 
 //-----------------------------------------------------------------------------
@@ -55,7 +58,7 @@ void PhysicsObject::Draw()
 {
 	glPushMatrix();
 	glTranslatef(m_CurrentPosition.X, m_CurrentPosition.Y, m_CurrentPosition.Z);
-	glutSolidSphere(m_CurrentSize, 100, 100);
+	glutSolidSphere(m_Radius, 100, 100);
 	glPopMatrix();
 }
 
@@ -70,6 +73,16 @@ void PhysicsObject::Reset()
 //-----------------------------------------------------------------------------
 void PhysicsObject::CleanUp()
 {
+}
+
+//-----------------------------------------------------------------------------
+void PhysicsObject::updateForces(float deltaTime)
+{
+	m_CurrentPosition += (m_CurrentVelocity * deltaTime);
+	m_CurrentAcceleration = (m_TotalForce * m_InverseMass);
+	m_CurrentVelocity += (m_CurrentAcceleration * deltaTime);
+
+	m_TotalForce = Vector3D::Zero;
 }
 
 //-----------------------------------------------------------------------------
@@ -97,14 +110,39 @@ void PhysicsObject::SetRotation(Vector3D rotation)
 }
 
 //-----------------------------------------------------------------------------
-void PhysicsObject::SetSize(float size)
+void PhysicsObject::SetRadius(float radius)
 {
-	m_CurrentSize = size;
+	m_Radius = radius;
+}
+
+//-----------------------------------------------------------------------------
+void PhysicsObject::SetInverseMass(float mass)
+{
+	if (mass == 0)
+	{
+		m_InverseMass = 1;
+	}
+	else
+	{
+		m_InverseMass = 1.0f / mass;
+	}
+}
+
+//-----------------------------------------------------------------------------
+void PhysicsObject::AddForce(const Vector3D force)
+{
+	m_TotalForce += force;
 }
 
 //-----------------------------------------------------------------------------
 Vector3D PhysicsObject::GetPosition()
 {
 	return m_CurrentPosition;
+}
+
+//-----------------------------------------------------------------------------
+float PhysicsObject::GetMass()
+{
+	return 1.0f / m_InverseMass;
 }
 //=============================================================================

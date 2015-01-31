@@ -14,14 +14,14 @@ class Particle :
 	public PhysicsObject
 {
 private:
-	int m_ActiveTime;
+	float m_ActiveTime;
 
 public:
 	Particle();
 	~Particle();
 
-	virtual void Initialize(int activeTime, float size, Vector3D initialPosition, Vector3D initialVelocity = Vector3D::Zero, Vector3D initialAcceleration = Vector3D::Zero, Vector3D initialRotation = Vector3D::Zero);
-	virtual void Update(int deltaTime);
+	virtual void Initialize(float activeTime, float radius, Vector3D initialPosition, Vector3D initialVelocity = Vector3D::Zero, Vector3D initialAcceleration = Vector3D::Zero, Vector3D initialRotation = Vector3D::Zero);
+	virtual void Update(float deltaTime);
 	bool GetIsActive();
 };
 //=============================================================================
