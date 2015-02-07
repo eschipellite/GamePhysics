@@ -22,6 +22,8 @@ PhysicsObject::PhysicsObject()
 	m_TotalForce = Vector3D::Zero;
 
 	m_Radius = 1;
+
+	m_Dampening = 1;
 }
 
 //-----------------------------------------------------------------------------
@@ -30,7 +32,7 @@ PhysicsObject::~PhysicsObject()
 }
 
 //-----------------------------------------------------------------------------
-void PhysicsObject::Initialize(float radius, float mass, Vector3D initialPosition, Vector3D initialVelocity, Vector3D initialAcceleration, Vector3D initialRotation)
+void PhysicsObject::Initialize(float radius, float mass, Vector3D initialPosition, Vector3D initialVelocity, Vector3D initialAcceleration, Vector3D initialRotation, float dampening)
 {
 	m_CurrentPosition = initialPosition;
 	m_CurrentVelocity = initialVelocity;
@@ -43,6 +45,8 @@ void PhysicsObject::Initialize(float radius, float mass, Vector3D initialPositio
 	m_InitialRotation = initialRotation;
 
 	m_Radius = radius;
+
+	m_Dampening = dampening;
 
 	SetInverseMass(mass);
 }
@@ -78,9 +82,13 @@ void PhysicsObject::CleanUp()
 //-----------------------------------------------------------------------------
 void PhysicsObject::updateForces(float deltaTime)
 {
+	deltaTime *= 86400; // Seconds per day
+
 	m_CurrentPosition += (m_CurrentVelocity * deltaTime);
 	m_CurrentAcceleration = (m_TotalForce * m_InverseMass);
 	m_CurrentVelocity += (m_CurrentAcceleration * deltaTime);
+
+	m_CurrentVelocity *= m_Dampening;
 
 	m_TotalForce = Vector3D::Zero;
 }

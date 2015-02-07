@@ -5,16 +5,21 @@
 //
 // Holds all GameApp functionality
 //=============================================================================
+#define _USE_MATH_DEFINES
+
 #include "GameApp.h"
 #include <iostream>
+#include <math.h>
 
 using namespace std;
+//=============================================================================
+float GameApp::ms_TimeStep = 50;
 //=============================================================================
 GameApp::GameApp()
 {
 	mp_Camera = new Camera();
-	m_PhysicsHandler = new PhysicsHandler();
-	m_PlanetHandler = new PlanetHandler();
+	mp_PhysicsHandler = new PhysicsHandler();
+	mp_PlanetHandler = new PlanetHandler();
 }
 
 //-----------------------------------------------------------------------------
@@ -24,13 +29,57 @@ GameApp::~GameApp()
 }
 
 //-----------------------------------------------------------------------------
+void GameApp::setFocus(unsigned char key)
+{
+	int index = -1;
+
+	switch (key)
+	{
+	case ('1') :
+		index = 0;
+		break;
+	case ('2') :
+		index = 1;
+		break;
+	case ('3') :
+		index = 2;
+		break;
+	case ('4') :
+		index = 3;
+		break;
+	case ('5') :
+		index = 4;
+		break;
+	case ('6') :
+		index = 5;
+		break;
+	case ('7') :
+		index = 6;
+		break;
+	case ('8') :
+		index = 7;
+		break;
+	}
+
+	if (index >= 0)
+	{
+		mp_Camera->SetFollow(mp_PlanetHandler->GetPlanetAtIndex(index));
+	}
+}
+
+//-----------------------------------------------------------------------------
 void GameApp::Initialize()
 {
-	mp_Camera->Initialize(Vector3D(0, 0, 0));
-	m_PhysicsHandler->Initialize();
-	m_PlanetHandler->Initialize();
+	mp_PhysicsHandler->Initialize();
+	mp_PlanetHandler->Initialize();
 
-	m_PhysicsHandler->AddToRegistry(m_PlanetHandler->GetForceRegisters());
+	float distanceFromPlanet = 3;
+	Vector3D centerPosition = mp_PlanetHandler->GetPlanetAtIndex(0)->GetPosition();
+	Vector3D centerRotation = Vector3D(90.0f, 0, 0);
+	centerPosition.Y += distanceFromPlanet;
+	mp_Camera->Initialize(centerPosition, centerRotation, distanceFromPlanet);
+
+	mp_PhysicsHandler->AddToRegistry(mp_PlanetHandler->GetForceRegisters());
 }
 
 void GameApp::Start()
@@ -47,19 +96,19 @@ void GameApp::CleanUp()
 	delete mp_Camera;
 	mp_Camera = nullptr;
 
-	if (m_PhysicsHandler != NULL)
+	if (mp_PhysicsHandler != NULL)
 	{
-		m_PhysicsHandler->CleanUp();
+		mp_PhysicsHandler->CleanUp();
 	}
-	delete m_PhysicsHandler;
-	m_PhysicsHandler = nullptr;
+	delete mp_PhysicsHandler;
+	mp_PhysicsHandler = nullptr;
 
-	if (m_PlanetHandler != NULL)
+	if (mp_PlanetHandler != NULL)
 	{
-		m_PlanetHandler->CleanUp();
+		mp_PlanetHandler->CleanUp();
 	}
-	delete m_PlanetHandler;
-	m_PlanetHandler = nullptr;
+	delete mp_PlanetHandler;
+	mp_PlanetHandler = nullptr;
 }
 
 //-----------------------------------------------------------------------------
@@ -69,24 +118,32 @@ void GameApp::Update(float deltaTime, const EditorState* physicsState)
 
 	if (!physicsState->GetIsPaused())
 	{
-		m_PhysicsHandler->Update(deltaTime);
+		int currentTime = 0;
 
-		m_PlanetHandler->Update(deltaTime);
+		while (currentTime < ms_TimeStep)
+		{
+			mp_PhysicsHandler->Update(deltaTime);
+
+			mp_PlanetHandler->Update(deltaTime);
+			currentTime++;
+		}
 	}
 }
 
 //-----------------------------------------------------------------------------
 void GameApp::Draw()
 {
-	m_PlanetHandler->Draw();
+	mp_PlanetHandler->Draw();
 }
 
 //-----------------------------------------------------------------------------
 void GameApp::Reset()
 {
-	m_PhysicsHandler->Reset();
+	mp_PhysicsHandler->Reset();
 
-	m_PlanetHandler->Reset();
+	mp_PlanetHandler->Reset();
+
+	mp_Camera->Reset();
 }
 
 //-----------------------------------------------------------------------------
@@ -111,5 +168,7 @@ void GameApp::HandleKeyPressed(unsigned char key)
 void GameApp::HandleKeyReleased(unsigned char key)
 {
 	mp_Camera->HandleKeyReleased(key);
+
+	setFocus(key);
 }
 //=============================================================================

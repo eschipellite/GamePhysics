@@ -29,6 +29,8 @@ protected:
 
 	Vector3D m_TotalForce;
 
+	float m_Dampening;
+
 protected:
 	void updateForces(float deltaTime);
 
@@ -36,7 +38,7 @@ public:
 	PhysicsObject();
 	~PhysicsObject();
 
-	virtual void Initialize(float radius, float mass, Vector3D initialPosition, Vector3D initialVelocity = Vector3D::Zero, Vector3D initialAcceleration = Vector3D::Zero, Vector3D initialRotation = Vector3D::Zero);
+	virtual void Initialize(float radius, float mass, Vector3D initialPosition, Vector3D initialVelocity = Vector3D::Zero, Vector3D initialAcceleration = Vector3D::Zero, Vector3D initialRotation = Vector3D::Zero, float dampening = 1);
 	virtual void Update(float deltaTime);
 	virtual void Draw();
 	virtual void Reset();

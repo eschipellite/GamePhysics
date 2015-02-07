@@ -114,6 +114,7 @@ void initialize()
 	g_GluiSubWindow->add_button("Stop", ID_STOP, eh_HandleUI);
 	g_StaticText = g_GluiSubWindow->add_statictext("Playing");
 	g_StaticText->set_alignment(GLUI_ALIGN_RIGHT);
+	g_GluiSubWindow->add_column();
 
 	SetCursorPos((int)(g_ScreenSize.X / 2.0f), (int)(g_ScreenSize.Y / 2.0f));
 

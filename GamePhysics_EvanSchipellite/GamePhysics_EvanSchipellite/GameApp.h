@@ -18,8 +18,13 @@ class GameApp
 private:
 	Camera* mp_Camera;
 
-	PhysicsHandler* m_PhysicsHandler;
-	PlanetHandler* m_PlanetHandler;
+	PhysicsHandler* mp_PhysicsHandler;
+	PlanetHandler* mp_PlanetHandler;
+
+	static float ms_TimeStep;
+
+private:
+	void setFocus(unsigned char key);
 
 public:
 	GameApp();

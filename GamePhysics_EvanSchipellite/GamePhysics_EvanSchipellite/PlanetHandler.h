@@ -1,5 +1,5 @@
 //=============================================================================
-//                              PlanetHandler
+//                              Planet Handler
 //
 // Written by Evan Schipellite
 //
@@ -16,6 +16,7 @@ class PlanetHandler
 {
 private:
 	std::vector<Planet*> m_Planets;
+	std::vector<Planet*> m_Moons;
 public:
 	PlanetHandler();
 	~PlanetHandler();
@@ -27,6 +28,7 @@ public:
 	void CleanUp();
 
 	std::vector<ForceRegister> GetForceRegisters();
+	Planet* GetPlanetAtIndex(int index);
 };
 //=============================================================================
 #endif //PLANETHANDLER_H
