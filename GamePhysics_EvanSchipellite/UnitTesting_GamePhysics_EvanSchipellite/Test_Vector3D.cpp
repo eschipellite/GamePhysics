@@ -1,17 +1,23 @@
+//=============================================================================
+//                              Test_Vector3D
+//
+// Written by Evan Schipellite
+//=============================================================================
 #include "stdafx.h"
 #include "CppUnitTest.h"
 #include "Vector3D.h"
 #include <iostream>
-
+//=============================================================================
 using namespace std;
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
-
+//=============================================================================
 namespace UnitTesting_GamePhysics_EvanSchipellite
 {
 	TEST_CLASS(Test_Vector3D)
 	{
 	public:
-		
+
+		//-----------------------------------------------------------------------------
 		TEST_METHOD(Vector_TestEqual)
 		{
 			Vector3D vector3D1 = Vector3D(1, 2, 3);
@@ -20,6 +26,7 @@ namespace UnitTesting_GamePhysics_EvanSchipellite
 			Assert::IsTrue(vector3D1 == vector3D2);
 		}
 
+		//-----------------------------------------------------------------------------
 		TEST_METHOD(Vector_TestNotEqual)
 		{
 			Vector3D vector3D1 = Vector3D(1, 1, 1);
@@ -28,6 +35,7 @@ namespace UnitTesting_GamePhysics_EvanSchipellite
 			Assert::IsTrue(vector3D1 != vector3D2);
 		}
 
+		//-----------------------------------------------------------------------------
 		TEST_METHOD(Vector_TestNormalized)
 		{
 			Vector3D vector3D1 = Vector3D(2, 0, 0);
@@ -36,6 +44,7 @@ namespace UnitTesting_GamePhysics_EvanSchipellite
 			Assert::IsTrue(vector3D1 == Vector3D(1, 0, 0));
 		}
 
+		//-----------------------------------------------------------------------------
 		TEST_METHOD(Vector_TestMultiply)
 		{
 			Vector3D vector3D1 = Vector3D(1, 1, 1);
@@ -44,6 +53,7 @@ namespace UnitTesting_GamePhysics_EvanSchipellite
 			Assert::IsTrue(vector3D1 == Vector3D(2, 2, 2));
 		}
 
+		//-----------------------------------------------------------------------------
 		TEST_METHOD(Vector_TestDivide)
 		{
 			Vector3D vector3D1 = Vector3D(2, 2, 2);
@@ -52,6 +62,7 @@ namespace UnitTesting_GamePhysics_EvanSchipellite
 			Assert::IsTrue(vector3D1 == Vector3D(1, 1, 1));
 		}
 
+		//-----------------------------------------------------------------------------
 		TEST_METHOD(Vector_TestAddAndSubtract)
 		{
 			Vector3D vector3D1 = Vector3D(1, 1, 1);
@@ -64,6 +75,7 @@ namespace UnitTesting_GamePhysics_EvanSchipellite
 			Assert::IsTrue(vector3D1 == Vector3D(0, 0, 0));
 		}
 
+		//-----------------------------------------------------------------------------
 		TEST_METHOD(Vector_TestDot)
 		{
 			Vector3D vector3D1 = Vector3D(1, 1, 1);
@@ -72,6 +84,7 @@ namespace UnitTesting_GamePhysics_EvanSchipellite
 			Assert::AreEqual(dot, 6.0f);
 		}
 
+		//-----------------------------------------------------------------------------
 		TEST_METHOD(Vector_TestCross)
 		{
 			Vector3D vector3D1 = Vector3D(3, -3, 1);
@@ -83,3 +96,4 @@ namespace UnitTesting_GamePhysics_EvanSchipellite
 		}
 	};
 }
+//=============================================================================

@@ -7,11 +7,12 @@
 //=============================================================================
 #define _USE_MATH_DEFINES
 
+#include "Skybox.h"
 #include "GameApp.h"
 #include <iostream>
 #include <math.h>
-
-using namespace std;
+#include <iomanip>
+#include <sstream>
 //=============================================================================
 float GameApp::ms_TimeStep = 50;
 //=============================================================================
@@ -20,6 +21,9 @@ GameApp::GameApp()
 	mp_Camera = new Camera();
 	mp_PhysicsHandler = new PhysicsHandler();
 	mp_PlanetHandler = new PlanetHandler();
+	mp_Skybox = new Skybox();
+
+	m_FocusIndex = -1;
 }
 
 //-----------------------------------------------------------------------------
@@ -59,11 +63,74 @@ void GameApp::setFocus(unsigned char key)
 	case ('8') :
 		index = 7;
 		break;
+	case ('9') :
+		index = 8;
+		break;
+	case ('0') :
+		index = 9;
+		break;
 	}
 
 	if (index >= 0)
 	{
-		mp_Camera->SetFollow(mp_PlanetHandler->GetPlanetAtIndex(index));
+		focusPlanet(index);
+	}
+}
+
+//-----------------------------------------------------------------------------
+void GameApp::focusPlanet(int index)
+{
+	Planet* planet = mp_PlanetHandler->GetPlanetAtIndex(index);
+
+	mp_Camera->SetFollow(planet);
+
+	std::string planetName = "Name: " + planet->GetPlanetName();
+	mp_PlanetName->set_text(planetName.c_str());
+	std::string planetMass = "Mass: " + convertFloatToString(planet->GetMass());
+	mp_PlanetMass->set_text(planetMass.c_str());
+
+	m_FocusIndex = index;
+}
+
+//-----------------------------------------------------------------------------
+std::string GameApp::convertFloatToString(float value)
+{
+	std::ostringstream out;
+	out << std::setprecision(20) << value;
+	return out.str();
+}
+
+//-----------------------------------------------------------------------------
+std::string GameApp::convertVector3DToString(Vector3D vector3D)
+{
+	std::string x = convertFloatToString(vector3D.X);
+	std::string y = convertFloatToString(vector3D.Y);
+	std::string z = convertFloatToString(vector3D.Z);
+
+	return "Vector3D(" + x + ", " + y + ", " + z + ")";
+}
+
+//-----------------------------------------------------------------------------
+void GameApp::updateFocusPlanetUI()
+{
+	if (m_FocusIndex >= 0)
+	{
+		Planet* planet = mp_PlanetHandler->GetPlanetAtIndex(m_FocusIndex);
+		
+		Vector3D currentVelocity = planet->GetCurrentVelocity();
+		std::string currentVelocityString = convertVector3DToString(currentVelocity);
+		std::string planetVelocity = "Velocity: " + currentVelocityString;
+		mp_PlanetVelocity->set_text(planetVelocity.c_str());
+
+		Vector3D currentAcceleration = planet->GetCurrentAcceleration();
+		std::string currentAccelerationString = convertVector3DToString(currentAcceleration);
+		std::string planetAcceleration = "Acceleration: " + currentAccelerationString;
+		mp_PlanetAcceleration->set_text(planetAcceleration.c_str());
+
+		Vector3D totalForce = planet->GetPreviousTotalForce();
+		std::string totalForceString = convertVector3DToString(totalForce);
+		std::string planetTotalForce = "Total Force: " + totalForceString;
+		mp_TotalPlanetForce->set_text(planetTotalForce.c_str());
 	}
 }
 
@@ -72,6 +139,8 @@ void GameApp::Initialize()
 {
 	mp_PhysicsHandler->Initialize();
 	mp_PlanetHandler->Initialize();
+	mp_Skybox->Initialize("Content/Space/Space_Front.jpg", "Content/Space/Space_Back.jpg", "Content/Space/Space_Top.jpg", "Content/Space/Space_Bottom.jpg",
+		"Content/Space/Space_Right.jpg", "Content/Space/Space_Left.jpg");
 
 	float distanceFromPlanet = 3;
 	Vector3D centerPosition = mp_PlanetHandler->GetPlanetAtIndex(0)->GetPosition();
@@ -82,8 +151,20 @@ void GameApp::Initialize()
 	mp_PhysicsHandler->AddToRegistry(mp_PlanetHandler->GetForceRegisters());
 }
 
+//-----------------------------------------------------------------------------
+void GameApp::SetTextReferences(GLUI_StaticText* planetName, GLUI_StaticText* planetMass, GLUI_StaticText* planetVelocity, GLUI_StaticText* planetAcceleration, GLUI_StaticText* totalPlanetForce)
+{
+	mp_PlanetName = planetName;
+	mp_PlanetMass = planetMass;
+	mp_PlanetVelocity = planetVelocity;
+	mp_PlanetAcceleration = planetAcceleration;
+	mp_TotalPlanetForce = totalPlanetForce;
+}
+
+//-----------------------------------------------------------------------------
 void GameApp::Start()
 {
+	setFocus('1');
 }
 
 //-----------------------------------------------------------------------------
@@ -109,6 +190,13 @@ void GameApp::CleanUp()
 	}
 	delete mp_PlanetHandler;
 	mp_PlanetHandler = nullptr;
+
+	if (mp_Skybox != NULL)
+	{
+		mp_Skybox->CleanUp();
+	}
+	delete mp_Skybox;
+	mp_Skybox = nullptr;
 }
 
 //-----------------------------------------------------------------------------
@@ -128,12 +216,16 @@ void GameApp::Update(float deltaTime, const EditorState* physicsState)
 			currentTime++;
 		}
 	}
+
+	updateFocusPlanetUI();
 }
 
 //-----------------------------------------------------------------------------
 void GameApp::Draw()
 {
 	mp_PlanetHandler->Draw();
+
+	mp_Skybox->Render();
 }
 
 //-----------------------------------------------------------------------------

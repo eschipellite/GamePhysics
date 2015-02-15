@@ -167,7 +167,7 @@ void Camera::HandleKeyPressed(unsigned char key)
 	case ('e') :
 		m_Move_Down = true;
 		break;
-	case ('0') :
+	case ('`') :
 		Reset();
 		break;
 	}

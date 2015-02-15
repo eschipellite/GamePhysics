@@ -9,7 +9,7 @@
 #define PHYSICSOBJECT_H
 //=============================================================================
 #include "Vector3D.h"
-#include <GL\glut.h>
+#include "GL\glut.h"
 //=============================================================================
 class PhysicsObject
 {
@@ -30,6 +30,10 @@ protected:
 	Vector3D m_TotalForce;
 
 	float m_Dampening;
+
+	Vector3D m_PreviousTotalForce;
+
+	GLUquadric* m_Quad;
 
 protected:
 	void updateForces(float deltaTime);
@@ -55,6 +59,9 @@ public:
 
 	Vector3D GetPosition();
 	float GetMass();
+	Vector3D GetCurrentVelocity();
+	Vector3D GetCurrentAcceleration();
+	Vector3D GetPreviousTotalForce();
 };
 //=============================================================================
 #endif // PHYSICSOBJECT_H

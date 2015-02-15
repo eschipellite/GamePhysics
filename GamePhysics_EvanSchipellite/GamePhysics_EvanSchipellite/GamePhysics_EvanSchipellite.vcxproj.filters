@@ -55,6 +55,12 @@
     <Filter Include="Source Files\Physics\ForceRegistration">
       <UniqueIdentifier>{7d6defec-e32e-44fc-a95d-4ee27969ba48}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Visuals">
+      <UniqueIdentifier>{fe314254-957d-4b51-a8f5-bcb680ab58ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Visuals">
+      <UniqueIdentifier>{e368bd9f-9808-4b45-b005-fc7259e4ac7e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameApp.cpp">
@@ -117,6 +123,9 @@
     <ClCompile Include="Generator.cpp">
       <Filter>Source Files\Physics\Generators</Filter>
     </ClCompile>
+    <ClCompile Include="Skybox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameApp.h">
@@ -175,6 +184,9 @@
     </ClInclude>
     <ClInclude Include="Generator.h">
       <Filter>Header Files\Physics\Generators</Filter>
+    </ClInclude>
+    <ClInclude Include="Skybox.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

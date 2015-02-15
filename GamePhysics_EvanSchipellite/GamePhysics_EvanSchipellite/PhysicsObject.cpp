@@ -6,6 +6,7 @@
 // Class for applying physics to game objects
 //=============================================================================
 #include "PhysicsObject.h"
+#include <GL\glut.h>
 //=============================================================================
 PhysicsObject::PhysicsObject()
 {
@@ -20,6 +21,7 @@ PhysicsObject::PhysicsObject()
 	m_InitialRotation = Vector3D::Zero;
 
 	m_TotalForce = Vector3D::Zero;
+	m_PreviousTotalForce = Vector3D::Zero;
 
 	m_Radius = 1;
 
@@ -49,6 +51,8 @@ void PhysicsObject::Initialize(float radius, float mass, Vector3D initialPositio
 	m_Dampening = dampening;
 
 	SetInverseMass(mass);
+
+	m_Quad = gluNewQuadric();
 }
 
 //-----------------------------------------------------------------------------
@@ -62,7 +66,7 @@ void PhysicsObject::Draw()
 {
 	glPushMatrix();
 	glTranslatef(m_CurrentPosition.X, m_CurrentPosition.Y, m_CurrentPosition.Z);
-	glutSolidSphere(m_Radius, 100, 100);
+	gluSphere(m_Quad, m_Radius, 100, 100);
 	glPopMatrix();
 }
 
@@ -89,6 +93,8 @@ void PhysicsObject::updateForces(float deltaTime)
 	m_CurrentVelocity += (m_CurrentAcceleration * deltaTime);
 
 	m_CurrentVelocity *= m_Dampening;
+
+	m_PreviousTotalForce = m_TotalForce;
 
 	m_TotalForce = Vector3D::Zero;
 }
@@ -152,5 +158,23 @@ Vector3D PhysicsObject::GetPosition()
 float PhysicsObject::GetMass()
 {
 	return 1.0f / m_InverseMass;
+}
+
+//-----------------------------------------------------------------------------
+Vector3D PhysicsObject::GetCurrentVelocity()
+{
+	return m_CurrentVelocity;
+}
+
+//-----------------------------------------------------------------------------
+Vector3D PhysicsObject::GetCurrentAcceleration()
+{
+	return m_CurrentAcceleration;
+}
+
+//-----------------------------------------------------------------------------
+Vector3D PhysicsObject::GetPreviousTotalForce()
+{
+	return m_PreviousTotalForce;
 }
 //=============================================================================

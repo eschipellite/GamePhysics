@@ -7,6 +7,7 @@
 //=============================================================================
 #include <iostream>
 #include <Windows.h>
+#include <GL/glew.h>
 #include <GL/glut.h>
 #include "GameApp.h"
 #include "GL/glui.h"
@@ -29,6 +30,9 @@ void display();
 void reshape(int w, int h);
 void updateScreenSize();
 void reset();
+void play();
+void pause();
+void stop();
 
 void eh_HandleUI(int buttonID);
 //=============================================================================
@@ -58,6 +62,11 @@ EditorState* gp_EditorState;
 
 GLUI* g_GluiSubWindow;
 GLUI_StaticText* g_StaticText;
+GLUI_StaticText* g_PlanetName;
+GLUI_StaticText* g_PlanetMass;
+GLUI_StaticText* g_PlanetVelocity;
+GLUI_StaticText* g_PlanetAcceleration;
+GLUI_StaticText* g_TotalPlanetForce;
 //=============================================================================
 int main(int argc, char** argv) 
 {
@@ -80,7 +89,9 @@ void initialize()
 
 	glutInitWindowSize((int)INITIAL_SCREEN_SIZE.X, (int)INITIAL_SCREEN_SIZE.Y);
 	glutInitWindowPosition((int)INITIAL_WINDOW_POSITION.X, (int)INITIAL_WINDOW_POSITION.Y);
-	g_MainWindow =glutCreateWindow("GamePhysics_EvanSchipellite"); \
+	g_MainWindow =glutCreateWindow("GamePhysics_EvanSchipellite");
+
+	glewInit();
 
 	float lightPosition[] = { 100.0, 100.0, 100.0, 0.0 };
 	glLightfv(GL_LIGHT0, GL_POSITION, lightPosition);
@@ -115,6 +126,18 @@ void initialize()
 	g_StaticText = g_GluiSubWindow->add_statictext("Playing");
 	g_StaticText->set_alignment(GLUI_ALIGN_RIGHT);
 	g_GluiSubWindow->add_column();
+	g_PlanetName = g_GluiSubWindow->add_statictext("Name:");
+	g_PlanetName->set_alignment(GLUI_ALIGN_RIGHT);
+	g_PlanetMass = g_GluiSubWindow->add_statictext("Mass:");
+	g_PlanetMass->set_alignment(GLUI_ALIGN_RIGHT);
+	g_PlanetVelocity = g_GluiSubWindow->add_statictext("Velocity:");
+	g_PlanetVelocity->set_alignment(GLUI_ALIGN_RIGHT);
+	g_PlanetAcceleration = g_GluiSubWindow->add_statictext("Acceleration:");
+	g_PlanetAcceleration->set_alignment(GLUI_ALIGN_RIGHT);
+	g_TotalPlanetForce = g_GluiSubWindow->add_statictext("Total Force:");
+	g_TotalPlanetForce->set_alignment(GLUI_ALIGN_RIGHT);
+
+	gp_GameApp->SetTextReferences(g_PlanetName, g_PlanetMass, g_PlanetVelocity, g_PlanetAcceleration, g_TotalPlanetForce);
 
 	SetCursorPos((int)(g_ScreenSize.X / 2.0f), (int)(g_ScreenSize.Y / 2.0f));
 
@@ -126,6 +149,7 @@ void initialize()
 //-----------------------------------------------------------------------------
 void start()
 {
+	stop();
 	gp_GameApp->Start();
 }
 
@@ -276,17 +300,13 @@ void eh_HandleUI(int buttonUI)
 	switch (buttonUI)
 	{
 	case ID_PLAY:
-		gp_EditorState->SetIsPaused(false);
-		g_StaticText->set_text("Playing");
+		play();
 		break;
 	case ID_PAUSE:
-		gp_EditorState->SetIsPaused(true);
-		g_StaticText->set_text("Paused");
+		pause();
 		break;
 	case ID_STOP:
-		gp_EditorState->SetIsPaused(true);
-		reset();
-		g_StaticText->set_text("Stopped");
+		stop();
 		break;
 	}
 }
@@ -295,5 +315,27 @@ void eh_HandleUI(int buttonUI)
 void reset()
 {
 	gp_GameApp->Reset();
+}
+
+//-----------------------------------------------------------------------------
+void play()
+{
+	gp_EditorState->SetIsPaused(false);
+	g_StaticText->set_text("Playing");
+}
+
+//-----------------------------------------------------------------------------
+void pause()
+{
+	gp_EditorState->SetIsPaused(true);
+	g_StaticText->set_text("Paused");
+}
+
+//-----------------------------------------------------------------------------
+void stop()
+{
+	gp_EditorState->SetIsPaused(true);
+	reset();
+	g_StaticText->set_text("Stopped");
 }
 //=============================================================================

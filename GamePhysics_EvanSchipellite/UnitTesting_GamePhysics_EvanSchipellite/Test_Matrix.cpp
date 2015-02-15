@@ -1,15 +1,21 @@
+//=============================================================================
+//                              Test_Matrix
+//
+// Written by Evan Schipellite
+//=============================================================================
 #include "stdafx.h"
 #include "CppUnitTest.h"
 #include "Matrix.h"
-
+//=============================================================================
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
-
+//=============================================================================
 namespace UnitTesting_GamePhysics_EvanSchipellite
 {
 	TEST_CLASS(Test_Matrix)
 	{
 	public:
 		
+		//-----------------------------------------------------------------------------
 		TEST_METHOD(Test_SetValues)
 		{
 			float* valueArray1 = new float[6];
@@ -29,6 +35,7 @@ namespace UnitTesting_GamePhysics_EvanSchipellite
 			Assert::AreEqual(6.0f, matrix1.Get(1, 2));
 		}
 
+		//-----------------------------------------------------------------------------
 		TEST_METHOD(Test_Multiplication)
 		{
 			float* valueArray1 = new float[6];
@@ -61,6 +68,7 @@ namespace UnitTesting_GamePhysics_EvanSchipellite
 			Assert::IsTrue(resultMatrix == testMatrix);
 		}
 
+		//-----------------------------------------------------------------------------
 		TEST_METHOD(Test_Addition)
 		{
 			float* valueArray1 = new float[4];
@@ -89,6 +97,7 @@ namespace UnitTesting_GamePhysics_EvanSchipellite
 			Assert::IsTrue(added == resultMatrix);
 		}
 
+		//-----------------------------------------------------------------------------
 		TEST_METHOD(Test_Subtraction)
 		{
 			float* valueArray1 = new float[4];
@@ -119,3 +128,4 @@ namespace UnitTesting_GamePhysics_EvanSchipellite
 
 	};
 }
+//=============================================================================
