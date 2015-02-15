@@ -61,6 +61,7 @@ public:
 	float GetMass();
 	Vector3D GetCurrentVelocity();
 	Vector3D GetCurrentAcceleration();
+	Vector3D GetCurrentTotalForce();
 	Vector3D GetPreviousTotalForce();
 };
 //=============================================================================

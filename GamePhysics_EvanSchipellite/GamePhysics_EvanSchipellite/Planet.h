@@ -27,6 +27,7 @@ public:
 	~Planet();
 
 	void Initialize(float radius, float mass, Vector3D initialPosition, Vector3D initialVelocity, std::string planeName, std::string texture);
+	void Update(float deltaTime);
 
 	void Draw();
 

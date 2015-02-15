@@ -38,6 +38,9 @@
     <ClCompile Include="Test_GravityForceGenerator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Test_PhysicsObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="UnitTesting_GamePhysics_EvanSchipellite.rc">

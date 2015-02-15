@@ -96,6 +96,7 @@
     </ClCompile>
     <ClCompile Include="Test_GravityForceGenerator.cpp" />
     <ClCompile Include="Test_Matrix.cpp" />
+    <ClCompile Include="Test_PhysicsObject.cpp" />
     <ClCompile Include="Test_Vector3D.cpp" />
   </ItemGroup>
   <ItemGroup>

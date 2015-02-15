@@ -30,6 +30,14 @@ void Planet::Initialize(float radius, float mass, Vector3D initialPosition, Vect
 }
 
 //-----------------------------------------------------------------------------
+void Planet::Update(float deltaTime)
+{
+	deltaTime *= 86400; // Seconds per day
+
+	PhysicsObject::updateForces(deltaTime);
+}
+
+//-----------------------------------------------------------------------------
 // Code assistance from Robert Bethune
 void Planet::loadTexture(std::string texture)
 {

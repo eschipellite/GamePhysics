@@ -86,8 +86,6 @@ void PhysicsObject::CleanUp()
 //-----------------------------------------------------------------------------
 void PhysicsObject::updateForces(float deltaTime)
 {
-	deltaTime *= 86400; // Seconds per day
-
 	m_CurrentPosition += (m_CurrentVelocity * deltaTime);
 	m_CurrentAcceleration = (m_TotalForce * m_InverseMass);
 	m_CurrentVelocity += (m_CurrentAcceleration * deltaTime);
@@ -170,6 +168,12 @@ Vector3D PhysicsObject::GetCurrentVelocity()
 Vector3D PhysicsObject::GetCurrentAcceleration()
 {
 	return m_CurrentAcceleration;
+}
+
+//-----------------------------------------------------------------------------
+Vector3D PhysicsObject::GetCurrentTotalForce()
+{
+	return m_TotalForce;
 }
 
 //-----------------------------------------------------------------------------
