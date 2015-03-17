@@ -1,0 +1,56 @@
+﻿Build started 3/17/2015 12:34:15 PM.
+     1>Project "C:\Users\Evan\Documents\GamePhysics\GP\GamePhysics\GamePhysics_EvanSchipellite\GamePhysics_EvanSchipellite\GamePhysics_EvanSchipellite.vcxproj" on node 2 (Rebuild target(s)).
+     1>ClCompile:
+         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\Users\Evan\Documents\GamePhysics\GP\GamePhysics\GamePhysics_EvanSchipellite\packages\nupengl.core.0.0.0.1\build\native\../..//build/native/include/ /I"C:\Users\Evan\Documents\GamePhysics\GP\GamePhysics\GamePhysics_EvanSchipellite\\Lib\glui-2.36\include" /I"C:\Users\Evan\Documents\GamePhysics\GP\GamePhysics\GamePhysics_EvanSchipellite\\Lib\Simple OpenGL Image Library\src" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Camera.cpp Firework.cpp FireworkLauncher.cpp ForceGenerator.cpp ForceRegistration.cpp ForceRegistry.cpp GameApp.cpp Generator.cpp GravityGenerator.cpp Matrix.cpp EditorState.cpp ObjectForceGenerator.cpp ObjectForceRegistration.cpp Particle.cpp PhysicsHandler.cpp PhysicsObject.cpp Planet.cpp PlanetHandler.cpp Skybox.cpp Source.cpp Vector3D.cpp
+         Vector3D.cpp
+         Source.cpp
+         Skybox.cpp
+         PlanetHandler.cpp
+         Planet.cpp
+         PhysicsObject.cpp
+         PhysicsHandler.cpp
+         Particle.cpp
+         ObjectForceRegistration.cpp
+         ObjectForceGenerator.cpp
+         EditorState.cpp
+         Matrix.cpp
+         GravityGenerator.cpp
+         Generator.cpp
+         GameApp.cpp
+         ForceRegistry.cpp
+         ForceRegistration.cpp
+         ForceGenerator.cpp
+         FireworkLauncher.cpp
+         Firework.cpp
+         Generating Code...
+         Compiling...
+         Camera.cpp
+         Generating Code...
+       Link:
+         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Evan\Documents\GamePhysics\GP\GamePhysics\GamePhysics_EvanSchipellite\Debug\GamePhysics_EvanSchipellite.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Users\Evan\Documents\GamePhysics\GP\GamePhysics\GamePhysics_EvanSchipellite\\Lib\glui-2.36\Debug" /LIBPATH:"C:\Users\Evan\Documents\GamePhysics\GP\GamePhysics\GamePhysics_EvanSchipellite\\Lib\Simple OpenGL Image Library\Debug" C:\Users\Evan\Documents\GamePhysics\GP\GamePhysics\GamePhysics_EvanSchipellite\packages\nupengl.core.0.0.0.1\build\native\../..//build/native/lib/Win32\v120\glew32.lib C:\Users\Evan\Documents\GamePhysics\GP\GamePhysics\GamePhysics_EvanSchipellite\packages\nupengl.core.0.0.0.1\build\native\../..//build/native/lib/Win32\v120\glfw3dll.lib C:\Users\Evan\Documents\GamePhysics\GP\GamePhysics\GamePhysics_EvanSchipellite\packages\nupengl.core.0.0.0.1\build\native\../..//build/native/lib/Win32\v120\freeglut.lib glui32.lib OpenGL32.lib glu32.lib SOIL.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Evan\Documents\GamePhysics\GP\GamePhysics\GamePhysics_EvanSchipellite\Debug\GamePhysics_EvanSchipellite.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Evan\Documents\GamePhysics\GP\GamePhysics\GamePhysics_EvanSchipellite\Debug\GamePhysics_EvanSchipellite.lib" /MACHINE:X86 Debug\Camera.obj
+         Debug\Firework.obj
+         Debug\FireworkLauncher.obj
+         Debug\ForceGenerator.obj
+         Debug\ForceRegistration.obj
+         Debug\ForceRegistry.obj
+         Debug\GameApp.obj
+         Debug\Generator.obj
+         Debug\GravityGenerator.obj
+         Debug\Matrix.obj
+         Debug\EditorState.obj
+         Debug\ObjectForceGenerator.obj
+         Debug\ObjectForceRegistration.obj
+         Debug\Particle.obj
+         Debug\PhysicsHandler.obj
+         Debug\PhysicsObject.obj
+         Debug\Planet.obj
+         Debug\PlanetHandler.obj
+         Debug\Skybox.obj
+         Debug\Source.obj
+         Debug\Vector3D.obj
+         GamePhysics_EvanSchipellite.vcxproj -> C:\Users\Evan\Documents\GamePhysics\GP\GamePhysics\GamePhysics_EvanSchipellite\Debug\GamePhysics_EvanSchipellite.exe
+     1>Done Building Project "C:\Users\Evan\Documents\GamePhysics\GP\GamePhysics\GamePhysics_EvanSchipellite\GamePhysics_EvanSchipellite\GamePhysics_EvanSchipellite.vcxproj" (Rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:08.84
