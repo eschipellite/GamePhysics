@@ -73,6 +73,12 @@
     <Filter Include="Source Files\Objects\Level">
       <UniqueIdentifier>{a4f9c68d-c7d9-4b0e-af9e-2677b417f613}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Physics\Collision">
+      <UniqueIdentifier>{ea4f8eac-2828-44fa-ba02-8ccb83a445e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Physics\Collision">
+      <UniqueIdentifier>{134bbf1a-7da3-47f4-b0a9-7fb07d78c2da}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameApp.cpp">
@@ -153,6 +159,9 @@
     <ClCompile Include="Skybox.cpp">
       <Filter>Source Files\Visuals</Filter>
     </ClCompile>
+    <ClCompile Include="Contact.cpp">
+      <Filter>Source Files\Physics\Collision</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameApp.h">
@@ -229,6 +238,9 @@
     </ClInclude>
     <ClInclude Include="Skybox.h">
       <Filter>Header Files\Visuals</Filter>
+    </ClInclude>
+    <ClInclude Include="Contact.h">
+      <Filter>Header Files\Physics\Collision</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

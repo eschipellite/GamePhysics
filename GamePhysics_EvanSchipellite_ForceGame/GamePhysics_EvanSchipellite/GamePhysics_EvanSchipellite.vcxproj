@@ -71,6 +71,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="Contact.cpp" />
     <ClCompile Include="EarthGravityGenerator.cpp" />
     <ClCompile Include="Firework.cpp" />
     <ClCompile Include="FireworkLauncher.cpp" />
@@ -99,6 +100,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="Contact.h" />
     <ClInclude Include="EarthGravityGenerator.h" />
     <ClInclude Include="Firework.h" />
     <ClInclude Include="FireworkLauncher.h" />

@@ -58,6 +58,7 @@ public:
 
 	Vector3D GetPosition();
 	float GetMass();
+	float GetInverseMass();
 	Vector3D GetCurrentVelocity();
 	Vector3D GetCurrentAcceleration();
 	Vector3D GetCurrentTotalForce();

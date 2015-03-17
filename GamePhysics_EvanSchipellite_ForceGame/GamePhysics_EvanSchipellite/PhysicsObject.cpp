@@ -148,6 +148,12 @@ float PhysicsObject::GetMass()
 }
 
 //-----------------------------------------------------------------------------
+float PhysicsObject::GetInverseMass()
+{
+	return m_InverseMass;
+}
+
+//-----------------------------------------------------------------------------
 Vector3D PhysicsObject::GetCurrentVelocity()
 {
 	return m_CurrentVelocity;
