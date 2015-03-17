@@ -7,7 +7,7 @@
 // Updates, draws, and applies generators to objects
 //=============================================================================
 #include "PhysicsHandler.h"
-#include "GravityGenerator.h"
+#include "EarthGravityGenerator.h"
 //=============================================================================
 PhysicsHandler::PhysicsHandler()
 {
@@ -22,7 +22,7 @@ PhysicsHandler::~PhysicsHandler()
 //-----------------------------------------------------------------------------
 void PhysicsHandler::Initialize()
 {
-	m_ObjectForceGenerators.push_back(new GravityGenerator());
+	m_ForceGenerators.push_back(new EarthGravityGenerator(Vector3D(0, -9.8, 0)));
 }
 
 //-----------------------------------------------------------------------------

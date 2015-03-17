@@ -31,8 +31,6 @@ Camera::Camera()
 
 	m_MouseSpeed = 1.0f / 10.0f;
 	m_CameraSpeed = 1.0f / 10.0f;
-
-	m_DistanceFromPlanet = 1;
 }
 
 //-----------------------------------------------------------------------------
@@ -80,37 +78,19 @@ void Camera::move()
 }
 
 //-----------------------------------------------------------------------------
-void Camera::followPlanet()
-{
-	if (m_Move_Forward || m_Move_Backward || m_Move_Left || m_Move_Right)
-	{
-		mp_FollowPlanet = NULL;
-	}
-
-	if (mp_FollowPlanet)
-	{
-		m_Position = mp_FollowPlanet->GetPosition();
-		m_Rotation = Vector3D(90.0f, 0, 0);
-		m_Position.Y += m_DistanceFromPlanet;
-	}
-}
-
-//-----------------------------------------------------------------------------
 void Camera::CleanUp()
 {
 
 }
 
 //-----------------------------------------------------------------------------
-void Camera::Initialize(Vector3D initialPosition, Vector3D initialRotation, float distanceFromPlanet)
+void Camera::Initialize(Vector3D initialPosition, Vector3D initialRotation)
 {
 	m_InitialPosition = initialPosition;
 	m_Position = m_InitialPosition;
 
 	m_InitialRotation = initialRotation;
 	m_Rotation = m_InitialRotation;
-
-	m_DistanceFromPlanet = distanceFromPlanet;
 
 	m_LastMousePosition = Vector3D(142, 300); // Center of window
 }
@@ -119,8 +99,6 @@ void Camera::Initialize(Vector3D initialPosition, Vector3D initialRotation, floa
 void Camera::Update()
 {
 	move();
-
-	followPlanet();
 
 	glLoadIdentity();
 	glRotatef(m_Rotation.X, 1.0, 0.0, 0.0);
@@ -133,7 +111,6 @@ void Camera::Update()
 //-----------------------------------------------------------------------------
 void Camera::Reset()
 {
-	mp_FollowPlanet = NULL;
 	m_Position = m_InitialPosition;
 	m_Rotation = m_InitialRotation;
 }
@@ -206,11 +183,5 @@ void Camera::HandleMouse(Vector3D mousePosition)
 	m_LastMousePosition = mousePosition;
 	m_Rotation.X = m_Rotation.X + difference.Y * m_MouseSpeed;
 	m_Rotation.Y = m_Rotation.Y + difference.X * m_MouseSpeed;
-}
-
-//-----------------------------------------------------------------------------
-void Camera::SetFollow(Planet* planetToFollow)
-{
-	mp_FollowPlanet = planetToFollow;
 }
 //=============================================================================

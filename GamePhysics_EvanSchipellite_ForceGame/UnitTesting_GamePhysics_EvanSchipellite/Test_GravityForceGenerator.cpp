@@ -22,9 +22,9 @@ namespace UnitTesting_GamePhysics_EvanSchipellite
 			GravityGenerator* gravityGenerator = new GravityGenerator();
 
 			PhysicsObject* objectOne = new PhysicsObject();
-			objectOne->Initialize(1, 1, Vector3D(1, 0, 0));
+			objectOne->Initialize(1, Vector3D(1, 0, 0));
 			PhysicsObject* objectTwo = new PhysicsObject();
-			objectTwo->Initialize(1, 1, Vector3D(0, 0, 0));
+			objectTwo->Initialize(1, Vector3D(0, 0, 0));
 
 			gravityGenerator->UpdateForce(objectOne, objectTwo);
 

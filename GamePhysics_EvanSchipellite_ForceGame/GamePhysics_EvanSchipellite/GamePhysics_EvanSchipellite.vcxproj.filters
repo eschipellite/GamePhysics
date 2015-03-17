@@ -61,6 +61,18 @@
     <Filter Include="Source Files\Visuals">
       <UniqueIdentifier>{e368bd9f-9808-4b45-b005-fc7259e4ac7e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Level">
+      <UniqueIdentifier>{a109b4f7-a8db-40a9-b4b6-b4f17cc8a481}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Level">
+      <UniqueIdentifier>{43f5887f-1314-4c3b-9d62-5969c203fe4a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Objects\Level">
+      <UniqueIdentifier>{39b583e2-1bd7-4ac2-802b-6bc98734d626}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Objects\Level">
+      <UniqueIdentifier>{a4f9c68d-c7d9-4b0e-af9e-2677b417f613}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameApp.cpp">
@@ -123,8 +135,23 @@
     <ClCompile Include="Generator.cpp">
       <Filter>Source Files\Physics\Generators</Filter>
     </ClCompile>
+    <ClCompile Include="Level.cpp">
+      <Filter>Source Files\Level</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Source Files\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Ground.cpp">
+      <Filter>Source Files\Objects\Level</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files\Objects\Level</Filter>
+    </ClCompile>
+    <ClCompile Include="EarthGravityGenerator.cpp">
+      <Filter>Source Files\Physics\Generators</Filter>
+    </ClCompile>
     <ClCompile Include="Skybox.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Visuals</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -185,8 +212,23 @@
     <ClInclude Include="Generator.h">
       <Filter>Header Files\Physics\Generators</Filter>
     </ClInclude>
+    <ClInclude Include="Level.h">
+      <Filter>Header Files\Level</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Header Files\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Ground.h">
+      <Filter>Header Files\Objects\Level</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Header Files\Objects\Level</Filter>
+    </ClInclude>
+    <ClInclude Include="EarthGravityGenerator.h">
+      <Filter>Header Files\Physics\Generators</Filter>
+    </ClInclude>
     <ClInclude Include="Skybox.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Visuals</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

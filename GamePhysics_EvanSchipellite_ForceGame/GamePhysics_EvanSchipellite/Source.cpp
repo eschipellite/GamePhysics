@@ -122,22 +122,10 @@ void initialize()
 	g_GluiSubWindow->set_main_gfx_window(g_MainWindow);
 	g_GluiSubWindow->add_button("Play", ID_PLAY, eh_HandleUI);
 	g_GluiSubWindow->add_button("Pause", ID_PAUSE, eh_HandleUI);
-	g_GluiSubWindow->add_button("Stop", ID_STOP, eh_HandleUI);
+	g_GluiSubWindow->add_button("Reset", ID_STOP, eh_HandleUI);
 	g_StaticText = g_GluiSubWindow->add_statictext("Playing");
 	g_StaticText->set_alignment(GLUI_ALIGN_RIGHT);
 	g_GluiSubWindow->add_column();
-	g_PlanetName = g_GluiSubWindow->add_statictext("Name:");
-	g_PlanetName->set_alignment(GLUI_ALIGN_RIGHT);
-	g_PlanetMass = g_GluiSubWindow->add_statictext("Mass:");
-	g_PlanetMass->set_alignment(GLUI_ALIGN_RIGHT);
-	g_PlanetVelocity = g_GluiSubWindow->add_statictext("Velocity:");
-	g_PlanetVelocity->set_alignment(GLUI_ALIGN_RIGHT);
-	g_PlanetAcceleration = g_GluiSubWindow->add_statictext("Acceleration:");
-	g_PlanetAcceleration->set_alignment(GLUI_ALIGN_RIGHT);
-	g_TotalPlanetForce = g_GluiSubWindow->add_statictext("Total Force:");
-	g_TotalPlanetForce->set_alignment(GLUI_ALIGN_RIGHT);
-
-	gp_GameApp->SetTextReferences(g_PlanetName, g_PlanetMass, g_PlanetVelocity, g_PlanetAcceleration, g_TotalPlanetForce);
 
 	SetCursorPos((int)(g_ScreenSize.X / 2.0f), (int)(g_ScreenSize.Y / 2.0f));
 
@@ -149,8 +137,8 @@ void initialize()
 //-----------------------------------------------------------------------------
 void start()
 {
-	stop();
 	gp_GameApp->Start();
+	stop();
 }
 
 //-----------------------------------------------------------------------------
@@ -335,7 +323,7 @@ void pause()
 void stop()
 {
 	gp_EditorState->SetIsPaused(true);
-	reset();
 	g_StaticText->set_text("Stopped");
+	reset();
 }
 //=============================================================================

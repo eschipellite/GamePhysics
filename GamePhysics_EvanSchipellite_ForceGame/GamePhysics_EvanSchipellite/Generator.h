@@ -13,7 +13,8 @@ enum GeneratorType
 	GENERATOR,
 	FORCE_GENERATOR,
 	OBJECT_FORCE_GENERATOR,
-	GRAVITY_GENERATOR
+	GRAVITY_GENERATOR,
+	EARTH_GRAVITY_GENERATOR,
 };
 //=============================================================================
 

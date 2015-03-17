@@ -20,7 +20,9 @@ Planet::~Planet()
 //-----------------------------------------------------------------------------
 void Planet::Initialize(float radius, float mass, Vector3D initialPosition, Vector3D initialVelocity, std::string planeName, std::string texture)
 {
-	PhysicsObject::Initialize(radius, mass, initialPosition, initialVelocity, Vector3D::Zero, Vector3D::Zero, .999999999999999999999f);
+	PhysicsObject::Initialize(mass, initialPosition, initialVelocity, Vector3D::Zero, Vector3D::Zero, .999999999999999999999f);
+
+	SetRadius(radius);
 
 	m_PlanetName = planeName;
 
@@ -35,22 +37,6 @@ void Planet::Update(float deltaTime)
 	deltaTime *= 86400; // Seconds per day
 
 	PhysicsObject::updateForces(deltaTime);
-}
-
-//-----------------------------------------------------------------------------
-// Code assistance from Robert Bethune
-void Planet::loadTexture(std::string texture)
-{
-	int width;
-	int height;
-
-	glGenTextures(1, &m_Texture);
-	glBindTexture(GL_TEXTURE_2D, m_Texture);
-
-	unsigned char* image = SOIL_load_image(texture.c_str(), &width, &height, 0, SOIL_LOAD_RGB);
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, image);
-	SOIL_free_image_data(image);
-
 }
 
 //-----------------------------------------------------------------------------

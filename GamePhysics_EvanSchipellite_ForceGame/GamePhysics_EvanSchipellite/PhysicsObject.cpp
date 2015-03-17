@@ -34,7 +34,7 @@ PhysicsObject::~PhysicsObject()
 }
 
 //-----------------------------------------------------------------------------
-void PhysicsObject::Initialize(float radius, float mass, Vector3D initialPosition, Vector3D initialVelocity, Vector3D initialAcceleration, Vector3D initialRotation, float dampening)
+void PhysicsObject::Initialize(float mass, Vector3D initialPosition, Vector3D initialVelocity, Vector3D initialAcceleration, Vector3D initialRotation, float dampening)
 {
 	m_CurrentPosition = initialPosition;
 	m_CurrentVelocity = initialVelocity;
@@ -45,8 +45,6 @@ void PhysicsObject::Initialize(float radius, float mass, Vector3D initialPositio
 	m_InitialVelocity = initialVelocity;
 	m_InitialAcceleration = initialAcceleration;
 	m_InitialRotation = initialRotation;
-
-	m_Radius = radius;
 
 	m_Dampening = dampening;
 
@@ -59,15 +57,6 @@ void PhysicsObject::Initialize(float radius, float mass, Vector3D initialPositio
 void PhysicsObject::Update(float deltaTime)
 {
 	updateForces(deltaTime);
-}
-
-//-----------------------------------------------------------------------------
-void PhysicsObject::Draw()
-{
-	glPushMatrix();
-	glTranslatef(m_CurrentPosition.X, m_CurrentPosition.Y, m_CurrentPosition.Z);
-	gluSphere(m_Quad, m_Radius, 100, 100);
-	glPopMatrix();
 }
 
 //-----------------------------------------------------------------------------

@@ -8,7 +8,7 @@
 #include "Particle.h"
 //=============================================================================
 Particle::Particle()
-:PhysicsObject()
+	: GameObject()
 {
 	m_ActiveTime = 0;
 }
@@ -21,7 +21,9 @@ Particle::~Particle()
 //-----------------------------------------------------------------------------
 void Particle::Initialize(float activeTime, float radius, Vector3D initialPosition, Vector3D initialVelocity, Vector3D initialAcceleration, Vector3D initialRotation)
 {
-	PhysicsObject::Initialize(radius, 1, initialPosition, initialVelocity, initialAcceleration, initialRotation);
+	PhysicsObject::Initialize(1, initialPosition, initialVelocity, initialAcceleration, initialRotation);
+
+	SetRadius(radius);
 
 	m_ActiveTime = activeTime;
 }

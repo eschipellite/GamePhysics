@@ -8,19 +8,14 @@
 #ifndef PLANET_H
 #define PLANET_H
 //=============================================================================
-#include "PhysicsObject.h"
+#include "GameObject.h"
 #include <iostream>
-#include <SOIL.h>
 //=============================================================================
 class Planet :
-	public PhysicsObject
+	public GameObject
 {
 private:
 	std::string m_PlanetName;
-	GLuint m_Texture;
-
-private:
-	void loadTexture(std::string texture);
 
 public:
 	Planet();

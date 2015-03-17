@@ -8,10 +8,10 @@
 #ifndef PARTCILE_H
 #define PARTCILE_H
 //=============================================================================
-#include "PhysicsObject.h"
+#include "GameObject.h"
 //=============================================================================
 class Particle :
-	public PhysicsObject
+	public GameObject
 {
 private:
 	float m_ActiveTime;

@@ -33,19 +33,15 @@ private:
 	float m_MouseSpeed;
 	float m_CameraSpeed;
 
-	Planet* mp_FollowPlanet;
-	float m_DistanceFromPlanet;
-
 private:
 	void move();
-	void followPlanet();
 
 public:
 	Camera();
 	~Camera();
 	
 	void CleanUp();
-	void Initialize(Vector3D initialPosition = Vector3D::Zero, Vector3D initialRotation = Vector3D::Zero, float distanceFromPlanet = 1);
+	void Initialize(Vector3D initialPosition = Vector3D::Zero, Vector3D initialRotation = Vector3D::Zero);
 	void Update();
 	void Reset();
 
@@ -54,8 +50,6 @@ public:
 	void HandleKeyPressed(unsigned char key);
 	void HandleKeyReleased(unsigned char key);
 	void HandleMouse(Vector3D mousePosition);
-
-	void SetFollow(Planet* planetToFollow);
 };
 //=============================================================================
 #endif // CAMERA_H
