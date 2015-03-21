@@ -44,9 +44,12 @@ void GameApp::Initialize()
 	Vector3D centerRotation = Vector3D(0, 0, 0);
 	mp_Camera->Initialize(centerPosition, centerRotation);
 
-	mp_Level->Initialize(Vector3D(50, 1, 50), "Content/Textures/Texture_Grass.png", Vector3D(0, 2, 0), "Content/Textures/Texture_Player.jpg");
+	mp_Level->Initialize(Vector3D(50, 5, 50), "Content/Textures/Texture_Grass.png", Vector3D(0, 2, 0), "Content/Textures/Texture_Player.jpg", "Content/Textures/Texture_Collectible.jpg");
 
 	mp_PhysicsHandler->AddToRegistry(mp_Level->GetForceRegisters());
+	mp_PhysicsHandler->AddGround(mp_Level->GetGround());
+	mp_PhysicsHandler->AddCollisionObjects(mp_Level->GetCollisionObjects());
+	mp_PhysicsHandler->AddContactGenerators(mp_Level->GetContactGenerators());
 }
 
 //-----------------------------------------------------------------------------
@@ -108,8 +111,7 @@ void GameApp::Update(float deltaTime, const EditorState* physicsState)
 //-----------------------------------------------------------------------------
 void GameApp::Draw()
 {
-	mp_Skybox->Render();
-
+	mp_Skybox->Draw();
 	mp_Level->Draw();
 }
 

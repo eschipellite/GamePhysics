@@ -33,7 +33,7 @@ public:
 	void Initialize(std::string frontPath, std::string backPath, std::string topPath, std::string bottomPath, std::string rightPath, std::string leftPath);
 	void CleanUp();
 
-	void Render();
+	void Draw();
 };
 //=============================================================================
 #endif // SKYBOX_H

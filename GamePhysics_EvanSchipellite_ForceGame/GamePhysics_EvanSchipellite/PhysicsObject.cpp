@@ -26,6 +26,8 @@ PhysicsObject::PhysicsObject()
 	m_Radius = 1;
 
 	m_Dampening = 1;
+
+	m_Restitution = .5f;
 }
 
 //-----------------------------------------------------------------------------
@@ -49,8 +51,6 @@ void PhysicsObject::Initialize(float mass, Vector3D initialPosition, Vector3D in
 	m_Dampening = dampening;
 
 	SetInverseMass(mass);
-
-	m_Quad = gluNewQuadric();
 }
 
 //-----------------------------------------------------------------------------

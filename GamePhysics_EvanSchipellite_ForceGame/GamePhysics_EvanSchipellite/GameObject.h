@@ -18,6 +18,8 @@ class GameObject :
 protected:
 	GLuint m_Texture;
 
+	GLUquadric* m_Quad;
+
 protected:
 	void loadTexture(std::string texture);
 

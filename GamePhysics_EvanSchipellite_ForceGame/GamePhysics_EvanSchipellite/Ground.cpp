@@ -29,12 +29,6 @@ void Ground::Initialize(Vector3D dimensions, float mass, Vector3D initialPositio
 //-----------------------------------------------------------------------------
 void Ground::Draw()
 {
-	/*glPushMatrix();
-	glTranslatef(m_CurrentPosition.X, m_CurrentPosition.Y, m_CurrentPosition.Z);
-	glRectd(50, 50, 50, 50);
-	GL_POl
-	glPopMatrix();*/
-
 	glEnable(GL_TEXTURE_2D);
 	glDisable(GL_LIGHTING);
 	glBindTexture(GL_TEXTURE_2D, m_Texture);

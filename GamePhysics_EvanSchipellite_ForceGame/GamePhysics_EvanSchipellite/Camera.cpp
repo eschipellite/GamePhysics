@@ -30,7 +30,7 @@ Camera::Camera()
 	m_Move_Down = false;
 
 	m_MouseSpeed = 1.0f / 10.0f;
-	m_CameraSpeed = 1.0f / 10.0f;
+	m_CameraSpeed = 3.0f / 10.0f;
 }
 
 //-----------------------------------------------------------------------------

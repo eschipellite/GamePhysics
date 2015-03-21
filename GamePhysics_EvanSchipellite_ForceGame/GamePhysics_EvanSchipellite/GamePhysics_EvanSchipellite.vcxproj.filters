@@ -79,6 +79,12 @@
     <Filter Include="Source Files\Physics\Collision">
       <UniqueIdentifier>{134bbf1a-7da3-47f4-b0a9-7fb07d78c2da}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Physics\Collision\ContactGenerators">
+      <UniqueIdentifier>{d55de758-858d-478e-843f-8345d4222dbb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Physics\Collision\ContactGenerators">
+      <UniqueIdentifier>{e00712b5-1f47-40ba-8cca-4c49340da088}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameApp.cpp">
@@ -162,6 +168,21 @@
     <ClCompile Include="Contact.cpp">
       <Filter>Source Files\Physics\Collision</Filter>
     </ClCompile>
+    <ClCompile Include="CollisionHandler.cpp">
+      <Filter>Source Files\Physics\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="ContactGenerator.cpp">
+      <Filter>Source Files\Physics\Collision\ContactGenerators</Filter>
+    </ClCompile>
+    <ClCompile Include="GroundContactGenerator.cpp">
+      <Filter>Source Files\Physics\Collision\ContactGenerators</Filter>
+    </ClCompile>
+    <ClCompile Include="RodContactGenerator.cpp">
+      <Filter>Source Files\Physics\Collision\ContactGenerators</Filter>
+    </ClCompile>
+    <ClCompile Include="Collectible.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameApp.h">
@@ -241,6 +262,21 @@
     </ClInclude>
     <ClInclude Include="Contact.h">
       <Filter>Header Files\Physics\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionHandler.h">
+      <Filter>Header Files\Physics\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="ContactGenerator.h">
+      <Filter>Header Files\Physics\Collision\ContactGenerators</Filter>
+    </ClInclude>
+    <ClInclude Include="GroundContactGenerator.h">
+      <Filter>Header Files\Physics\Collision\ContactGenerators</Filter>
+    </ClInclude>
+    <ClInclude Include="RodContactGenerator.h">
+      <Filter>Header Files\Physics\Collision\ContactGenerators</Filter>
+    </ClInclude>
+    <ClInclude Include="Collectible.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

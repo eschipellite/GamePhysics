@@ -71,7 +71,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="Collectible.cpp" />
+    <ClCompile Include="CollisionHandler.cpp" />
     <ClCompile Include="Contact.cpp" />
+    <ClCompile Include="ContactGenerator.cpp" />
     <ClCompile Include="EarthGravityGenerator.cpp" />
     <ClCompile Include="Firework.cpp" />
     <ClCompile Include="FireworkLauncher.cpp" />
@@ -82,6 +85,7 @@
     <ClCompile Include="Generator.cpp" />
     <ClCompile Include="GravityGenerator.cpp" />
     <ClCompile Include="Ground.cpp" />
+    <ClCompile Include="GroundContactGenerator.cpp" />
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="EditorState.cpp" />
@@ -94,13 +98,17 @@
     <ClCompile Include="PlanetHandler.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="RodContactGenerator.cpp" />
     <ClCompile Include="Skybox.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Vector3D.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="Collectible.h" />
+    <ClInclude Include="CollisionHandler.h" />
     <ClInclude Include="Contact.h" />
+    <ClInclude Include="ContactGenerator.h" />
     <ClInclude Include="EarthGravityGenerator.h" />
     <ClInclude Include="Firework.h" />
     <ClInclude Include="FireworkLauncher.h" />
@@ -111,6 +119,7 @@
     <ClInclude Include="Generator.h" />
     <ClInclude Include="GravityGenerator.h" />
     <ClInclude Include="Ground.h" />
+    <ClInclude Include="GroundContactGenerator.h" />
     <ClInclude Include="Level.h" />
     <ClInclude Include="Matrix.h" />
     <ClInclude Include="EditorState.h" />
@@ -123,6 +132,7 @@
     <ClInclude Include="PlanetHandler.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="RodContactGenerator.h" />
     <ClInclude Include="Skybox.h" />
     <ClInclude Include="Vector3D.h" />
   </ItemGroup>

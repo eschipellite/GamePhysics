@@ -33,7 +33,7 @@ protected:
 
 	Vector3D m_PreviousTotalForce;
 
-	GLUquadric* m_Quad;
+	float m_Restitution;
 
 protected:
 	void updateForces(float deltaTime);
@@ -63,6 +63,8 @@ public:
 	Vector3D GetCurrentAcceleration();
 	Vector3D GetCurrentTotalForce();
 	Vector3D GetPreviousTotalForce();
+	inline float GetRadius() { return m_Radius; };
+	inline float GetRestitution() { return m_Restitution; };
 };
 //=============================================================================
 #endif // PHYSICSOBJECT_H

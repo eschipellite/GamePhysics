@@ -19,17 +19,20 @@ private:
 	PhysicsObject* mp_ContactTwo;
 
 	float m_Restitution;
+	float m_Penetration;
 
 	Vector3D m_ContactNormal;
 
 private:
-	void resolve(float deltaTime);
 	void resolveVelocity(float deltaTime);
+	void resolveInterpenetration(float deltaTime);
 	float calculateSeparatingVelocity();
 
 public:
-	Contact();
+	Contact(float restitution, float penetration, Vector3D contactNormal, PhysicsObject* contactOne, PhysicsObject* contactTwo = nullptr);
 	~Contact();
+
+	void Resolve(float deltaTime);
 };
 //=============================================================================
 #endif // CONTACT_H

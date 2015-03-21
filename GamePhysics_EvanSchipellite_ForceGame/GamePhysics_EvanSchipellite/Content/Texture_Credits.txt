@@ -1,4 +1,5 @@
 Pond Skybox - http://rbwhitaker.wikidot.com/texture-library
 
-Grass Texture - http://opengameart.org/sites/default/files/styles/watermarked/public/grasslight-big.png
-Player Texture - http://hdw.eweb4.com/out/904431.html
+Grass Texture - http://opengameart.org/sites/default/files/styles/watermarked/public/grasslight-big.png 
+Player Texture - http://s229.photobucket.com/user/Nidoking18/media/TigerFur.jpg.html
+Collectible Texture - http://bgfons.com/upload/animals_texture759.jpg

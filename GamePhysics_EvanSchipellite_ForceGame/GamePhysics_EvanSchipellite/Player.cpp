@@ -19,7 +19,7 @@ Player::~Player()
 //-----------------------------------------------------------------------------
 void Player::Initialize(Vector3D initialPosition, std::string texture)
 {
-	PhysicsObject::Initialize(1, initialPosition, Vector3D::Zero, Vector3D::Zero, Vector3D::Zero, .99f);
+	PhysicsObject::Initialize(1, initialPosition, Vector3D(0, 0, 0), Vector3D::Zero, Vector3D::Zero, .9999f);
 
 	loadTexture(texture);
 }

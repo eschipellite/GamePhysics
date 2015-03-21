@@ -12,6 +12,7 @@
 PhysicsHandler::PhysicsHandler()
 {
 	m_ForceRegistry = new ForceRegistry();
+	mp_CollisionHandler = new CollisionHandler();
 }
 
 //-----------------------------------------------------------------------------
@@ -22,13 +23,16 @@ PhysicsHandler::~PhysicsHandler()
 //-----------------------------------------------------------------------------
 void PhysicsHandler::Initialize()
 {
-	m_ForceGenerators.push_back(new EarthGravityGenerator(Vector3D(0, -9.8, 0)));
+	m_ForceGenerators.push_back(new EarthGravityGenerator(Vector3D(0, -9.8f, 0)));
+
+	mp_CollisionHandler->Initialize();
 }
 
 //-----------------------------------------------------------------------------
 void PhysicsHandler::Update(float deltaTime)
 {
 	m_ForceRegistry->UpdateForces();
+	mp_CollisionHandler->Update(deltaTime);
 }
 
 //-----------------------------------------------------------------------------
@@ -41,6 +45,13 @@ void PhysicsHandler::CleanUp()
 {
 	cleanUpForceGenerators();
 	cleanUpObjectForceGenerators();
+	
+	if (mp_CollisionHandler != NULL)
+	{
+		mp_CollisionHandler->CleanUp();
+	}
+	delete mp_CollisionHandler;
+	mp_CollisionHandler = nullptr;
 }
 
 //-----------------------------------------------------------------------------
@@ -134,5 +145,29 @@ void PhysicsHandler::AddToRegistry(std::vector<ForceRegister> forceRegisters)
 	{
 		AddToRegistry(*forceRegisterIter);
 	}
+}
+
+//-----------------------------------------------------------------------------
+void PhysicsHandler::AddGround(PhysicsObject* groundObject)
+{
+	mp_CollisionHandler->AddGround(groundObject);
+}
+
+//-----------------------------------------------------------------------------
+void PhysicsHandler::AddCollisionObject(PhysicsObject* physicsObject)
+{
+	mp_CollisionHandler->AddCollisionObject(physicsObject);
+}
+
+//-----------------------------------------------------------------------------
+void PhysicsHandler::AddCollisionObjects(std::vector<PhysicsObject*> physicsObjects)
+{
+	mp_CollisionHandler->AddCollisionObjects(physicsObjects);
+}
+
+//-----------------------------------------------------------------------------
+void PhysicsHandler::AddContactGenerators(std::vector<ContactGenerator*> contactGenerators)
+{
+	mp_CollisionHandler->AddContactGenerators(contactGenerators);
 }
 //=============================================================================

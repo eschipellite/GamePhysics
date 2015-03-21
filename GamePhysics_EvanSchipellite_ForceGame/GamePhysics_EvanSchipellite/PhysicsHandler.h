@@ -14,6 +14,7 @@
 #include "ObjectForceGenerator.h"
 #include "ForceRegistry.h"
 #include "Generator.h"
+#include "CollisionHandler.h"
 //=============================================================================
 //                              Register
 //
@@ -48,6 +49,7 @@ private:
 	std::vector<ForceGenerator*> m_ForceGenerators;
 	std::vector<ObjectForceGenerator*> m_ObjectForceGenerators;
 	ForceRegistry* m_ForceRegistry;
+	CollisionHandler* mp_CollisionHandler;
 
 private:
 	void cleanUpForceGenerators();
@@ -68,6 +70,12 @@ public:
 	void AddToRegistry(GeneratorType generatorType, PhysicsObject* physicsObjectOne, PhysicsObject* physicsObjectTwo = NULL);
 	void AddToRegistry(ForceRegister forceRegister);
 	void AddToRegistry(std::vector<ForceRegister> forceRegisters);
+
+	void AddContactGenerators(std::vector<ContactGenerator*> contactGenerators);
+
+	void AddGround(PhysicsObject* groundObject);
+	void AddCollisionObject(PhysicsObject* physicsObject);
+	void AddCollisionObjects(std::vector<PhysicsObject*> physicsObjects);
 };
 //=============================================================================
 #endif //PHYSICSHANDLER_H
