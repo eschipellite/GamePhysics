@@ -14,20 +14,20 @@
 class RodContactGenerator :
 	public ContactGenerator
 {
-private:
+protected:
 	PhysicsObject* mp_PhysicsObjectOne;
 	PhysicsObject* mp_PhysicsObjectTwo;
 
 	float m_MaxLength;
 
-private:
+protected:
 	float getLength();
 
 public:
 	RodContactGenerator(PhysicsObject* physicsObjectOne, PhysicsObject* physicsObjectTwo, float maxLength);
 	~RodContactGenerator();
 
-	void RodContactGenerator::AddContact(CollisionHandler* collisionHandler);
+	virtual void AddContact(CollisionHandler* collisionHandler);
 };
 //=============================================================================
 #endif // ROD_CONTACT_GENERATOR

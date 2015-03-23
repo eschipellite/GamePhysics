@@ -180,8 +180,11 @@
     <ClCompile Include="RodContactGenerator.cpp">
       <Filter>Source Files\Physics\Collision\ContactGenerators</Filter>
     </ClCompile>
+    <ClCompile Include="CableContactGenerator.cpp">
+      <Filter>Source Files\Physics\Collision\ContactGenerators</Filter>
+    </ClCompile>
     <ClCompile Include="Collectible.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Objects\Level</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -275,8 +278,11 @@
     <ClInclude Include="RodContactGenerator.h">
       <Filter>Header Files\Physics\Collision\ContactGenerators</Filter>
     </ClInclude>
+    <ClInclude Include="CableContactGenerator.h">
+      <Filter>Header Files\Physics\Collision\ContactGenerators</Filter>
+    </ClInclude>
     <ClInclude Include="Collectible.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Objects\Level</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -14,6 +14,7 @@
 #include "PhysicsObject.h"
 #include "Collectible.h"
 #include "RodContactGenerator.h"
+#include "CableContactGenerator.h"
 //=============================================================================
 Level::Level()
 {
@@ -89,9 +90,9 @@ void Level::Initialize(Vector3D dimensions, std::string groundTexture, Vector3D 
 	mp_Player->Initialize(playerPosition, playerTexture);
 
 	Collectible* collectibleOne = new Collectible();
-	collectibleOne->Initialize(Vector3D(5, 1, 0), collectibleTexture);
+	collectibleOne->Initialize(Vector3D(5, 5, 0), collectibleTexture);
 	mp_CollectibleObjects.push_back(collectibleOne);
-	mp_ContactGenerators.push_back(new RodContactGenerator(mp_Player, collectibleOne, 3));
+	mp_ContactGenerators.push_back(new CableContactGenerator(mp_Player, collectibleOne, 3));
 }
 
 //-----------------------------------------------------------------------------

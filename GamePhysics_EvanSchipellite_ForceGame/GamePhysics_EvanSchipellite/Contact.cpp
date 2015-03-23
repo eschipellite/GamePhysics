@@ -115,7 +115,7 @@ float Contact::calculateSeparatingVelocity()
 //-----------------------------------------------------------------------------
 void Contact::Resolve(float deltaTime)
 {
-	//resolveVelocity(deltaTime);
-	//resolveInterpenetration(deltaTime);
+	resolveVelocity(deltaTime);
+	resolveInterpenetration(deltaTime);
 }
 //=============================================================================

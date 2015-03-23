@@ -70,6 +70,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CableContactGenerator.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Collectible.cpp" />
     <ClCompile Include="CollisionHandler.cpp" />
@@ -104,6 +105,7 @@
     <ClCompile Include="Vector3D.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CableContactGenerator.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Collectible.h" />
     <ClInclude Include="CollisionHandler.h" />
