@@ -5,8 +5,8 @@
 //
 // Handles contact information for cable creation
 //=============================================================================
-#ifndef CABLE_CONTACT_GENERATOR
-#define CABLE_CONTACT_GENERATOR
+#ifndef CABLE_CONTACT_GENERATOR_H
+#define CABLE_CONTACT_GENERATOR_H
 //=============================================================================
 #include "RodContactGenerator.h"
 //=============================================================================
@@ -20,4 +20,4 @@ public:
 	void AddContact(CollisionHandler* collisionHandler);
 };
 //=============================================================================
-#endif // CABLE_CONTACT_GENERATOR
+#endif // CABLE_CONTACT_GENERATOR_H

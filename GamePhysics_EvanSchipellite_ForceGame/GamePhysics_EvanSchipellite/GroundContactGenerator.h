@@ -5,8 +5,8 @@
 //
 // Handles Ground Contact at a Y position
 //=============================================================================
-#ifndef GROUND_CONTACT_GENERATOR
-#define GROUND_CONTACT_GENERATOR
+#ifndef GROUND_CONTACT_GENERATOR_H
+#define GROUND_CONTACT_GENERATOR_H
 //=============================================================================
 #include "ContactGenerator.h"
 //=============================================================================
@@ -23,4 +23,4 @@ public:
 	inline void SetGroundY(float groundY) { m_GroundY = groundY; };
 };
 //=============================================================================
-#endif // GROUND_CONTACT_GENERATOR
+#endif // GROUND_CONTACT_GENERATOR_H

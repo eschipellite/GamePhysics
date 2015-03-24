@@ -1,6 +1,5 @@
 c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_forcegame\gamephysics_evanschipellite\debug\vc120.pdb
 c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_forcegame\gamephysics_evanschipellite\debug\vc120.idb
-c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_forcegame\gamephysics_evanschipellite\debug\generator.obj
 c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_forcegame\gamephysics_evanschipellite\debug\gravitygenerator.obj
 c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_forcegame\gamephysics_evanschipellite\debug\ground.obj
 c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_forcegame\gamephysics_evanschipellite\debug\groundcontactgenerator.obj
@@ -19,7 +18,9 @@ c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_forcegame\
 c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_forcegame\gamephysics_evanschipellite\debug\rodcontactgenerator.obj
 c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_forcegame\gamephysics_evanschipellite\debug\skybox.obj
 c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_forcegame\gamephysics_evanschipellite\debug\source.obj
+c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_forcegame\gamephysics_evanschipellite\debug\springcontactgenerator.obj
 c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_forcegame\gamephysics_evanschipellite\debug\vector3d.obj
+c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_forcegame\gamephysics_evanschipellite\debug\cablecontactgenerator.obj
 c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_forcegame\gamephysics_evanschipellite\debug\camera.obj
 c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_forcegame\gamephysics_evanschipellite\debug\collectible.obj
 c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_forcegame\gamephysics_evanschipellite\debug\collisionhandler.obj
@@ -32,7 +33,8 @@ c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_forcegame\
 c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_forcegame\gamephysics_evanschipellite\debug\forceregistration.obj
 c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_forcegame\gamephysics_evanschipellite\debug\forceregistry.obj
 c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_forcegame\gamephysics_evanschipellite\debug\gameapp.obj
-c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_forcegame\gamephysics_evanschipellite\debug\cablecontactgenerator.obj
+c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_forcegame\gamephysics_evanschipellite\debug\generator.obj
+c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_forcegame\gamephysics_evanschipellite\debug\bungeecontactgenerator.obj
 c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_forcegame\debug\gamephysics_evanschipellite.ilk
 c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_forcegame\debug\gamephysics_evanschipellite.exe
 c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_forcegame\debug\gamephysics_evanschipellite.pdb

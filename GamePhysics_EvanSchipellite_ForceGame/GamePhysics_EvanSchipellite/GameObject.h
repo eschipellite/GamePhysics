@@ -9,7 +9,6 @@
 #define GAME_OBJECT_H
 //=============================================================================
 #include "PhysicsObject.h"
-#include <SOIL.h>
 #include <iostream>
 //=============================================================================
 class GameObject :
@@ -26,6 +25,8 @@ protected:
 public:
 	GameObject();
 	~GameObject();
+
+	void Initialize(Vector3D initialPosition, std::string texture, float mass = 1);
 
 	virtual void Draw();
 };

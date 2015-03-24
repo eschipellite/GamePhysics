@@ -4,6 +4,7 @@
 // Written by Evan Schipellite
 //=============================================================================
 #include "Collectible.h"
+#include "GameObject.h"
 //=============================================================================
 Collectible::Collectible()
 {
@@ -15,31 +16,53 @@ Collectible::~Collectible()
 }
 
 //-----------------------------------------------------------------------------
-void Collectible::Initialize(Vector3D initialPosition, std::string texture)
+void Collectible::Initialize(Vector3D initialPosition, std::string texture, float mass)
 {
-	PhysicsObject::Initialize(1, initialPosition, Vector3D::Zero, Vector3D::Zero, Vector3D::Zero, .9999f);
+	GameObject* gameObject = new GameObject();
+	gameObject->Initialize(initialPosition, texture, mass);
+	mp_GameObjects.push_back(gameObject);
+}
 
-	loadTexture(texture);
+//-----------------------------------------------------------------------------
+void Collectible::CleanUp()
+{
+	std::vector<GameObject*>::iterator gameObjectIter;
+	for (gameObjectIter = mp_GameObjects.begin(); gameObjectIter != mp_GameObjects.end(); gameObjectIter++)
+	{
+		(*gameObjectIter)->CleanUp();
+		delete (*gameObjectIter);
+		(*gameObjectIter) = nullptr;
+	}
+	mp_GameObjects.clear();
+}
+
+//-----------------------------------------------------------------------------
+void Collectible::Reset()
+{
+	std::vector<GameObject*>::iterator gameObjectIter;
+	for (gameObjectIter = mp_GameObjects.begin(); gameObjectIter != mp_GameObjects.end(); gameObjectIter++)
+	{
+		(*gameObjectIter)->Reset();
+	}
+}
+
+//-----------------------------------------------------------------------------
+void Collectible::Update(float deltaTime)
+{
+	std::vector<GameObject*>::iterator gameObjectIter;
+	for (gameObjectIter = mp_GameObjects.begin(); gameObjectIter != mp_GameObjects.end(); gameObjectIter++)
+	{
+		(*gameObjectIter)->Update(deltaTime);
+	}
 }
 
 //-----------------------------------------------------------------------------
 void Collectible::Draw()
 {
-	glEnable(GL_TEXTURE_2D);
-	glBindTexture(GL_TEXTURE_2D, m_Texture);
-	gluQuadricTexture(m_Quad, m_Texture);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-	gluQuadricDrawStyle(m_Quad, GLU_FILL);
-	gluQuadricTexture(m_Quad, GL_TRUE);
-	gluQuadricNormals(m_Quad, GLU_SMOOTH);
-
-	glPushMatrix();
-	glTranslatef(m_CurrentPosition.X, m_CurrentPosition.Y, m_CurrentPosition.Z);
-	gluSphere(m_Quad, m_Radius, 36, 36);
-
-	glPopMatrix();
-
-	glDisable(GL_TEXTURE_2D);
+	std::vector<GameObject*>::iterator gameObjectIter;
+	for (gameObjectIter = mp_GameObjects.begin(); gameObjectIter != mp_GameObjects.end(); gameObjectIter++)
+	{
+		(*gameObjectIter)->Draw();
+	}
 }
 //=============================================================================

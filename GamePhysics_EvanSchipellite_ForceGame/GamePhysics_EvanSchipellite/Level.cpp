@@ -13,8 +13,13 @@
 #include "PhysicsHandler.h"
 #include "PhysicsObject.h"
 #include "Collectible.h"
+#include "CubeCollectible.h"
+#include "DiamondCollectible.h"
+#include "TetrahedronCollectible.h"
 #include "RodContactGenerator.h"
 #include "CableContactGenerator.h"
+#include "SpringContactGenerator.h"
+#include "BungeeContactGenerator.h"
 //=============================================================================
 Level::Level()
 {
@@ -64,7 +69,12 @@ std::vector<ForceRegister> Level::getCollectibleForceRegisters()
 	std::vector<Collectible*>::iterator collectibleObjectIter;
 	for (collectibleObjectIter = mp_CollectibleObjects.begin(); collectibleObjectIter != mp_CollectibleObjects.end(); collectibleObjectIter++)
 	{
-		forceRegisters.push_back(ForceRegister(GeneratorType::EARTH_GRAVITY_GENERATOR, (*collectibleObjectIter)));
+		std::vector<GameObject*> collectibleObjects = (*collectibleObjectIter)->GetGameObjects();
+		std::vector<GameObject*>::iterator gameObjectIter;
+		for (gameObjectIter = collectibleObjects.begin(); gameObjectIter != collectibleObjects.end(); gameObjectIter++)
+		{
+			forceRegisters.push_back(ForceRegister(GeneratorType::EARTH_GRAVITY_GENERATOR, (*gameObjectIter)));
+		}
 	}
 
 	return forceRegisters;
@@ -77,7 +87,12 @@ std::vector<PhysicsObject*> Level::getCollectibleCollisionObjects()
 	std::vector<Collectible*>::iterator collectibleObjectIter;
 	for (collectibleObjectIter = mp_CollectibleObjects.begin(); collectibleObjectIter != mp_CollectibleObjects.end(); collectibleObjectIter++)
 	{
-		collectibleCollisiobObjects.push_back((*collectibleObjectIter));
+		std::vector<GameObject*> collectibleObjects = (*collectibleObjectIter)->GetGameObjects();
+		std::vector<GameObject*>::iterator gameObjectIter;
+		for (gameObjectIter = collectibleObjects.begin(); gameObjectIter != collectibleObjects.end(); gameObjectIter++)
+		{
+			collectibleCollisiobObjects.push_back((*gameObjectIter));
+		}
 	}
 
 	return collectibleCollisiobObjects;
@@ -89,10 +104,19 @@ void Level::Initialize(Vector3D dimensions, std::string groundTexture, Vector3D 
 	mp_Ground->Initialize(dimensions, 1, Vector3D(0, -dimensions.Y, 0), groundTexture);
 	mp_Player->Initialize(playerPosition, playerTexture);
 
-	Collectible* collectibleOne = new Collectible();
-	collectibleOne->Initialize(Vector3D(5, 5, 0), collectibleTexture);
+	TetrahedronCollectible* collectibleOne = new TetrahedronCollectible();
+	collectibleOne->Initialize(Vector3D(5, 5, 0), collectibleTexture, 5);
 	mp_CollectibleObjects.push_back(collectibleOne);
-	mp_ContactGenerators.push_back(new CableContactGenerator(mp_Player, collectibleOne, 3));
+
+	CubeCollectible* collectibleTwo = new CubeCollectible();
+	collectibleTwo->Initialize(Vector3D(-15, 5, 0), collectibleTexture, 5);
+	mp_CollectibleObjects.push_back(collectibleTwo);
+
+	DiamondCollectible* collectibleThree = new DiamondCollectible();
+	collectibleThree->Initialize(Vector3D(20, 5, 0), collectibleTexture, 5);
+	mp_CollectibleObjects.push_back(collectibleThree);
+
+	//mp_ContactGenerators.push_back(new BungeeContactGenerator(mp_Player, collectibleOne, .5f, 1));
 }
 
 //-----------------------------------------------------------------------------
@@ -176,6 +200,16 @@ std::vector<PhysicsObject*> Level::GetCollisionObjects()
 //-----------------------------------------------------------------------------
 std::vector<ContactGenerator*> Level::GetContactGenerators()
 {
-	return mp_ContactGenerators;
+	std::vector<ContactGenerator*> contactGenerators;
+	contactGenerators.insert(contactGenerators.end(), mp_ContactGenerators.begin(), mp_ContactGenerators.end());
+
+	std::vector<Collectible*>::iterator collectibleObjectIter;
+	for (collectibleObjectIter = mp_CollectibleObjects.begin(); collectibleObjectIter != mp_CollectibleObjects.end(); collectibleObjectIter++)
+	{
+		std::vector<ContactGenerator*> collectibleContactGenerators = (*collectibleObjectIter)->GetContactGenerators();
+		contactGenerators.insert(contactGenerators.end(), collectibleContactGenerators.begin(), collectibleContactGenerators.end());
+	}
+
+	return contactGenerators;
 }
 //=============================================================================

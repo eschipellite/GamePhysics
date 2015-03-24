@@ -186,6 +186,21 @@
     <ClCompile Include="Collectible.cpp">
       <Filter>Source Files\Objects\Level</Filter>
     </ClCompile>
+    <ClCompile Include="SpringContactGenerator.cpp">
+      <Filter>Source Files\Physics\Collision\ContactGenerators</Filter>
+    </ClCompile>
+    <ClCompile Include="CubeCollectible.cpp">
+      <Filter>Source Files\Objects\Level</Filter>
+    </ClCompile>
+    <ClCompile Include="BungeeContactGenerator.cpp">
+      <Filter>Source Files\Physics\Collision\ContactGenerators</Filter>
+    </ClCompile>
+    <ClCompile Include="TetrahedronCollectible.cpp">
+      <Filter>Source Files\Objects\Level</Filter>
+    </ClCompile>
+    <ClCompile Include="DiamondCollectible.cpp">
+      <Filter>Source Files\Objects\Level</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameApp.h">
@@ -282,6 +297,21 @@
       <Filter>Header Files\Physics\Collision\ContactGenerators</Filter>
     </ClInclude>
     <ClInclude Include="Collectible.h">
+      <Filter>Header Files\Objects\Level</Filter>
+    </ClInclude>
+    <ClInclude Include="SpringContactGenerator.h">
+      <Filter>Header Files\Physics\Collision\ContactGenerators</Filter>
+    </ClInclude>
+    <ClInclude Include="CubeCollectible.h">
+      <Filter>Header Files\Objects\Level</Filter>
+    </ClInclude>
+    <ClInclude Include="BungeeContactGenerator.h">
+      <Filter>Header Files\Physics\Collision\ContactGenerators</Filter>
+    </ClInclude>
+    <ClInclude Include="TetrahedronCollectible.h">
+      <Filter>Header Files\Objects\Level</Filter>
+    </ClInclude>
+    <ClInclude Include="DiamondCollectible.h">
       <Filter>Header Files\Objects\Level</Filter>
     </ClInclude>
   </ItemGroup>

@@ -5,11 +5,12 @@
 //
 // Handles Contact additions for Rods
 //=============================================================================
-#ifndef ROD_CONTACT_GENERATOR
-#define ROD_CONTACT_GENERATOR
+#ifndef ROD_CONTACT_GENERATOR_H
+#define ROD_CONTACT_GENERATOR_H
 //=============================================================================
 #include "ContactGenerator.h"
-#include "PhysicsHandler.h"
+#include "PhysicsObject.h"
+#include "CollisionHandler.h"
 //=============================================================================
 class RodContactGenerator :
 	public ContactGenerator
@@ -30,4 +31,4 @@ public:
 	virtual void AddContact(CollisionHandler* collisionHandler);
 };
 //=============================================================================
-#endif // ROD_CONTACT_GENERATOR
+#endif // ROD_CONTACT_GENERATOR_H
