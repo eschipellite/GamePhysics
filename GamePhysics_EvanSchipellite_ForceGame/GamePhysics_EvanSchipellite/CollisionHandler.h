@@ -23,6 +23,8 @@ private:
 	std::vector<ContactGenerator*> mp_ContactGenerators;
 	std::vector<Contact> m_Contacts;
 
+	int m_MaxChecks;
+
 private:
 	int checkCollisions();
 	void resolveContacts(float deltaTime);

@@ -13,6 +13,7 @@
 //=============================================================================
 CollisionHandler::CollisionHandler()
 {
+	m_MaxChecks = 25;
 }
 
 //-----------------------------------------------------------------------------
@@ -62,6 +63,10 @@ void CollisionHandler::Update(float deltaTime)
 {
 	int checkCount = checkCollisions() * 2 - 1;
 	resolveContacts(deltaTime);
+	if (checkCount > m_MaxChecks)
+	{
+		checkCount = m_MaxChecks;
+	}
 
 	for (int index = 0; index < checkCount; index++)
 	{
