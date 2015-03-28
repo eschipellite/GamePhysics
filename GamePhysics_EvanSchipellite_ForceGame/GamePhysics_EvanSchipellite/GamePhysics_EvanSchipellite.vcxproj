@@ -70,7 +70,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="BungeeContactGenerator.cpp" />
+    <ClCompile Include="BungeeForceGenerator.cpp" />
     <ClCompile Include="CableContactGenerator.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Collectible.cpp" />
@@ -86,15 +86,12 @@
     <ClCompile Include="ForceRegistration.cpp" />
     <ClCompile Include="ForceRegistry.cpp" />
     <ClCompile Include="GameApp.cpp" />
-    <ClCompile Include="Generator.cpp" />
     <ClCompile Include="GravityGenerator.cpp" />
     <ClCompile Include="Ground.cpp" />
     <ClCompile Include="GroundContactGenerator.cpp" />
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="EditorState.cpp" />
-    <ClCompile Include="ObjectForceGenerator.cpp" />
-    <ClCompile Include="ObjectForceRegistration.cpp" />
     <ClCompile Include="Particle.cpp" />
     <ClCompile Include="PhysicsHandler.cpp" />
     <ClCompile Include="PhysicsObject.cpp" />
@@ -105,12 +102,12 @@
     <ClCompile Include="RodContactGenerator.cpp" />
     <ClCompile Include="Skybox.cpp" />
     <ClCompile Include="Source.cpp" />
-    <ClCompile Include="SpringContactGenerator.cpp" />
+    <ClCompile Include="SpringForceGenerator.cpp" />
     <ClCompile Include="TetrahedronCollectible.cpp" />
     <ClCompile Include="Vector3D.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BungeeContactGenerator.h" />
+    <ClInclude Include="BungeeForceGenerator.h" />
     <ClInclude Include="CableContactGenerator.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Collectible.h" />
@@ -126,15 +123,12 @@
     <ClInclude Include="ForceRegistration.h" />
     <ClInclude Include="ForceRegistry.h" />
     <ClInclude Include="GameApp.h" />
-    <ClInclude Include="Generator.h" />
     <ClInclude Include="GravityGenerator.h" />
     <ClInclude Include="Ground.h" />
     <ClInclude Include="GroundContactGenerator.h" />
     <ClInclude Include="Level.h" />
     <ClInclude Include="Matrix.h" />
     <ClInclude Include="EditorState.h" />
-    <ClInclude Include="ObjectForceGenerator.h" />
-    <ClInclude Include="ObjectForceRegistration.h" />
     <ClInclude Include="Particle.h" />
     <ClInclude Include="PhysicsHandler.h" />
     <ClInclude Include="PhysicsObject.h" />
@@ -144,7 +138,7 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="RodContactGenerator.h" />
     <ClInclude Include="Skybox.h" />
-    <ClInclude Include="SpringContactGenerator.h" />
+    <ClInclude Include="SpringForceGenerator.h" />
     <ClInclude Include="TetrahedronCollectible.h" />
     <ClInclude Include="Vector3D.h" />
   </ItemGroup>

@@ -1,9 +1,15 @@
-﻿Build started 3/24/2015 5:55:16 PM.
+﻿Build started 3/28/2015 1:10:59 PM.
      1>Project "C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_ForceGame\UnitTesting_GamePhysics_EvanSchipellite\UnitTesting_GamePhysics_EvanSchipellite.vcxproj" on node 2 (Build target(s)).
      1>Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_ForceGame\Debug\UnitTesting_GamePhysics_EvanSchipellite.dll" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_ForceGame\\Lib\glui-2.36\Debug" /LIBPATH:"C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_ForceGame\\Lib\Simple OpenGL Image Library\Debug" /LIBPATH:"C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\UnitTest\lib" /LIBPATH:C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_ForceGame\\GamePhysics_EvanSchipellite\Debug\ C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_ForceGame\packages\nupengl.core.0.0.0.1\build\native\../..//build/native/lib/Win32\v120\glew32.lib C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_ForceGame\packages\nupengl.core.0.0.0.1\build\native\../..//build/native/lib/Win32\v120\glfw3dll.lib C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_ForceGame\packages\nupengl.core.0.0.0.1\build\native\../..//build/native/lib/Win32\v120\freeglut.lib freeglut.lib glui32.lib OpenGL32.lib glu32.lib PhysicsObject.obj Matrix.obj Vector3D.obj kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_ForceGame\Debug\UnitTesting_GamePhysics_EvanSchipellite.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_ForceGame\Debug\UnitTesting_GamePhysics_EvanSchipellite.lib" /MACHINE:X86 /DLL Debug\UnitTesting_GamePhysics_EvanSchipellite.res
+         Debug\stdafx.obj
+         Debug\Test_Matrix.obj
+         Debug\Test_PhysicsObject.obj
+         Debug\Test_Vector3D.obj
+            Creating library C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_ForceGame\Debug\UnitTesting_GamePhysics_EvanSchipellite.lib and object C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_ForceGame\Debug\UnitTesting_GamePhysics_EvanSchipellite.exp
          UnitTesting_GamePhysics_EvanSchipellite.vcxproj -> C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_ForceGame\Debug\UnitTesting_GamePhysics_EvanSchipellite.dll
      1>Done Building Project "C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_ForceGame\UnitTesting_GamePhysics_EvanSchipellite\UnitTesting_GamePhysics_EvanSchipellite.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.05
+Time Elapsed 00:00:00.76

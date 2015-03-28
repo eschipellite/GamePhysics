@@ -11,9 +11,7 @@
 //=============================================================================
 #include <vector>
 #include "ForceGenerator.h"
-#include "ObjectForceGenerator.h"
 #include "ForceRegistry.h"
-#include "Generator.h"
 #include "CollisionHandler.h"
 //=============================================================================
 //                              Register
@@ -25,15 +23,15 @@
 class ForceRegister
 {
 public:
-	GeneratorType _GeneratorType;
+	ForceGenerator* _ForceGenerator;
 	PhysicsObject* _PhysicsObjectOne;
 	PhysicsObject* _PhysicsObjectTwo;
 public:
 	ForceRegister() {};
 	
-	ForceRegister(GeneratorType generatorType, PhysicsObject* physicsObjectOne, PhysicsObject* physicsObjectTwo = NULL)
+	ForceRegister(ForceGenerator* forceGenerator, PhysicsObject* physicsObjectOne, PhysicsObject* physicsObjectTwo = NULL)
 	{
-		_GeneratorType = generatorType;
+		_ForceGenerator = forceGenerator;
 		_PhysicsObjectOne = physicsObjectOne;
 		_PhysicsObjectTwo = physicsObjectTwo;
 	}
@@ -47,16 +45,11 @@ class PhysicsHandler
 {
 private:
 	std::vector<ForceGenerator*> m_ForceGenerators;
-	std::vector<ObjectForceGenerator*> m_ObjectForceGenerators;
 	ForceRegistry* m_ForceRegistry;
 	CollisionHandler* mp_CollisionHandler;
 
 private:
 	void cleanUpForceGenerators();
-	void cleanUpObjectForceGenerators();
-
-	ForceGenerator* getForceGeneratorFromType(GeneratorType generatorType);
-	ObjectForceGenerator* getObjectForceGeneratorFromType(GeneratorType generatorType);
 
 public:
 	PhysicsHandler();
@@ -67,7 +60,7 @@ public:
 	void Reset();
 	void CleanUp();
 
-	void AddToRegistry(GeneratorType generatorType, PhysicsObject* physicsObjectOne, PhysicsObject* physicsObjectTwo = NULL);
+	void AddToRegistry(ForceGenerator* forceGenerator, PhysicsObject* physicsObjectOne, PhysicsObject* physicsObjectTwo = NULL);
 	void AddToRegistry(ForceRegister forceRegister);
 	void AddToRegistry(std::vector<ForceRegister> forceRegisters);
 

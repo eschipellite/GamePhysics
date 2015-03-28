@@ -11,6 +11,7 @@
 #include <iostream>
 #include <vector>
 
+class ForceGenerator;
 class Ground;
 class Player;
 class Vector3D;
@@ -27,6 +28,7 @@ private:
 
 	std::vector<Collectible*> mp_CollectibleObjects;
 
+	std::vector<ForceGenerator*> mp_ForceGenerators;
 	std::vector<ContactGenerator*> mp_ContactGenerators;
 
 private:
@@ -47,11 +49,11 @@ public:
 	void Update(float deltaTime);
 	void Reset();
 
-	std::vector<ForceRegister> GetForceRegisters();
-
 	PhysicsObject* GetGround();
+	PhysicsObject* GetPlayer();
 	std::vector<PhysicsObject*> GetCollisionObjects();
 
+	std::vector<ForceRegister> GetForceRegisters();
 	std::vector<ContactGenerator*> GetContactGenerators();
 };
 //=============================================================================

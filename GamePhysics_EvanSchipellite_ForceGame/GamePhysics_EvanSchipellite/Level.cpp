@@ -18,8 +18,9 @@
 #include "TetrahedronCollectible.h"
 #include "RodContactGenerator.h"
 #include "CableContactGenerator.h"
-#include "SpringContactGenerator.h"
-#include "BungeeContactGenerator.h"
+#include "SpringForceGenerator.h"
+#include "BungeeForceGenerator.h"
+#include "EarthGravityGenerator.h"
 //=============================================================================
 Level::Level()
 {
@@ -73,7 +74,7 @@ std::vector<ForceRegister> Level::getCollectibleForceRegisters()
 		std::vector<GameObject*>::iterator gameObjectIter;
 		for (gameObjectIter = collectibleObjects.begin(); gameObjectIter != collectibleObjects.end(); gameObjectIter++)
 		{
-			forceRegisters.push_back(ForceRegister(GeneratorType::EARTH_GRAVITY_GENERATOR, (*gameObjectIter)));
+			forceRegisters.push_back(ForceRegister(new EarthGravityGenerator(Vector3D(0, -9.8f, 0)), (*gameObjectIter)));
 		}
 	}
 
@@ -172,19 +173,15 @@ void Level::Reset()
 }
 
 //-----------------------------------------------------------------------------
-std::vector<ForceRegister> Level::GetForceRegisters()
-{
-	std::vector<ForceRegister> forceRegisters = getCollectibleForceRegisters();
-
-	forceRegisters.push_back(ForceRegister(GeneratorType::EARTH_GRAVITY_GENERATOR, mp_Player));
-
-	return forceRegisters;
-}
-
-//-----------------------------------------------------------------------------
 PhysicsObject* Level::GetGround()
 {
 	return dynamic_cast <PhysicsObject*>(mp_Ground);
+}
+
+//-----------------------------------------------------------------------------
+PhysicsObject* Level::GetPlayer()
+{
+	return dynamic_cast <PhysicsObject*>(mp_Player);
 }
 
 //-----------------------------------------------------------------------------
@@ -195,6 +192,16 @@ std::vector<PhysicsObject*> Level::GetCollisionObjects()
 	collisionObjects.push_back(mp_Player);
 
 	return collisionObjects;
+}
+
+//-----------------------------------------------------------------------------
+std::vector<ForceRegister> Level::GetForceRegisters()
+{
+	std::vector<ForceRegister> forceRegisters = getCollectibleForceRegisters();
+
+	forceRegisters.push_back(ForceRegister(new EarthGravityGenerator(Vector3D(0, -9.8f, 0)), mp_Player));
+
+	return forceRegisters;
 }
 
 //-----------------------------------------------------------------------------

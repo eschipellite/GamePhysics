@@ -9,8 +9,6 @@
 //=============================================================================
 EarthGravityGenerator::EarthGravityGenerator(const Vector3D &gravity)
 {
-	m_GeneratorType = GeneratorType::EARTH_GRAVITY_GENERATOR;
-
 	m_Gravity = gravity;
 }
 
@@ -20,8 +18,8 @@ EarthGravityGenerator::~EarthGravityGenerator()
 }
 
 //-----------------------------------------------------------------------------
-void EarthGravityGenerator::UpdateForce(PhysicsObject* physicsObject)
+void EarthGravityGenerator::UpdateForce(PhysicsObject* physicsObjectOne, PhysicsObject* physicsObjectTwo)
 {
-	physicsObject->AddForce(m_Gravity * physicsObject->GetMass());
+	physicsObjectOne->AddForce(m_Gravity * physicsObjectOne->GetMass());
 }
 //=============================================================================

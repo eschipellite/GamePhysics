@@ -21,7 +21,7 @@ public:
 	EarthGravityGenerator(const Vector3D &gravity);
 	~EarthGravityGenerator();
 
-	void UpdateForce(PhysicsObject* physicsObject);
+	void UpdateForce(PhysicsObject* physicsObjectOne, PhysicsObject* physicsObjectTwo = NULL);
 };
 //=============================================================================
 #endif // EARTH_GRAVITY_GENERATOR_H

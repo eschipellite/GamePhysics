@@ -43,6 +43,7 @@ void GameApp::Initialize()
 	Vector3D centerPosition = Vector3D(0, 0, 0);
 	Vector3D centerRotation = Vector3D(0, 0, 0);
 	mp_Camera->Initialize(centerPosition, centerRotation);
+	//mp_Camera->SetFollowObject(mp_Level->GetPlayer());
 
 	mp_Level->Initialize(Vector3D(50, 5, 50), "Content/Textures/Texture_Grass.png", Vector3D(0, 2, 0), "Content/Textures/Texture_Player.jpg", "Content/Textures/Texture_Collectible.jpg");
 

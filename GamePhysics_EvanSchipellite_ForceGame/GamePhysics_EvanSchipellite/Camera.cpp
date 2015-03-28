@@ -39,7 +39,7 @@ Camera::~Camera()
 }
 
 //-----------------------------------------------------------------------------
-void Camera::move()
+void Camera::freeMove()
 {
 	Vector3D radianRotation = Vector3D((float)(m_Rotation.X / 180 * M_PI), (float)(m_Rotation.Y / 180 * M_PI));
 
@@ -78,6 +78,12 @@ void Camera::move()
 }
 
 //-----------------------------------------------------------------------------
+void Camera::followMove()
+{
+
+}
+
+//-----------------------------------------------------------------------------
 void Camera::CleanUp()
 {
 
@@ -98,7 +104,14 @@ void Camera::Initialize(Vector3D initialPosition, Vector3D initialRotation)
 //-----------------------------------------------------------------------------
 void Camera::Update()
 {
-	move();
+	if (m_ShouldFollowObject)
+	{
+
+	}
+	else
+	{
+		freeMove();
+	}
 
 	glLoadIdentity();
 	glRotatef(m_Rotation.X, 1.0, 0.0, 0.0);
@@ -183,5 +196,18 @@ void Camera::HandleMouse(Vector3D mousePosition)
 	m_LastMousePosition = mousePosition;
 	m_Rotation.X = m_Rotation.X + difference.Y * m_MouseSpeed;
 	m_Rotation.Y = m_Rotation.Y + difference.X * m_MouseSpeed;
+}
+
+//-----------------------------------------------------------------------------
+void Camera::SetFollowObject(PhysicsObject* followObject)
+{
+	mp_FollowObject = followObject;
+	ToggleShouldFollow(true);
+}
+
+//-----------------------------------------------------------------------------
+void Camera::ToggleShouldFollow(bool toggle)
+{
+	m_ShouldFollowObject = toggle;
 }
 //=============================================================================

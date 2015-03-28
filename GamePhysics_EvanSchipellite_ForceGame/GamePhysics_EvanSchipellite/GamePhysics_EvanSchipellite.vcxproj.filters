@@ -129,9 +129,6 @@
     <ClCompile Include="GravityGenerator.cpp">
       <Filter>Source Files\Physics\Generators</Filter>
     </ClCompile>
-    <ClCompile Include="ObjectForceGenerator.cpp">
-      <Filter>Source Files\Physics\Generators</Filter>
-    </ClCompile>
     <ClCompile Include="PhysicsHandler.cpp">
       <Filter>Source Files\Physics</Filter>
     </ClCompile>
@@ -140,12 +137,6 @@
     </ClCompile>
     <ClCompile Include="ForceRegistry.cpp">
       <Filter>Source Files\Physics\ForceRegistration</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjectForceRegistration.cpp">
-      <Filter>Source Files\Physics\ForceRegistration</Filter>
-    </ClCompile>
-    <ClCompile Include="Generator.cpp">
-      <Filter>Source Files\Physics\Generators</Filter>
     </ClCompile>
     <ClCompile Include="Level.cpp">
       <Filter>Source Files\Level</Filter>
@@ -186,20 +177,20 @@
     <ClCompile Include="Collectible.cpp">
       <Filter>Source Files\Objects\Level</Filter>
     </ClCompile>
-    <ClCompile Include="SpringContactGenerator.cpp">
-      <Filter>Source Files\Physics\Collision\ContactGenerators</Filter>
-    </ClCompile>
     <ClCompile Include="CubeCollectible.cpp">
       <Filter>Source Files\Objects\Level</Filter>
-    </ClCompile>
-    <ClCompile Include="BungeeContactGenerator.cpp">
-      <Filter>Source Files\Physics\Collision\ContactGenerators</Filter>
     </ClCompile>
     <ClCompile Include="TetrahedronCollectible.cpp">
       <Filter>Source Files\Objects\Level</Filter>
     </ClCompile>
     <ClCompile Include="DiamondCollectible.cpp">
       <Filter>Source Files\Objects\Level</Filter>
+    </ClCompile>
+    <ClCompile Include="SpringForceGenerator.cpp">
+      <Filter>Source Files\Physics\Generators</Filter>
+    </ClCompile>
+    <ClCompile Include="BungeeForceGenerator.cpp">
+      <Filter>Source Files\Physics\Generators</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -242,9 +233,6 @@
     <ClInclude Include="GravityGenerator.h">
       <Filter>Header Files\Physics\Generators</Filter>
     </ClInclude>
-    <ClInclude Include="ObjectForceGenerator.h">
-      <Filter>Header Files\Physics\Generators</Filter>
-    </ClInclude>
     <ClInclude Include="PhysicsHandler.h">
       <Filter>Header Files\Physics</Filter>
     </ClInclude>
@@ -253,12 +241,6 @@
     </ClInclude>
     <ClInclude Include="ForceRegistry.h">
       <Filter>Header Files\Physics\ForceRegistration</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjectForceRegistration.h">
-      <Filter>Header Files\Physics\ForceRegistration</Filter>
-    </ClInclude>
-    <ClInclude Include="Generator.h">
-      <Filter>Header Files\Physics\Generators</Filter>
     </ClInclude>
     <ClInclude Include="Level.h">
       <Filter>Header Files\Level</Filter>
@@ -299,20 +281,20 @@
     <ClInclude Include="Collectible.h">
       <Filter>Header Files\Objects\Level</Filter>
     </ClInclude>
-    <ClInclude Include="SpringContactGenerator.h">
-      <Filter>Header Files\Physics\Collision\ContactGenerators</Filter>
-    </ClInclude>
     <ClInclude Include="CubeCollectible.h">
       <Filter>Header Files\Objects\Level</Filter>
-    </ClInclude>
-    <ClInclude Include="BungeeContactGenerator.h">
-      <Filter>Header Files\Physics\Collision\ContactGenerators</Filter>
     </ClInclude>
     <ClInclude Include="TetrahedronCollectible.h">
       <Filter>Header Files\Objects\Level</Filter>
     </ClInclude>
     <ClInclude Include="DiamondCollectible.h">
       <Filter>Header Files\Objects\Level</Filter>
+    </ClInclude>
+    <ClInclude Include="SpringForceGenerator.h">
+      <Filter>Header Files\Physics\Generators</Filter>
+    </ClInclude>
+    <ClInclude Include="BungeeForceGenerator.h">
+      <Filter>Header Files\Physics\Generators</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

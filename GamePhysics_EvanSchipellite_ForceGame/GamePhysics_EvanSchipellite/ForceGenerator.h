@@ -5,20 +5,18 @@
 //
 // Base Force Generator class for Physics System
 //=============================================================================
-#ifndef FORCEGENERATOR_H
-#define FORCEGENERATOR_H
+#ifndef FORCE_GENERATOR_H
+#define FORCE_GENERATOR_H
 //=============================================================================
 #include "PhysicsObject.h"
-#include "Generator.h"
 //=============================================================================
-class ForceGenerator :
-	public Generator
+class ForceGenerator
 {
 public:
 	ForceGenerator();
 	~ForceGenerator();
 
-	virtual void UpdateForce(PhysicsObject* physicsObject) = 0;
+	virtual void UpdateForce(PhysicsObject* physicsObjectOne, PhysicsObject* physicsObjectTwo = NULL) = 0;
 };
 //=============================================================================
 #endif //FORCEGENERATOR_H

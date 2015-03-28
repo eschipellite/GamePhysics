@@ -44,7 +44,6 @@ void PhysicsHandler::Reset()
 void PhysicsHandler::CleanUp()
 {
 	cleanUpForceGenerators();
-	cleanUpObjectForceGenerators();
 	
 	if (mp_CollisionHandler != NULL)
 	{
@@ -67,74 +66,15 @@ void PhysicsHandler::cleanUpForceGenerators()
 }
 
 //-----------------------------------------------------------------------------
-void PhysicsHandler::cleanUpObjectForceGenerators()
+void PhysicsHandler::AddToRegistry(ForceGenerator* forceGenerator, PhysicsObject* physicsObjectOne, PhysicsObject* physicsObjectTwo)
 {
-	std::vector<ObjectForceGenerator*>::iterator iter;
-	for (iter = m_ObjectForceGenerators.begin(); iter != m_ObjectForceGenerators.end(); iter++)
-	{
-		delete *iter;
-	}
-
-	m_ObjectForceGenerators.clear();
-}
-
-//-----------------------------------------------------------------------------
-ForceGenerator* PhysicsHandler::getForceGeneratorFromType(GeneratorType generatorType)
-{
-	std::vector<ForceGenerator*>::iterator iter;
-	for (iter = m_ForceGenerators.begin(); iter != m_ForceGenerators.end(); iter++)
-	{
-		if ((*iter)->GetGeneratorType() == generatorType)
-		{
-			return (*iter);
-		}
-	}
-
-	return NULL;
-}
-
-//-----------------------------------------------------------------------------
-ObjectForceGenerator* PhysicsHandler::getObjectForceGeneratorFromType(GeneratorType generatorType)
-{
-	std::vector<ObjectForceGenerator*>::iterator iter;
-	for (iter = m_ObjectForceGenerators.begin(); iter != m_ObjectForceGenerators.end(); iter++)
-	{
-		if ((*iter)->GetGeneratorType() == generatorType)
-		{
-			return (*iter);
-		}
-	}
-
-	return NULL;
-}
-
-//-----------------------------------------------------------------------------
-void PhysicsHandler::AddToRegistry(GeneratorType generatorType, PhysicsObject* physicsObjectOne, PhysicsObject* physicsObjectTwo)
-{
-	if (physicsObjectTwo == NULL)
-	{
-		ForceGenerator* forceGenerator = getForceGeneratorFromType(generatorType);
-
-		if (forceGenerator != NULL)
-		{
-			m_ForceRegistry->AddRegistration(forceGenerator, physicsObjectOne);
-		}
-	}
-	else
-	{
-		ObjectForceGenerator* objectForceGenerator = getObjectForceGeneratorFromType(generatorType);
-
-		if (objectForceGenerator != NULL)
-		{
-			m_ForceRegistry->AddRegistration(objectForceGenerator, physicsObjectOne, physicsObjectTwo);
-		}
-	}
+	m_ForceRegistry->AddForceRegistration(forceGenerator, physicsObjectOne);
 }
 
 //-----------------------------------------------------------------------------
 void PhysicsHandler::AddToRegistry(ForceRegister forceRegister)
 {
-	AddToRegistry(forceRegister._GeneratorType, forceRegister._PhysicsObjectOne, forceRegister._PhysicsObjectTwo);
+	AddToRegistry(forceRegister._ForceGenerator, forceRegister._PhysicsObjectOne, forceRegister._PhysicsObjectTwo);
 }
 
 //-----------------------------------------------------------------------------

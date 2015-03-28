@@ -8,10 +8,10 @@
 #ifndef GRAVITYGENERATOR_H
 #define GRAVITYGENERATOR_H
 //=============================================================================
-#include "ObjectForceGenerator.h"
+#include "ForceGenerator.h"
 //=============================================================================
 class GravityGenerator :
-	public ObjectForceGenerator
+	public ForceGenerator
 {
 private:
 	static const float GRAVITY_CONSTANT;
@@ -19,7 +19,7 @@ public:
 	GravityGenerator();
 	~GravityGenerator();
 
-	virtual void UpdateForce(PhysicsObject* physicsObjectOne, PhysicsObject* physicsObjectTwo);
+	void UpdateForce(PhysicsObject* physicsObjectOne, PhysicsObject* physicsObjectTwo = NULL);
 };
 //=============================================================================
 #endif //GRAVITYGENERATOR_H

@@ -6,6 +6,7 @@
 // Manages all orbiting planets
 //=============================================================================
 #include "PlanetHandler.h"
+#include "GravityGenerator.h"
 //=============================================================================
 PlanetHandler::PlanetHandler()
 {
@@ -121,7 +122,7 @@ std::vector<ForceRegister> PlanetHandler::GetForceRegisters()
 		std::vector<Planet*>::iterator secondPlanet;
 		for (secondPlanet = firstPlanet + 1; secondPlanet != m_Planets.end(); secondPlanet++)
 		{
-			forceRegisters.push_back(ForceRegister(GeneratorType::GRAVITY_GENERATOR, *firstPlanet, *secondPlanet));
+			forceRegisters.push_back(ForceRegister(new GravityGenerator(), *firstPlanet, *secondPlanet));
 		}
 	}
 

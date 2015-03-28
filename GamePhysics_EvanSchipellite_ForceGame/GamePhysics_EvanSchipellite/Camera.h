@@ -33,8 +33,12 @@ private:
 	float m_MouseSpeed;
 	float m_CameraSpeed;
 
+	PhysicsObject* mp_FollowObject;
+	float m_ShouldFollowObject;
+
 private:
-	void move();
+	void freeMove();
+	void followMove();
 
 public:
 	Camera();
@@ -50,6 +54,9 @@ public:
 	void HandleKeyPressed(unsigned char key);
 	void HandleKeyReleased(unsigned char key);
 	void HandleMouse(Vector3D mousePosition);
+
+	void SetFollowObject(PhysicsObject* followObject);
+	void ToggleShouldFollow(bool toggle);
 };
 //=============================================================================
 #endif // CAMERA_H

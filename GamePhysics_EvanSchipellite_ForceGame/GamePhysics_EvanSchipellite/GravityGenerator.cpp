@@ -12,7 +12,6 @@ float const GravityGenerator::GRAVITY_CONSTANT = 3.965f * pow(10.0f, -14.0f); //
 //=============================================================================
 GravityGenerator::GravityGenerator()
 {
-	m_GeneratorType = GeneratorType::GRAVITY_GENERATOR;
 }
 
 //-----------------------------------------------------------------------------
