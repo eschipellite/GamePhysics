@@ -176,4 +176,10 @@ Vector3D PhysicsObject::GetPreviousTotalForce()
 {
 	return m_PreviousTotalForce;
 }
+
+//-----------------------------------------------------------------------------
+void PhysicsObject::GroundCollision()
+{
+
+}
 //=============================================================================

@@ -11,6 +11,9 @@
 class TetrahedronCollectible :
 	public Collectible
 {
+protected:
+	void createContactGenerators();
+
 public:
 	TetrahedronCollectible();
 	~TetrahedronCollectible();

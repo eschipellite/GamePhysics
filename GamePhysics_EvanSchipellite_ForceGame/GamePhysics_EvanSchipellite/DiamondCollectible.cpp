@@ -16,6 +16,33 @@ DiamondCollectible::~DiamondCollectible()
 }
 
 //-----------------------------------------------------------------------------
+void DiamondCollectible::createContactGenerators()
+{
+	float fourOneDistance = mp_GameObjects[3]->GetPosition().GetDistance(mp_GameObjects[0]->GetPosition());
+	mp_ContactGenerators.push_back(new RodContactGenerator(mp_GameObjects[3], mp_GameObjects[0], fourOneDistance));
+	float fourTwoDistance = mp_GameObjects[3]->GetPosition().GetDistance(mp_GameObjects[1]->GetPosition());
+	mp_ContactGenerators.push_back(new RodContactGenerator(mp_GameObjects[3], mp_GameObjects[1], fourTwoDistance));
+	float fourThreeDistance = mp_GameObjects[3]->GetPosition().GetDistance(mp_GameObjects[2]->GetPosition());
+	mp_ContactGenerators.push_back(new RodContactGenerator(mp_GameObjects[3], mp_GameObjects[2], fourThreeDistance));
+	float oneTwoDistance = mp_GameObjects[0]->GetPosition().GetDistance(mp_GameObjects[1]->GetPosition());
+	mp_ContactGenerators.push_back(new RodContactGenerator(mp_GameObjects[0], mp_GameObjects[1], oneTwoDistance));
+	float oneThreeDistance = mp_GameObjects[0]->GetPosition().GetDistance(mp_GameObjects[2]->GetPosition());
+	mp_ContactGenerators.push_back(new RodContactGenerator(mp_GameObjects[0], mp_GameObjects[2], oneThreeDistance));
+	float twoThreeDistance = mp_GameObjects[1]->GetPosition().GetDistance(mp_GameObjects[2]->GetPosition());
+	mp_ContactGenerators.push_back(new RodContactGenerator(mp_GameObjects[1], mp_GameObjects[2], twoThreeDistance));
+
+	float fiveOneDistance = mp_GameObjects[4]->GetPosition().GetDistance(mp_GameObjects[0]->GetPosition());
+	mp_ContactGenerators.push_back(new RodContactGenerator(mp_GameObjects[4], mp_GameObjects[0], fiveOneDistance));
+	float fiveTwoDistance = mp_GameObjects[4]->GetPosition().GetDistance(mp_GameObjects[1]->GetPosition());
+	mp_ContactGenerators.push_back(new RodContactGenerator(mp_GameObjects[4], mp_GameObjects[1], fiveTwoDistance));
+	float fiveThreeDistance = mp_GameObjects[3]->GetPosition().GetDistance(mp_GameObjects[2]->GetPosition());
+	mp_ContactGenerators.push_back(new RodContactGenerator(mp_GameObjects[4], mp_GameObjects[2], fiveThreeDistance));
+
+	float fourFiveDistance = mp_GameObjects[3]->GetPosition().GetDistance(mp_GameObjects[4]->GetPosition());
+	mp_ContactGenerators.push_back(new RodContactGenerator(mp_GameObjects[3], mp_GameObjects[4], fourFiveDistance));
+}
+
+//-----------------------------------------------------------------------------
 void DiamondCollectible::Initialize(Vector3D centerPosition, std::string texture, float size, float mass)
 {
 	float halfSize = size * 0.5f;
@@ -50,27 +77,6 @@ void DiamondCollectible::Initialize(Vector3D centerPosition, std::string texture
 	gameObjectFive->Initialize(positionFive, texture, mass);
 	mp_GameObjects.push_back(gameObjectFive);
 
-	float fourOneDistance = gameObjectFour->GetPosition().GetDistance(gameObjectOne->GetPosition());
-	mp_ContactGenerators.push_back(new RodContactGenerator(gameObjectFour, gameObjectOne, fourOneDistance));
-	float fourTwoDistance = gameObjectFour->GetPosition().GetDistance(gameObjectTwo->GetPosition());
-	mp_ContactGenerators.push_back(new RodContactGenerator(gameObjectFour, gameObjectTwo, fourTwoDistance));
-	float fourThreeDistance = gameObjectFour->GetPosition().GetDistance(gameObjectThree->GetPosition());
-	mp_ContactGenerators.push_back(new RodContactGenerator(gameObjectFour, gameObjectThree, fourThreeDistance));
-	float oneTwoDistance = gameObjectOne->GetPosition().GetDistance(gameObjectTwo->GetPosition());
-	mp_ContactGenerators.push_back(new RodContactGenerator(gameObjectOne, gameObjectTwo, oneTwoDistance));
-	float oneThreeDistance = gameObjectOne->GetPosition().GetDistance(gameObjectThree->GetPosition());
-	mp_ContactGenerators.push_back(new RodContactGenerator(gameObjectOne, gameObjectThree, oneThreeDistance));
-	float twoThreeDistance = gameObjectTwo->GetPosition().GetDistance(gameObjectThree->GetPosition());
-	mp_ContactGenerators.push_back(new RodContactGenerator(gameObjectTwo, gameObjectThree, twoThreeDistance));
-
-	float fiveOneDistance = gameObjectFive->GetPosition().GetDistance(gameObjectOne->GetPosition());
-	mp_ContactGenerators.push_back(new RodContactGenerator(gameObjectFive, gameObjectOne, fiveOneDistance));
-	float fiveTwoDistance = gameObjectFive->GetPosition().GetDistance(gameObjectTwo->GetPosition());
-	mp_ContactGenerators.push_back(new RodContactGenerator(gameObjectFive, gameObjectTwo, fiveTwoDistance));
-	float fiveThreeDistance = gameObjectFour->GetPosition().GetDistance(gameObjectThree->GetPosition());
-	mp_ContactGenerators.push_back(new RodContactGenerator(gameObjectFive, gameObjectThree, fiveThreeDistance));
-
-	float fourFiveDistance = gameObjectFour->GetPosition().GetDistance(gameObjectFive->GetPosition());
-	mp_ContactGenerators.push_back(new RodContactGenerator(gameObjectFour, gameObjectFive, fourFiveDistance));
+	createContactGenerators();
 }
 //=============================================================================

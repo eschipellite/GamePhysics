@@ -17,6 +17,11 @@ protected:
 	std::vector<GameObject*> mp_GameObjects;
 	std::vector<ContactGenerator*> mp_ContactGenerators;
 
+	bool m_Attached;
+
+protected:
+	virtual void createContactGenerators();
+
 public:
 	Collectible();
 	~Collectible();
@@ -30,6 +35,9 @@ public:
 
 	inline std::vector<GameObject*> GetGameObjects() { return mp_GameObjects; };
 	inline std::vector<ContactGenerator*> GetContactGenerators() { return mp_ContactGenerators; };
+
+	inline void ToggleAttached(bool attached) { m_Attached = attached; };
+	inline bool GetAttached() { return m_Attached;; }
 };
 //=============================================================================
 #endif // COLLECTIBLE_H

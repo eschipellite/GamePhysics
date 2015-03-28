@@ -65,6 +65,8 @@ public:
 	Vector3D GetPreviousTotalForce();
 	inline float GetRadius() { return m_Radius; };
 	inline float GetRestitution() { return m_Restitution; };
+
+	virtual void GroundCollision();
 };
 //=============================================================================
 #endif // PHYSICSOBJECT_H

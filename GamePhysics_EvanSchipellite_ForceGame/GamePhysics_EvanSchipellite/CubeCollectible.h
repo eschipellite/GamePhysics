@@ -11,6 +11,12 @@
 class CubeCollectible :
 	public Collectible
 {
+protected:
+	float m_Size;
+
+protected:
+	void createContactGenerators();
+
 public:
 	CubeCollectible();
 	~CubeCollectible();

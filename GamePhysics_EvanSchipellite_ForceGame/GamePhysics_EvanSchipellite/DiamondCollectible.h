@@ -11,7 +11,8 @@
 class DiamondCollectible :
 	public Collectible
 {
-private:
+protected:
+	void createContactGenerators();
 
 public:
 	DiamondCollectible();

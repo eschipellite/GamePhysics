@@ -23,7 +23,7 @@ public:
 	SpringForceGenerator(PhysicsObject* anchorObject, float k, float restLength);
 	~SpringForceGenerator();
 
-	void UpdateForce(PhysicsObject* physicsObjectTwo, PhysicsObject* physicsObjecTwo = NULL);
+	void UpdateForce(PhysicsObject* physicsObjectOne, PhysicsObject* physicsObjecTwo = NULL);
 };
 //=============================================================================
 #endif // SPRINT_FORCE_GENERATOR_H

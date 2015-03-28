@@ -38,6 +38,7 @@ void PhysicsHandler::Update(float deltaTime)
 //-----------------------------------------------------------------------------
 void PhysicsHandler::Reset()
 {
+	mp_CollisionHandler->Reset();
 }
 
 //-----------------------------------------------------------------------------

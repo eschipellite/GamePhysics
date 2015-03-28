@@ -31,8 +31,6 @@ private:
 
 	int m_FocusIndex;
 
-private:
-
 public:
 	GameApp();
 	~GameApp();

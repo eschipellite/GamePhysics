@@ -16,6 +16,23 @@ TetrahedronCollectible::~TetrahedronCollectible()
 }
 
 //-----------------------------------------------------------------------------
+void TetrahedronCollectible::createContactGenerators()
+{
+	float fourOneDistance = mp_GameObjects[3]->GetPosition().GetDistance(mp_GameObjects[0]->GetPosition());
+	mp_ContactGenerators.push_back(new RodContactGenerator(mp_GameObjects[3], mp_GameObjects[0], fourOneDistance));
+	float fourTwoDistance = mp_GameObjects[3]->GetPosition().GetDistance(mp_GameObjects[1]->GetPosition());
+	mp_ContactGenerators.push_back(new RodContactGenerator(mp_GameObjects[3], mp_GameObjects[1], fourTwoDistance));
+	float fourThreeDistance = mp_GameObjects[3]->GetPosition().GetDistance(mp_GameObjects[2]->GetPosition());
+	mp_ContactGenerators.push_back(new RodContactGenerator(mp_GameObjects[3], mp_GameObjects[2], fourThreeDistance));
+	float oneTwoDistance = mp_GameObjects[0]->GetPosition().GetDistance(mp_GameObjects[1]->GetPosition());
+	mp_ContactGenerators.push_back(new RodContactGenerator(mp_GameObjects[0], mp_GameObjects[1], oneTwoDistance));
+	float oneThreeDistance = mp_GameObjects[0]->GetPosition().GetDistance(mp_GameObjects[2]->GetPosition());
+	mp_ContactGenerators.push_back(new RodContactGenerator(mp_GameObjects[0], mp_GameObjects[2], oneThreeDistance));
+	float twoThreeDistance = mp_GameObjects[1]->GetPosition().GetDistance(mp_GameObjects[2]->GetPosition());
+	mp_ContactGenerators.push_back(new RodContactGenerator(mp_GameObjects[1], mp_GameObjects[2], twoThreeDistance));
+}
+
+//-----------------------------------------------------------------------------
 void TetrahedronCollectible::Initialize(Vector3D centerPosition, std::string texture, float size, float mass)
 {
 	float halfSize = size * 0.5f;
@@ -44,17 +61,6 @@ void TetrahedronCollectible::Initialize(Vector3D centerPosition, std::string tex
 	gameObjectFour->Initialize(positionFour, texture, mass);
 	mp_GameObjects.push_back(gameObjectFour);
 
-	float fourOneDistance = gameObjectFour->GetPosition().GetDistance(gameObjectOne->GetPosition());
-	mp_ContactGenerators.push_back(new RodContactGenerator(gameObjectFour, gameObjectOne, fourOneDistance));
-	float fourTwoDistance = gameObjectFour->GetPosition().GetDistance(gameObjectTwo->GetPosition());
-	mp_ContactGenerators.push_back(new RodContactGenerator(gameObjectFour, gameObjectTwo, fourTwoDistance));
-	float fourThreeDistance = gameObjectFour->GetPosition().GetDistance(gameObjectThree->GetPosition());
-	mp_ContactGenerators.push_back(new RodContactGenerator(gameObjectFour, gameObjectThree, fourThreeDistance));
-	float oneTwoDistance = gameObjectOne->GetPosition().GetDistance(gameObjectTwo->GetPosition());
-	mp_ContactGenerators.push_back(new RodContactGenerator(gameObjectOne, gameObjectTwo, oneTwoDistance));
-	float oneThreeDistance = gameObjectOne->GetPosition().GetDistance(gameObjectThree->GetPosition());
-	mp_ContactGenerators.push_back(new RodContactGenerator(gameObjectOne, gameObjectThree, oneThreeDistance));
-	float twoThreeDistance = gameObjectTwo->GetPosition().GetDistance(gameObjectThree->GetPosition());
-	mp_ContactGenerators.push_back(new RodContactGenerator(gameObjectTwo, gameObjectThree, twoThreeDistance));
+	createContactGenerators();
 }
 //=============================================================================

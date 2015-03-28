@@ -52,9 +52,9 @@ void Skybox::loadTexture(std::string texturePath, GLuint* texture)
 // Cube map Coordinates: https://www.opengl.org/discussion_boards/showthread.php/182361-Skybox
 void Skybox::Draw()
 {
-	GLfloat width = 40;
-	GLfloat height = 40;
-	GLfloat length = 40;
+	GLfloat width = 60;
+	GLfloat height = 60;
+	GLfloat length = 60;
 
 	glEnable(GL_TEXTURE_2D);
 	glDisable(GL_LIGHTING);

@@ -192,6 +192,12 @@
     <ClCompile Include="BungeeForceGenerator.cpp">
       <Filter>Source Files\Physics\Generators</Filter>
     </ClCompile>
+    <ClCompile Include="WallContactGenerator.cpp">
+      <Filter>Source Files\Physics\Collision\ContactGenerators</Filter>
+    </ClCompile>
+    <ClCompile Include="CollectibleContactGenerator.cpp">
+      <Filter>Source Files\Physics\Collision\ContactGenerators</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameApp.h">
@@ -295,6 +301,12 @@
     </ClInclude>
     <ClInclude Include="BungeeForceGenerator.h">
       <Filter>Header Files\Physics\Generators</Filter>
+    </ClInclude>
+    <ClInclude Include="WallContactGenerator.h">
+      <Filter>Header Files\Physics\Collision\ContactGenerators</Filter>
+    </ClInclude>
+    <ClInclude Include="CollectibleContactGenerator.h">
+      <Filter>Header Files\Physics\Collision\ContactGenerators</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

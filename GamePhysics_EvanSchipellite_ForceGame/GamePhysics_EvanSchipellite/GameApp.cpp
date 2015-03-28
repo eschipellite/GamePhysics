@@ -14,6 +14,8 @@
 #include <iomanip>
 #include <sstream>
 #include "Level.h"
+#include "SpringForceGenerator.h"
+#include "BungeeForceGenerator.h"
 //=============================================================================
 float GameApp::ms_TimeStep = 1;
 //=============================================================================
@@ -43,14 +45,16 @@ void GameApp::Initialize()
 	Vector3D centerPosition = Vector3D(0, 0, 0);
 	Vector3D centerRotation = Vector3D(0, 0, 0);
 	mp_Camera->Initialize(centerPosition, centerRotation);
-	//mp_Camera->SetFollowObject(mp_Level->GetPlayer());
+	mp_Camera->SetFollowObject(mp_Level->GetPlayer(), 25);
 
-	mp_Level->Initialize(Vector3D(50, 5, 50), "Content/Textures/Texture_Grass.png", Vector3D(0, 2, 0), "Content/Textures/Texture_Player.jpg", "Content/Textures/Texture_Collectible.jpg");
+	mp_Level->Initialize(Vector3D(60, 5, 60), "Content/Textures/Texture_Grass.jpg", Vector3D(0, 2, 0), "Content/Textures/Texture_Player.jpg", "Content/Textures/Texture_Collectible.jpg");
 
 	mp_PhysicsHandler->AddToRegistry(mp_Level->GetForceRegisters());
 	mp_PhysicsHandler->AddGround(mp_Level->GetGround());
 	mp_PhysicsHandler->AddCollisionObjects(mp_Level->GetCollisionObjects());
 	mp_PhysicsHandler->AddContactGenerators(mp_Level->GetContactGenerators());
+	mp_PhysicsHandler->AddToRegistry(new BungeeForceGenerator(mp_Level->GetPlayer(), 5, 1), mp_Camera);
+	mp_PhysicsHandler->AddCollisionObject(mp_Camera);
 }
 
 //-----------------------------------------------------------------------------
@@ -93,14 +97,13 @@ void GameApp::CleanUp()
 //-----------------------------------------------------------------------------
 void GameApp::Update(float deltaTime, const EditorState* physicsState)
 {
-	mp_Camera->Update();
-
 	if (!physicsState->GetIsPaused())
 	{
 		int currentTime = 0;
 
 		while (currentTime < ms_TimeStep)
 		{
+			mp_Camera->Update(deltaTime);
 			mp_PhysicsHandler->Update(deltaTime);
 			mp_Level->Update(deltaTime);
 
@@ -122,6 +125,9 @@ void GameApp::Reset()
 	mp_PhysicsHandler->Reset();
 	mp_Camera->Reset();
 	mp_Level->Reset();
+
+	mp_PhysicsHandler->AddGround(mp_Level->GetGround());
+	mp_PhysicsHandler->AddContactGenerators(mp_Level->GetContactGenerators());
 }
 
 //-----------------------------------------------------------------------------
@@ -140,11 +146,13 @@ void GameApp::HandleMouse(Vector3D mousePosition)
 void GameApp::HandleKeyPressed(unsigned char key)
 {
 	mp_Camera->HandleKeyPressed(key);
+	mp_Level->HandleKeyPressed(key);
 }
 
 //-----------------------------------------------------------------------------
 void GameApp::HandleKeyReleased(unsigned char key)
 {
 	mp_Camera->HandleKeyReleased(key);
+	mp_Level->HandleKeyReleased(key);
 }
 //=============================================================================

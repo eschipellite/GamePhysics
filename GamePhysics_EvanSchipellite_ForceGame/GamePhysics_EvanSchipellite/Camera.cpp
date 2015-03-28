@@ -10,6 +10,7 @@
 #include "Camera.h"
 #include "GL\glut.h"
 #include <math.h>
+#include "PhysicsObject.h"
 //=============================================================================
 Camera::Camera()
 {
@@ -31,6 +32,8 @@ Camera::Camera()
 
 	m_MouseSpeed = 1.0f / 10.0f;
 	m_CameraSpeed = 3.0f / 10.0f;
+
+	m_DistanceFromFollowObject = 0;
 }
 
 //-----------------------------------------------------------------------------
@@ -80,7 +83,12 @@ void Camera::freeMove()
 //-----------------------------------------------------------------------------
 void Camera::followMove()
 {
-
+	if (mp_FollowObject)
+	{
+		m_Position = m_CurrentPosition;
+		m_Rotation = Vector3D(90.0f, 0, 0);
+		m_Position.Y = mp_FollowObject->GetPosition().Y + m_DistanceFromFollowObject;
+	}
 }
 
 //-----------------------------------------------------------------------------
@@ -99,14 +107,18 @@ void Camera::Initialize(Vector3D initialPosition, Vector3D initialRotation)
 	m_Rotation = m_InitialRotation;
 
 	m_LastMousePosition = Vector3D(142, 300); // Center of window
+
+	PhysicsObject::Initialize(1, initialPosition, Vector3D::Zero, Vector3D::Zero, Vector3D::Zero, .99f);
 }
 
 //-----------------------------------------------------------------------------
-void Camera::Update()
+void Camera::Update(float deltaTime)
 {
+	PhysicsObject::Update(deltaTime);
+
 	if (m_ShouldFollowObject)
 	{
-
+		followMove();
 	}
 	else
 	{
@@ -126,6 +138,8 @@ void Camera::Reset()
 {
 	m_Position = m_InitialPosition;
 	m_Rotation = m_InitialRotation;
+
+	PhysicsObject::Reset();
 }
 
 //-----------------------------------------------------------------------------
@@ -199,9 +213,10 @@ void Camera::HandleMouse(Vector3D mousePosition)
 }
 
 //-----------------------------------------------------------------------------
-void Camera::SetFollowObject(PhysicsObject* followObject)
+void Camera::SetFollowObject(PhysicsObject* followObject, float distanceFromFollowObject)
 {
 	mp_FollowObject = followObject;
+	m_DistanceFromFollowObject = distanceFromFollowObject;
 	ToggleShouldFollow(true);
 }
 

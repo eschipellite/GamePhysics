@@ -32,6 +32,7 @@ void GroundContactGenerator::AddContact(CollisionHandler* collisionHandler)
 		{
 			float penetration = m_GroundY - physicsObjectY;
 			collisionHandler->AddContact(Contact((*physicsObjectIter)->GetRestitution(), penetration, Vector3D::Up, (*physicsObjectIter)));
+			(*physicsObjectIter)->GroundCollision();
 		}
 	}
 }

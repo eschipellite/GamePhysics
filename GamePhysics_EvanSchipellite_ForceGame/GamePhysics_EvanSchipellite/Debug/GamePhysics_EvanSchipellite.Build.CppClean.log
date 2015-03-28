@@ -1,6 +1,6 @@
 c:\users\evan.schipellite\documents\gamephysics\trunk\gamephysics_evanschipellite_forcegame\gamephysics_evanschipellite\debug\vc120.pdb
 c:\users\evan.schipellite\documents\gamephysics\trunk\gamephysics_evanschipellite_forcegame\gamephysics_evanschipellite\debug\vc120.idb
-c:\users\evan.schipellite\documents\gamephysics\trunk\gamephysics_evanschipellite_forcegame\gamephysics_evanschipellite\debug\generator.obj
+c:\users\evan.schipellite\documents\gamephysics\trunk\gamephysics_evanschipellite_forcegame\gamephysics_evanschipellite\debug\gameapp.obj
 c:\users\evan.schipellite\documents\gamephysics\trunk\gamephysics_evanschipellite_forcegame\gamephysics_evanschipellite\debug\gravitygenerator.obj
 c:\users\evan.schipellite\documents\gamephysics\trunk\gamephysics_evanschipellite_forcegame\gamephysics_evanschipellite\debug\ground.obj
 c:\users\evan.schipellite\documents\gamephysics\trunk\gamephysics_evanschipellite_forcegame\gamephysics_evanschipellite\debug\groundcontactgenerator.obj
@@ -35,7 +35,8 @@ c:\users\evan.schipellite\documents\gamephysics\trunk\gamephysics_evanschipellit
 c:\users\evan.schipellite\documents\gamephysics\trunk\gamephysics_evanschipellite_forcegame\gamephysics_evanschipellite\debug\forcegenerator.obj
 c:\users\evan.schipellite\documents\gamephysics\trunk\gamephysics_evanschipellite_forcegame\gamephysics_evanschipellite\debug\forceregistration.obj
 c:\users\evan.schipellite\documents\gamephysics\trunk\gamephysics_evanschipellite_forcegame\gamephysics_evanschipellite\debug\forceregistry.obj
-c:\users\evan.schipellite\documents\gamephysics\trunk\gamephysics_evanschipellite_forcegame\gamephysics_evanschipellite\debug\gameapp.obj
+c:\users\evan.schipellite\documents\gamephysics\trunk\gamephysics_evanschipellite_forcegame\gamephysics_evanschipellite\debug\wallcontactgenerator.obj
+c:\users\evan.schipellite\documents\gamephysics\trunk\gamephysics_evanschipellite_forcegame\gamephysics_evanschipellite\debug\collectiblecontactgenerator.obj
 c:\users\evan.schipellite\documents\gamephysics\trunk\gamephysics_evanschipellite_forcegame\debug\gamephysics_evanschipellite.ilk
 c:\users\evan.schipellite\documents\gamephysics\trunk\gamephysics_evanschipellite_forcegame\debug\gamephysics_evanschipellite.exe
 c:\users\evan.schipellite\documents\gamephysics\trunk\gamephysics_evanschipellite_forcegame\debug\gamephysics_evanschipellite.pdb

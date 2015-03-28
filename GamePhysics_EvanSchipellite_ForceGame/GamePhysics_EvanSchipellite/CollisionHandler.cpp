@@ -10,10 +10,11 @@
 #include "PhysicsObject.h"
 #include "Contact.h"
 #include "GroundContactGenerator.h"
+#include "WallContactGenerator.h"
 //=============================================================================
 CollisionHandler::CollisionHandler()
 {
-	m_MaxChecks = 25;
+	m_MaxChecks = 50;
 }
 
 //-----------------------------------------------------------------------------
@@ -48,6 +49,18 @@ void CollisionHandler::resolveContacts(float deltaTime)
 }
 
 //-----------------------------------------------------------------------------
+void CollisionHandler::addRunTimeContactGenerators()
+{
+	std::vector<ContactGenerator*>::iterator contactGeneratorIter;
+	for (contactGeneratorIter = mp_ToAddContactGenerators.begin(); contactGeneratorIter != mp_ToAddContactGenerators.end(); contactGeneratorIter++)
+	{
+		mp_ContactGenerators.push_back((*contactGeneratorIter));
+	}
+
+	mp_ToAddContactGenerators.clear();
+}
+
+//-----------------------------------------------------------------------------
 void CollisionHandler::Initialize()
 {
 }
@@ -61,7 +74,7 @@ void CollisionHandler::CleanUp()
 //-----------------------------------------------------------------------------
 void CollisionHandler::Update(float deltaTime)
 {
-	int checkCount = checkCollisions() * 2 - 1;
+	int checkCount = checkCollisions();
 	resolveContacts(deltaTime);
 	if (checkCount > m_MaxChecks)
 	{
@@ -73,6 +86,15 @@ void CollisionHandler::Update(float deltaTime)
 		checkCollisions();
 		resolveContacts(deltaTime);
 	}
+
+	addRunTimeContactGenerators();
+}
+
+//-----------------------------------------------------------------------------
+void CollisionHandler::Reset()
+{
+	mp_ContactGenerators.clear();
+	mp_ToAddContactGenerators.clear();
 }
 
 //-----------------------------------------------------------------------------
@@ -95,6 +117,12 @@ void CollisionHandler::AddCollisionObjects(std::vector<PhysicsObject*> physicsOb
 	{
 		mp_PhysicsObjects.push_back(*physicsObjectIter);
 	}
+}
+
+//-----------------------------------------------------------------------------
+void CollisionHandler::AddRunTimeContactGenerator(ContactGenerator* contactGeneraor)
+{
+	mp_ToAddContactGenerators.push_back(contactGeneraor);
 }
 
 //-----------------------------------------------------------------------------

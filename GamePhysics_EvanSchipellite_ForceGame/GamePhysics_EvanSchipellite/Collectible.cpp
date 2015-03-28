@@ -16,6 +16,12 @@ Collectible::~Collectible()
 }
 
 //-----------------------------------------------------------------------------
+void Collectible::createContactGenerators()
+{
+
+}
+
+//-----------------------------------------------------------------------------
 void Collectible::Initialize(Vector3D initialPosition, std::string texture, float mass)
 {
 	GameObject* gameObject = new GameObject();
@@ -44,6 +50,12 @@ void Collectible::Reset()
 	{
 		(*gameObjectIter)->Reset();
 	}
+
+	m_Attached = false;
+
+	mp_ContactGenerators.clear();
+
+	createContactGenerators();
 }
 
 //-----------------------------------------------------------------------------

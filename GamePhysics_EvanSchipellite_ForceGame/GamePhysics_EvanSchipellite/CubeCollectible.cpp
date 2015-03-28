@@ -17,8 +17,43 @@ CubeCollectible::~CubeCollectible()
 }
 
 //-----------------------------------------------------------------------------
+void CubeCollectible::createContactGenerators()
+{
+	mp_ContactGenerators.push_back(new RodContactGenerator(mp_GameObjects[0], mp_GameObjects[1], m_Size));
+	mp_ContactGenerators.push_back(new RodContactGenerator(mp_GameObjects[0], mp_GameObjects[2], m_Size));
+	mp_ContactGenerators.push_back(new RodContactGenerator(mp_GameObjects[0], mp_GameObjects[4], m_Size));
+	mp_ContactGenerators.push_back(new RodContactGenerator(mp_GameObjects[1], mp_GameObjects[3], m_Size));
+	mp_ContactGenerators.push_back(new RodContactGenerator(mp_GameObjects[1], mp_GameObjects[5], m_Size));
+	mp_ContactGenerators.push_back(new RodContactGenerator(mp_GameObjects[2], mp_GameObjects[3], m_Size));
+	mp_ContactGenerators.push_back(new RodContactGenerator(mp_GameObjects[2], mp_GameObjects[6], m_Size));
+	mp_ContactGenerators.push_back(new RodContactGenerator(mp_GameObjects[3], mp_GameObjects[7], m_Size));
+	mp_ContactGenerators.push_back(new RodContactGenerator(mp_GameObjects[4], mp_GameObjects[6], m_Size));
+	mp_ContactGenerators.push_back(new RodContactGenerator(mp_GameObjects[4], mp_GameObjects[5], m_Size));
+	mp_ContactGenerators.push_back(new RodContactGenerator(mp_GameObjects[5], mp_GameObjects[7], m_Size));
+	mp_ContactGenerators.push_back(new RodContactGenerator(mp_GameObjects[6], mp_GameObjects[7], m_Size));
+
+	float oneFourDistance = mp_GameObjects[0]->GetPosition().GetDistance(mp_GameObjects[3]->GetPosition());
+	mp_ContactGenerators.push_back(new RodContactGenerator(mp_GameObjects[0], mp_GameObjects[3], oneFourDistance));
+	float oneEightDistance = mp_GameObjects[0]->GetPosition().GetDistance(mp_GameObjects[7]->GetPosition());
+	mp_ContactGenerators.push_back(new RodContactGenerator(mp_GameObjects[0], mp_GameObjects[7], oneEightDistance));
+	float twoSevenDistance = mp_GameObjects[1]->GetPosition().GetDistance(mp_GameObjects[6]->GetPosition());
+	mp_ContactGenerators.push_back(new RodContactGenerator(mp_GameObjects[1], mp_GameObjects[6], twoSevenDistance));
+	float threeSixDistance = mp_GameObjects[2]->GetPosition().GetDistance(mp_GameObjects[5]->GetPosition());
+	mp_ContactGenerators.push_back(new RodContactGenerator(mp_GameObjects[2], mp_GameObjects[5], threeSixDistance));
+	float fourFiveDistance = mp_GameObjects[3]->GetPosition().GetDistance(mp_GameObjects[4]->GetPosition());
+	mp_ContactGenerators.push_back(new RodContactGenerator(mp_GameObjects[3], mp_GameObjects[4], fourFiveDistance));
+	float fiveEightDistance = mp_GameObjects[4]->GetPosition().GetDistance(mp_GameObjects[7]->GetPosition());
+	mp_ContactGenerators.push_back(new RodContactGenerator(mp_GameObjects[4], mp_GameObjects[7], fiveEightDistance));
+	float twoEightDistance = mp_GameObjects[1]->GetPosition().GetDistance(mp_GameObjects[7]->GetPosition());
+	mp_ContactGenerators.push_back(new RodContactGenerator(mp_GameObjects[1], mp_GameObjects[7], twoEightDistance));
+	float oneSevenDistance = mp_GameObjects[0]->GetPosition().GetDistance(mp_GameObjects[6]->GetPosition());
+	mp_ContactGenerators.push_back(new RodContactGenerator(mp_GameObjects[0], mp_GameObjects[6], oneSevenDistance));
+}
+
+//-----------------------------------------------------------------------------
 void CubeCollectible::Initialize(Vector3D centerPosition, std::string texture, float size, float mass)
 {
+	m_Size = size;
 	float halfSize = size * 0.5f;
 
 	//Left-Up-Front
@@ -69,17 +104,6 @@ void CubeCollectible::Initialize(Vector3D centerPosition, std::string texture, f
 	gameObjectEight->Initialize(positionEight, texture, mass);
 	mp_GameObjects.push_back(gameObjectEight);
 
-	mp_ContactGenerators.push_back(new RodContactGenerator(gameObjectOne, gameObjectTwo, size));
-	mp_ContactGenerators.push_back(new RodContactGenerator(gameObjectOne, gameObjectThree, size));
-	mp_ContactGenerators.push_back(new RodContactGenerator(gameObjectOne, gameObjectFive, size));
-	mp_ContactGenerators.push_back(new RodContactGenerator(gameObjectTwo, gameObjectFour, size));
-	mp_ContactGenerators.push_back(new RodContactGenerator(gameObjectTwo, gameObjectSix, size));
-	mp_ContactGenerators.push_back(new RodContactGenerator(gameObjectThree, gameObjectFour, size));
-	mp_ContactGenerators.push_back(new RodContactGenerator(gameObjectThree, gameObjectSeven, size));
-	mp_ContactGenerators.push_back(new RodContactGenerator(gameObjectFour, gameObjectEight, size));
-	mp_ContactGenerators.push_back(new RodContactGenerator(gameObjectFive, gameObjectSeven, size));
-	mp_ContactGenerators.push_back(new RodContactGenerator(gameObjectFive, gameObjectSix, size));
-	mp_ContactGenerators.push_back(new RodContactGenerator(gameObjectSix, gameObjectEight, size));
-	mp_ContactGenerators.push_back(new RodContactGenerator(gameObjectSeven, gameObjectEight, size));
+	createContactGenerators();
 }
 //=============================================================================

@@ -74,6 +74,7 @@
     <ClCompile Include="CableContactGenerator.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Collectible.cpp" />
+    <ClCompile Include="CollectibleContactGenerator.cpp" />
     <ClCompile Include="CollisionHandler.cpp" />
     <ClCompile Include="Contact.cpp" />
     <ClCompile Include="ContactGenerator.cpp" />
@@ -105,12 +106,14 @@
     <ClCompile Include="SpringForceGenerator.cpp" />
     <ClCompile Include="TetrahedronCollectible.cpp" />
     <ClCompile Include="Vector3D.cpp" />
+    <ClCompile Include="WallContactGenerator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BungeeForceGenerator.h" />
     <ClInclude Include="CableContactGenerator.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Collectible.h" />
+    <ClInclude Include="CollectibleContactGenerator.h" />
     <ClInclude Include="CollisionHandler.h" />
     <ClInclude Include="Contact.h" />
     <ClInclude Include="ContactGenerator.h" />
@@ -141,6 +144,7 @@
     <ClInclude Include="SpringForceGenerator.h" />
     <ClInclude Include="TetrahedronCollectible.h" />
     <ClInclude Include="Vector3D.h" />
+    <ClInclude Include="WallContactGenerator.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

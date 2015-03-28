@@ -31,7 +31,10 @@ private:
 	std::vector<ForceGenerator*> mp_ForceGenerators;
 	std::vector<ContactGenerator*> mp_ContactGenerators;
 
+	std::string m_CollectibleTexture;
+
 private:
+	void createLevel();
 	void drawCollectibles();
 	void updateCollectibles(float deltaTime);
 	void resetCollectibles();
@@ -55,6 +58,9 @@ public:
 
 	std::vector<ForceRegister> GetForceRegisters();
 	std::vector<ContactGenerator*> GetContactGenerators();
+
+	void HandleKeyPressed(unsigned char key);
+	void HandleKeyReleased(unsigned char key);
 };
 //=============================================================================
 #endif // LEVEL_H

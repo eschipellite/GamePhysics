@@ -41,7 +41,7 @@ const double MILLISECONDS = 1000.0;
 const double FRAME_TIME = MILLISECONDS / FPS;
 
 const unsigned int KEY_ESCAPE = 27;
-const unsigned int KEY_SPACE = 32;
+const unsigned int KEY_ENTER = 13;
 
 const Vector3D INITIAL_SCREEN_SIZE = Vector3D(720, 720);
 const Vector3D INITIAL_WINDOW_POSITION = Vector3D(210, 30);
@@ -113,8 +113,7 @@ void initialize()
 	GLUI_Master.set_glutMouseFunc(handleMouseUI);
 	glutMotionFunc(handleMouse);
 	glutPassiveMotionFunc(handleMouse);
-	GLUI_Master.set_glutKeyboardFunc(handleKeyPressed);
-	glutIgnoreKeyRepeat(1);
+	glutKeyboardFunc(handleKeyPressed);
 	glutKeyboardUpFunc(handleKeyReleased);
 	GLUI_Master.set_glutReshapeFunc(reshape);
 
@@ -131,6 +130,7 @@ void initialize()
 
 	start();
 
+	glutSetWindow(g_MainWindow);
 	glutMainLoop();
 }
 
@@ -155,17 +155,17 @@ void cleanUp()
 //-----------------------------------------------------------------------------
 void idle()
 {
-	glutSetWindow(g_MainWindow);
-
 	int endFrameTime = (int)(g_StartTime + (g_CurrentFrame + 1) * FRAME_TIME);
 	int endRenderingTime = glutGet(GLUT_ELAPSED_TIME);
 	int idleTime = endFrameTime - endRenderingTime;
 
 	int deltaTime = (int)(endRenderingTime - (g_StartTime + (g_CurrentFrame)* FRAME_TIME));
 
+	std::cout << deltaTime << endl;
+
 	if (idleTime < 0.0)
 	{
-		update(deltaTime / 1000.0f);
+		update(16 / 1000.0f);
 	}
 }
 
@@ -236,7 +236,7 @@ void handleKeyPressed(unsigned char key, int x, int y)
 		gp_EditorState->SetIsFullScreen(!gp_EditorState->GetIsFullScreen());
 	}
 
-	if (key == KEY_SPACE)
+	if (key == KEY_ENTER)
 	{
 		if (!gp_EditorState->GetIsMouseActive())
 		{	
@@ -278,7 +278,7 @@ void reshape(int w, int h)
 	glMatrixMode(GL_PROJECTION);
 
 	glLoadIdentity();
-	gluPerspective(60, (GLfloat)w / (GLfloat)h, 0.1f, 100.0);
+	gluPerspective(60, (GLfloat)w / (GLfloat)h, 0.1f, 150.0);
 	glMatrixMode(GL_MODELVIEW);
 }
 

@@ -21,6 +21,12 @@
 #include "SpringForceGenerator.h"
 #include "BungeeForceGenerator.h"
 #include "EarthGravityGenerator.h"
+#include "CollectibleContactGenerator.h"
+#include "WallContactGenerator.h"
+#include <fstream>
+#include <iostream>
+#include <string>
+#include <sstream>
 //=============================================================================
 Level::Level()
 {
@@ -31,6 +37,67 @@ Level::Level()
 //-----------------------------------------------------------------------------
 Level::~Level()
 {
+}
+
+//-----------------------------------------------------------------------------
+void Level::createLevel()
+{
+	std::string line;
+	std::ifstream levelFile("Content/Files/Level.txt");
+	if (levelFile.is_open())
+	{
+		while (std::getline(levelFile, line))
+		{
+			std::string buffer;
+			std::stringstream stringStream(line);
+
+			std::vector<std::string> tokens; // Create vector to hold our words
+
+			while (stringStream >> buffer)
+			{
+				tokens.push_back(buffer);
+			}
+
+			int collectibleType = atoi(tokens[0].c_str());
+			float x = float(atoi(tokens[1].c_str()));
+			float y = float(atoi(tokens[2].c_str()));
+			float z = float(atoi(tokens[3].c_str()));
+			float size = float(atoi(tokens[4].c_str()));
+
+			switch (collectibleType)
+			{
+			case 0:
+			{
+				CubeCollectible* cubeCollectible = new CubeCollectible();
+				cubeCollectible->Initialize(Vector3D(x, y, z), m_CollectibleTexture, size);
+				mp_CollectibleObjects.push_back(cubeCollectible);
+			}
+				break;
+			case 1:
+			{
+				TetrahedronCollectible* tetrahedronCollectible = new TetrahedronCollectible();
+				tetrahedronCollectible->Initialize(Vector3D(x, y, z), m_CollectibleTexture, size);
+				mp_CollectibleObjects.push_back(tetrahedronCollectible);
+			}
+				break;
+			case 2:
+			{
+				DiamondCollectible* diamondCollectible = new DiamondCollectible();
+				diamondCollectible->Initialize(Vector3D(x, y, z), m_CollectibleTexture, size);
+				mp_CollectibleObjects.push_back(diamondCollectible);
+			}
+				break;
+			default:
+			{
+				Collectible* sphereCollectible = new Collectible();
+				sphereCollectible->Initialize(Vector3D(x, y, z), m_CollectibleTexture, size);
+				mp_CollectibleObjects.push_back(sphereCollectible);
+			}
+				break;
+			}
+		}
+		levelFile.close();
+	}
 }
 
 //-----------------------------------------------------------------------------
@@ -103,21 +170,11 @@ std::vector<PhysicsObject*> Level::getCollectibleCollisionObjects()
 void Level::Initialize(Vector3D dimensions, std::string groundTexture, Vector3D playerPosition, std::string playerTexture, std::string collectibleTexture)
 {
 	mp_Ground->Initialize(dimensions, 1, Vector3D(0, -dimensions.Y, 0), groundTexture);
-	mp_Player->Initialize(playerPosition, playerTexture);
+	mp_Player->Initialize(playerPosition, playerTexture, 20, 400);
 
-	TetrahedronCollectible* collectibleOne = new TetrahedronCollectible();
-	collectibleOne->Initialize(Vector3D(5, 5, 0), collectibleTexture, 5);
-	mp_CollectibleObjects.push_back(collectibleOne);
+	m_CollectibleTexture = collectibleTexture;
 
-	CubeCollectible* collectibleTwo = new CubeCollectible();
-	collectibleTwo->Initialize(Vector3D(-15, 5, 0), collectibleTexture, 5);
-	mp_CollectibleObjects.push_back(collectibleTwo);
-
-	DiamondCollectible* collectibleThree = new DiamondCollectible();
-	collectibleThree->Initialize(Vector3D(20, 5, 0), collectibleTexture, 5);
-	mp_CollectibleObjects.push_back(collectibleThree);
-
-	//mp_ContactGenerators.push_back(new BungeeContactGenerator(mp_Player, collectibleOne, .5f, 1));
+	createLevel();
 }
 
 //-----------------------------------------------------------------------------
@@ -215,8 +272,23 @@ std::vector<ContactGenerator*> Level::GetContactGenerators()
 	{
 		std::vector<ContactGenerator*> collectibleContactGenerators = (*collectibleObjectIter)->GetContactGenerators();
 		contactGenerators.insert(contactGenerators.end(), collectibleContactGenerators.begin(), collectibleContactGenerators.end());
+		contactGenerators.push_back(new CollectibleContactGenerator(mp_Player, (*collectibleObjectIter), 3));
 	}
 
+	contactGenerators.push_back(new WallContactGenerator(-60, 60, -60, 60));
+
 	return contactGenerators;
+}
+
+//-----------------------------------------------------------------------------
+void Level::HandleKeyPressed(unsigned char key)
+{
+	mp_Player->HandleKeyPressed(key);
+}
+
+//-----------------------------------------------------------------------------
+void Level::HandleKeyReleased(unsigned char key)
+{
+	mp_Player->HandleKeyReleased(key);
 }
 //=============================================================================

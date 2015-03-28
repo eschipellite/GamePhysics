@@ -10,8 +10,10 @@
 //=============================================================================
 #include "Vector3D.h"
 #include "Planet.h"
+#include "PhysicsObject.h"
 //=============================================================================
-class Camera
+class Camera :
+	public PhysicsObject
 {
 private:
 	Vector3D m_Position;
@@ -35,6 +37,7 @@ private:
 
 	PhysicsObject* mp_FollowObject;
 	float m_ShouldFollowObject;
+	float m_DistanceFromFollowObject;
 
 private:
 	void freeMove();
@@ -46,7 +49,7 @@ public:
 	
 	void CleanUp();
 	void Initialize(Vector3D initialPosition = Vector3D::Zero, Vector3D initialRotation = Vector3D::Zero);
-	void Update();
+	void Update(float deltaTime);
 	void Reset();
 
 	void UpdateScreenSize(Vector3D screenSize);
@@ -55,7 +58,7 @@ public:
 	void HandleKeyReleased(unsigned char key);
 	void HandleMouse(Vector3D mousePosition);
 
-	void SetFollowObject(PhysicsObject* followObject);
+	void SetFollowObject(PhysicsObject* followObject, float distanceFromFollowObjet = 1);
 	void ToggleShouldFollow(bool toggle);
 };
 //=============================================================================
