@@ -74,7 +74,7 @@ void CollisionHandler::CleanUp()
 //-----------------------------------------------------------------------------
 void CollisionHandler::Update(float deltaTime)
 {
-	int checkCount = checkCollisions();
+	int checkCount = checkCollisions() * 2 - 1;
 	resolveContacts(deltaTime);
 	if (checkCount > m_MaxChecks)
 	{

@@ -161,11 +161,9 @@ void idle()
 
 	int deltaTime = (int)(endRenderingTime - (g_StartTime + (g_CurrentFrame)* FRAME_TIME));
 
-	std::cout << deltaTime << endl;
-
 	if (idleTime < 0.0)
 	{
-		update(16 / 1000.0f);
+		update(deltaTime / 1000.0f);
 	}
 }
 
