@@ -291,4 +291,20 @@ void Level::HandleKeyReleased(unsigned char key)
 {
 	mp_Player->HandleKeyReleased(key);
 }
+
+//-----------------------------------------------------------------------------
+int Level::GetObjectsCollected()
+{
+	int objectsCollected = 0;
+	std::vector<Collectible*>::iterator collectibleObjectIter;
+	for (collectibleObjectIter = mp_CollectibleObjects.begin(); collectibleObjectIter != mp_CollectibleObjects.end(); collectibleObjectIter++)
+	{
+		if ((*collectibleObjectIter)->GetAttached())
+		{
+			objectsCollected++;
+		}
+	}
+
+	return objectsCollected;
+}
 //=============================================================================

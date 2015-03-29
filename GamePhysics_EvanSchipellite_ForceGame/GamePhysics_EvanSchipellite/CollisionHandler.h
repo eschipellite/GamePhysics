@@ -25,6 +25,7 @@ private:
 	std::vector<Contact> m_Contacts;
 
 	int m_MaxChecks;
+	int m_Collisions;
 
 private:
 	int checkCollisions();
@@ -50,6 +51,8 @@ public:
 	std::vector<PhysicsObject*> GetPhysicsObjects() { return mp_PhysicsObjects; };
 
 	void AddContact(Contact contact) { m_Contacts.push_back(contact); };
+
+	inline int GetCollisions() { return m_Collisions; };
 };
 //=============================================================================
 #endif // COLLISION_HANDLER_H

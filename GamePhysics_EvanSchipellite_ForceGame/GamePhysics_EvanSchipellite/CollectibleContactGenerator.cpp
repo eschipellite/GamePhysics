@@ -36,8 +36,8 @@ void CollectibleContactGenerator::AddContact(CollisionHandler* collisionHandler)
 
 			if (distance <= m_MinDistance)
 			{
-				//collisionHandler->AddRunTimeContactGenerator(new CableContactGenerator((*gameObjectIter), mp_Player, m_MinDistance));
-				//mp_Collectible->ToggleAttached(true);
+				collisionHandler->AddRunTimeContactGenerator(new CableContactGenerator((*gameObjectIter), mp_Player, m_MinDistance));
+				mp_Collectible->ToggleAttached(true);
 				break;
 			}
 		}

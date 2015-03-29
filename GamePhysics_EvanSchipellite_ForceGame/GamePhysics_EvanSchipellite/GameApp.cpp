@@ -36,6 +36,36 @@ GameApp::~GameApp()
 }
 
 //-----------------------------------------------------------------------------
+void GameApp::updateText()
+{
+	std::string playerVelocity = convertVector3DToString(mp_Level->GetPlayer()->GetCurrentVelocity());
+	std::string playerVelocityText = "Player Velocity: " + playerVelocity;
+	mp_PlayerVelocityText->set_text(playerVelocityText.c_str());
+	std::string objectsCollected = "Objects Collected: " + convertFloatToString((float)mp_Level->GetObjectsCollected());
+	mp_ObjectsCollectedText->set_text(objectsCollected.c_str());
+	std::string collisions = "Collisions: " + convertFloatToString((float)mp_PhysicsHandler->GetCollisions());
+	mp_CollisionText->set_text(collisions.c_str());
+}
+
+//-----------------------------------------------------------------------------
+std::string GameApp::convertFloatToString(float value)
+{
+	std::ostringstream out;
+	out << std::setprecision(5) << value;
+	return out.str();
+}
+
+//-----------------------------------------------------------------------------
+std::string GameApp::convertVector3DToString(Vector3D vector3D)
+{
+	std::string x = convertFloatToString(vector3D.X);
+	std::string y = convertFloatToString(vector3D.Y);
+	std::string z = convertFloatToString(vector3D.Z);
+
+	return "Vector3D(" + x + ", " + y + ", " + z + ")";
+}
+
+//-----------------------------------------------------------------------------
 void GameApp::Initialize()
 {
 	mp_PhysicsHandler->Initialize();
@@ -55,6 +85,14 @@ void GameApp::Initialize()
 	mp_PhysicsHandler->AddContactGenerators(mp_Level->GetContactGenerators());
 	mp_PhysicsHandler->AddToRegistry(new BungeeForceGenerator(mp_Level->GetPlayer(), 5, 1), mp_Camera);
 	mp_PhysicsHandler->AddCollisionObject(mp_Camera);
+}
+
+//-----------------------------------------------------------------------------
+void GameApp::SetTextReferences(GLUI_StaticText* playerVelocityText, GLUI_StaticText* objectsCollectedText, GLUI_StaticText* collisionsText)
+{
+	mp_PlayerVelocityText = playerVelocityText;
+	mp_ObjectsCollectedText = objectsCollectedText;
+	mp_CollisionText = collisionsText;
 }
 
 //-----------------------------------------------------------------------------
@@ -106,6 +144,7 @@ void GameApp::Update(float deltaTime, const EditorState* physicsState)
 			mp_Camera->Update(deltaTime);
 			mp_PhysicsHandler->Update(deltaTime);
 			mp_Level->Update(deltaTime);
+			updateText();
 
 			currentTime++;
 		}

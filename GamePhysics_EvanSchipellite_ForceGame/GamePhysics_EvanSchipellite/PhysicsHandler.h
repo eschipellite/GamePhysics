@@ -69,6 +69,8 @@ public:
 	void AddGround(PhysicsObject* groundObject);
 	void AddCollisionObject(PhysicsObject* physicsObject);
 	void AddCollisionObjects(std::vector<PhysicsObject*> physicsObjects);
+
+	inline int GetCollisions() { return mp_CollisionHandler->GetCollisions(); };
 };
 //=============================================================================
 #endif //PHYSICSHANDLER_H

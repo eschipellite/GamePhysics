@@ -14,6 +14,7 @@
 #include "EditorState.h"
 #include <stdlib.h>
 #include <time.h>
+#include <sstream>
 
 using namespace std;
 //=============================================================================
@@ -50,8 +51,9 @@ const unsigned int ID_PLAY = 0;
 const unsigned int ID_PAUSE = 1;
 const unsigned int ID_STOP = 2;
 //=============================================================================
-int g_StartTime;
 int g_CurrentFrame;
+int g_TimeBase;
+int g_Previous;
 
 Vector3D g_ScreenSize = INITIAL_SCREEN_SIZE;
 
@@ -62,11 +64,10 @@ EditorState* gp_EditorState;
 
 GLUI* g_GluiSubWindow;
 GLUI_StaticText* g_StaticText;
-GLUI_StaticText* g_PlanetName;
-GLUI_StaticText* g_PlanetMass;
-GLUI_StaticText* g_PlanetVelocity;
-GLUI_StaticText* g_PlanetAcceleration;
-GLUI_StaticText* g_TotalPlanetForce;
+GLUI_StaticText* g_FPSText;
+GLUI_StaticText* g_PlayerVelocityText;
+GLUI_StaticText* g_ObjectsCollectedText;
+GLUI_StaticText* g_CollisionsText;
 //=============================================================================
 int main(int argc, char** argv) 
 {
@@ -84,7 +85,7 @@ void initialize()
 {
 	srand(static_cast<unsigned int>(time(NULL)));
 
-	g_StartTime = glutGet(GLUT_ELAPSED_TIME);
+	g_TimeBase = g_Previous = glutGet(GLUT_ELAPSED_TIME);
 	g_CurrentFrame = 0;
 
 	glutInitWindowSize((int)INITIAL_SCREEN_SIZE.X, (int)INITIAL_SCREEN_SIZE.Y);
@@ -125,8 +126,14 @@ void initialize()
 	g_StaticText = g_GluiSubWindow->add_statictext("Playing");
 	g_StaticText->set_alignment(GLUI_ALIGN_RIGHT);
 	g_GluiSubWindow->add_column();
+	g_FPSText = g_GluiSubWindow->add_statictext("FPS: 0");
+	g_PlayerVelocityText = g_GluiSubWindow->add_statictext("Player Velocity: 0");
+	g_ObjectsCollectedText = g_GluiSubWindow->add_statictext("Objects Collected: 0");
+	g_CollisionsText = g_GluiSubWindow->add_statictext("Collisions: 0");
 
 	SetCursorPos((int)(g_ScreenSize.X / 2.0f), (int)(g_ScreenSize.Y / 2.0f));
+
+	gp_GameApp->SetTextReferences(g_PlayerVelocityText, g_ObjectsCollectedText, g_CollisionsText);
 
 	start();
 
@@ -155,16 +162,20 @@ void cleanUp()
 //-----------------------------------------------------------------------------
 void idle()
 {
-	int endFrameTime = (int)(g_StartTime + (g_CurrentFrame + 1) * FRAME_TIME);
-	int endRenderingTime = glutGet(GLUT_ELAPSED_TIME);
-	int idleTime = endFrameTime - endRenderingTime;
-
-	int deltaTime = (int)(endRenderingTime - (g_StartTime + (g_CurrentFrame)* FRAME_TIME));
-
-	if (idleTime < 0.0)
+	g_CurrentFrame++;
+	int time = glutGet(GLUT_ELAPSED_TIME);
+	int elapsedForFrame = time - g_Previous;
+	if (time - g_TimeBase > 1000)
 	{
-		update(deltaTime / 1000.0f);
+		std::ostringstream out;
+		out << "FPS: " << g_CurrentFrame;
+		std::string fpsString = out.str();
+		g_FPSText->set_text(fpsString.c_str());
+		g_TimeBase = time;
+		g_CurrentFrame = 0;
 	}
+	g_Previous = time;
+	update((float)elapsedForFrame / 1000.0f);
 }
 
 //-----------------------------------------------------------------------------
@@ -173,7 +184,6 @@ void update(float deltaTime)
 	gp_GameApp->Update(deltaTime, gp_EditorState);
 
 	glutPostRedisplay();
-	g_CurrentFrame++;
 
 	if (!gp_EditorState->GetIsMouseActive())
 	{

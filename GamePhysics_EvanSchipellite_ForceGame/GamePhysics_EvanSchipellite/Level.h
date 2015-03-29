@@ -61,6 +61,8 @@ public:
 
 	void HandleKeyPressed(unsigned char key);
 	void HandleKeyReleased(unsigned char key);
+
+	int GetObjectsCollected();
 };
 //=============================================================================
 #endif // LEVEL_H

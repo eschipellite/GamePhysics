@@ -31,11 +31,21 @@ private:
 
 	int m_FocusIndex;
 
+	GLUI_StaticText* mp_PlayerVelocityText;
+	GLUI_StaticText* mp_ObjectsCollectedText;
+	GLUI_StaticText* mp_CollisionText;
+
+private:
+	void updateText();
+	std::string GameApp::convertFloatToString(float value);
+	std::string GameApp::convertVector3DToString(Vector3D vector3D);
+
 public:
 	GameApp();
 	~GameApp();
 
 	void Initialize();
+	void SetTextReferences(GLUI_StaticText* playerVelocityText, GLUI_StaticText* objectsCollectedText, GLUI_StaticText* collisionsText);
 	void Start();
 	void CleanUp();
 	void Update(float deltaTime, const EditorState* physicsState);
