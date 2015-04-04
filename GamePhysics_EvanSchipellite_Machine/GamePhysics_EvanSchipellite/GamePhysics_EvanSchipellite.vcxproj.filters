@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Utils">
+      <UniqueIdentifier>{5ba5eca7-b9dd-4b4d-b7bf-555c4379cf7d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utils">
+      <UniqueIdentifier>{ff50fb9b-d281-4135-a85a-320d25bedc74}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Objects">
+      <UniqueIdentifier>{15d2f5ef-71ad-43fd-ae37-fcefb85da78e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Objects">
+      <UniqueIdentifier>{6f4ca664-b2e4-4eec-8ded-1dc9c173fd7d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Objects\Planets">
+      <UniqueIdentifier>{b963ef14-e624-4fdf-9e0a-ad59d29a21e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Objects\Planets">
+      <UniqueIdentifier>{90405712-7e3c-4f15-828c-c4896c485532}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Physics">
+      <UniqueIdentifier>{27d6c7a6-12fc-4862-a5ec-95f268654e19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Objects\Particles">
+      <UniqueIdentifier>{83c5b48f-6113-46ad-89f3-c7782c2de4d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Physics\Generators">
+      <UniqueIdentifier>{800dcd92-49e5-47bb-b60e-33667ad46d73}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Physics">
+      <UniqueIdentifier>{e82f6d83-e6fe-4cd5-a471-7ffb2b8185c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Objects\Particles">
+      <UniqueIdentifier>{d0214694-2eb6-4aaa-bcdb-49ee234d7818}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Physics\Generators">
+      <UniqueIdentifier>{bd28a95f-304b-4326-80d9-e5faf488f55e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Physics\ForceRegistration">
+      <UniqueIdentifier>{53faebc7-9614-40bb-85de-42bbf713426f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Physics\ForceRegistration">
+      <UniqueIdentifier>{7d6defec-e32e-44fc-a95d-4ee27969ba48}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Visuals">
+      <UniqueIdentifier>{fe314254-957d-4b51-a8f5-bcb680ab58ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Visuals">
+      <UniqueIdentifier>{e368bd9f-9808-4b45-b005-fc7259e4ac7e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Level">
+      <UniqueIdentifier>{a109b4f7-a8db-40a9-b4b6-b4f17cc8a481}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Level">
+      <UniqueIdentifier>{43f5887f-1314-4c3b-9d62-5969c203fe4a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Objects\Level">
+      <UniqueIdentifier>{39b583e2-1bd7-4ac2-802b-6bc98734d626}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Objects\Level">
+      <UniqueIdentifier>{a4f9c68d-c7d9-4b0e-af9e-2677b417f613}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Physics\Collision">
+      <UniqueIdentifier>{ea4f8eac-2828-44fa-ba02-8ccb83a445e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Physics\Collision">
+      <UniqueIdentifier>{134bbf1a-7da3-47f4-b0a9-7fb07d78c2da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Physics\Collision\ContactGenerators">
+      <UniqueIdentifier>{d55de758-858d-478e-843f-8345d4222dbb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Physics\Collision\ContactGenerators">
+      <UniqueIdentifier>{e00712b5-1f47-40ba-8cca-4c49340da088}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="GameApp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector3D.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="EditorState.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsObject.cpp">
+      <Filter>Source Files\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Particle.cpp">
+      <Filter>Source Files\Objects\Particles</Filter>
+    </ClCompile>
+    <ClCompile Include="Firework.cpp">
+      <Filter>Source Files\Objects\Particles</Filter>
+    </ClCompile>
+    <ClCompile Include="FireworkLauncher.cpp">
+      <Filter>Source Files\Objects\Particles</Filter>
+    </ClCompile>
+    <ClCompile Include="Planet.cpp">
+      <Filter>Source Files\Objects\Planets</Filter>
+    </ClCompile>
+    <ClCompile Include="PlanetHandler.cpp">
+      <Filter>Source Files\Objects\Planets</Filter>
+    </ClCompile>
+    <ClCompile Include="ForceGenerator.cpp">
+      <Filter>Source Files\Physics\Generators</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="GravityGenerator.cpp">
+      <Filter>Source Files\Physics\Generators</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsHandler.cpp">
+      <Filter>Source Files\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="ForceRegistration.cpp">
+      <Filter>Source Files\Physics\ForceRegistration</Filter>
+    </ClCompile>
+    <ClCompile Include="ForceRegistry.cpp">
+      <Filter>Source Files\Physics\ForceRegistration</Filter>
+    </ClCompile>
+    <ClCompile Include="Level.cpp">
+      <Filter>Source Files\Level</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Source Files\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Ground.cpp">
+      <Filter>Source Files\Objects\Level</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files\Objects\Level</Filter>
+    </ClCompile>
+    <ClCompile Include="EarthGravityGenerator.cpp">
+      <Filter>Source Files\Physics\Generators</Filter>
+    </ClCompile>
+    <ClCompile Include="Skybox.cpp">
+      <Filter>Source Files\Visuals</Filter>
+    </ClCompile>
+    <ClCompile Include="Contact.cpp">
+      <Filter>Source Files\Physics\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionHandler.cpp">
+      <Filter>Source Files\Physics\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="ContactGenerator.cpp">
+      <Filter>Source Files\Physics\Collision\ContactGenerators</Filter>
+    </ClCompile>
+    <ClCompile Include="GroundContactGenerator.cpp">
+      <Filter>Source Files\Physics\Collision\ContactGenerators</Filter>
+    </ClCompile>
+    <ClCompile Include="RodContactGenerator.cpp">
+      <Filter>Source Files\Physics\Collision\ContactGenerators</Filter>
+    </ClCompile>
+    <ClCompile Include="CableContactGenerator.cpp">
+      <Filter>Source Files\Physics\Collision\ContactGenerators</Filter>
+    </ClCompile>
+    <ClCompile Include="Collectible.cpp">
+      <Filter>Source Files\Objects\Level</Filter>
+    </ClCompile>
+    <ClCompile Include="CubeCollectible.cpp">
+      <Filter>Source Files\Objects\Level</Filter>
+    </ClCompile>
+    <ClCompile Include="TetrahedronCollectible.cpp">
+      <Filter>Source Files\Objects\Level</Filter>
+    </ClCompile>
+    <ClCompile Include="DiamondCollectible.cpp">
+      <Filter>Source Files\Objects\Level</Filter>
+    </ClCompile>
+    <ClCompile Include="SpringForceGenerator.cpp">
+      <Filter>Source Files\Physics\Generators</Filter>
+    </ClCompile>
+    <ClCompile Include="BungeeForceGenerator.cpp">
+      <Filter>Source Files\Physics\Generators</Filter>
+    </ClCompile>
+    <ClCompile Include="WallContactGenerator.cpp">
+      <Filter>Source Files\Physics\Collision\ContactGenerators</Filter>
+    </ClCompile>
+    <ClCompile Include="CollectibleContactGenerator.cpp">
+      <Filter>Source Files\Physics\Collision\ContactGenerators</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GameApp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector3D.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="EditorState.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsObject.h">
+      <Filter>Header Files\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Particle.h">
+      <Filter>Header Files\Objects\Particles</Filter>
+    </ClInclude>
+    <ClInclude Include="Firework.h">
+      <Filter>Header Files\Objects\Particles</Filter>
+    </ClInclude>
+    <ClInclude Include="FireworkLauncher.h">
+      <Filter>Header Files\Objects\Particles</Filter>
+    </ClInclude>
+    <ClInclude Include="Planet.h">
+      <Filter>Header Files\Objects\Planets</Filter>
+    </ClInclude>
+    <ClInclude Include="PlanetHandler.h">
+      <Filter>Header Files\Objects\Planets</Filter>
+    </ClInclude>
+    <ClInclude Include="ForceGenerator.h">
+      <Filter>Header Files\Physics\Generators</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="GravityGenerator.h">
+      <Filter>Header Files\Physics\Generators</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsHandler.h">
+      <Filter>Header Files\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="ForceRegistration.h">
+      <Filter>Header Files\Physics\ForceRegistration</Filter>
+    </ClInclude>
+    <ClInclude Include="ForceRegistry.h">
+      <Filter>Header Files\Physics\ForceRegistration</Filter>
+    </ClInclude>
+    <ClInclude Include="Level.h">
+      <Filter>Header Files\Level</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Header Files\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Ground.h">
+      <Filter>Header Files\Objects\Level</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Header Files\Objects\Level</Filter>
+    </ClInclude>
+    <ClInclude Include="EarthGravityGenerator.h">
+      <Filter>Header Files\Physics\Generators</Filter>
+    </ClInclude>
+    <ClInclude Include="Skybox.h">
+      <Filter>Header Files\Visuals</Filter>
+    </ClInclude>
+    <ClInclude Include="Contact.h">
+      <Filter>Header Files\Physics\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionHandler.h">
+      <Filter>Header Files\Physics\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="ContactGenerator.h">
+      <Filter>Header Files\Physics\Collision\ContactGenerators</Filter>
+    </ClInclude>
+    <ClInclude Include="GroundContactGenerator.h">
+      <Filter>Header Files\Physics\Collision\ContactGenerators</Filter>
+    </ClInclude>
+    <ClInclude Include="RodContactGenerator.h">
+      <Filter>Header Files\Physics\Collision\ContactGenerators</Filter>
+    </ClInclude>
+    <ClInclude Include="CableContactGenerator.h">
+      <Filter>Header Files\Physics\Collision\ContactGenerators</Filter>
+    </ClInclude>
+    <ClInclude Include="Collectible.h">
+      <Filter>Header Files\Objects\Level</Filter>
+    </ClInclude>
+    <ClInclude Include="CubeCollectible.h">
+      <Filter>Header Files\Objects\Level</Filter>
+    </ClInclude>
+    <ClInclude Include="TetrahedronCollectible.h">
+      <Filter>Header Files\Objects\Level</Filter>
+    </ClInclude>
+    <ClInclude Include="DiamondCollectible.h">
+      <Filter>Header Files\Objects\Level</Filter>
+    </ClInclude>
+    <ClInclude Include="SpringForceGenerator.h">
+      <Filter>Header Files\Physics\Generators</Filter>
+    </ClInclude>
+    <ClInclude Include="BungeeForceGenerator.h">
+      <Filter>Header Files\Physics\Generators</Filter>
+    </ClInclude>
+    <ClInclude Include="WallContactGenerator.h">
+      <Filter>Header Files\Physics\Collision\ContactGenerators</Filter>
+    </ClInclude>
+    <ClInclude Include="CollectibleContactGenerator.h">
+      <Filter>Header Files\Physics\Collision\ContactGenerators</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+</Project>
