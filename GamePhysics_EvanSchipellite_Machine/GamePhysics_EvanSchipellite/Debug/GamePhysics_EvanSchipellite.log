@@ -1,48 +1,8 @@
-﻿Build started 4/12/2015 10:54:16 AM.
-     1>Project "C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\GamePhysics_EvanSchipellite\GamePhysics_EvanSchipellite.vcxproj" on node 2 (Rebuild target(s)).
+﻿Build started 4/12/2015 11:06:58 AM.
+     1>Project "C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\GamePhysics_EvanSchipellite\GamePhysics_EvanSchipellite.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\packages\nupengl.core.0.0.0.1\build\native\../..//build/native/include/ /I"C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\\Lib\glui-2.36\include" /I"C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\\Lib\Simple OpenGL Image Library\src" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt BungeeForceGenerator.cpp CableContactGenerator.cpp Camera.cpp Collectible.cpp CollectibleContactGenerator.cpp CollisionHandler.cpp Contact.cpp ContactGenerator.cpp CubeCollectible.cpp DiamondCollectible.cpp EarthGravityGenerator.cpp Firework.cpp FireworkLauncher.cpp ForceGenerator.cpp ForceRegistration.cpp ForceRegistry.cpp GameApp.cpp GravityGenerator.cpp Ground.cpp GroundContactGenerator.cpp Level.cpp Matrix.cpp EditorState.cpp Particle.cpp PhysicsHandler.cpp PhysicsObject.cpp Planet.cpp PlanetHandler.cpp GameObject.cpp Player.cpp Quaternion.cpp RodContactGenerator.cpp Skybox.cpp Source.cpp SpringForceGenerator.cpp TetrahedronCollectible.cpp Vector3D.cpp WallContactGenerator.cpp
-         WallContactGenerator.cpp
-         Vector3D.cpp
-         TetrahedronCollectible.cpp
-         SpringForceGenerator.cpp
-         Source.cpp
-         Skybox.cpp
-         RodContactGenerator.cpp
-         Quaternion.cpp
-         Player.cpp
-         GameObject.cpp
-         PlanetHandler.cpp
-         Planet.cpp
-         PhysicsObject.cpp
-         PhysicsHandler.cpp
-         Particle.cpp
-         EditorState.cpp
-         Matrix.cpp
-         Level.cpp
-         GroundContactGenerator.cpp
-         Ground.cpp
-         Generating Code...
-         Compiling...
-         GravityGenerator.cpp
-         GameApp.cpp
-         ForceRegistry.cpp
-         ForceRegistration.cpp
-         ForceGenerator.cpp
-         FireworkLauncher.cpp
-         Firework.cpp
-         EarthGravityGenerator.cpp
-         DiamondCollectible.cpp
-         CubeCollectible.cpp
-         ContactGenerator.cpp
-         Contact.cpp
-         CollisionHandler.cpp
-         CollectibleContactGenerator.cpp
-         Collectible.cpp
-         Camera.cpp
-         CableContactGenerator.cpp
-         BungeeForceGenerator.cpp
-         Generating Code...
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\packages\nupengl.core.0.0.0.1\build\native\../..//build/native/include/ /I"C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\\Lib\glui-2.36\include" /I"C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\\Lib\Simple OpenGL Image Library\src" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt RigidBody.cpp
+         RigidBody.cpp
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\Debug\GamePhysics_EvanSchipellite.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\\Lib\glui-2.36\Debug" /LIBPATH:"C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\\Lib\Simple OpenGL Image Library\Debug" C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\packages\nupengl.core.0.0.0.1\build\native\../..//build/native/lib/Win32\v120\glew32.lib C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\packages\nupengl.core.0.0.0.1\build\native\../..//build/native/lib/Win32\v120\glfw3dll.lib C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\packages\nupengl.core.0.0.0.1\build\native\../..//build/native/lib/Win32\v120\freeglut.lib glui32.lib OpenGL32.lib glu32.lib SOIL.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\Debug\GamePhysics_EvanSchipellite.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\Debug\GamePhysics_EvanSchipellite.lib" /MACHINE:X86 Debug\BungeeForceGenerator.obj
          Debug\CableContactGenerator.obj
@@ -75,6 +35,7 @@
          Debug\GameObject.obj
          Debug\Player.obj
          Debug\Quaternion.obj
+         Debug\RigidBody.obj
          Debug\RodContactGenerator.obj
          Debug\Skybox.obj
          Debug\Source.obj
@@ -83,8 +44,8 @@
          Debug\Vector3D.obj
          Debug\WallContactGenerator.obj
          GamePhysics_EvanSchipellite.vcxproj -> C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\Debug\GamePhysics_EvanSchipellite.exe
-     1>Done Building Project "C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\GamePhysics_EvanSchipellite\GamePhysics_EvanSchipellite.vcxproj" (Rebuild target(s)).
+     1>Done Building Project "C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\GamePhysics_EvanSchipellite\GamePhysics_EvanSchipellite.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:14.61
+Time Elapsed 00:00:01.65
