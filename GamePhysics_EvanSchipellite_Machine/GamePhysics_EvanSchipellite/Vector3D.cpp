@@ -18,6 +18,13 @@ Vector3D::Vector3D()
 	Z = 0;
 }
 
+Vector3D::Vector3D(const Vector3D& rhs)
+{
+	X = rhs.X;
+	Y = rhs.Y;
+	Z = rhs.Z;
+}
+
 //-----------------------------------------------------------------------------
 Vector3D::Vector3D(float x, float y, float z)
 {

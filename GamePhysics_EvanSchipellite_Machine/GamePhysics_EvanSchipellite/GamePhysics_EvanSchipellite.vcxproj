@@ -100,6 +100,7 @@
     <ClCompile Include="PlanetHandler.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Quaternion.cpp" />
     <ClCompile Include="RodContactGenerator.cpp" />
     <ClCompile Include="Skybox.cpp" />
     <ClCompile Include="Source.cpp" />
@@ -139,6 +140,7 @@
     <ClInclude Include="PlanetHandler.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="Quaternion.h" />
     <ClInclude Include="RodContactGenerator.h" />
     <ClInclude Include="Skybox.h" />
     <ClInclude Include="SpringForceGenerator.h" />

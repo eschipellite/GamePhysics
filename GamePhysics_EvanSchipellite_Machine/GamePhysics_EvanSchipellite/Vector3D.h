@@ -19,6 +19,7 @@ public:
 
 public:
 	Vector3D();
+	Vector3D(const Vector3D&);
 	Vector3D(float x, float y, float z = 0);
 	~Vector3D();
 

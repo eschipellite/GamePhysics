@@ -198,6 +198,9 @@
     <ClCompile Include="CollectibleContactGenerator.cpp">
       <Filter>Source Files\Physics\Collision\ContactGenerators</Filter>
     </ClCompile>
+    <ClCompile Include="Quaternion.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameApp.h">
@@ -307,6 +310,9 @@
     </ClInclude>
     <ClInclude Include="CollectibleContactGenerator.h">
       <Filter>Header Files\Physics\Collision\ContactGenerators</Filter>
+    </ClInclude>
+    <ClInclude Include="Quaternion.h">
+      <Filter>Header Files\Utils</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

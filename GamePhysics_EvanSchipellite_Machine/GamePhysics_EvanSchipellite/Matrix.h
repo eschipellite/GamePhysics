@@ -25,7 +25,7 @@ private:
 
 public:
 	Matrix();
-	Matrix(const Matrix&);
+	Matrix(const Matrix& rhs);
 	Matrix(int length, bool identity);
 	Matrix(int rows, int columns);
 	Matrix(int rows, int columns, float* matrixArray);
