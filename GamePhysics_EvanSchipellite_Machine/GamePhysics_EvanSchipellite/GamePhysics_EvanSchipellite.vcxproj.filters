@@ -204,6 +204,9 @@
     <ClCompile Include="RigidBody.cpp">
       <Filter>Source Files\Objects</Filter>
     </ClCompile>
+    <ClCompile Include="RigidBodySpringForceGenerator.cpp">
+      <Filter>Source Files\Physics\Generators</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameApp.h">
@@ -319,6 +322,9 @@
     </ClInclude>
     <ClInclude Include="RigidBody.h">
       <Filter>Header Files\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="RigidBodySpringForceGenerator.h">
+      <Filter>Header Files\Physics\Generators</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

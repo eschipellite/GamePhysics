@@ -32,7 +32,9 @@ public:
 	~Matrix();
 
 	void Set(int row, int column, float value);
+	void Set(int index, float value);
 	float Get(int row, int column) const;
+	float Get(int index) const;
 	int GetNumRows() const { return m_NumRows; };
 	int GetNumColumns() const { return m_NumColumns; };
 	int GetSize() const { return m_Size; };
@@ -43,10 +45,15 @@ public:
 	Matrix operator-(const Matrix&) const;
 	Matrix operator*(const Matrix&) const;
 	Matrix operator*(const float&) const;
-	Matrix operator*(const Vector3D&) const;
+	Vector3D operator*(const Vector3D&) const;
 	bool operator==(const Matrix&) const;
 	bool operator!=(const Matrix&) const;
 	Matrix& operator=(const Matrix&);
+
+	Matrix GetInverse() const;
+	float GetDeterminant() const;
+
+	Vector3D Transform(const Vector3D &vector);
 };
 //=============================================================================
 #endif // MATRIX_H

@@ -22,6 +22,7 @@ public:
 	~EarthGravityGenerator();
 
 	void UpdateForce(PhysicsObject* physicsObjectOne, PhysicsObject* physicsObjectTwo = NULL);
+	void UpdateForce(RigidBody *rigidBodyOne, RigidBody *rigidBodyTwo = NULL);
 };
 //=============================================================================
 #endif // EARTH_GRAVITY_GENERATOR_H

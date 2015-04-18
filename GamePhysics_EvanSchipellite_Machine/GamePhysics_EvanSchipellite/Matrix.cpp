@@ -113,9 +113,21 @@ void Matrix::Set(int row, int column, float value)
 }
 
 //-----------------------------------------------------------------------------
+void Matrix::Set(int index, float value)
+{
+	mp_Matrix[index] = value;
+}
+
+//-----------------------------------------------------------------------------
 float Matrix::Get(int row, int column) const
 {
 	return mp_Matrix[row * m_NumColumns + column];
+}
+
+//-----------------------------------------------------------------------------
+float Matrix::Get(int index) const
+{
+	return mp_Matrix[index];
 }
 
 //-----------------------------------------------------------------------------
@@ -178,7 +190,7 @@ Matrix Matrix::operator*(const float& rhs) const
 }
 
 //-----------------------------------------------------------------------------
-Matrix Matrix::operator*(const Vector3D& rhs) const
+Vector3D Matrix::operator*(const Vector3D& rhs) const
 {
 	float* tempArray = new float[3];
 	tempArray[0] = rhs.X;
@@ -186,8 +198,9 @@ Matrix Matrix::operator*(const Vector3D& rhs) const
 	tempArray[2] = rhs.Z;
 
 	Matrix vectorMatrix = Matrix(3, 1, tempArray);
+	vectorMatrix = *this * vectorMatrix;
 
-	return (*this * vectorMatrix);
+	return Vector3D(vectorMatrix.Get(0), vectorMatrix.Get(1), vectorMatrix.Get(2));
 }
 
 //-----------------------------------------------------------------------------
@@ -232,5 +245,108 @@ Matrix& Matrix::operator=(const Matrix& rhs)
 	}
 
 	return *this;
+}
+
+//http://www.sanfoundry.com/cpp-program-finds-inverse-graph-matrix/
+//-----------------------------------------------------------------------------
+// Assistance from Robert Bethune
+Matrix Matrix::GetInverse() const
+{
+	Matrix inverse = *this;
+	if (inverse.GetDeterminant() != 0)
+	{
+		int n = inverse.GetNumRows();
+		int i, j, k;
+		float d;
+		for (int i = 1; i <= n; i++)
+		{
+			for (j = 1; j <= 2 * n; j++)
+			{
+				if (j == (i + n))
+				{
+					inverse.Set(i, j, 1);
+				}
+			}
+		}
+		for (i = n; i > 1; i--)
+		{
+			if (inverse.Get(i - 1, 1) < inverse.Get(i, 1))
+			{
+				for (j = 1; j <= n * 2; j++)
+				{
+					d = inverse.Get(i, j);
+					inverse.Set(i, j, inverse.Get(i - 1, j));
+					inverse.Set(i - 1, j, d);
+				}
+			}
+		}
+		for (i = 1; i <= n; i++)
+		{
+			for (j = 1; j <= n * 2; j++)
+			{
+				if (j != i)
+				{
+					d = inverse.Get(j, i) / inverse.Get(i, i);
+					for (k = 1; k <= n * 2; k++)
+					{
+						inverse.Set(j, k, inverse.Get(j, k) - (inverse.Get(i, k) * d));
+					}
+				}
+			}
+		}
+		for (i = 1; i <= n; i++)
+		{
+			d = inverse.Get(i, i);
+			for (j = 1; j <= n * 2; j++)
+			{
+				inverse.Set(i, j, inverse.Get(i, j) / d);
+			}
+		}
+		return inverse;
+	}
+
+	return Matrix(inverse.GetNumRows(), inverse.GetNumColumns());
+}
+
+//--------------------------------------------------------------------------------------------
+// Assistance from Robert Bethune
+float Matrix::GetDeterminant() const
+{
+	float ratio, det;
+	Matrix m = *this;
+	if (m_NumRows == m_NumColumns)
+	{
+		for (int i = 0; i < m_NumRows; i++)
+		{
+			for (int j = 0; j < m_NumColumns; j++)
+			{
+				if (j > i)
+				{
+					ratio = m.Get(j, i) / m.Get(i, i);
+
+					for (int k = 0; k < m_NumRows; k++)
+					{
+						m.Set(j, k, (m.Get(j, k) - (ratio*m.Get(i, k))));
+					}
+				}
+			}
+		}
+		det = 1;
+		for (int i = 0; i < m_NumRows; i++)
+		{
+			det *= m.Get(i, i);
+		}
+		return det;
+	}
+	else
+	{
+		return 0;
+	}
+}
+
+//--------------------------------------------------------------------------------------------
+Vector3D Matrix::Transform(const Vector3D &vector)
+{
+	return (*this) * vector;
 }
 //=============================================================================
