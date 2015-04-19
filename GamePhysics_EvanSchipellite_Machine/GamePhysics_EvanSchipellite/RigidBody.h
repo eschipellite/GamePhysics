@@ -15,12 +15,17 @@ class RigidBody
 protected:
 	float m_InverseMass;
 	float m_LinearDampening;
+	float m_AngularDampening;
 
 	Vector3D m_Position;
+	Vector3D m_InitialPosition;
 	Vector3D m_Velocity;
+	Vector3D m_InitialVelocity;
 	Vector3D m_LastFrameAcceleration;
 	Vector3D m_Acceleration;
+	Vector3D m_InitialAcceleration;
 	Vector3D m_Rotation;
+	Vector3D m_InitialRotation;
 	Vector3D m_ForceAccum;
 	Vector3D m_TorqueAccum;
 
@@ -31,8 +36,6 @@ protected:
 	Matrix m_InverseInertiaTensorWorld;
 
 	bool m_IsAwake;
-
-	float m_AngularDamping;
 
 protected:
 	void calculateDerivedData();
@@ -47,6 +50,9 @@ public:
 	void AddForce(const Vector3D &force);
 	void ClearAccumulators();
 	void Integrate(float duration);
+
+	void Initialize(float mass, Vector3D initialPosition, Vector3D initialVelocity = Vector3D::Zero, Vector3D initialAcceleration = Vector3D::Zero, Vector3D initialRotation = Vector3D::Zero, float linearDampening = 1, float angularDampening = 1);
+	void Reset();
 
 	void AddForceAtPoint(const Vector3D &force, const Vector3D &point);
 	void AddForceAtBodyPoint(const Vector3D &force, const Vector3D &point);

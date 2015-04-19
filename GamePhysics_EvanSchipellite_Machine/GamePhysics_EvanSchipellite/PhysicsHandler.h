@@ -61,6 +61,7 @@ public:
 	void CleanUp();
 
 	void AddToRegistry(ForceGenerator* forceGenerator, PhysicsObject* physicsObjectOne, PhysicsObject* physicsObjectTwo = NULL);
+	void AddToRegistry(ForceGenerator* forceGenerator, RigidBody* rigidBodyOne, RigidBody* rigidBodyTwo = NULL);
 	void AddToRegistry(ForceRegister forceRegister);
 	void AddToRegistry(std::vector<ForceRegister> forceRegisters);
 
@@ -68,7 +69,9 @@ public:
 
 	void AddGround(PhysicsObject* groundObject);
 	void AddCollisionObject(PhysicsObject* physicsObject);
+	void AddCollisionObject(RigidBody* rigidBody);
 	void AddCollisionObjects(std::vector<PhysicsObject*> physicsObjects);
+	void AddCollisionObjects(std::vector<RigidBody*> rigidBodies);
 
 	inline int GetCollisions() { return mp_CollisionHandler->GetCollisions(); };
 };

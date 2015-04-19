@@ -15,6 +15,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <sstream>
+#include "GlutTime.h"
 
 using namespace std;
 //=============================================================================
@@ -37,10 +38,6 @@ void stop();
 
 void eh_HandleUI(int buttonID);
 //=============================================================================
-const unsigned int FPS = 60;
-const double MILLISECONDS = 1000.0;
-const double FRAME_TIME = MILLISECONDS / FPS;
-
 const unsigned int KEY_ESCAPE = 27;
 const unsigned int KEY_ENTER = 13;
 
@@ -53,7 +50,6 @@ const unsigned int ID_STOP = 2;
 //=============================================================================
 int g_CurrentFrame;
 int g_TimeBase;
-int g_Previous;
 
 Vector3D g_ScreenSize = INITIAL_SCREEN_SIZE;
 
@@ -65,9 +61,8 @@ EditorState* gp_EditorState;
 GLUI* g_GluiSubWindow;
 GLUI_StaticText* g_StaticText;
 GLUI_StaticText* g_FPSText;
-GLUI_StaticText* g_PlayerVelocityText;
-GLUI_StaticText* g_ObjectsCollectedText;
-GLUI_StaticText* g_CollisionsText;
+
+GlutTime* gp_GlutTime;
 //=============================================================================
 int main(int argc, char** argv) 
 {
@@ -85,8 +80,11 @@ void initialize()
 {
 	srand(static_cast<unsigned int>(time(NULL)));
 
-	g_TimeBase = g_Previous = glutGet(GLUT_ELAPSED_TIME);
+	g_TimeBase = glutGet(GLUT_ELAPSED_TIME);
 	g_CurrentFrame = 0;
+
+	gp_GlutTime = new GlutTime();
+	gp_GlutTime->Init();
 
 	glutInitWindowSize((int)INITIAL_SCREEN_SIZE.X, (int)INITIAL_SCREEN_SIZE.Y);
 	glutInitWindowPosition((int)INITIAL_WINDOW_POSITION.X, (int)INITIAL_WINDOW_POSITION.Y);
@@ -127,13 +125,8 @@ void initialize()
 	g_StaticText->set_alignment(GLUI_ALIGN_RIGHT);
 	g_GluiSubWindow->add_column();
 	g_FPSText = g_GluiSubWindow->add_statictext("FPS: 0");
-	g_PlayerVelocityText = g_GluiSubWindow->add_statictext("Player Velocity: 0");
-	g_ObjectsCollectedText = g_GluiSubWindow->add_statictext("Objects Collected: 0");
-	g_CollisionsText = g_GluiSubWindow->add_statictext("Collisions: 0");
 
 	SetCursorPos((int)(g_ScreenSize.X / 2.0f), (int)(g_ScreenSize.Y / 2.0f));
-
-	gp_GameApp->SetTextReferences(g_PlayerVelocityText, g_ObjectsCollectedText, g_CollisionsText);
 
 	start();
 
@@ -145,7 +138,7 @@ void initialize()
 void start()
 {
 	gp_GameApp->Start();
-	stop();
+	//stop();
 }
 
 //-----------------------------------------------------------------------------
@@ -162,9 +155,15 @@ void cleanUp()
 //-----------------------------------------------------------------------------
 void idle()
 {
-	g_CurrentFrame++;
 	int time = glutGet(GLUT_ELAPSED_TIME);
-	int elapsedForFrame = time - g_Previous;
+
+	if (gp_GlutTime->UpdateTime())
+	{
+		g_CurrentFrame++;
+		update(gp_GlutTime->GetDeltaTime());
+		gp_GlutTime->IncrementFrame();
+	}
+
 	if (time - g_TimeBase > 1000)
 	{
 		std::ostringstream out;
@@ -174,8 +173,6 @@ void idle()
 		g_TimeBase = time;
 		g_CurrentFrame = 0;
 	}
-	g_Previous = time;
-	update((float)elapsedForFrame / 1000.0f);
 }
 
 //-----------------------------------------------------------------------------

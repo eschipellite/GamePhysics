@@ -20,7 +20,7 @@ protected:
 	GLUquadric* m_Quad;
 
 protected:
-	void loadTexture(std::string texture);
+	void loadTexture(std::string textureID);
 
 public:
 	GameObject();

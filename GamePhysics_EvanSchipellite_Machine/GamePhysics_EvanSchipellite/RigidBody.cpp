@@ -128,7 +128,7 @@ void RigidBody::Integrate(float duration)
 	m_Rotation += (angularAcceleration * duration);
 
 	m_Velocity *= (pow(m_LinearDampening, duration));
-	m_Rotation *= (pow(m_AngularDamping, duration));
+	m_Rotation *= (pow(m_AngularDampening, duration));
 
 	m_Position += (m_Velocity * duration);
 
@@ -137,6 +137,37 @@ void RigidBody::Integrate(float duration)
 	calculateDerivedData();
 
 	ClearAccumulators();
+}
+
+//-----------------------------------------------------------------------------
+void RigidBody::Initialize(float mass, Vector3D initialPosition, Vector3D initialVelocity, Vector3D initialAcceleration, Vector3D initialRotation, float dampening, float angularDampening)
+{
+	m_InverseMass = 1 / mass;
+
+	m_LinearDampening = dampening;
+	m_AngularDampening = angularDampening;
+
+	m_InitialPosition = initialPosition;
+	m_Position = m_InitialPosition;
+	m_InitialVelocity = initialVelocity;
+	m_Velocity = m_InitialVelocity;
+	m_InitialAcceleration = initialAcceleration;
+	m_LastFrameAcceleration = m_InitialAcceleration;
+	m_Acceleration = m_InitialAcceleration;
+	m_InitialRotation = initialRotation;
+	m_Rotation = m_InitialRotation;
+
+	m_IsAwake = false;
+}
+
+//-----------------------------------------------------------------------------
+void RigidBody::Reset()
+{
+	m_Position = m_InitialPosition;
+	m_Velocity = m_InitialVelocity;
+	m_LastFrameAcceleration = m_InitialAcceleration;
+	m_Acceleration = m_InitialAcceleration;
+	m_Rotation = m_InitialRotation;
 }
 
 //-----------------------------------------------------------------------------

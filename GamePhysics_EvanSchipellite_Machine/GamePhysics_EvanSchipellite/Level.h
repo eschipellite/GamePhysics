@@ -31,10 +31,9 @@ private:
 	std::vector<ForceGenerator*> mp_ForceGenerators;
 	std::vector<ContactGenerator*> mp_ContactGenerators;
 
-	std::string m_CollectibleTexture;
+	std::string m_CollectibleTextureID;
 
 private:
-	void createLevel();
 	void drawCollectibles();
 	void updateCollectibles(float deltaTime);
 	void resetCollectibles();
@@ -46,7 +45,7 @@ public:
 	Level();
 	~Level();
 
-	void Initialize(Vector3D dimensions, std::string groundTexture, Vector3D playerPosition, std::string playerTexture, std::string collectibleTexture);
+	void Initialize(Vector3D dimensions, Vector3D playerPosition, std::string groundID, std::string playerID, std::string collectibleID);
 	void CleanUp();
 	void Draw();
 	void Update(float deltaTime);

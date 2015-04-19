@@ -22,10 +22,10 @@ void Collectible::createContactGenerators()
 }
 
 //-----------------------------------------------------------------------------
-void Collectible::Initialize(Vector3D initialPosition, std::string texture, float mass)
+void Collectible::Initialize(Vector3D initialPosition, std::string textureID, float mass)
 {
 	GameObject* gameObject = new GameObject();
-	gameObject->Initialize(initialPosition, texture, mass);
+	gameObject->Initialize(initialPosition, textureID, mass);
 	mp_GameObjects.push_back(gameObject);
 }
 

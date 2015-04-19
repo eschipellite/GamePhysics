@@ -1,25 +1,8 @@
-﻿Build started 4/18/2015 2:55:38 PM.
+﻿Build started 4/19/2015 11:51:07 AM.
      1>Project "C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\GamePhysics_EvanSchipellite\GamePhysics_EvanSchipellite.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\packages\nupengl.core.0.0.0.1\build\native\../..//build/native/include/ /I"C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\\Lib\glui-2.36\include" /I"C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\\Lib\Simple OpenGL Image Library\src" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt BungeeForceGenerator.cpp EarthGravityGenerator.cpp ForceGenerator.cpp ForceRegistration.cpp ForceRegistry.cpp GameApp.cpp GravityGenerator.cpp Level.cpp PhysicsHandler.cpp PlanetHandler.cpp Player.cpp RigidBodySpringForceGenerator.cpp Source.cpp SpringForceGenerator.cpp
-         BungeeForceGenerator.cpp
-         Generating Code...
-         Compiling...
-         SpringForceGenerator.cpp
-         RigidBodySpringForceGenerator.cpp
-         GravityGenerator.cpp
-         ForceRegistration.cpp
-         ForceGenerator.cpp
-         EarthGravityGenerator.cpp
-         Generating Code...
-         Skipping... (no relevant changes detected)
-         Source.cpp
-         Player.cpp
-         PlanetHandler.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\packages\nupengl.core.0.0.0.1\build\native\../..//build/native/include/ /I"C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\\Lib\glui-2.36\include" /I"C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\\Lib\Simple OpenGL Image Library\src" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt PhysicsHandler.cpp
          PhysicsHandler.cpp
-         Level.cpp
-         GameApp.cpp
-         ForceRegistry.cpp
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\Debug\GamePhysics_EvanSchipellite.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\\Lib\glui-2.36\Debug" /LIBPATH:"C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\\Lib\Simple OpenGL Image Library\Debug" C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\packages\nupengl.core.0.0.0.1\build\native\../..//build/native/lib/Win32\v120\glew32.lib C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\packages\nupengl.core.0.0.0.1\build\native\../..//build/native/lib/Win32\v120\glfw3dll.lib C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\packages\nupengl.core.0.0.0.1\build\native\../..//build/native/lib/Win32\v120\freeglut.lib glui32.lib OpenGL32.lib glu32.lib SOIL.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\Debug\GamePhysics_EvanSchipellite.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\Debug\GamePhysics_EvanSchipellite.lib" /MACHINE:X86 Debug\BungeeForceGenerator.obj
          Debug\CableContactGenerator.obj
@@ -38,9 +21,11 @@
          Debug\ForceRegistration.obj
          Debug\ForceRegistry.obj
          Debug\GameApp.obj
+         Debug\GlutTime.obj
          Debug\GravityGenerator.obj
          Debug\Ground.obj
          Debug\GroundContactGenerator.obj
+         Debug\ImageHandler.obj
          Debug\Level.obj
          Debug\Matrix.obj
          Debug\EditorState.obj
@@ -54,6 +39,7 @@
          Debug\Quaternion.obj
          Debug\RigidBody.obj
          Debug\RigidBodySpringForceGenerator.obj
+         Debug\RigidForceRegistration.obj
          Debug\RodContactGenerator.obj
          Debug\Skybox.obj
          Debug\Source.obj
@@ -66,4 +52,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:02.80
+Time Elapsed 00:00:01.62

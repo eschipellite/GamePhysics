@@ -16,6 +16,7 @@
 #include "Level.h"
 #include "SpringForceGenerator.h"
 #include "BungeeForceGenerator.h"
+#include "ImageHandler.h"
 //=============================================================================
 float GameApp::ms_TimeStep = 1;
 //=============================================================================
@@ -33,18 +34,6 @@ GameApp::GameApp()
 GameApp::~GameApp()
 {
 	CleanUp();
-}
-
-//-----------------------------------------------------------------------------
-void GameApp::updateText()
-{
-	std::string playerVelocity = convertVector3DToString(mp_Level->GetPlayer()->GetCurrentVelocity());
-	std::string playerVelocityText = "Player Velocity: " + playerVelocity;
-	mp_PlayerVelocityText->set_text(playerVelocityText.c_str());
-	std::string objectsCollected = "Objects Collected: " + convertFloatToString((float)mp_Level->GetObjectsCollected());
-	mp_ObjectsCollectedText->set_text(objectsCollected.c_str());
-	std::string collisions = "Collisions: " + convertFloatToString((float)mp_PhysicsHandler->GetCollisions());
-	mp_CollisionText->set_text(collisions.c_str());
 }
 
 //-----------------------------------------------------------------------------
@@ -75,24 +64,17 @@ void GameApp::Initialize()
 	Vector3D centerPosition = Vector3D(0, 0, 0);
 	Vector3D centerRotation = Vector3D(0, 0, 0);
 	mp_Camera->Initialize(centerPosition, centerRotation);
-	mp_Camera->SetFollowObject(mp_Level->GetPlayer(), 25);
 
-	mp_Level->Initialize(Vector3D(60, 5, 60), "Content/Textures/Texture_Grass.jpg", Vector3D(0, 2, 0), "Content/Textures/Texture_Player.jpg", "Content/Textures/Texture_Collectible.jpg");
+	ImageHandler::GetInstance()->AddImage("Content/Textures/Texture_Grass.jpg", "Ground");
+	ImageHandler::GetInstance()->AddImage("Content/Textures/Texture_Player.jpg", "Player");
+	ImageHandler::GetInstance()->AddImage("Content/Textures/Texture_Collectible.jpg", "Collectible");
+
+	mp_Level->Initialize(Vector3D(60, 5, 60), Vector3D(0, 2, 0), "Ground", "Player", "Collectible");
 
 	mp_PhysicsHandler->AddToRegistry(mp_Level->GetForceRegisters());
 	mp_PhysicsHandler->AddGround(mp_Level->GetGround());
 	mp_PhysicsHandler->AddCollisionObjects(mp_Level->GetCollisionObjects());
 	mp_PhysicsHandler->AddContactGenerators(mp_Level->GetContactGenerators());
-	mp_PhysicsHandler->AddToRegistry(new BungeeForceGenerator(mp_Level->GetPlayer(), 5, 1), mp_Camera);
-	mp_PhysicsHandler->AddCollisionObject(mp_Camera);
-}
-
-//-----------------------------------------------------------------------------
-void GameApp::SetTextReferences(GLUI_StaticText* playerVelocityText, GLUI_StaticText* objectsCollectedText, GLUI_StaticText* collisionsText)
-{
-	mp_PlayerVelocityText = playerVelocityText;
-	mp_ObjectsCollectedText = objectsCollectedText;
-	mp_CollisionText = collisionsText;
 }
 
 //-----------------------------------------------------------------------------
@@ -141,14 +123,14 @@ void GameApp::Update(float deltaTime, const EditorState* physicsState)
 
 		while (currentTime < ms_TimeStep)
 		{
-			mp_Camera->Update(deltaTime);
 			mp_PhysicsHandler->Update(deltaTime);
 			mp_Level->Update(deltaTime);
-			updateText();
 
 			currentTime++;
 		}
 	}
+
+	mp_Camera->Update(deltaTime);
 }
 
 //-----------------------------------------------------------------------------

@@ -24,12 +24,24 @@ void ForceRegistry::updateForceGenerators()
 	{
 		(*iter).Update();
 	}
+
+	std::vector<RigidForceRegistration>::iterator rigidIter;
+	for (rigidIter = m_RigidForceRegistration.begin(); rigidIter != m_RigidForceRegistration.end(); rigidIter++)
+	{
+		(*rigidIter).Update();
+	}
 }
 
 //-----------------------------------------------------------------------------
 void ForceRegistry::AddForceRegistration(ForceGenerator* forceGenerator, PhysicsObject* physicsObject)
 {
 	m_ForceRegistration.push_back(ForceRegistration(forceGenerator, physicsObject));
+}
+
+//-----------------------------------------------------------------------------
+void ForceRegistry::AddForceRegistration(ForceGenerator* forceGenerator, RigidBody* rigidBody)
+{
+	m_RigidForceRegistration.push_back(RigidForceRegistration(forceGenerator, rigidBody));
 }
 
 //-----------------------------------------------------------------------------
@@ -47,9 +59,24 @@ void ForceRegistry::RemoveForceRegistration(ForceGenerator* forceGenerator, Phys
 }
 
 //-----------------------------------------------------------------------------
+void ForceRegistry::RemoveForceRegistration(ForceGenerator* forceGenerator, RigidBody* rigidBody)
+{
+	std::vector<RigidForceRegistration>::iterator iter;
+	for (iter = m_RigidForceRegistration.begin(); iter != m_RigidForceRegistration.end(); iter++)
+	{
+		if ((*iter).GetForceGenerator() == forceGenerator && (*iter).GetRigidBody() == rigidBody)
+		{
+			m_RigidForceRegistration.erase(iter);
+			break;
+		}
+	}
+}
+
+//-----------------------------------------------------------------------------
 void ForceRegistry::Clear()
 {
 	m_ForceRegistration.clear();
+	m_RigidForceRegistration.clear();
 }
 
 //-----------------------------------------------------------------------------

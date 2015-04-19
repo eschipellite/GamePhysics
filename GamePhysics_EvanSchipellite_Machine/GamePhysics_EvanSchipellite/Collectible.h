@@ -26,7 +26,7 @@ public:
 	Collectible();
 	~Collectible();
 
-	void Initialize(Vector3D initialPosition, std::string texture, float mass = 1);
+	void Initialize(Vector3D initialPosition, std::string textureID, float mass = 1);
 	void CleanUp();
 	void Reset();
 

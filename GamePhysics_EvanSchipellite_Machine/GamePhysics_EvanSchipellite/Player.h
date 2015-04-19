@@ -31,7 +31,7 @@ public:
 	Player();
 	~Player();
 
-	void Initialize(Vector3D initialPosition, std::string texture, float speed = 10, float jumpSpeed = 10);
+	void Initialize(Vector3D initialPosition, std::string textureID, float speed = 10, float jumpSpeed = 10);
 	void Draw();
 	void Update(float deltaTime);
 	void Reset();

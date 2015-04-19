@@ -7,6 +7,7 @@
 //=============================================================================
 #include "GameObject.h"
 #include <SOIL.h>
+#include "ImageHandler.h"
 //=============================================================================
 GameObject::GameObject()
 {
@@ -26,17 +27,9 @@ void GameObject::Initialize(Vector3D initialPosition, std::string texture, float
 
 //-----------------------------------------------------------------------------
 // Code assistance from Robert Bethune
-void GameObject::loadTexture(std::string texture)
+void GameObject::loadTexture(std::string textureID)
 {
-	int width;
-	int height;
-
-	glGenTextures(1, &m_Texture);
-	glBindTexture(GL_TEXTURE_2D, m_Texture);
-
-	unsigned char* image = SOIL_load_image(texture.c_str(), &width, &height, 0, SOIL_LOAD_RGB);
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, image);
-	SOIL_free_image_data(image);
+	m_Texture = *(ImageHandler::GetInstance()->GetImage(textureID));
 
 	m_Quad = gluNewQuadric();
 }

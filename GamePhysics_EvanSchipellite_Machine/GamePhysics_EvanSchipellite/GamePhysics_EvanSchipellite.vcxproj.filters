@@ -207,6 +207,15 @@
     <ClCompile Include="RigidBodySpringForceGenerator.cpp">
       <Filter>Source Files\Physics\Generators</Filter>
     </ClCompile>
+    <ClCompile Include="GlutTime.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="RigidForceRegistration.cpp">
+      <Filter>Source Files\Physics\ForceRegistration</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageHandler.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameApp.h">
@@ -325,6 +334,15 @@
     </ClInclude>
     <ClInclude Include="RigidBodySpringForceGenerator.h">
       <Filter>Header Files\Physics\Generators</Filter>
+    </ClInclude>
+    <ClInclude Include="GlutTime.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="RigidForceRegistration.h">
+      <Filter>Header Files\Physics\ForceRegistration</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageHandler.h">
+      <Filter>Header Files\Utils</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

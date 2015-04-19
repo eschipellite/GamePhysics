@@ -40,67 +40,6 @@ Level::~Level()
 }
 
 //-----------------------------------------------------------------------------
-void Level::createLevel()
-{
-	std::string line;
-	std::ifstream levelFile("Content/Files/Level.txt");
-	if (levelFile.is_open())
-	{
-		while (std::getline(levelFile, line))
-		{
-			std::string buffer;
-			std::stringstream stringStream(line);
-
-			std::vector<std::string> tokens; // Create vector to hold our words
-
-			while (stringStream >> buffer)
-			{
-				tokens.push_back(buffer);
-			}
-
-			int collectibleType = atoi(tokens[0].c_str());
-			float x = float(atoi(tokens[1].c_str()));
-			float y = float(atoi(tokens[2].c_str()));
-			float z = float(atoi(tokens[3].c_str()));
-			float size = float(atoi(tokens[4].c_str()));
-
-			switch (collectibleType)
-			{
-			case 0:
-			{
-				CubeCollectible* cubeCollectible = new CubeCollectible();
-				cubeCollectible->Initialize(Vector3D(x, y, z), m_CollectibleTexture, size);
-				mp_CollectibleObjects.push_back(cubeCollectible);
-			}
-				break;
-			case 1:
-			{
-				TetrahedronCollectible* tetrahedronCollectible = new TetrahedronCollectible();
-				tetrahedronCollectible->Initialize(Vector3D(x, y, z), m_CollectibleTexture, size);
-				mp_CollectibleObjects.push_back(tetrahedronCollectible);
-			}
-				break;
-			case 2:
-			{
-				DiamondCollectible* diamondCollectible = new DiamondCollectible();
-				diamondCollectible->Initialize(Vector3D(x, y, z), m_CollectibleTexture, size);
-				mp_CollectibleObjects.push_back(diamondCollectible);
-			}
-				break;
-			default:
-			{
-				Collectible* sphereCollectible = new Collectible();
-				sphereCollectible->Initialize(Vector3D(x, y, z), m_CollectibleTexture, size);
-				mp_CollectibleObjects.push_back(sphereCollectible);
-			}
-				break;
-			}
-		}
-		levelFile.close();
-	}
-}
-
-//-----------------------------------------------------------------------------
 void Level::drawCollectibles()
 {
 	std::vector<Collectible*>::iterator collectibleObjectIter;
@@ -167,14 +106,12 @@ std::vector<PhysicsObject*> Level::getCollectibleCollisionObjects()
 }
 
 //-----------------------------------------------------------------------------
-void Level::Initialize(Vector3D dimensions, std::string groundTexture, Vector3D playerPosition, std::string playerTexture, std::string collectibleTexture)
+void Level::Initialize(Vector3D dimensions, Vector3D playerPosition, std::string groundID, std::string playerID, std::string collectibleID)
 {
-	mp_Ground->Initialize(dimensions, 1, Vector3D(0, -dimensions.Y, 0), groundTexture);
-	mp_Player->Initialize(playerPosition, playerTexture, 20, 400);
+	mp_Ground->Initialize(dimensions, 1, Vector3D(0, -dimensions.Y, 0), groundID);
+	mp_Player->Initialize(playerPosition, playerID, 20, 400);
 
-	m_CollectibleTexture = collectibleTexture;
-
-	createLevel();
+	m_CollectibleTextureID = collectibleID;
 }
 
 //-----------------------------------------------------------------------------
@@ -283,13 +220,11 @@ std::vector<ContactGenerator*> Level::GetContactGenerators()
 //-----------------------------------------------------------------------------
 void Level::HandleKeyPressed(unsigned char key)
 {
-	mp_Player->HandleKeyPressed(key);
 }
 
 //-----------------------------------------------------------------------------
 void Level::HandleKeyReleased(unsigned char key)
 {
-	mp_Player->HandleKeyReleased(key);
 }
 
 //-----------------------------------------------------------------------------

@@ -31,7 +31,7 @@ Camera::Camera()
 	m_Move_Down = false;
 
 	m_MouseSpeed = 1.0f / 10.0f;
-	m_CameraSpeed = 3.0f / 10.0f;
+	m_CameraSpeed = 2.0f / 10.0f;
 
 	m_DistanceFromFollowObject = 0;
 }
@@ -136,10 +136,6 @@ void Camera::Update(float deltaTime)
 //-----------------------------------------------------------------------------
 void Camera::Reset()
 {
-	m_Position = m_InitialPosition;
-	m_Rotation = m_InitialRotation;
-
-	PhysicsObject::Reset();
 }
 
 //-----------------------------------------------------------------------------

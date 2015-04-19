@@ -73,6 +73,12 @@ void PhysicsHandler::AddToRegistry(ForceGenerator* forceGenerator, PhysicsObject
 }
 
 //-----------------------------------------------------------------------------
+void PhysicsHandler::AddToRegistry(ForceGenerator* forceGenerator, RigidBody* rigidBodyOne, RigidBody* rigidBodyTwo)
+{
+	m_ForceRegistry->AddForceRegistration(forceGenerator, rigidBodyOne);
+}
+
+//-----------------------------------------------------------------------------
 void PhysicsHandler::AddToRegistry(ForceRegister forceRegister)
 {
 	AddToRegistry(forceRegister._ForceGenerator, forceRegister._PhysicsObjectOne, forceRegister._PhysicsObjectTwo);
@@ -104,6 +110,18 @@ void PhysicsHandler::AddCollisionObject(PhysicsObject* physicsObject)
 void PhysicsHandler::AddCollisionObjects(std::vector<PhysicsObject*> physicsObjects)
 {
 	mp_CollisionHandler->AddCollisionObjects(physicsObjects);
+}
+
+//-----------------------------------------------------------------------------
+void PhysicsHandler::AddCollisionObject(RigidBody* rigidBody)
+{
+	//mp_CollisionHandler->AddCollisionObject(rigidBody);
+}
+
+//-----------------------------------------------------------------------------
+void PhysicsHandler::AddCollisionObjects(std::vector<RigidBody*> rigidBodies)
+{
+	//mp_CollisionHandler->AddCollisionObjects(rigidBodies);
 }
 
 //-----------------------------------------------------------------------------

@@ -87,9 +87,11 @@
     <ClCompile Include="ForceRegistration.cpp" />
     <ClCompile Include="ForceRegistry.cpp" />
     <ClCompile Include="GameApp.cpp" />
+    <ClCompile Include="GlutTime.cpp" />
     <ClCompile Include="GravityGenerator.cpp" />
     <ClCompile Include="Ground.cpp" />
     <ClCompile Include="GroundContactGenerator.cpp" />
+    <ClCompile Include="ImageHandler.cpp" />
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="EditorState.cpp" />
@@ -103,6 +105,7 @@
     <ClCompile Include="Quaternion.cpp" />
     <ClCompile Include="RigidBody.cpp" />
     <ClCompile Include="RigidBodySpringForceGenerator.cpp" />
+    <ClCompile Include="RigidForceRegistration.cpp" />
     <ClCompile Include="RodContactGenerator.cpp" />
     <ClCompile Include="Skybox.cpp" />
     <ClCompile Include="Source.cpp" />
@@ -129,9 +132,11 @@
     <ClInclude Include="ForceRegistration.h" />
     <ClInclude Include="ForceRegistry.h" />
     <ClInclude Include="GameApp.h" />
+    <ClInclude Include="GlutTime.h" />
     <ClInclude Include="GravityGenerator.h" />
     <ClInclude Include="Ground.h" />
     <ClInclude Include="GroundContactGenerator.h" />
+    <ClInclude Include="ImageHandler.h" />
     <ClInclude Include="Level.h" />
     <ClInclude Include="Matrix.h" />
     <ClInclude Include="EditorState.h" />
@@ -145,6 +150,7 @@
     <ClInclude Include="Quaternion.h" />
     <ClInclude Include="RigidBody.h" />
     <ClInclude Include="RigidBodySpringForceGenerator.h" />
+    <ClInclude Include="RigidForceRegistration.h" />
     <ClInclude Include="RodContactGenerator.h" />
     <ClInclude Include="Skybox.h" />
     <ClInclude Include="SpringForceGenerator.h" />
