@@ -54,6 +54,7 @@ public:
 	float GetDeterminant() const;
 
 	Vector3D Transform(const Vector3D &vector);
+	Vector3D GetAxisVector(unsigned int index) const;
 };
 //=============================================================================
 #endif // MATRIX_H

@@ -75,7 +75,12 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Collectible.cpp" />
     <ClCompile Include="CollectibleContactGenerator.cpp" />
+    <ClCompile Include="CollisionData.cpp" />
+    <ClCompile Include="CollisionDetector.cpp" />
     <ClCompile Include="CollisionHandler.cpp" />
+    <ClCompile Include="CollisionPlane.cpp" />
+    <ClCompile Include="CollisionPrimitive.cpp" />
+    <ClCompile Include="CollisionSphere.cpp" />
     <ClCompile Include="Contact.cpp" />
     <ClCompile Include="ContactGenerator.cpp" />
     <ClCompile Include="CubeCollectible.cpp" />
@@ -105,6 +110,7 @@
     <ClCompile Include="Quaternion.cpp" />
     <ClCompile Include="RigidBody.cpp" />
     <ClCompile Include="RigidBodySpringForceGenerator.cpp" />
+    <ClCompile Include="RigidContact.cpp" />
     <ClCompile Include="RigidForceRegistration.cpp" />
     <ClCompile Include="RodContactGenerator.cpp" />
     <ClCompile Include="Skybox.cpp" />
@@ -120,7 +126,12 @@
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Collectible.h" />
     <ClInclude Include="CollectibleContactGenerator.h" />
+    <ClInclude Include="CollisionData.h" />
+    <ClInclude Include="CollisionDetector.h" />
     <ClInclude Include="CollisionHandler.h" />
+    <ClInclude Include="CollisionPlane.h" />
+    <ClInclude Include="CollisionPrimitive.h" />
+    <ClInclude Include="CollisionSphere.h" />
     <ClInclude Include="Contact.h" />
     <ClInclude Include="ContactGenerator.h" />
     <ClInclude Include="CubeCollectible.h" />
@@ -150,6 +161,7 @@
     <ClInclude Include="Quaternion.h" />
     <ClInclude Include="RigidBody.h" />
     <ClInclude Include="RigidBodySpringForceGenerator.h" />
+    <ClInclude Include="RigidContact.h" />
     <ClInclude Include="RigidForceRegistration.h" />
     <ClInclude Include="RodContactGenerator.h" />
     <ClInclude Include="Skybox.h" />

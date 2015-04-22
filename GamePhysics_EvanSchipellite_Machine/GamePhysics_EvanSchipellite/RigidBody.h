@@ -61,6 +61,7 @@ public:
 	float GetMass();
 
 	Vector3D GetPointInWorldSpace(const Vector3D point);
+	Matrix GetTransform() const { return m_TransformationMatrix; };
 };
 //=============================================================================
 #endif // RIGIDBODY_H

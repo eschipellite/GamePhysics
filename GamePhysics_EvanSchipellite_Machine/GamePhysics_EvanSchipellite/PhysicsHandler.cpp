@@ -32,6 +32,7 @@ void PhysicsHandler::Initialize()
 void PhysicsHandler::Update(float deltaTime)
 {
 	m_ForceRegistry->UpdateForces();
+	updateRigidBodies(deltaTime);
 	mp_CollisionHandler->Update(deltaTime);
 }
 
@@ -52,6 +53,8 @@ void PhysicsHandler::CleanUp()
 	}
 	delete mp_CollisionHandler;
 	mp_CollisionHandler = nullptr;
+
+	mp_RigidBodies.clear();
 }
 
 //-----------------------------------------------------------------------------
@@ -64,6 +67,16 @@ void PhysicsHandler::cleanUpForceGenerators()
 	}
 
 	m_ForceGenerators.clear();
+}
+
+//-----------------------------------------------------------------------------
+void PhysicsHandler::updateRigidBodies(float deltaTime)
+{
+	std::vector<RigidBody*>::iterator rigidBodyIter;
+	for (rigidBodyIter = mp_RigidBodies.begin(); rigidBodyIter != mp_RigidBodies.end(); rigidBodyIter++)
+	{
+		(*rigidBodyIter)->Integrate(deltaTime);
+	}
 }
 
 //-----------------------------------------------------------------------------
@@ -91,6 +104,22 @@ void PhysicsHandler::AddToRegistry(std::vector<ForceRegister> forceRegisters)
 	for (forceRegisterIter = forceRegisters.begin(); forceRegisterIter != forceRegisters.end(); forceRegisterIter++)
 	{
 		AddToRegistry(*forceRegisterIter);
+	}
+}
+
+//-----------------------------------------------------------------------------
+void PhysicsHandler::AddRigidBody(RigidBody* rigidBody)
+{
+	mp_RigidBodies.push_back(rigidBody);
+}
+
+//-----------------------------------------------------------------------------
+void PhysicsHandler::AddRigidBodies(std::vector<RigidBody*> rigidBodies)
+{
+	std::vector<RigidBody*>::iterator rigidBodyIter;
+	for (rigidBodyIter = rigidBodies.begin(); rigidBodyIter != rigidBodies.end(); rigidBodyIter++)
+	{
+		mp_RigidBodies.push_back((*rigidBodyIter));
 	}
 }
 

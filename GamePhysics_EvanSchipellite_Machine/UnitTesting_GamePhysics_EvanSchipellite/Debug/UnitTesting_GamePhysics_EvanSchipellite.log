@@ -1,25 +1,9 @@
-﻿Build started 4/19/2015 10:41:06 AM.
-     1>Project "C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\UnitTesting_GamePhysics_EvanSchipellite\UnitTesting_GamePhysics_EvanSchipellite.vcxproj" on node 2 (Rebuild target(s)).
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\packages\nupengl.core.0.0.0.1\build\native\../..//build/native/include/ /I"C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\\Lib\glui-2.36\include" /I"C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\UnitTest\include" /IC:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\\GamePhysics_EvanSchipellite /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDLL /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"stdafx.h" /Fp"Debug\UnitTesting_GamePhysics_EvanSchipellite.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /FC /errorReport:prompt stdafx.cpp
-         stdafx.cpp
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\packages\nupengl.core.0.0.0.1\build\native\../..//build/native/include/ /I"C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\\Lib\glui-2.36\include" /I"C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\UnitTest\include" /IC:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\\GamePhysics_EvanSchipellite /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDLL /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\UnitTesting_GamePhysics_EvanSchipellite.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /FC /errorReport:prompt Test_Matrix.cpp Test_PhysicsObject.cpp Test_Vector3D.cpp
-         Test_Vector3D.cpp
-         Test_PhysicsObject.cpp
-         Test_Matrix.cpp
-         Generating Code...
-       ResourceCompile:
-         C:\Program Files (x86)\Windows Kits\8.1\bin\x86\rc.exe /D _UNICODE /D UNICODE /l"0x0409" /IC:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\packages\nupengl.core.0.0.0.1\build\native\../..//build/native/include/ /nologo /fo"Debug\UnitTesting_GamePhysics_EvanSchipellite.res" UnitTesting_GamePhysics_EvanSchipellite.rc 
-       Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\Debug\UnitTesting_GamePhysics_EvanSchipellite.dll" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\\Lib\glui-2.36\Debug" /LIBPATH:"C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\\Lib\Simple OpenGL Image Library\Debug" /LIBPATH:"C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\UnitTest\lib" /LIBPATH:C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\\GamePhysics_EvanSchipellite\Debug\ C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\packages\nupengl.core.0.0.0.1\build\native\../..//build/native/lib/Win32\v120\glew32.lib C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\packages\nupengl.core.0.0.0.1\build\native\../..//build/native/lib/Win32\v120\glfw3dll.lib C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\packages\nupengl.core.0.0.0.1\build\native\../..//build/native/lib/Win32\v120\freeglut.lib freeglut.lib glui32.lib OpenGL32.lib glu32.lib PhysicsObject.obj Matrix.obj Vector3D.obj kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\Debug\UnitTesting_GamePhysics_EvanSchipellite.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\Debug\UnitTesting_GamePhysics_EvanSchipellite.lib" /MACHINE:X86 /DLL Debug\UnitTesting_GamePhysics_EvanSchipellite.res
-         Debug\stdafx.obj
-         Debug\Test_Matrix.obj
-         Debug\Test_PhysicsObject.obj
-         Debug\Test_Vector3D.obj
-            Creating library C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\Debug\UnitTesting_GamePhysics_EvanSchipellite.lib and object C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\Debug\UnitTesting_GamePhysics_EvanSchipellite.exp
-         UnitTesting_GamePhysics_EvanSchipellite.vcxproj -> C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\Debug\UnitTesting_GamePhysics_EvanSchipellite.dll
-     1>Done Building Project "C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\UnitTesting_GamePhysics_EvanSchipellite\UnitTesting_GamePhysics_EvanSchipellite.vcxproj" (Rebuild target(s)).
+﻿Build started 4/22/2015 2:05:04 PM.
+     1>Project "C:\Users\Evan.Schipellite\Documents\Physics\Physics\trunk\GamePhysics_EvanSchipellite_Machine\UnitTesting_GamePhysics_EvanSchipellite\UnitTesting_GamePhysics_EvanSchipellite.vcxproj" on node 2 (Build target(s)).
+     1>Link:
+         UnitTesting_GamePhysics_EvanSchipellite.vcxproj -> C:\Users\Evan.Schipellite\Documents\Physics\Physics\trunk\GamePhysics_EvanSchipellite_Machine\Debug\UnitTesting_GamePhysics_EvanSchipellite.dll
+     1>Done Building Project "C:\Users\Evan.Schipellite\Documents\Physics\Physics\trunk\GamePhysics_EvanSchipellite_Machine\UnitTesting_GamePhysics_EvanSchipellite\UnitTesting_GamePhysics_EvanSchipellite.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:02.27
+Time Elapsed 00:00:00.05

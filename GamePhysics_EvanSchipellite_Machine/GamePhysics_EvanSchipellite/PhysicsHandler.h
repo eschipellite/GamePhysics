@@ -47,9 +47,11 @@ private:
 	std::vector<ForceGenerator*> m_ForceGenerators;
 	ForceRegistry* m_ForceRegistry;
 	CollisionHandler* mp_CollisionHandler;
+	std::vector<RigidBody*> mp_RigidBodies;
 
 private:
 	void cleanUpForceGenerators();
+	void updateRigidBodies(float deltaTime);
 
 public:
 	PhysicsHandler();
@@ -67,6 +69,8 @@ public:
 
 	void AddContactGenerators(std::vector<ContactGenerator*> contactGenerators);
 
+	void AddRigidBody(RigidBody* rigidBody);
+	void AddRigidBodies(std::vector<RigidBody*> rigidBodies);
 	void AddGround(PhysicsObject* groundObject);
 	void AddCollisionObject(PhysicsObject* physicsObject);
 	void AddCollisionObject(RigidBody* rigidBody);
