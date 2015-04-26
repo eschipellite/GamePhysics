@@ -98,12 +98,28 @@ void PhysicsHandler::AddToRegistry(ForceRegister forceRegister)
 }
 
 //-----------------------------------------------------------------------------
+void PhysicsHandler::AddToRegistry(RigidForceRegister rigidForceRegister)
+{
+	AddToRegistry(rigidForceRegister._ForceGenerator, rigidForceRegister._RigidBodyOne, rigidForceRegister._RigidBodyTwo);
+}
+
+//-----------------------------------------------------------------------------
 void PhysicsHandler::AddToRegistry(std::vector<ForceRegister> forceRegisters)
 {
 	std::vector<ForceRegister>::iterator forceRegisterIter;
 	for (forceRegisterIter = forceRegisters.begin(); forceRegisterIter != forceRegisters.end(); forceRegisterIter++)
 	{
 		AddToRegistry(*forceRegisterIter);
+	}
+}
+
+//-----------------------------------------------------------------------------
+void PhysicsHandler::AddToRegistry(std::vector<RigidForceRegister> rigidForceRegisters)
+{
+	std::vector<RigidForceRegister>::iterator rigidForceRegisterIter;
+	for (rigidForceRegisterIter = rigidForceRegisters.begin(); rigidForceRegisterIter != rigidForceRegisters.end(); rigidForceRegisterIter++)
+	{
+		AddToRegistry(*rigidForceRegisterIter);
 	}
 }
 

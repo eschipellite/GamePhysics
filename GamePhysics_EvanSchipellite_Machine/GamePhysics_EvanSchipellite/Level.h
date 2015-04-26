@@ -19,6 +19,8 @@ class ForceRegister;
 class PhysicsObject;
 class Collectible;
 class ContactGenerator;
+class RigidRender;
+class RigidForceRegister;
 //=============================================================================
 class Level
 {
@@ -27,6 +29,7 @@ private:
 	Player* mp_Player;
 
 	std::vector<Collectible*> mp_CollectibleObjects;
+	std::vector<RigidRender*> mp_RigidRenders;
 
 	std::vector<ForceGenerator*> mp_ForceGenerators;
 	std::vector<ContactGenerator*> mp_ContactGenerators;
@@ -35,10 +38,13 @@ private:
 
 private:
 	void drawCollectibles();
+	void drawRigidRenders();
 	void updateCollectibles(float deltaTime);
 	void resetCollectibles();
+	void resetRigidRenders();
 
 	std::vector<ForceRegister> getCollectibleForceRegisters();
+	std::vector<RigidForceRegister> getRigidRenderRegisters();
 	std::vector<PhysicsObject*> getCollectibleCollisionObjects();
 
 public:
@@ -54,8 +60,10 @@ public:
 	PhysicsObject* GetGround();
 	PhysicsObject* GetPlayer();
 	std::vector<PhysicsObject*> GetCollisionObjects();
+	std::vector<RigidRender*> GetRigidBodies();
 
 	std::vector<ForceRegister> GetForceRegisters();
+	std::vector<RigidForceRegister> GetRigidForceRegisters();
 	std::vector<ContactGenerator*> GetContactGenerators();
 
 	void HandleKeyPressed(unsigned char key);

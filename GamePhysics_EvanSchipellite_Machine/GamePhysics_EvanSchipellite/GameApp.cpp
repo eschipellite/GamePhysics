@@ -72,7 +72,9 @@ void GameApp::Initialize()
 	mp_Level->Initialize(Vector3D(60, 5, 60), Vector3D(0, 2, 0), "Ground", "Player", "Collectible");
 
 	mp_PhysicsHandler->AddToRegistry(mp_Level->GetForceRegisters());
+	mp_PhysicsHandler->AddToRegistry(mp_Level->GetRigidForceRegisters());
 	mp_PhysicsHandler->AddGround(mp_Level->GetGround());
+	mp_PhysicsHandler->AddRigidBodies(mp_Level->GetRigidBodies());
 	mp_PhysicsHandler->AddCollisionObjects(mp_Level->GetCollisionObjects());
 	mp_PhysicsHandler->AddContactGenerators(mp_Level->GetContactGenerators());
 }

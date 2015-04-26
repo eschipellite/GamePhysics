@@ -23,6 +23,8 @@
 #include "EarthGravityGenerator.h"
 #include "CollectibleContactGenerator.h"
 #include "WallContactGenerator.h"
+#include "RigidRender.h"
+#include "RigidSphere.h"
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -50,6 +52,16 @@ void Level::drawCollectibles()
 }
 
 //-----------------------------------------------------------------------------
+void Level::drawRigidRenders()
+{
+	std::vector<RigidRender*>::iterator rigidRenderIter;
+	for (rigidRenderIter = mp_RigidRenders.begin(); rigidRenderIter != mp_RigidRenders.end(); rigidRenderIter++)
+	{
+		(*rigidRenderIter)->Draw();
+	}
+}
+
+//-----------------------------------------------------------------------------
 void Level::updateCollectibles(float deltaTime)
 {
 	std::vector<Collectible*>::iterator collectibleObjectIter;
@@ -70,6 +82,16 @@ void Level::resetCollectibles()
 }
 
 //-----------------------------------------------------------------------------
+void Level::resetRigidRenders()
+{
+	std::vector<RigidRender*>::iterator rigidRenderIter;
+	for (rigidRenderIter = mp_RigidRenders.begin(); rigidRenderIter != mp_RigidRenders.end(); rigidRenderIter++)
+	{
+		(*rigidRenderIter)->Reset();
+	}
+}
+
+//-----------------------------------------------------------------------------
 std::vector<ForceRegister> Level::getCollectibleForceRegisters()
 {
 	std::vector<ForceRegister> forceRegisters;
@@ -85,6 +107,19 @@ std::vector<ForceRegister> Level::getCollectibleForceRegisters()
 	}
 
 	return forceRegisters;
+}
+
+//-----------------------------------------------------------------------------
+std::vector<RigidForceRegister> Level::getRigidRenderRegisters()
+{
+	std::vector<RigidForceRegister> rigidForceRegisters;
+	std::vector<RigidRender*>::iterator rigidRenderIter;
+	for (rigidRenderIter = mp_RigidRenders.begin(); rigidRenderIter != mp_RigidRenders.end(); rigidRenderIter++)
+	{
+		rigidForceRegisters.push_back(RigidForceRegister(new EarthGravityGenerator(Vector3D(0, -9.8f, 0)), (*rigidRenderIter)));
+	}
+
+	return rigidForceRegisters;
 }
 
 //-----------------------------------------------------------------------------
@@ -112,6 +147,10 @@ void Level::Initialize(Vector3D dimensions, Vector3D playerPosition, std::string
 	mp_Player->Initialize(playerPosition, playerID, 20, 400);
 
 	m_CollectibleTextureID = collectibleID;
+
+	RigidSphere* rigidRenderSphere = new RigidSphere();
+	rigidRenderSphere->Initialize(m_CollectibleTextureID, 1, 1, Vector3D(0, 10, 0));
+	mp_RigidRenders.push_back(rigidRenderSphere);
 }
 
 //-----------------------------------------------------------------------------
@@ -131,6 +170,13 @@ void Level::CleanUp()
 	delete mp_Ground;
 	mp_Ground = nullptr;
 
+	std::vector<RigidRender*>::iterator rigidRenderIter;
+	for (rigidRenderIter = mp_RigidRenders.begin(); rigidRenderIter != mp_RigidRenders.end(); rigidRenderIter++)
+	{
+		delete (*rigidRenderIter);
+		(*rigidRenderIter) = nullptr;
+	}
+
 	std::vector<Collectible*>::iterator collectibleObjectIter;
 	for (collectibleObjectIter = mp_CollectibleObjects.begin(); collectibleObjectIter != mp_CollectibleObjects.end(); collectibleObjectIter++)
 	{
@@ -148,6 +194,7 @@ void Level::Draw()
 	mp_Ground->Draw();
 	mp_Player->Draw();
 	drawCollectibles();
+	drawRigidRenders();
 }
 
 //-----------------------------------------------------------------------------
@@ -164,6 +211,7 @@ void Level::Reset()
 	mp_Ground->Reset();
 	mp_Player->Reset();
 	resetCollectibles();
+	resetRigidRenders();
 }
 
 //-----------------------------------------------------------------------------
@@ -196,6 +244,14 @@ std::vector<ForceRegister> Level::GetForceRegisters()
 	forceRegisters.push_back(ForceRegister(new EarthGravityGenerator(Vector3D(0, -9.8f, 0)), mp_Player));
 
 	return forceRegisters;
+}
+
+//-----------------------------------------------------------------------------
+std::vector<RigidForceRegister> Level::GetRigidForceRegisters()
+{
+	std::vector<RigidForceRegister> rigidRenderRegisters = getRigidRenderRegisters();
+	
+	return rigidRenderRegisters;
 }
 
 //-----------------------------------------------------------------------------

@@ -51,7 +51,7 @@ public:
 	void ClearAccumulators();
 	void Integrate(float duration);
 
-	void Initialize(float mass, Vector3D initialPosition, Vector3D initialVelocity = Vector3D::Zero, Vector3D initialAcceleration = Vector3D::Zero, Vector3D initialRotation = Vector3D::Zero, float linearDampening = 1, float angularDampening = 1);
+	virtual void Initialize(float mass, Vector3D initialPosition, Vector3D initialVelocity = Vector3D::Zero, Vector3D initialAcceleration = Vector3D::Zero, Vector3D initialRotation = Vector3D::Zero, float linearDampening = 1, float angularDampening = 1);
 	void Reset();
 
 	void AddForceAtPoint(const Vector3D &force, const Vector3D &point);

@@ -85,6 +85,18 @@
     <Filter Include="Source Files\Physics\Collision\ContactGenerators">
       <UniqueIdentifier>{e00712b5-1f47-40ba-8cca-4c49340da088}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Objects\RigidBodies">
+      <UniqueIdentifier>{bad54466-a1c1-40b3-8dff-a4ec445e88fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Objects\PhysicsObjects">
+      <UniqueIdentifier>{f1dfa5cc-bcc2-4c54-8c17-fb1f4c8e2980}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Objects\RigidBodies">
+      <UniqueIdentifier>{2a626d3b-8c27-4386-b3bc-78af70aa45b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Objects\PhysicsObjects">
+      <UniqueIdentifier>{aed9bc94-9eac-47fb-af2e-cafd4fec5dd6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameApp.cpp">
@@ -101,9 +113,6 @@
     </ClCompile>
     <ClCompile Include="EditorState.cpp">
       <Filter>Source Files\Utils</Filter>
-    </ClCompile>
-    <ClCompile Include="PhysicsObject.cpp">
-      <Filter>Source Files\Objects</Filter>
     </ClCompile>
     <ClCompile Include="Particle.cpp">
       <Filter>Source Files\Objects\Particles</Filter>
@@ -140,9 +149,6 @@
     </ClCompile>
     <ClCompile Include="Level.cpp">
       <Filter>Source Files\Level</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject.cpp">
-      <Filter>Source Files\Objects</Filter>
     </ClCompile>
     <ClCompile Include="Ground.cpp">
       <Filter>Source Files\Objects\Level</Filter>
@@ -201,9 +207,6 @@
     <ClCompile Include="Quaternion.cpp">
       <Filter>Source Files\Utils</Filter>
     </ClCompile>
-    <ClCompile Include="RigidBody.cpp">
-      <Filter>Source Files\Objects</Filter>
-    </ClCompile>
     <ClCompile Include="RigidBodySpringForceGenerator.cpp">
       <Filter>Source Files\Physics\Generators</Filter>
     </ClCompile>
@@ -240,6 +243,21 @@
     <ClCompile Include="IntersectionTests.cpp">
       <Filter>Source Files\Utils</Filter>
     </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Source Files\Objects\PhysicsObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsObject.cpp">
+      <Filter>Source Files\Objects\PhysicsObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="RigidBody.cpp">
+      <Filter>Source Files\Objects\RigidBodies</Filter>
+    </ClCompile>
+    <ClCompile Include="RigidSphere.cpp">
+      <Filter>Source Files\Objects\RigidBodies</Filter>
+    </ClCompile>
+    <ClCompile Include="RigidRender.cpp">
+      <Filter>Source Files\Objects\RigidBodies</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameApp.h">
@@ -253,9 +271,6 @@
     </ClInclude>
     <ClInclude Include="EditorState.h">
       <Filter>Header Files\Utils</Filter>
-    </ClInclude>
-    <ClInclude Include="PhysicsObject.h">
-      <Filter>Header Files\Objects</Filter>
     </ClInclude>
     <ClInclude Include="Particle.h">
       <Filter>Header Files\Objects\Particles</Filter>
@@ -292,9 +307,6 @@
     </ClInclude>
     <ClInclude Include="Level.h">
       <Filter>Header Files\Level</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject.h">
-      <Filter>Header Files\Objects</Filter>
     </ClInclude>
     <ClInclude Include="Ground.h">
       <Filter>Header Files\Objects\Level</Filter>
@@ -353,9 +365,6 @@
     <ClInclude Include="Quaternion.h">
       <Filter>Header Files\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="RigidBody.h">
-      <Filter>Header Files\Objects</Filter>
-    </ClInclude>
     <ClInclude Include="RigidBodySpringForceGenerator.h">
       <Filter>Header Files\Physics\Generators</Filter>
     </ClInclude>
@@ -391,6 +400,21 @@
     </ClInclude>
     <ClInclude Include="IntersectionTests.h">
       <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="RigidBody.h">
+      <Filter>Header Files\Objects\RigidBodies</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Header Files\Objects\PhysicsObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsObject.h">
+      <Filter>Header Files\Objects\PhysicsObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="RigidSphere.h">
+      <Filter>Header Files\Objects\RigidBodies</Filter>
+    </ClInclude>
+    <ClInclude Include="RigidRender.h">
+      <Filter>Header Files\Objects\RigidBodies</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

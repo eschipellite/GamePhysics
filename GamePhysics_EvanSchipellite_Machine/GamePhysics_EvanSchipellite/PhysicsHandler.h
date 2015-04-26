@@ -39,6 +39,30 @@ public:
 	~ForceRegister() {};
 };
 //=============================================================================
+//                              Rigid Force Register
+//
+// Written by Evan Schipellite
+//
+//=============================================================================
+class RigidForceRegister
+{
+public:
+	ForceGenerator* _ForceGenerator;
+	RigidBody* _RigidBodyOne;
+	RigidBody* _RigidBodyTwo;
+public:
+	RigidForceRegister() {};
+
+	RigidForceRegister(ForceGenerator* forceGenerator, RigidBody* rigidBodyOne, RigidBody* rigidBodyTwo = NULL)
+	{
+		_ForceGenerator = forceGenerator;
+		_RigidBodyOne = rigidBodyOne;
+		_RigidBodyTwo = rigidBodyTwo;
+	}
+
+	~RigidForceRegister() {};
+};
+//=============================================================================
 
 //=============================================================================
 class PhysicsHandler
@@ -65,7 +89,9 @@ public:
 	void AddToRegistry(ForceGenerator* forceGenerator, PhysicsObject* physicsObjectOne, PhysicsObject* physicsObjectTwo = NULL);
 	void AddToRegistry(ForceGenerator* forceGenerator, RigidBody* rigidBodyOne, RigidBody* rigidBodyTwo = NULL);
 	void AddToRegistry(ForceRegister forceRegister);
+	void AddToRegistry(RigidForceRegister rigidForceRegister);
 	void AddToRegistry(std::vector<ForceRegister> forceRegisters);
+	void AddToRegistry(std::vector<RigidForceRegister> rigidForceRegisters);
 
 	void AddContactGenerators(std::vector<ContactGenerator*> contactGenerators);
 

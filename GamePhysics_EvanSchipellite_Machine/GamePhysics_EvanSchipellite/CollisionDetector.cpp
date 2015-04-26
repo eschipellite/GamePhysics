@@ -330,7 +330,7 @@ unsigned int BoxAndBox(const CollisionBox& boxOne, const CollisionBox& boxTwo, C
 		pointOnEdgeTwo = boxTwo.GetTransform() * pointOnEdgeTwo;
 
 		Vector3D vertex = getContactPoint(pointOnEdgeOne, axisOne, boxOne.GetHalfSize().GetIndex(axisOneIndex),
-			pointOnEdgeTwo, axisTwo, boxTwo.GetHalfSize().GetIndex(axisTwoIndex), bestSingleAxis);
+			pointOnEdgeTwo, axisTwo, boxTwo.GetHalfSize().GetIndex(axisTwoIndex), bestSingleAxis > 2);
 
 		RigidContact* rigidContact = collisionData->GetRigidContacts()[0];
 		rigidContact->Initialize(boxOne.GetRigidBody(), boxTwo.GetRigidBody(), vertex, axis, penetration, collisionData->GetRestitution(), collisionData->GetFriction());
