@@ -25,6 +25,7 @@
 #include "WallContactGenerator.h"
 #include "RigidRender.h"
 #include "RigidSphere.h"
+#include "RigidBody.h"
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -234,6 +235,19 @@ std::vector<PhysicsObject*> Level::GetCollisionObjects()
 	collisionObjects.push_back(mp_Player);
 
 	return collisionObjects;
+}
+
+//-----------------------------------------------------------------------------
+std::vector<RigidBody*> Level::GetRigidBodies()
+{
+	std::vector<RigidBody*> rigidBodies;
+	std::vector<RigidRender*>::iterator rigidRenderIter;
+	for (rigidRenderIter = mp_RigidRenders.begin(); rigidRenderIter != mp_RigidRenders.end(); rigidRenderIter++)
+	{
+		rigidBodies.push_back((*rigidRenderIter));
+	}
+
+	return rigidBodies;
 }
 
 //-----------------------------------------------------------------------------

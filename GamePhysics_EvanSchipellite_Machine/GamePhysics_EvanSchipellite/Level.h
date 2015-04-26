@@ -21,6 +21,7 @@ class Collectible;
 class ContactGenerator;
 class RigidRender;
 class RigidForceRegister;
+class RigidBody;
 //=============================================================================
 class Level
 {
@@ -60,7 +61,7 @@ public:
 	PhysicsObject* GetGround();
 	PhysicsObject* GetPlayer();
 	std::vector<PhysicsObject*> GetCollisionObjects();
-	std::vector<RigidRender*> GetRigidBodies();
+	std::vector<RigidBody*> GetRigidBodies();
 
 	std::vector<ForceRegister> GetForceRegisters();
 	std::vector<RigidForceRegister> GetRigidForceRegisters();

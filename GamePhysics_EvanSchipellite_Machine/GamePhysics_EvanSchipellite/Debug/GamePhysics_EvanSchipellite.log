@@ -1,28 +1,9 @@
-﻿Build started 4/26/2015 4:40:47 PM.
-     1>Project "C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\GamePhysics_EvanSchipellite\GamePhysics_EvanSchipellite.vcxproj" on node 2 (Build target(s)).
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\packages\nupengl.core.0.0.0.1\build\native\../..//build/native/include/ /I"C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\\Lib\glui-2.36\include" /I"C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\\Lib\Simple OpenGL Image Library\src" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt GameApp.cpp Level.cpp
-         GameApp.cpp
-     1>c:\users\evan.schipellite\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\gameapp.cpp(77): error C2664: 'void PhysicsHandler::AddRigidBodies(std::vector<RigidBody *,std::allocator<_Ty>>)' : cannot convert argument 1 from 'std::vector<RigidRender *,std::allocator<_Ty>>' to 'std::vector<RigidBody *,std::allocator<_Ty>>'
-                 with
-                 [
-                     _Ty=RigidBody *
-                 ]
-                 and
-                 [
-                     _Ty=RigidRender *
-                 ]
-                 and
-                 [
-                     _Ty=RigidBody *
-                 ]
-                 No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
-         Generating Code...
-         Compiling...
-         Level.cpp
-         Generating Code...
-     1>Done Building Project "C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\GamePhysics_EvanSchipellite\GamePhysics_EvanSchipellite.vcxproj" (Build target(s)) -- FAILED.
+﻿Build started 4/26/2015 5:22:08 PM.
+     1>Project "C:\Users\Evan\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\GamePhysics_EvanSchipellite\GamePhysics_EvanSchipellite.vcxproj" on node 2 (Build target(s)).
+     1>Link:
+         GamePhysics_EvanSchipellite.vcxproj -> C:\Users\Evan\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\Debug\GamePhysics_EvanSchipellite.exe
+     1>Done Building Project "C:\Users\Evan\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\GamePhysics_EvanSchipellite\GamePhysics_EvanSchipellite.vcxproj" (Build target(s)).
 
-Build FAILED.
+Build succeeded.
 
-Time Elapsed 00:00:01.74
+Time Elapsed 00:00:00.11
