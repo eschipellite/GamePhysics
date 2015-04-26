@@ -8,12 +8,11 @@
 //=============================================================================
 CollisionData::CollisionData()
 {
-	mp_RigidContact = new RigidContact();
 }
 
 //-----------------------------------------------------------------------------
 CollisionData::~CollisionData()
 {
-	delete mp_RigidContact;
+	mp_RigidContacts.clear();
 }
 //=============================================================================

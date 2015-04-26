@@ -234,6 +234,12 @@
     <ClCompile Include="CollisionPlane.cpp">
       <Filter>Source Files\Physics\Collision</Filter>
     </ClCompile>
+    <ClCompile Include="CollisionBox.cpp">
+      <Filter>Source Files\Physics\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="IntersectionTests.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameApp.h">
@@ -379,6 +385,12 @@
     </ClInclude>
     <ClInclude Include="CollisionPlane.h">
       <Filter>Header Files\Physics\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionBox.h">
+      <Filter>Header Files\Physics\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="IntersectionTests.h">
+      <Filter>Header Files\Utils</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

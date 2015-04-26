@@ -75,6 +75,7 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Collectible.cpp" />
     <ClCompile Include="CollectibleContactGenerator.cpp" />
+    <ClCompile Include="CollisionBox.cpp" />
     <ClCompile Include="CollisionData.cpp" />
     <ClCompile Include="CollisionDetector.cpp" />
     <ClCompile Include="CollisionHandler.cpp" />
@@ -97,6 +98,7 @@
     <ClCompile Include="Ground.cpp" />
     <ClCompile Include="GroundContactGenerator.cpp" />
     <ClCompile Include="ImageHandler.cpp" />
+    <ClCompile Include="IntersectionTests.cpp" />
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="EditorState.cpp" />
@@ -126,6 +128,7 @@
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Collectible.h" />
     <ClInclude Include="CollectibleContactGenerator.h" />
+    <ClInclude Include="CollisionBox.h" />
     <ClInclude Include="CollisionData.h" />
     <ClInclude Include="CollisionDetector.h" />
     <ClInclude Include="CollisionHandler.h" />
@@ -148,6 +151,7 @@
     <ClInclude Include="Ground.h" />
     <ClInclude Include="GroundContactGenerator.h" />
     <ClInclude Include="ImageHandler.h" />
+    <ClInclude Include="IntersectionTests.h" />
     <ClInclude Include="Level.h" />
     <ClInclude Include="Matrix.h" />
     <ClInclude Include="EditorState.h" />
