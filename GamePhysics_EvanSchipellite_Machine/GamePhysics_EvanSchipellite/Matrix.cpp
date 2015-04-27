@@ -65,8 +65,8 @@ Matrix::Matrix(int rows, int columns, float* matrixArray)
 //-----------------------------------------------------------------------------
 Matrix::~Matrix()
 {
-	delete [] mp_Matrix;
-	mp_Matrix = nullptr;
+	//delete [] mp_Matrix;
+	//mp_Matrix = nullptr;
 }
 
 //-----------------------------------------------------------------------------

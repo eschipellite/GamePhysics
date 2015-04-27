@@ -160,13 +160,13 @@ void PhysicsHandler::AddCollisionObjects(std::vector<PhysicsObject*> physicsObje
 //-----------------------------------------------------------------------------
 void PhysicsHandler::AddCollisionObject(RigidBody* rigidBody)
 {
-	//mp_CollisionHandler->AddCollisionObject(rigidBody);
+	mp_CollisionHandler->AddCollisionObject(rigidBody);
 }
 
 //-----------------------------------------------------------------------------
 void PhysicsHandler::AddCollisionObjects(std::vector<RigidBody*> rigidBodies)
 {
-	//mp_CollisionHandler->AddCollisionObjects(rigidBodies);
+	mp_CollisionHandler->AddCollisionObjects(rigidBodies);
 }
 
 //-----------------------------------------------------------------------------

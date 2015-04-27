@@ -112,6 +112,22 @@ void CollisionHandler::AddCollisionObject(PhysicsObject* physicsObject)
 }
 
 //-----------------------------------------------------------------------------
+void CollisionHandler::AddCollisionObject(RigidBody* rigidBody)
+{
+	mp_RigidBodies.push_back(rigidBody);
+}
+
+//-----------------------------------------------------------------------------
+void CollisionHandler::AddCollisionObjects(std::vector<RigidBody*> rigidBodies)
+{
+	std::vector<RigidBody*>::iterator rigidBodyIter;
+	for (rigidBodyIter = rigidBodies.begin(); rigidBodyIter != rigidBodies.end(); rigidBodyIter++)
+	{
+		mp_RigidBodies.push_back(*rigidBodyIter);
+	}
+}
+
+//-----------------------------------------------------------------------------
 void CollisionHandler::AddCollisionObjects(std::vector<PhysicsObject*> physicsObjects)
 {
 	std::vector<PhysicsObject*>::iterator physicsObjectIter;
