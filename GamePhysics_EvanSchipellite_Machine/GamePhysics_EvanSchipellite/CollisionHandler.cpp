@@ -12,6 +12,7 @@
 #include "GroundContactGenerator.h"
 #include "WallContactGenerator.h"
 #include "CollisionDetector.h"
+#include "RigidGroundContactGenerator.h"
 //=============================================================================
 CollisionHandler::CollisionHandler()
 {
@@ -40,7 +41,15 @@ int CollisionHandler::checkCollisions()
 		contactCount++;
 	}
 
-	return contactCount;
+	int rigidContactCount = 0;
+	std::vector<ContactGenerator*>::iterator rigidContactGeneratorIter;
+	for (rigidContactGeneratorIter = mp_RigidContactGenerators.begin(); rigidContactGeneratorIter != mp_RigidContactGenerators.end(); rigidContactGeneratorIter++)
+	{
+		(*rigidContactGeneratorIter)->AddContact(this);
+		rigidContactCount++;
+	}
+
+	return contactCount + rigidContactCount;
 }
 
 //-----------------------------------------------------------------------------
@@ -52,6 +61,14 @@ void CollisionHandler::resolveContacts(float deltaTime)
 		(*contactIter).Resolve(deltaTime);
 	}
 
+	std::vector<RigidContact>::iterator rigidContactIter;
+	for (rigidContactIter = m_RigidContacts.begin(); rigidContactIter != m_RigidContacts.end(); rigidContactIter++)
+	{
+		int cat = 3;
+		//(*rigidContactIter).Resolve(deltaTime);
+	}
+
+	m_RigidContacts.clear();
 	m_Contacts.clear();
 }
 
@@ -101,6 +118,7 @@ void CollisionHandler::Update(float deltaTime)
 void CollisionHandler::Reset()
 {
 	mp_ContactGenerators.clear();
+	mp_RigidContactGenerators.clear();
 	mp_ToAddContactGenerators.clear();
 }
 
@@ -108,6 +126,7 @@ void CollisionHandler::Reset()
 void CollisionHandler::AddGround(PhysicsObject* groundObject)
 {
 	mp_ContactGenerators.push_back(new GroundContactGenerator(groundObject->GetPosition().Y));
+	mp_RigidContactGenerators.push_back(new RigidGroundContactGenerator(groundObject->GetPosition().Y));
 }
 
 //-----------------------------------------------------------------------------

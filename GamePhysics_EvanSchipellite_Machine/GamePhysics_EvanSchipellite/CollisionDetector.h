@@ -27,12 +27,12 @@ public:
 	CollisionDetector();
 	~CollisionDetector();
 
-	unsigned int SphereAndSphere(const CollisionSphere& sphereOne, const CollisionSphere& sphereTwo, CollisionHandler* collisionData);
+	unsigned int SphereAndSphere(const CollisionSphere& sphereOne, const CollisionSphere& sphereTwo, CollisionData* collisionData);
 	unsigned int SphereAndHalfSpace(const CollisionSphere& sphere, const CollisionPlane& plane, CollisionHandler* collisionData);
-	unsigned int SphereAndTruePlane(const CollisionSphere& sphere, const CollisionPlane& plane, CollisionHandler* collisionData);
-	unsigned int BoxAndHalfSpace(const CollisionBox& box, const CollisionPlane& plane, CollisionHandler* collisionData);
-	unsigned int BoxAndSphere(const CollisionBox& box, const CollisionSphere& sphere, CollisionHandler* collisionData);
-	unsigned int BoxAndBox(const CollisionBox& boxOne, const CollisionBox& boxTwo, CollisionHandler* collisionData);
+	unsigned int SphereAndTruePlane(const CollisionSphere& sphere, const CollisionPlane& plane, CollisionData* collisionData);
+	unsigned int BoxAndHalfSpace(const CollisionBox& box, const CollisionPlane& plane, CollisionData* collisionData);
+	unsigned int BoxAndSphere(const CollisionBox& box, const CollisionSphere& sphere, CollisionData* collisionData);
+	unsigned int BoxAndBox(const CollisionBox& boxOne, const CollisionBox& boxTwo, CollisionData* collisionData);
 };
 //=============================================================================
 #endif // COLLISION_DETECTOR_H

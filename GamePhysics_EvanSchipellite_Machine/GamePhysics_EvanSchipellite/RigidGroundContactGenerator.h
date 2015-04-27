@@ -8,8 +8,7 @@
 #define RIGID_GROUND_CONTACT_GENERATOR_H
 //=============================================================================
 #include "ContactGenerator.h"
-
-class CollisionPlane;
+#include "CollisionPlane.h"
 //=============================================================================
 class RigidGroundContactGenerator :
 	public ContactGenerator

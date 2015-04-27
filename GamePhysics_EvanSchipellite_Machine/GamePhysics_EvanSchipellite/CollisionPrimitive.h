@@ -7,8 +7,9 @@
 #ifndef COLLISION_PRIMITIVE_H
 #define COLLISION_PRIMITIVE_H
 //=============================================================================
-#include "RigidBody.h"
 #include "Matrix.h"
+
+class RigidBody;
 //=============================================================================
 class CollisionPrimitive
 {
@@ -22,7 +23,7 @@ public:
 	CollisionPrimitive(RigidBody* rigidBody, Matrix offset = Matrix());
 	~CollisionPrimitive();
 
-	inline void CalculateInternals() { m_Transform = mp_RigidBody->GetTransform() * m_Offset; };
+	void CalculateInternals();
 
 	inline Vector3D GetAxis(unsigned int index) const { return m_Transform.GetAxisVector(index); };
 	inline Matrix GetTransform() const { return m_Transform; };

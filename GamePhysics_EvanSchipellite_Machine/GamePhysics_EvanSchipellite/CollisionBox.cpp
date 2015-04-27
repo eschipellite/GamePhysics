@@ -6,7 +6,8 @@
 //=============================================================================
 #include "CollisionBox.h"
 //=============================================================================
-CollisionBox::CollisionBox(Vector3D halfSize)
+CollisionBox::CollisionBox(RigidBody* rigidBody, Vector3D halfSize, Matrix offset)
+	:CollisionPrimitive(rigidBody, offset)
 {
 	m_HalfSize = halfSize;
 

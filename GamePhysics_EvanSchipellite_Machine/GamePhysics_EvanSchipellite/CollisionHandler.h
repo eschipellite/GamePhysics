@@ -11,11 +11,13 @@
 //=============================================================================
 #include <vector>
 #include "Contact.h"
+#include "RigidContact.h"
 
 class PhysicsObject;
 class RigidBody;
 class ContactGenerator;
 class CollisionDetector;
+class RigidContactGenerator;
 //=============================================================================
 class CollisionHandler
 {
@@ -23,9 +25,11 @@ private:
 	std::vector<PhysicsObject*> mp_PhysicsObjects;
 	std::vector<RigidBody*> mp_RigidBodies;
 
+	std::vector<ContactGenerator*> mp_RigidContactGenerators;
 	std::vector<ContactGenerator*> mp_ContactGenerators;
 	std::vector<ContactGenerator*> mp_ToAddContactGenerators;
 	std::vector<Contact> m_Contacts;
+	std::vector<RigidContact> m_RigidContacts;
 
 	int m_MaxChecks;
 	int m_Collisions;
@@ -62,6 +66,7 @@ public:
 	std::vector<RigidBody*> GetRigidBodies() { return mp_RigidBodies; };
 
 	void AddContact(Contact contact) { m_Contacts.push_back(contact); };
+	void AddContact(RigidContact rigidContact) { m_RigidContacts.push_back(rigidContact); };
 
 	inline int GetCollisions() { return m_Collisions; };
 

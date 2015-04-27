@@ -1,401 +1,66 @@
-﻿Build started 4/27/2015 1:57:00 PM.
+﻿Build started 4/27/2015 3:22:36 PM.
      1>Project "C:\Users\Evan\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\GamePhysics_EvanSchipellite\GamePhysics_EvanSchipellite.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\Users\Evan\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\packages\nupengl.core.0.0.0.1\build\native\../..//build/native/include/ /I"C:\Users\Evan\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\\Lib\glui-2.36\include" /I"C:\Users\Evan\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\\Lib\Simple OpenGL Image Library\src" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt BungeeForceGenerator.cpp CableContactGenerator.cpp Camera.cpp Collectible.cpp CollectibleContactGenerator.cpp CollisionBox.cpp CollisionData.cpp CollisionDetector.cpp CollisionHandler.cpp CollisionPlane.cpp CollisionPrimitive.cpp CollisionSphere.cpp Contact.cpp ContactGenerator.cpp CubeCollectible.cpp DiamondCollectible.cpp EarthGravityGenerator.cpp Firework.cpp FireworkLauncher.cpp ForceGenerator.cpp ForceRegistration.cpp ForceRegistry.cpp GameApp.cpp GlutTime.cpp GravityGenerator.cpp Ground.cpp GroundContactGenerator.cpp ImageHandler.cpp IntersectionTests.cpp Level.cpp Matrix.cpp EditorState.cpp Particle.cpp PhysicsHandler.cpp PhysicsObject.cpp Planet.cpp PlanetHandler.cpp GameObject.cpp Player.cpp Quaternion.cpp RigidBody.cpp RigidBodySpringForceGenerator.cpp RigidContact.cpp RigidForceRegistration.cpp RigidGroundContactGenerator.cpp RigidRender.cpp RigidSphere.cpp RodContactGenerator.cpp Skybox.cpp Source.cpp SpringForceGenerator.cpp TetrahedronCollectible.cpp Vector3D.cpp WallContactGenerator.cpp
-         WallContactGenerator.cpp
-         Vector3D.cpp
-         TetrahedronCollectible.cpp
-         SpringForceGenerator.cpp
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(16): error C2143: syntax error : missing ';' before '*'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(22): error C2061: syntax error : identifier 'RigidBody'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C2143: syntax error : missing ';' before '*'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C2433: 'CollisionPrimitive::RigidBody' : 'inline' not permitted on data declarations
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): warning C4183: 'GetRigidBody': missing return type; assumed to be a member function returning 'int'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(25): error C2065: 'mp_RigidBody' : undeclared identifier
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(25): error C2227: left of '->GetTransform' must point to class/struct/union/generic type
-                 type is 'unknown-type'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C2065: 'mp_RigidBody' : undeclared identifier
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionsphere.h(19): error C2061: syntax error : identifier 'RigidBody'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\rigidbody.h(67): error C2661: 'CollisionSphere::CollisionSphere' : no overloaded function takes 2 arguments
-         Source.cpp
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(16): error C2143: syntax error : missing ';' before '*'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(22): error C2061: syntax error : identifier 'RigidBody'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C2143: syntax error : missing ';' before '*'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C2433: 'CollisionPrimitive::RigidBody' : 'inline' not permitted on data declarations
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): warning C4183: 'GetRigidBody': missing return type; assumed to be a member function returning 'int'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(25): error C2065: 'mp_RigidBody' : undeclared identifier
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(25): error C2227: left of '->GetTransform' must point to class/struct/union/generic type
-                 type is 'unknown-type'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C2065: 'mp_RigidBody' : undeclared identifier
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionsphere.h(19): error C2061: syntax error : identifier 'RigidBody'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\rigidbody.h(67): error C2661: 'CollisionSphere::CollisionSphere' : no overloaded function takes 2 arguments
-         Skybox.cpp
-         RodContactGenerator.cpp
-         RigidSphere.cpp
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(16): error C2143: syntax error : missing ';' before '*'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(22): error C2061: syntax error : identifier 'RigidBody'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C2143: syntax error : missing ';' before '*'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C2433: 'CollisionPrimitive::RigidBody' : 'inline' not permitted on data declarations
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): warning C4183: 'GetRigidBody': missing return type; assumed to be a member function returning 'int'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(25): error C2065: 'mp_RigidBody' : undeclared identifier
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(25): error C2227: left of '->GetTransform' must point to class/struct/union/generic type
-                 type is 'unknown-type'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C2065: 'mp_RigidBody' : undeclared identifier
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionsphere.h(19): error C2061: syntax error : identifier 'RigidBody'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\rigidbody.h(67): error C2661: 'CollisionSphere::CollisionSphere' : no overloaded function takes 2 arguments
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\rigidsphere.h(27): error C2661: 'CollisionSphere::CollisionSphere' : no overloaded function takes 2 arguments
-         RigidRender.cpp
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(16): error C2143: syntax error : missing ';' before '*'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(22): error C2061: syntax error : identifier 'RigidBody'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C2143: syntax error : missing ';' before '*'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C2433: 'CollisionPrimitive::RigidBody' : 'inline' not permitted on data declarations
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): warning C4183: 'GetRigidBody': missing return type; assumed to be a member function returning 'int'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(25): error C2065: 'mp_RigidBody' : undeclared identifier
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(25): error C2227: left of '->GetTransform' must point to class/struct/union/generic type
-                 type is 'unknown-type'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C2065: 'mp_RigidBody' : undeclared identifier
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionsphere.h(19): error C2061: syntax error : identifier 'RigidBody'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\rigidbody.h(67): error C2661: 'CollisionSphere::CollisionSphere' : no overloaded function takes 2 arguments
-         RigidGroundContactGenerator.cpp
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\rigidgroundcontactgenerator.h(18): error C2079: 'RigidGroundContactGenerator::m_CollisionPlane' uses undefined class 'CollisionPlane'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(16): error C2143: syntax error : missing ';' before '*'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(22): error C2061: syntax error : identifier 'RigidBody'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C2143: syntax error : missing ';' before '*'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C2433: 'CollisionPrimitive::RigidBody' : 'inline' not permitted on data declarations
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): warning C4183: 'GetRigidBody': missing return type; assumed to be a member function returning 'int'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(25): error C2065: 'mp_RigidBody' : undeclared identifier
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(25): error C2227: left of '->GetTransform' must point to class/struct/union/generic type
-                 type is 'unknown-type'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C2065: 'mp_RigidBody' : undeclared identifier
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionsphere.h(19): error C2061: syntax error : identifier 'RigidBody'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\rigidbody.h(67): error C2661: 'CollisionSphere::CollisionSphere' : no overloaded function takes 2 arguments
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\rigidgroundcontactgenerator.cpp(15): error C2440: '=' : cannot convert from 'CollisionPlane' to 'int'
-                 No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\rigidgroundcontactgenerator.cpp(16): error C2228: left of '.SetDirection' must have class/struct/union
-                 type is 'int'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\rigidgroundcontactgenerator.cpp(33): error C2664: 'unsigned int CollisionDetector::SphereAndHalfSpace(const CollisionSphere &,const CollisionPlane &,CollisionHandler *)' : cannot convert argument 2 from 'int' to 'const CollisionPlane &'
-                 Reason: cannot convert from 'int' to 'const CollisionPlane'
-                 No constructor could take the source type, or constructor overload resolution was ambiguous
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\rigidgroundcontactgenerator.cpp(40): error C2228: left of '.SetOffset' must have class/struct/union
-                 type is 'int'
-         RigidForceRegistration.cpp
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(16): error C2143: syntax error : missing ';' before '*'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(22): error C2061: syntax error : identifier 'RigidBody'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C2143: syntax error : missing ';' before '*'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C2433: 'CollisionPrimitive::RigidBody' : 'inline' not permitted on data declarations
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): warning C4183: 'GetRigidBody': missing return type; assumed to be a member function returning 'int'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(25): error C2065: 'mp_RigidBody' : undeclared identifier
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(25): error C2227: left of '->GetTransform' must point to class/struct/union/generic type
-                 type is 'unknown-type'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C2065: 'mp_RigidBody' : undeclared identifier
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionsphere.h(19): error C2061: syntax error : identifier 'RigidBody'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\rigidbody.h(67): error C2661: 'CollisionSphere::CollisionSphere' : no overloaded function takes 2 arguments
-         RigidContact.cpp
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(16): error C2143: syntax error : missing ';' before '*'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(22): error C2061: syntax error : identifier 'RigidBody'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C2143: syntax error : missing ';' before '*'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C2433: 'CollisionPrimitive::RigidBody' : 'inline' not permitted on data declarations
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): warning C4183: 'GetRigidBody': missing return type; assumed to be a member function returning 'int'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(25): error C2065: 'mp_RigidBody' : undeclared identifier
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(25): error C2227: left of '->GetTransform' must point to class/struct/union/generic type
-                 type is 'unknown-type'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C2065: 'mp_RigidBody' : undeclared identifier
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionsphere.h(19): error C2061: syntax error : identifier 'RigidBody'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\rigidbody.h(67): error C2661: 'CollisionSphere::CollisionSphere' : no overloaded function takes 2 arguments
-         RigidBodySpringForceGenerator.cpp
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(16): error C2143: syntax error : missing ';' before '*'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(22): error C2061: syntax error : identifier 'RigidBody'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C2143: syntax error : missing ';' before '*'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C2433: 'CollisionPrimitive::RigidBody' : 'inline' not permitted on data declarations
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): warning C4183: 'GetRigidBody': missing return type; assumed to be a member function returning 'int'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(25): error C2065: 'mp_RigidBody' : undeclared identifier
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(25): error C2227: left of '->GetTransform' must point to class/struct/union/generic type
-                 type is 'unknown-type'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C2065: 'mp_RigidBody' : undeclared identifier
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionsphere.h(19): error C2061: syntax error : identifier 'RigidBody'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\rigidbody.h(67): error C2661: 'CollisionSphere::CollisionSphere' : no overloaded function takes 2 arguments
-         RigidBody.cpp
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(16): error C2143: syntax error : missing ';' before '*'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(22): error C2061: syntax error : identifier 'RigidBody'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C2143: syntax error : missing ';' before '*'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C2433: 'CollisionPrimitive::RigidBody' : 'inline' not permitted on data declarations
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): warning C4183: 'GetRigidBody': missing return type; assumed to be a member function returning 'int'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(25): error C2065: 'mp_RigidBody' : undeclared identifier
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(25): error C2227: left of '->GetTransform' must point to class/struct/union/generic type
-                 type is 'unknown-type'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C2065: 'mp_RigidBody' : undeclared identifier
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionsphere.h(19): error C2061: syntax error : identifier 'RigidBody'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\rigidbody.h(67): error C2661: 'CollisionSphere::CollisionSphere' : no overloaded function takes 2 arguments
-         Quaternion.cpp
-         Player.cpp
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(16): error C2143: syntax error : missing ';' before '*'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(22): error C2061: syntax error : identifier 'RigidBody'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C2143: syntax error : missing ';' before '*'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C2433: 'CollisionPrimitive::RigidBody' : 'inline' not permitted on data declarations
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): warning C4183: 'GetRigidBody': missing return type; assumed to be a member function returning 'int'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(25): error C2065: 'mp_RigidBody' : undeclared identifier
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(25): error C2227: left of '->GetTransform' must point to class/struct/union/generic type
-                 type is 'unknown-type'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C2065: 'mp_RigidBody' : undeclared identifier
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionsphere.h(19): error C2061: syntax error : identifier 'RigidBody'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\rigidbody.h(67): error C2661: 'CollisionSphere::CollisionSphere' : no overloaded function takes 2 arguments
-         GameObject.cpp
-         PlanetHandler.cpp
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(16): error C2143: syntax error : missing ';' before '*'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(22): error C2061: syntax error : identifier 'RigidBody'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C2143: syntax error : missing ';' before '*'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C2433: 'CollisionPrimitive::RigidBody' : 'inline' not permitted on data declarations
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): warning C4183: 'GetRigidBody': missing return type; assumed to be a member function returning 'int'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(25): error C2065: 'mp_RigidBody' : undeclared identifier
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(25): error C2227: left of '->GetTransform' must point to class/struct/union/generic type
-                 type is 'unknown-type'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C2065: 'mp_RigidBody' : undeclared identifier
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionsphere.h(19): error C2061: syntax error : identifier 'RigidBody'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\rigidbody.h(67): error C2661: 'CollisionSphere::CollisionSphere' : no overloaded function takes 2 arguments
-         Planet.cpp
-         PhysicsObject.cpp
-         Generating Code...
-         Compiling...
-         PhysicsHandler.cpp
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(16): error C2143: syntax error : missing ';' before '*'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(22): error C2061: syntax error : identifier 'RigidBody'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C2143: syntax error : missing ';' before '*'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C2433: 'CollisionPrimitive::RigidBody' : 'inline' not permitted on data declarations
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): warning C4183: 'GetRigidBody': missing return type; assumed to be a member function returning 'int'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(25): error C2065: 'mp_RigidBody' : undeclared identifier
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(25): error C2227: left of '->GetTransform' must point to class/struct/union/generic type
-                 type is 'unknown-type'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C2065: 'mp_RigidBody' : undeclared identifier
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionsphere.h(19): error C2061: syntax error : identifier 'RigidBody'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\rigidbody.h(67): error C2661: 'CollisionSphere::CollisionSphere' : no overloaded function takes 2 arguments
-         Particle.cpp
-         EditorState.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\Users\Evan\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\packages\nupengl.core.0.0.0.1\build\native\../..//build/native/include/ /I"C:\Users\Evan\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\\Lib\glui-2.36\include" /I"C:\Users\Evan\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\\Lib\Simple OpenGL Image Library\src" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Matrix.cpp
          Matrix.cpp
-         Level.cpp
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(25): error C2027: use of undefined type 'RigidBody'
-                 c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\level.h(24) : see declaration of 'RigidBody'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(25): error C2227: left of '->GetTransform' must point to class/struct/union/generic type
-         IntersectionTests.cpp
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\rigidbody.h(67): error C2146: syntax error : missing ';' before identifier 'GetCollisionSphere'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\rigidbody.h(67): error C2433: 'RigidBody::CollisionSphere' : 'virtual' not permitted on data declarations
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\rigidbody.h(67): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\rigidbody.h(67): warning C4183: 'GetCollisionSphere': missing return type; assumed to be a member function returning 'int'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\rigidbody.h(67): error C3861: 'CollisionSphere': identifier not found
-         ImageHandler.cpp
-         GroundContactGenerator.cpp
-         Ground.cpp
-         GravityGenerator.cpp
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(16): error C2143: syntax error : missing ';' before '*'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(22): error C2061: syntax error : identifier 'RigidBody'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C2143: syntax error : missing ';' before '*'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C2433: 'CollisionPrimitive::RigidBody' : 'inline' not permitted on data declarations
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): warning C4183: 'GetRigidBody': missing return type; assumed to be a member function returning 'int'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(25): error C2065: 'mp_RigidBody' : undeclared identifier
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(25): error C2227: left of '->GetTransform' must point to class/struct/union/generic type
-                 type is 'unknown-type'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C2065: 'mp_RigidBody' : undeclared identifier
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionsphere.h(19): error C2061: syntax error : identifier 'RigidBody'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\rigidbody.h(67): error C2661: 'CollisionSphere::CollisionSphere' : no overloaded function takes 2 arguments
-         GlutTime.cpp
-         GameApp.cpp
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(16): error C2143: syntax error : missing ';' before '*'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(22): error C2061: syntax error : identifier 'RigidBody'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C2143: syntax error : missing ';' before '*'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C2433: 'CollisionPrimitive::RigidBody' : 'inline' not permitted on data declarations
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): warning C4183: 'GetRigidBody': missing return type; assumed to be a member function returning 'int'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(25): error C2065: 'mp_RigidBody' : undeclared identifier
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(25): error C2227: left of '->GetTransform' must point to class/struct/union/generic type
-                 type is 'unknown-type'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C2065: 'mp_RigidBody' : undeclared identifier
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionsphere.h(19): error C2061: syntax error : identifier 'RigidBody'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\rigidbody.h(67): error C2661: 'CollisionSphere::CollisionSphere' : no overloaded function takes 2 arguments
-         ForceRegistry.cpp
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(16): error C2143: syntax error : missing ';' before '*'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(22): error C2061: syntax error : identifier 'RigidBody'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C2143: syntax error : missing ';' before '*'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C2433: 'CollisionPrimitive::RigidBody' : 'inline' not permitted on data declarations
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): warning C4183: 'GetRigidBody': missing return type; assumed to be a member function returning 'int'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(25): error C2065: 'mp_RigidBody' : undeclared identifier
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(25): error C2227: left of '->GetTransform' must point to class/struct/union/generic type
-                 type is 'unknown-type'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C2065: 'mp_RigidBody' : undeclared identifier
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionsphere.h(19): error C2061: syntax error : identifier 'RigidBody'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\rigidbody.h(67): error C2661: 'CollisionSphere::CollisionSphere' : no overloaded function takes 2 arguments
-         ForceRegistration.cpp
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(16): error C2143: syntax error : missing ';' before '*'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(22): error C2061: syntax error : identifier 'RigidBody'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C2143: syntax error : missing ';' before '*'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C2433: 'CollisionPrimitive::RigidBody' : 'inline' not permitted on data declarations
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): warning C4183: 'GetRigidBody': missing return type; assumed to be a member function returning 'int'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(25): error C2065: 'mp_RigidBody' : undeclared identifier
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(25): error C2227: left of '->GetTransform' must point to class/struct/union/generic type
-                 type is 'unknown-type'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C2065: 'mp_RigidBody' : undeclared identifier
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionsphere.h(19): error C2061: syntax error : identifier 'RigidBody'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\rigidbody.h(67): error C2661: 'CollisionSphere::CollisionSphere' : no overloaded function takes 2 arguments
-         ForceGenerator.cpp
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(16): error C2143: syntax error : missing ';' before '*'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(22): error C2061: syntax error : identifier 'RigidBody'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C2143: syntax error : missing ';' before '*'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C2433: 'CollisionPrimitive::RigidBody' : 'inline' not permitted on data declarations
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): warning C4183: 'GetRigidBody': missing return type; assumed to be a member function returning 'int'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(25): error C2065: 'mp_RigidBody' : undeclared identifier
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(25): error C2227: left of '->GetTransform' must point to class/struct/union/generic type
-                 type is 'unknown-type'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C2065: 'mp_RigidBody' : undeclared identifier
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionsphere.h(19): error C2061: syntax error : identifier 'RigidBody'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\rigidbody.h(67): error C2661: 'CollisionSphere::CollisionSphere' : no overloaded function takes 2 arguments
-         FireworkLauncher.cpp
-         Firework.cpp
-         EarthGravityGenerator.cpp
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(16): error C2143: syntax error : missing ';' before '*'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(22): error C2061: syntax error : identifier 'RigidBody'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C2143: syntax error : missing ';' before '*'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C2433: 'CollisionPrimitive::RigidBody' : 'inline' not permitted on data declarations
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): warning C4183: 'GetRigidBody': missing return type; assumed to be a member function returning 'int'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(25): error C2065: 'mp_RigidBody' : undeclared identifier
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(25): error C2227: left of '->GetTransform' must point to class/struct/union/generic type
-                 type is 'unknown-type'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C2065: 'mp_RigidBody' : undeclared identifier
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionsphere.h(19): error C2061: syntax error : identifier 'RigidBody'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\rigidbody.h(67): error C2661: 'CollisionSphere::CollisionSphere' : no overloaded function takes 2 arguments
-         DiamondCollectible.cpp
-         CubeCollectible.cpp
-         Generating Code...
-         Compiling...
-         ContactGenerator.cpp
-         Contact.cpp
-         CollisionSphere.cpp
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\rigidbody.h(67): error C2146: syntax error : missing ';' before identifier 'GetCollisionSphere'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\rigidbody.h(67): error C2433: 'RigidBody::CollisionSphere' : 'virtual' not permitted on data declarations
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\rigidbody.h(67): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\rigidbody.h(67): warning C4183: 'GetCollisionSphere': missing return type; assumed to be a member function returning 'int'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\rigidbody.h(67): error C3861: 'CollisionSphere': identifier not found
-         CollisionPrimitive.cpp
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionsphere.h(14): error C2504: 'CollisionPrimitive' : base class undefined
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionsphere.h(19): error C2061: syntax error : identifier 'RigidBody'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\rigidbody.h(67): error C2661: 'CollisionSphere::CollisionSphere' : no overloaded function takes 2 arguments
-         CollisionPlane.cpp
-         CollisionHandler.cpp
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(25): error C2027: use of undefined type 'RigidBody'
-                 c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionhandler.h(16) : see declaration of 'RigidBody'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(25): error C2227: left of '->GetTransform' must point to class/struct/union/generic type
-         CollisionDetector.cpp
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(16): error C2143: syntax error : missing ';' before '*'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(22): error C2061: syntax error : identifier 'RigidBody'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C2143: syntax error : missing ';' before '*'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C2433: 'CollisionPrimitive::RigidBody' : 'inline' not permitted on data declarations
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): warning C4183: 'GetRigidBody': missing return type; assumed to be a member function returning 'int'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(25): error C2065: 'mp_RigidBody' : undeclared identifier
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(25): error C2227: left of '->GetTransform' must point to class/struct/union/generic type
-                 type is 'unknown-type'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C2065: 'mp_RigidBody' : undeclared identifier
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionsphere.h(19): error C2061: syntax error : identifier 'RigidBody'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\rigidbody.h(67): error C2661: 'CollisionSphere::CollisionSphere' : no overloaded function takes 2 arguments
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisiondetector.cpp(40): error C2664: 'void RigidContact::Initialize(RigidBody *,RigidBody *,Vector3D,Vector3D,float,float,float)' : cannot convert argument 1 from 'int *' to 'RigidBody *'
-                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisiondetector.cpp(81): error C2511: 'unsigned int CollisionDetector::SphereAndSphere(const CollisionSphere &,const CollisionSphere &,CollisionData *)' : overloaded member function not found in 'CollisionDetector'
-                 c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisiondetector.h(18) : see declaration of 'CollisionDetector'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisiondetector.cpp(103): error C2664: 'void RigidContact::Initialize(RigidBody *,RigidBody *,Vector3D,Vector3D,float,float,float)' : cannot convert argument 1 from 'int *' to 'RigidBody *'
-                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisiondetector.cpp(110): error C2511: 'unsigned int CollisionDetector::SphereAndHalfSpace(const CollisionSphere &,const CollisionPlane &,CollisionData *)' : overloaded member function not found in 'CollisionDetector'
-                 c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisiondetector.h(18) : see declaration of 'CollisionDetector'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisiondetector.cpp(127): error C2664: 'void RigidContact::Initialize(RigidBody *,RigidBody *,Vector3D,Vector3D,float,float,float)' : cannot convert argument 1 from 'int *' to 'RigidBody *'
-                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisiondetector.cpp(134): error C2511: 'unsigned int CollisionDetector::SphereAndTruePlane(const CollisionSphere &,const CollisionPlane &,CollisionData *)' : overloaded member function not found in 'CollisionDetector'
-                 c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisiondetector.h(18) : see declaration of 'CollisionDetector'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisiondetector.cpp(161): error C2664: 'void RigidContact::Initialize(RigidBody *,RigidBody *,Vector3D,Vector3D,float,float,float)' : cannot convert argument 1 from 'int *' to 'RigidBody *'
-                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisiondetector.cpp(168): error C2511: 'unsigned int CollisionDetector::BoxAndHalfSpace(const CollisionBox &,const CollisionPlane &,CollisionData *)' : overloaded member function not found in 'CollisionDetector'
-                 c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisiondetector.h(18) : see declaration of 'CollisionDetector'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisiondetector.cpp(196): error C2664: 'void RigidContact::Initialize(RigidBody *,RigidBody *,Vector3D,Vector3D,float,float,float)' : cannot convert argument 1 from 'int *' to 'RigidBody *'
-                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisiondetector.cpp(255): error C2664: 'void RigidContact::Initialize(RigidBody *,RigidBody *,Vector3D,Vector3D,float,float,float)' : cannot convert argument 1 from 'int *' to 'RigidBody *'
-                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisiondetector.cpp(294): error C2664: 'void fillPointFaceBoxBox(const CollisionBox &,const CollisionBox &,const Vector3D &,CollisionHandler *,unsigned int,float)' : cannot convert argument 4 from 'CollisionData *' to 'CollisionHandler *'
-                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisiondetector.cpp(300): error C2664: 'void fillPointFaceBoxBox(const CollisionBox &,const CollisionBox &,const Vector3D &,CollisionHandler *,unsigned int,float)' : cannot convert argument 4 from 'CollisionData *' to 'CollisionHandler *'
-                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisiondetector.cpp(338): error C2664: 'void RigidContact::Initialize(RigidBody *,RigidBody *,Vector3D,Vector3D,float,float,float)' : cannot convert argument 1 from 'int *' to 'RigidBody *'
-                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
-         CollisionData.cpp
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(16): error C2143: syntax error : missing ';' before '*'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(22): error C2061: syntax error : identifier 'RigidBody'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C2143: syntax error : missing ';' before '*'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C2433: 'CollisionPrimitive::RigidBody' : 'inline' not permitted on data declarations
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): warning C4183: 'GetRigidBody': missing return type; assumed to be a member function returning 'int'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(25): error C2065: 'mp_RigidBody' : undeclared identifier
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(25): error C2227: left of '->GetTransform' must point to class/struct/union/generic type
-                 type is 'unknown-type'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C2065: 'mp_RigidBody' : undeclared identifier
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionsphere.h(19): error C2061: syntax error : identifier 'RigidBody'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\rigidbody.h(67): error C2661: 'CollisionSphere::CollisionSphere' : no overloaded function takes 2 arguments
-         CollisionBox.cpp
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionsphere.h(14): error C2504: 'CollisionPrimitive' : base class undefined
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionsphere.h(19): error C2061: syntax error : identifier 'RigidBody'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\rigidbody.h(67): error C2661: 'CollisionSphere::CollisionSphere' : no overloaded function takes 2 arguments
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionbox.cpp(10): error C2512: 'CollisionPrimitive' : no appropriate default constructor available
-         CollectibleContactGenerator.cpp
-         Collectible.cpp
-         Camera.cpp
-         CableContactGenerator.cpp
-         BungeeForceGenerator.cpp
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(16): error C2143: syntax error : missing ';' before '*'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(16): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(22): error C2061: syntax error : identifier 'RigidBody'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C2143: syntax error : missing ';' before '*'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C2433: 'CollisionPrimitive::RigidBody' : 'inline' not permitted on data declarations
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): warning C4183: 'GetRigidBody': missing return type; assumed to be a member function returning 'int'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(25): error C2065: 'mp_RigidBody' : undeclared identifier
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(25): error C2227: left of '->GetTransform' must point to class/struct/union/generic type
-                 type is 'unknown-type'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.h(29): error C2065: 'mp_RigidBody' : undeclared identifier
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionsphere.h(19): error C2061: syntax error : identifier 'RigidBody'
-     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\rigidbody.h(67): error C2661: 'CollisionSphere::CollisionSphere' : no overloaded function takes 2 arguments
-         Generating Code...
-     1>Done Building Project "C:\Users\Evan\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\GamePhysics_EvanSchipellite\GamePhysics_EvanSchipellite.vcxproj" (Build target(s)) -- FAILED.
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Evan\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\Debug\GamePhysics_EvanSchipellite.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Users\Evan\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\\Lib\glui-2.36\Debug" /LIBPATH:"C:\Users\Evan\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\\Lib\Simple OpenGL Image Library\Debug" C:\Users\Evan\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\packages\nupengl.core.0.0.0.1\build\native\../..//build/native/lib/Win32\v120\glew32.lib C:\Users\Evan\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\packages\nupengl.core.0.0.0.1\build\native\../..//build/native/lib/Win32\v120\glfw3dll.lib C:\Users\Evan\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\packages\nupengl.core.0.0.0.1\build\native\../..//build/native/lib/Win32\v120\freeglut.lib glui32.lib OpenGL32.lib glu32.lib SOIL.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Evan\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\Debug\GamePhysics_EvanSchipellite.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Evan\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\Debug\GamePhysics_EvanSchipellite.lib" /MACHINE:X86 Debug\BungeeForceGenerator.obj
+         Debug\CableContactGenerator.obj
+         Debug\Camera.obj
+         Debug\Collectible.obj
+         Debug\CollectibleContactGenerator.obj
+         Debug\CollisionBox.obj
+         Debug\CollisionData.obj
+         Debug\CollisionDetector.obj
+         Debug\CollisionHandler.obj
+         Debug\CollisionPlane.obj
+         Debug\CollisionPrimitive.obj
+         Debug\CollisionSphere.obj
+         Debug\Contact.obj
+         Debug\ContactGenerator.obj
+         Debug\CubeCollectible.obj
+         Debug\DiamondCollectible.obj
+         Debug\EarthGravityGenerator.obj
+         Debug\Firework.obj
+         Debug\FireworkLauncher.obj
+         Debug\ForceGenerator.obj
+         Debug\ForceRegistration.obj
+         Debug\ForceRegistry.obj
+         Debug\GameApp.obj
+         Debug\GlutTime.obj
+         Debug\GravityGenerator.obj
+         Debug\Ground.obj
+         Debug\GroundContactGenerator.obj
+         Debug\ImageHandler.obj
+         Debug\IntersectionTests.obj
+         Debug\Level.obj
+         Debug\Matrix.obj
+         Debug\EditorState.obj
+         Debug\Particle.obj
+         Debug\PhysicsHandler.obj
+         Debug\PhysicsObject.obj
+         Debug\Planet.obj
+         Debug\PlanetHandler.obj
+         Debug\GameObject.obj
+         Debug\Player.obj
+         Debug\Quaternion.obj
+         Debug\RigidBody.obj
+         Debug\RigidBodySpringForceGenerator.obj
+         Debug\RigidContact.obj
+         Debug\RigidForceRegistration.obj
+         Debug\RigidGroundContactGenerator.obj
+         Debug\RigidRender.obj
+         Debug\RigidSphere.obj
+         Debug\RodContactGenerator.obj
+         Debug\Skybox.obj
+         Debug\Source.obj
+         Debug\SpringForceGenerator.obj
+         Debug\TetrahedronCollectible.obj
+         Debug\Vector3D.obj
+         Debug\WallContactGenerator.obj
+         GamePhysics_EvanSchipellite.vcxproj -> C:\Users\Evan\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\Debug\GamePhysics_EvanSchipellite.exe
+     1>Done Building Project "C:\Users\Evan\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\GamePhysics_EvanSchipellite\GamePhysics_EvanSchipellite.vcxproj" (Build target(s)).
 
-Build FAILED.
+Build succeeded.
 
-Time Elapsed 00:00:16.69
+Time Elapsed 00:00:00.69
