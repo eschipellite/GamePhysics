@@ -97,6 +97,12 @@
     <Filter Include="Source Files\Objects\PhysicsObjects">
       <UniqueIdentifier>{aed9bc94-9eac-47fb-af2e-cafd4fec5dd6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Physics\Collision\ContactGenerators\RigidBodyContactGenerators">
+      <UniqueIdentifier>{4f564e33-d5d9-4973-aeb6-b64248396fc5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Physics\Collision\ContactGenerators\RigidBodyContactGenerators">
+      <UniqueIdentifier>{f9d3177a-8fae-4ce5-bbea-48a209f9d7ff}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameApp.cpp">
@@ -258,6 +264,9 @@
     <ClCompile Include="RigidRender.cpp">
       <Filter>Source Files\Objects\RigidBodies</Filter>
     </ClCompile>
+    <ClCompile Include="RigidGroundContactGenerator.cpp">
+      <Filter>Source Files\Physics\Collision\ContactGenerators\RigidBodyContactGenerators</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameApp.h">
@@ -415,6 +424,9 @@
     </ClInclude>
     <ClInclude Include="RigidRender.h">
       <Filter>Header Files\Objects\RigidBodies</Filter>
+    </ClInclude>
+    <ClInclude Include="RigidGroundContactGenerator.h">
+      <Filter>Header Files\Physics\Collision\ContactGenerators\RigidBodyContactGenerators</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

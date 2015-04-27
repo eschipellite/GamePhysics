@@ -23,6 +23,8 @@ public:
 	~RigidSphere();
 
 	void Initialize(std::string textureID, float radius, float mass, Vector3D initialPosition);
+
+	CollisionSphere GetCollisionSphere() { return CollisionSphere(this, m_Radius); };
 };
 //=============================================================================
 #endif // RIGID_SPHERE_H

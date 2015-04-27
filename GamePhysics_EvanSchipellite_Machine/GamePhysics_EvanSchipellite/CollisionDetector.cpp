@@ -3,6 +3,7 @@
 //
 // Written by Evan Schipellite
 //
+// Basis from: https://github.com/idmillington/cyclone-physics
 //=============================================================================
 #include "CollisionDetector.h"
 #include "RigidContact.h"
@@ -21,9 +22,10 @@ CollisionDetector::~CollisionDetector()
 }
 
 //-----------------------------------------------------------------------------
-void fillPointFaceBoxBox(const CollisionBox& boxOne, const CollisionBox& boxTwo, const Vector3D& toCenter, CollisionData* collisionData, unsigned int best, float penetration)
+void fillPointFaceBoxBox(const CollisionBox& boxOne, const CollisionBox& boxTwo, const Vector3D& toCenter, CollisionHandler* collisionData, unsigned int best, float penetration)
 {
-	RigidContact* rigidContact = collisionData->GetRigidContacts()[0];
+	RigidContact* rigidContact = new RigidContact();
+	//RigidContact* rigidContact = collisionData->GetRigidContacts()[0];
 
 	Vector3D normal = boxOne.GetAxis(best);
 	if (boxOne.GetAxis(best).Dot(toCenter) > 0)
@@ -75,12 +77,12 @@ Vector3D getContactPoint(const Vector3D& pointOne, const Vector3D& directionOne,
 }
 
 //-----------------------------------------------------------------------------
-unsigned int CollisionDetector::SphereAndSphere(const CollisionSphere& sphereOne, const CollisionSphere& sphereTwo, CollisionData* collisionData)
+unsigned int CollisionDetector::SphereAndSphere(const CollisionSphere& sphereOne, const CollisionSphere& sphereTwo, CollisionHandler* collisionData)
 {
-	if (collisionData->GetContactsLeft() <= 0)
+	/*if (collisionData->GetContactsLeft() <= 0)
 	{
 		return 0;
-	}
+	}*/
 
 	Vector3D positionOne = sphereOne.GetAxis(3);
 	Vector3D positionTwo = sphereTwo.GetAxis(3);

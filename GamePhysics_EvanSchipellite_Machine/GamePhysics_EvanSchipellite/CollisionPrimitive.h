@@ -19,7 +19,7 @@ protected:
 	Matrix m_Transform;
 
 public:
-	CollisionPrimitive();
+	CollisionPrimitive(RigidBody* rigidBody, Matrix offset = Matrix());
 	~CollisionPrimitive();
 
 	inline void CalculateInternals() { m_Transform = mp_RigidBody->GetTransform() * m_Offset; };

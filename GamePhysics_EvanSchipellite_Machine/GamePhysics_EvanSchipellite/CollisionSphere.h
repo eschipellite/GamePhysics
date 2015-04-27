@@ -16,7 +16,7 @@ protected:
 	float m_Radius;
 
 public:
-	CollisionSphere();
+	CollisionSphere(RigidBody* rigidBody, float radius = 1, Matrix offset = Matrix());
 	~CollisionSphere();
 
 	inline void SetRadius(float radius) { m_Radius = radius; };

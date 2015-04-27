@@ -127,6 +127,7 @@ void PhysicsHandler::AddToRegistry(std::vector<RigidForceRegister> rigidForceReg
 void PhysicsHandler::AddRigidBody(RigidBody* rigidBody)
 {
 	mp_RigidBodies.push_back(rigidBody);
+	mp_CollisionHandler->AddCollisionObject(rigidBody);
 }
 
 //-----------------------------------------------------------------------------
@@ -135,7 +136,7 @@ void PhysicsHandler::AddRigidBodies(std::vector<RigidBody*> rigidBodies)
 	std::vector<RigidBody*>::iterator rigidBodyIter;
 	for (rigidBodyIter = rigidBodies.begin(); rigidBodyIter != rigidBodies.end(); rigidBodyIter++)
 	{
-		mp_RigidBodies.push_back((*rigidBodyIter));
+		AddRigidBody((*rigidBodyIter));
 	}
 }
 

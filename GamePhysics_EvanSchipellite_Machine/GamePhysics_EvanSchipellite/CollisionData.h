@@ -3,6 +3,7 @@
 //
 // Written by Evan Schipellite
 //
+// Basis from: https://github.com/idmillington/cyclone-physics
 //=============================================================================
 #ifndef COLLISION_DATA_H
 #define COLLISION_DATA_H

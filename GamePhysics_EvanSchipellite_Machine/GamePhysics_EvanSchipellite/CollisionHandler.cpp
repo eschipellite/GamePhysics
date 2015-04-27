@@ -11,11 +11,17 @@
 #include "Contact.h"
 #include "GroundContactGenerator.h"
 #include "WallContactGenerator.h"
+#include "CollisionDetector.h"
 //=============================================================================
 CollisionHandler::CollisionHandler()
 {
 	m_MaxChecks = 4;
 	m_Collisions = 0;
+
+	m_Restitution = 0.5f;
+	m_Friction = 0.5f;
+
+	mp_CollisionDetector = new CollisionDetector();
 }
 
 //-----------------------------------------------------------------------------
@@ -69,7 +75,6 @@ void CollisionHandler::Initialize()
 //-----------------------------------------------------------------------------
 void CollisionHandler::CleanUp()
 {
-
 }
 
 //-----------------------------------------------------------------------------

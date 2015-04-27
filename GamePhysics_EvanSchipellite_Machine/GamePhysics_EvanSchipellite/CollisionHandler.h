@@ -15,6 +15,7 @@
 class PhysicsObject;
 class RigidBody;
 class ContactGenerator;
+class CollisionDetector;
 //=============================================================================
 class CollisionHandler
 {
@@ -28,6 +29,11 @@ private:
 
 	int m_MaxChecks;
 	int m_Collisions;
+
+	CollisionDetector* mp_CollisionDetector;
+
+	float m_Restitution;
+	float m_Friction;
 
 private:
 	int checkCollisions();
@@ -58,6 +64,11 @@ public:
 	void AddContact(Contact contact) { m_Contacts.push_back(contact); };
 
 	inline int GetCollisions() { return m_Collisions; };
+
+	inline CollisionDetector* GetCollisionDetector() { return mp_CollisionDetector; };
+
+	inline float GetRestitution() { return m_Restitution; };
+	inline float GetFriction() { return m_Friction; };
 };
 //=============================================================================
 #endif // COLLISION_HANDLER_H

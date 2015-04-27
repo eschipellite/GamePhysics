@@ -3,6 +3,7 @@
 //
 // Written by Evan Schipellite
 //
+// Basis from: https://github.com/idmillington/cyclone-physics
 //=============================================================================
 #ifndef INTERSECTION_TESTS_H
 #define INTERSECTION_TESTS_H

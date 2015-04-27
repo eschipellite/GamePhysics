@@ -9,6 +9,7 @@
 #include "Vector3D.h"
 #include "Quaternion.h"
 #include "Matrix.h"
+#include "CollisionSphere.h"
 //=============================================================================
 class RigidBody
 {
@@ -62,6 +63,8 @@ public:
 
 	Vector3D GetPointInWorldSpace(const Vector3D point);
 	Matrix GetTransform() const { return m_TransformationMatrix; };
+	Vector3D GetPosition() { return m_Position; };
+	virtual CollisionSphere GetCollisionSphere() { return CollisionSphere(this, 1); };
 };
 //=============================================================================
 #endif // RIGIDBODY_H
