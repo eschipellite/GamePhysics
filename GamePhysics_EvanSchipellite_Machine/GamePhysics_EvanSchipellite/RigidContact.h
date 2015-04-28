@@ -48,8 +48,8 @@ public:
 
 	void MatchAwakeState();
 
-	void ApplyPositionChange(Vector3D linearChange[2], Vector3D angularChange[2], float penetration);
-	void ApplyVelocityChange(Vector3D velocityChange[2], Vector3D rotationChange[2]);
+	void ApplyPositionChange(Vector3D linearChange[2], Vector3D angularChange[2], float penetration, float deltaTime);
+	void ApplyVelocityChange(Vector3D velocityChange[2], Vector3D rotationChange[2], float deltaTime);
 
 	void SetPenetration(float penetration) { m_Penetration = penetration; };
 	float GetPenetration() { return m_Penetration; };

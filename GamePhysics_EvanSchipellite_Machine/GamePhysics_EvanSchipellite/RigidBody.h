@@ -10,6 +10,9 @@
 #include "Quaternion.h"
 #include "Matrix.h"
 #include "CollisionSphere.h"
+#include "CollisionBox.h"
+//=============================================================================
+
 //=============================================================================
 class RigidBody
 {
@@ -37,6 +40,8 @@ protected:
 	Matrix m_InverseInertiaTensorWorld;
 
 	bool m_IsAwake;
+
+	int m_CollisionType;
 
 protected:
 	static void calculateTransformMatrix(Matrix &transformMatrix, const Vector3D &position, const Quaternion &orientation);
@@ -76,6 +81,7 @@ public:
 	Vector3D GetVelocity() { return m_Velocity; };
 	Vector3D GetLastFrameAcceleration() { return m_LastFrameAcceleration; };
 	virtual CollisionSphere GetCollisionSphere() { return CollisionSphere(this, 1); };
+	virtual CollisionBox GetCollisionBox() { return CollisionBox(this, Vector3D(1, 1, 1)); };
 
 	void GetInverseInertiaTensorWorld(Matrix& inverseInertiaTensor) const;
 
@@ -83,6 +89,8 @@ public:
 
 	void AddVelocity(const Vector3D& deltaVelocity);
 	void AddRotation(const Vector3D& deltaRotation);
+
+	int GetCollisionType() { return m_CollisionType; };
 };
 //=============================================================================
 #endif // RIGIDBODY_H

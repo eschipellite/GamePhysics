@@ -25,6 +25,7 @@
 #include "WallContactGenerator.h"
 #include "RigidRender.h"
 #include "RigidSphere.h"
+#include "RigidBox.h"
 #include "RigidBody.h"
 #include <fstream>
 #include <iostream>
@@ -152,6 +153,10 @@ void Level::Initialize(Vector3D dimensions, Vector3D playerPosition, std::string
 	RigidSphere* rigidRenderSphere = new RigidSphere();
 	rigidRenderSphere->Initialize(m_CollectibleTextureID, 1, 1, Vector3D(0, 10, 0));
 	mp_RigidRenders.push_back(rigidRenderSphere);
+
+	//RigidBox* rigidRenderBox = new RigidBox();
+	//rigidRenderBox->Initialize(m_CollectibleTextureID, Vector3D(5, 5, 5), 1, Vector3D(0, 10, 0));
+	//mp_RigidRenders.push_back(rigidRenderBox);
 }
 
 //-----------------------------------------------------------------------------

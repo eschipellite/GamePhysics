@@ -22,10 +22,8 @@ CollisionDetector::~CollisionDetector()
 }
 
 //-----------------------------------------------------------------------------
-void fillPointFaceBoxBox(const CollisionBox& boxOne, const CollisionBox& boxTwo, const Vector3D& toCenter, CollisionData* collisionData, unsigned int best, float penetration)
+void fillPointFaceBoxBox(const CollisionBox& boxOne, const CollisionBox& boxTwo, const Vector3D& toCenter, CollisionHandler* collisionHandler, unsigned int best, float penetration)
 {
-	RigidContact* rigidContact = collisionData->GetRigidContacts()[0];
-
 	Vector3D normal = boxOne.GetAxis(best);
 	if (boxOne.GetAxis(best).Dot(toCenter) > 0)
 		normal *= -1.0f;
@@ -35,8 +33,9 @@ void fillPointFaceBoxBox(const CollisionBox& boxOne, const CollisionBox& boxTwo,
 	if (boxTwo.GetAxis(1).Dot(normal) < 0) vertex.Y *= -1.0f;
 	if (boxTwo.GetAxis(2).Dot(normal) < 0) vertex.Z *= -1.0f;
 
+	RigidContact rigidContact = RigidContact();
 	Vector3D contactPoint = boxTwo.GetTransform() * vertex;
-	rigidContact->Initialize(boxOne.GetRigidBody(), boxTwo.GetRigidBody(), contactPoint, normal, penetration, collisionData->GetRestitution(), collisionData->GetFriction());
+	rigidContact.Initialize(boxOne.GetRigidBody(), boxTwo.GetRigidBody(), contactPoint, normal, penetration, collisionHandler->GetRestitution(), collisionHandler->GetFriction());
 }
 
 //-----------------------------------------------------------------------------
@@ -76,7 +75,7 @@ Vector3D getContactPoint(const Vector3D& pointOne, const Vector3D& directionOne,
 }
 
 //-----------------------------------------------------------------------------
-unsigned int CollisionDetector::SphereAndSphere(const CollisionSphere& sphereOne, const CollisionSphere& sphereTwo, CollisionData* collisionData)
+unsigned int CollisionDetector::SphereAndSphere(const CollisionSphere& sphereOne, const CollisionSphere& sphereTwo, CollisionHandler* collisionHandler)
 {
 	Vector3D positionOne = sphereOne.GetAxis(3);
 	Vector3D positionTwo = sphereTwo.GetAxis(3);
@@ -91,16 +90,16 @@ unsigned int CollisionDetector::SphereAndSphere(const CollisionSphere& sphereOne
 
 	Vector3D normal = midLine * 1.0f / size;
 
-	RigidContact* rigidContact = collisionData->GetRigidContacts()[0];
+	RigidContact rigidContact = RigidContact();
 	Vector3D contactPoint = positionOne + midLine * 0.5f;
 	float penetration = sphereOne.GetRadius() + sphereTwo.GetRadius() - size;
-	rigidContact->Initialize(sphereOne.GetRigidBody(), sphereTwo.GetRigidBody(), contactPoint, normal, penetration, collisionData->GetRestitution(), collisionData->GetFriction());
-	collisionData->AddContacts(1);
+	rigidContact.Initialize(sphereOne.GetRigidBody(), sphereTwo.GetRigidBody(), contactPoint, normal, penetration, collisionHandler->GetRestitution(), collisionHandler->GetFriction());
+	collisionHandler->AddContact(rigidContact);
 	return 1;
 }
 
 //-----------------------------------------------------------------------------
-unsigned int CollisionDetector::SphereAndHalfSpace(const CollisionSphere& sphere, const CollisionPlane& plane, CollisionHandler* collisionData)
+unsigned int CollisionDetector::SphereAndHalfSpace(const CollisionSphere& sphere, const CollisionPlane& plane, CollisionHandler* collisionHandler)
 {
 	Vector3D position = sphere.GetAxis(3);
 
@@ -113,13 +112,13 @@ unsigned int CollisionDetector::SphereAndHalfSpace(const CollisionSphere& sphere
 
 	RigidContact rigidContact = RigidContact();
 	Vector3D contactPoint = position - plane.GetDirection() * (sphereDistance + sphere.GetRadius());
-	rigidContact.Initialize(sphere.GetRigidBody(), nullptr, contactPoint, plane.GetDirection(), -sphereDistance, collisionData->GetRestitution(), collisionData->GetFriction());
-	collisionData->AddContact(rigidContact);
+	rigidContact.Initialize(sphere.GetRigidBody(), nullptr, contactPoint, plane.GetDirection(), -sphereDistance, collisionHandler->GetRestitution(), collisionHandler->GetFriction());
+	collisionHandler->AddContact(rigidContact);
 	return 1;
 }
 
 //-----------------------------------------------------------------------------
-unsigned int CollisionDetector::SphereAndTruePlane(const CollisionSphere& sphere, const CollisionPlane& plane, CollisionData* collisionData)
+unsigned int CollisionDetector::SphereAndTruePlane(const CollisionSphere& sphere, const CollisionPlane& plane, CollisionHandler* collisionHandler)
 {
 	Vector3D position = sphere.GetAxis(3);
 
@@ -140,22 +139,21 @@ unsigned int CollisionDetector::SphereAndTruePlane(const CollisionSphere& sphere
 	}
 	penetration += sphere.GetRadius();
 
-	RigidContact* rigidContact = collisionData->GetRigidContacts()[0];
+	RigidContact rigidContact = RigidContact();
 	Vector3D contactPoint = position - plane.GetDirection() * centerDistance;
-	rigidContact->Initialize(sphere.GetRigidBody(), nullptr, contactPoint, normal, penetration, collisionData->GetRestitution(), collisionData->GetFriction());
-	collisionData->AddContacts(1);
+	rigidContact.Initialize(sphere.GetRigidBody(), nullptr, contactPoint, normal, penetration, collisionHandler->GetRestitution(), collisionHandler->GetFriction());
+	collisionHandler->AddContact(rigidContact);
 	return 1;
 }
 
 //-----------------------------------------------------------------------------
-unsigned int CollisionDetector::BoxAndHalfSpace(const CollisionBox& box, const CollisionPlane& plane, CollisionData* collisionData)
+unsigned int CollisionDetector::BoxAndHalfSpace(const CollisionBox& box, const CollisionPlane& plane, CollisionHandler* collisionHandler)
 {
 	if (!IntersectionTests::CheckBoxAndHalfSpace(box, plane))
 	{
 		return 0;
 	}
 
-	std::vector<RigidContact*> rigidContact = collisionData->GetRigidContacts();
 	int contactsUsed = 0;
 	for (unsigned int i = 0; i < 8; i++)
 	{
@@ -172,18 +170,17 @@ unsigned int CollisionDetector::BoxAndHalfSpace(const CollisionBox& box, const C
 			contactPoint += vertexPos;
 			Vector3D contactNormal = plane.GetDirection();
 			float penetration = plane.GetOffset() - vertexDistance;
-			rigidContact[i]->Initialize(box.GetRigidBody(), NULL, contactPoint, contactNormal, penetration, collisionData->GetRestitution(), collisionData->GetFriction());
-
+			RigidContact rigidContact = RigidContact();
+			rigidContact.Initialize(box.GetRigidBody(), NULL, contactPoint, contactNormal, penetration, collisionHandler->GetRestitution(), collisionHandler->GetFriction());
+			collisionHandler->AddContact(rigidContact);
 			contactsUsed++;
 		}
 	}
-
-	collisionData->AddContacts(contactsUsed);
 	return contactsUsed;
 }
 
 //-----------------------------------------------------------------------------
-unsigned int BoxAndSphere(const CollisionBox& box, const CollisionSphere& sphere, CollisionData* collisionData)
+unsigned int BoxAndSphere(const CollisionBox& box, const CollisionSphere& sphere, CollisionHandler* collisionHandler)
 {
 	Vector3D center = sphere.GetAxis(3);
 	Vector3D relativeCenter = box.GetTransform().TransformInverse(center);
@@ -226,19 +223,18 @@ unsigned int BoxAndSphere(const CollisionBox& box, const CollisionSphere& sphere
 
 	Vector3D closestWorldPoint = box.GetTransform().Transform(closestPoint);
 
-	RigidContact* rigidContact = collisionData->GetRigidContacts()[0];
+	RigidContact rigidContact = RigidContact();
 	Vector3D contactNormal = (closestWorldPoint - center);
 	contactNormal.Normalize();
 	Vector3D contactPoint = closestWorldPoint;
 	float penetration = sphere.GetRadius() - sqrt(distance);
-	rigidContact->Initialize(box.GetRigidBody(), sphere.GetRigidBody(), contactPoint, contactNormal, penetration, collisionData->GetRestitution(), collisionData->GetFriction());
-
-	collisionData->AddContacts(1);
+	rigidContact.Initialize(box.GetRigidBody(), sphere.GetRigidBody(), contactPoint, contactNormal, penetration, collisionHandler->GetRestitution(), collisionHandler->GetFriction());
+	collisionHandler->AddContact(rigidContact);
 	return 1;
 }
 
 //-----------------------------------------------------------------------------
-unsigned int BoxAndBox(const CollisionBox& boxOne, const CollisionBox& boxTwo, CollisionData* collisionData)
+unsigned int BoxAndBox(const CollisionBox& boxOne, const CollisionBox& boxTwo, CollisionHandler* collisionHandler)
 {
 	Vector3D toCenter = boxTwo.GetAxis(3) - boxOne.GetAxis(3);
 
@@ -270,14 +266,12 @@ unsigned int BoxAndBox(const CollisionBox& boxOne, const CollisionBox& boxTwo, C
 
 	if (best < 3)
 	{
-		fillPointFaceBoxBox(boxOne, boxTwo, toCenter, collisionData, best, penetration);
-		collisionData->AddContacts(1);
+		fillPointFaceBoxBox(boxOne, boxTwo, toCenter, collisionHandler, best, penetration);
 		return 1;
 	}
 	else if (best < 6)
 	{
-		fillPointFaceBoxBox(boxTwo, boxOne, toCenter * -1.0f, collisionData, best - 3, penetration);
-		collisionData->AddContacts(1);
+		fillPointFaceBoxBox(boxTwo, boxOne, toCenter * -1.0f, collisionHandler, best - 3, penetration);
 		return 1;
 	}
 	else
@@ -313,9 +307,9 @@ unsigned int BoxAndBox(const CollisionBox& boxOne, const CollisionBox& boxTwo, C
 		Vector3D vertex = getContactPoint(pointOnEdgeOne, axisOne, boxOne.GetHalfSize().GetIndex(axisOneIndex),
 			pointOnEdgeTwo, axisTwo, boxTwo.GetHalfSize().GetIndex(axisTwoIndex), bestSingleAxis > 2);
 
-		RigidContact* rigidContact = collisionData->GetRigidContacts()[0];
-		rigidContact->Initialize(boxOne.GetRigidBody(), boxTwo.GetRigidBody(), vertex, axis, penetration, collisionData->GetRestitution(), collisionData->GetFriction());
-		collisionData->AddContacts(1);
+		RigidContact rigidContact = RigidContact();
+		rigidContact.Initialize(boxOne.GetRigidBody(), boxTwo.GetRigidBody(), vertex, axis, penetration, collisionHandler->GetRestitution(), collisionHandler->GetFriction());
+		collisionHandler->AddContact(rigidContact);
 		return 1;
 	}
 

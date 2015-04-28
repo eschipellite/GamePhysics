@@ -30,7 +30,15 @@ void RigidGroundContactGenerator::AddContact(CollisionHandler* collisionHandler)
 	std::vector<RigidBody*>::iterator rigidBodyIter;
 	for (rigidBodyIter = rigidBodies.begin(); rigidBodyIter != rigidBodies.end(); rigidBodyIter++)
 	{
-		collisionHandler->GetCollisionDetector()->SphereAndHalfSpace((*rigidBodyIter)->GetCollisionSphere(), m_CollisionPlane, collisionHandler);
+		switch ((*rigidBodyIter)->GetCollisionType())
+		{
+		case CollisionType::BOX:
+			collisionHandler->GetCollisionDetector()->BoxAndHalfSpace((*rigidBodyIter)->GetCollisionBox(), m_CollisionPlane, collisionHandler);
+			break;
+		default:
+			collisionHandler->GetCollisionDetector()->SphereAndHalfSpace((*rigidBodyIter)->GetCollisionSphere(), m_CollisionPlane, collisionHandler);
+			break;
+		}
 	}
 }
 

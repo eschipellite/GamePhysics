@@ -252,7 +252,7 @@ void RigidContact::MatchAwakeState()
 }
 
 //-----------------------------------------------------------------------------
-void RigidContact::ApplyPositionChange(Vector3D linearChange[2], Vector3D angularChange[2], float penetration)
+void RigidContact::ApplyPositionChange(Vector3D linearChange[2], Vector3D angularChange[2], float penetration, float deltaTime)
 {
 	const float angularLimit = 0.2f;
 	float angularMove[2];
@@ -349,12 +349,12 @@ void RigidContact::ApplyPositionChange(Vector3D linearChange[2], Vector3D angula
 			linearChange[i] = m_ContactNormal * linearMove[i];
 
 			Vector3D position = rigidBody->GetPosition();
-			position += m_ContactNormal * linearMove[i];
+			position += m_ContactNormal * linearMove[i] * deltaTime;
 			rigidBody->SetPosition(position);
 
 			Quaternion q;
 			q = rigidBody->GetOrientation();
-			q.AddScaledVector(angularChange[i], 1.0f);
+			q.AddScaledVector(angularChange[i] * deltaTime, 1.0f);
 			rigidBody->SetOrientation(q);
 
 			if (!rigidBody->GetAwake())
@@ -364,7 +364,7 @@ void RigidContact::ApplyPositionChange(Vector3D linearChange[2], Vector3D angula
 }
 
 //-----------------------------------------------------------------------------
-void RigidContact::ApplyVelocityChange(Vector3D velocityChange[2], Vector3D rotationChange[2])
+void RigidContact::ApplyVelocityChange(Vector3D velocityChange[2], Vector3D rotationChange[2], float deltaTime)
 {
 	Matrix inverseInertiaTensor[2];
 	mp_RigidBodyOne->GetInverseInertiaTensorWorld(inverseInertiaTensor[0]);
@@ -373,13 +373,14 @@ void RigidContact::ApplyVelocityChange(Vector3D velocityChange[2], Vector3D rota
 
 	Vector3D impulseContact;
 
-	if (m_Friction == 0.0f)
+	if (m_Friction = 0.0f)
 	{
 		impulseContact = calculateFrictionlessImpulse(inverseInertiaTensor);
 	}
 	else
 	{
-		impulseContact = calculateFrictionImpulse(inverseInertiaTensor);
+		impulseContact = calculateFrictionlessImpulse(inverseInertiaTensor);
+		//impulseContact = calculateFrictionImpulse(inverseInertiaTensor);
 	}
 
 	Vector3D impulse = m_ContactToWorld.Transform(impulseContact);
@@ -399,8 +400,8 @@ void RigidContact::ApplyVelocityChange(Vector3D velocityChange[2], Vector3D rota
 		velocityChange[1] = Vector3D::Zero;
 		velocityChange[1] += impulse * mp_RigidBodyTwo->GetInverseMass();
 
-		mp_RigidBodyTwo->AddVelocity(velocityChange[1]);
-		mp_RigidBodyTwo->AddRotation(rotationChange[1]);
+		mp_RigidBodyTwo->AddVelocity(velocityChange[1] * deltaTime);
+		mp_RigidBodyTwo->AddRotation(rotationChange[1] * deltaTime);
 	}
 }
 

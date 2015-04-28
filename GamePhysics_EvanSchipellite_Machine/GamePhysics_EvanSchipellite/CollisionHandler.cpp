@@ -76,7 +76,7 @@ void CollisionHandler::resolveContacts(float deltaTime)
 void CollisionHandler::resolveRigidBodyContacts(float deltaTime)
 {
 	prepareRigidBodyContacts(deltaTime);
-	//adjustPositions(deltaTime);
+	adjustPositions(deltaTime);
 	adjustVelocities(deltaTime);
 }
 
@@ -119,7 +119,7 @@ void CollisionHandler::adjustPositions(float deltaTime)
 			break;
 
 		m_RigidContacts[index].MatchAwakeState();
-		m_RigidContacts[index].ApplyPositionChange(linearChange, angularChange, max);
+		m_RigidContacts[index].ApplyPositionChange(linearChange, angularChange, max, deltaTime);
 
 		for (i = 0; i < m_RigidContacts.size(); i++)
 		{
@@ -170,7 +170,7 @@ void CollisionHandler::adjustVelocities(float deltaTime)
 			break;
 
 		m_RigidContacts[index].MatchAwakeState();
-		m_RigidContacts[index].ApplyVelocityChange(velocityChange, rotationChange);
+		m_RigidContacts[index].ApplyVelocityChange(velocityChange, rotationChange, deltaTime);
 
 		for (unsigned int i = 0; i < m_RigidContacts.size(); i++)
 		{
