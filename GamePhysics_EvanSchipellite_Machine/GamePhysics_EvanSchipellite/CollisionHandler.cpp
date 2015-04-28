@@ -76,7 +76,7 @@ void CollisionHandler::resolveContacts(float deltaTime)
 void CollisionHandler::resolveRigidBodyContacts(float deltaTime)
 {
 	prepareRigidBodyContacts(deltaTime);
-	adjustPositions(deltaTime);
+	//adjustPositions(deltaTime);
 	adjustVelocities(deltaTime);
 }
 

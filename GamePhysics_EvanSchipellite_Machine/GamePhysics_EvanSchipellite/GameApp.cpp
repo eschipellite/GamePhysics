@@ -69,7 +69,7 @@ void GameApp::Initialize()
 	ImageHandler::GetInstance()->AddImage("Content/Textures/Texture_Player.jpg", "Player");
 	ImageHandler::GetInstance()->AddImage("Content/Textures/Texture_Collectible.jpg", "Collectible");
 
-	mp_Level->Initialize(Vector3D(60, 5, 60), Vector3D(0, 2, 0), "Ground", "Player", "Collectible");
+	mp_Level->Initialize(Vector3D(60, 5, 60), Vector3D(10, 2, 10), "Ground", "Player", "Collectible");
 
 	mp_PhysicsHandler->AddToRegistry(mp_Level->GetForceRegisters());
 	mp_PhysicsHandler->AddToRegistry(mp_Level->GetRigidForceRegisters());
