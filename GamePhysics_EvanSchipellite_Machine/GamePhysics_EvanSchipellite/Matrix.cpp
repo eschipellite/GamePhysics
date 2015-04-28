@@ -65,8 +65,8 @@ Matrix::Matrix(int rows, int columns, float* matrixArray)
 //-----------------------------------------------------------------------------
 Matrix::~Matrix()
 {
-	//delete [] mp_Matrix;
-	//mp_Matrix = nullptr;
+	delete [] mp_Matrix;
+	mp_Matrix = nullptr;
 }
 
 //-----------------------------------------------------------------------------
@@ -345,6 +345,23 @@ float Matrix::GetDeterminant() const
 }
 
 //--------------------------------------------------------------------------------------------
+Matrix Matrix::GetTranspose() const
+{
+	Matrix transpose = Matrix(m_NumRows, m_NumColumns);
+
+	for (int i = 0; i < m_NumRows; i++)
+	{
+		for (int j = 0; j < m_NumColumns; j++)
+		{
+			transpose.Set(i * m_NumColumns + j, mp_Matrix[j * m_NumColumns + i]);
+			transpose.Set(j * m_NumColumns + i, mp_Matrix[i * m_NumColumns + j]);
+		}
+	}
+
+	return transpose;
+}
+
+//--------------------------------------------------------------------------------------------
 Vector3D Matrix::Transform(const Vector3D &vector)
 {
 	return (*this) * vector;
@@ -357,9 +374,27 @@ Vector3D Matrix::TransformInverse(const Vector3D &vector)
 }
 
 //--------------------------------------------------------------------------------------------
+Vector3D Matrix::TransformTranspose(const Vector3D &vector)
+{
+	return GetTranspose() * vector;
+}
+
+//--------------------------------------------------------------------------------------------
 Vector3D Matrix::GetAxisVector(unsigned int index) const
 {
 	Vector3D axisVector = Vector3D(mp_Matrix[index], mp_Matrix[index + 4], mp_Matrix[index + 8]);
 	return axisVector;
+}
+
+//--------------------------------------------------------------------------------------------
+void Matrix::SetSkewSymmetric(const Vector3D vector)
+{
+	mp_Matrix[0] = mp_Matrix[4] = mp_Matrix[8] = 0;
+	mp_Matrix[1] = -vector.Z;
+	mp_Matrix[2] = vector.Y;
+	mp_Matrix[3] = vector.Z;
+	mp_Matrix[5] = -vector.X;
+	mp_Matrix[6] = -vector.Y;
+	mp_Matrix[7] = vector.X;
 }
 //=============================================================================

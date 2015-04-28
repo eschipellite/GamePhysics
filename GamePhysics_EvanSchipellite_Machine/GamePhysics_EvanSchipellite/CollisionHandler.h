@@ -39,9 +39,23 @@ private:
 	float m_Restitution;
 	float m_Friction;
 
+	int m_PositionIterations;
+	int m_PositionIterationsUsed;
+	int m_VelocityIterations;
+	int m_VelocityIterationsUsed;
+
+	float m_PositionEpsilon;
+	float m_VelocityEpsilon;
+
 private:
 	int checkCollisions();
 	void resolveContacts(float deltaTime);
+	void resolveRigidBodyContacts(float deltaTime);
+	
+	void prepareRigidBodyContacts(float deltaTime);
+	void adjustPositions(float deltaTime);
+	void adjustVelocities(float deltaTime);
+
 	void addRunTimeContactGenerators();
 
 public:

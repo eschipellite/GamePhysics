@@ -39,7 +39,6 @@ protected:
 	bool m_IsAwake;
 
 protected:
-	void calculateDerivedData();
 	static void calculateTransformMatrix(Matrix &transformMatrix, const Vector3D &position, const Quaternion &orientation);
 	static void transformInertiaTensor(Matrix &iitWorld, const Quaternion &quaternion, const Matrix &iitBody, const Matrix &rotationMatrix);
 
@@ -47,6 +46,7 @@ public:
 	RigidBody();
 	~RigidBody();
 
+	void CalculateDerivedData();
 	void SetIntertiaTensor(const Matrix &intertiaTensor);
 	void AddForce(const Vector3D &force);
 	void ClearAccumulators();
@@ -58,13 +58,31 @@ public:
 	void AddForceAtPoint(const Vector3D &force, const Vector3D &point);
 	void AddForceAtBodyPoint(const Vector3D &force, const Vector3D &point);
 
-	bool HasInfiniteMass();
 	float GetMass();
+
+	bool HasInfiniteMass();
+	bool GetAwake() { return m_IsAwake; };
+	void SetAwake() { m_IsAwake = true; };
+
+	void SetPosition(Vector3D position) { m_Position = position; };
+	void SetOrientation(Quaternion orientation) { m_Orientation = orientation; };
+
+	Quaternion GetOrientation() { return m_Orientation; };
 
 	Vector3D GetPointInWorldSpace(const Vector3D point);
 	Matrix GetTransform() const { return m_TransformationMatrix; };
 	Vector3D GetPosition() { return m_Position; };
+	Vector3D GetRotation() { return m_Rotation; };
+	Vector3D GetVelocity() { return m_Velocity; };
+	Vector3D GetLastFrameAcceleration() { return m_LastFrameAcceleration; };
 	virtual CollisionSphere GetCollisionSphere() { return CollisionSphere(this, 1); };
+
+	void GetInverseInertiaTensorWorld(Matrix& inverseInertiaTensor) const;
+
+	float GetInverseMass() { return m_InverseMass; };
+
+	void AddVelocity(const Vector3D& deltaVelocity);
+	void AddRotation(const Vector3D& deltaRotation);
 };
 //=============================================================================
 #endif // RIGIDBODY_H

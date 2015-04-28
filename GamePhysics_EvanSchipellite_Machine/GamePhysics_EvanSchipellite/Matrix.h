@@ -52,10 +52,14 @@ public:
 
 	Matrix GetInverse() const;
 	float GetDeterminant() const;
+	Matrix GetTranspose() const;
 
 	Vector3D Transform(const Vector3D &vector);
 	Vector3D TransformInverse(const Vector3D &vector);
+	Vector3D TransformTranspose(const Vector3D &vector);
 	Vector3D GetAxisVector(unsigned int index) const;
+
+	void SetSkewSymmetric(const Vector3D vector);
 };
 //=============================================================================
 #endif // MATRIX_H

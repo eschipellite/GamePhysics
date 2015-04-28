@@ -78,11 +78,6 @@ Vector3D getContactPoint(const Vector3D& pointOne, const Vector3D& directionOne,
 //-----------------------------------------------------------------------------
 unsigned int CollisionDetector::SphereAndSphere(const CollisionSphere& sphereOne, const CollisionSphere& sphereTwo, CollisionData* collisionData)
 {
-	if (collisionData->GetContactsLeft() <= 0)
-	{
-		return 0;
-	}
-
 	Vector3D positionOne = sphereOne.GetAxis(3);
 	Vector3D positionTwo = sphereTwo.GetAxis(3);
 
@@ -107,11 +102,6 @@ unsigned int CollisionDetector::SphereAndSphere(const CollisionSphere& sphereOne
 //-----------------------------------------------------------------------------
 unsigned int CollisionDetector::SphereAndHalfSpace(const CollisionSphere& sphere, const CollisionPlane& plane, CollisionHandler* collisionData)
 {
-	/*if (collisionData->GetContactsLeft() <= 0)
-	{
-		return 0;
-	}*/
-
 	Vector3D position = sphere.GetAxis(3);
 
 	float sphereDistance = plane.GetDirection().Dot(position) - sphere.GetRadius() - plane.GetOffset();
@@ -122,10 +112,8 @@ unsigned int CollisionDetector::SphereAndHalfSpace(const CollisionSphere& sphere
 	}
 
 	RigidContact rigidContact = RigidContact();
-	//RigidContact* rigidContact = collisionData->GetRigidContacts()[0];
 	Vector3D contactPoint = position - plane.GetDirection() * (sphereDistance + sphere.GetRadius());
 	rigidContact.Initialize(sphere.GetRigidBody(), nullptr, contactPoint, plane.GetDirection(), -sphereDistance, collisionData->GetRestitution(), collisionData->GetFriction());
-	//collisionData->AddContacts(1);
 	collisionData->AddContact(rigidContact);
 	return 1;
 }
@@ -133,11 +121,6 @@ unsigned int CollisionDetector::SphereAndHalfSpace(const CollisionSphere& sphere
 //-----------------------------------------------------------------------------
 unsigned int CollisionDetector::SphereAndTruePlane(const CollisionSphere& sphere, const CollisionPlane& plane, CollisionData* collisionData)
 {
-	if (collisionData->GetContactsLeft() <= 0)
-	{
-		return 0;
-	}
-
 	Vector3D position = sphere.GetAxis(3);
 
 	float centerDistance = plane.GetDirection().Dot(position) - plane.GetOffset();
@@ -167,11 +150,6 @@ unsigned int CollisionDetector::SphereAndTruePlane(const CollisionSphere& sphere
 //-----------------------------------------------------------------------------
 unsigned int CollisionDetector::BoxAndHalfSpace(const CollisionBox& box, const CollisionPlane& plane, CollisionData* collisionData)
 {
-	if (collisionData->GetContactsLeft() <= 0)
-	{
-		return 0;
-	}
-
 	if (!IntersectionTests::CheckBoxAndHalfSpace(box, plane))
 	{
 		return 0;

@@ -19,6 +19,11 @@ CollisionHandler::CollisionHandler()
 	m_MaxChecks = 4;
 	m_Collisions = 0;
 
+	m_PositionIterations = 1;
+	m_PositionEpsilon = 0.01f;
+	m_VelocityIterations = 1;
+	m_VelocityEpsilon = 0.01f;
+
 	m_Restitution = 0.5f;
 	m_Friction = 0.5f;
 
@@ -61,15 +66,133 @@ void CollisionHandler::resolveContacts(float deltaTime)
 		(*contactIter).Resolve(deltaTime);
 	}
 
-	std::vector<RigidContact>::iterator rigidContactIter;
-	for (rigidContactIter = m_RigidContacts.begin(); rigidContactIter != m_RigidContacts.end(); rigidContactIter++)
-	{
-		int cat = 3;
-		//(*rigidContactIter).Resolve(deltaTime);
-	}
+	resolveRigidBodyContacts(deltaTime);
 
 	m_RigidContacts.clear();
 	m_Contacts.clear();
+}
+
+//-----------------------------------------------------------------------------
+void CollisionHandler::resolveRigidBodyContacts(float deltaTime)
+{
+	prepareRigidBodyContacts(deltaTime);
+	adjustPositions(deltaTime);
+	adjustVelocities(deltaTime);
+}
+
+//-----------------------------------------------------------------------------
+void CollisionHandler::prepareRigidBodyContacts(float deltaTime)
+{
+	std::vector<RigidContact>::iterator rigidContactIter;
+	for (rigidContactIter = m_RigidContacts.begin(); rigidContactIter != m_RigidContacts.end(); rigidContactIter++)
+	{
+		(*rigidContactIter).CalculateInternals(deltaTime);
+	}
+}
+
+//-----------------------------------------------------------------------------
+void CollisionHandler::adjustPositions(float deltaTime)
+{
+	unsigned int i;
+	unsigned int index;
+	Vector3D linearChange[2];
+	Vector3D angularChange[2];
+	float max;
+	Vector3D deltaPosition;
+
+	m_PositionIterationsUsed = 0;
+	while (m_PositionIterationsUsed < m_PositionIterations)
+	{
+		max = m_PositionEpsilon;
+		index = m_RigidContacts.size();
+
+		for (i = 0; i < m_RigidContacts.size(); i++)
+		{
+			float penetration = m_RigidContacts[i].GetPenetration();
+			if (penetration > max)
+			{
+				max = penetration;
+				index = i;
+			}
+		}
+		if (index == m_RigidContacts.size())
+			break;
+
+		m_RigidContacts[index].MatchAwakeState();
+		m_RigidContacts[index].ApplyPositionChange(linearChange, angularChange, max);
+
+		for (i = 0; i < m_RigidContacts.size(); i++)
+		{
+			for (unsigned int body = 0; body < 2; body++)
+			{
+				if (m_RigidContacts[i].GetRigidBody(body))
+				{
+					for (unsigned int d = 0; d < 2; d++)
+					{
+						if (m_RigidContacts[i].GetRigidBody(body) == m_RigidContacts[index].GetRigidBody(d))
+						{
+							deltaPosition = linearChange[d] + angularChange[d] * m_RigidContacts[i].GetRelativeContactPosition(body);
+
+							float penetration = m_RigidContacts[i].GetPenetration();
+							penetration += deltaPosition.Dot(m_RigidContacts[i].GetContactNormal()) * (body ? 1 : -1);
+							m_RigidContacts[i].SetPenetration(penetration);
+						}
+					}
+				}
+			}
+		}
+		m_PositionIterationsUsed++;
+	}
+}
+
+//-----------------------------------------------------------------------------
+void CollisionHandler::adjustVelocities(float deltaTime)
+{
+	Vector3D velocityChange[2];
+	Vector3D rotationChange[2];
+	Vector3D deltaVelocity;
+
+	m_VelocityIterationsUsed = 0;
+	while (m_VelocityIterationsUsed < m_VelocityIterations)
+	{
+		float max = m_VelocityEpsilon;
+		unsigned int index = m_RigidContacts.size();
+		for (unsigned int i = 0; i < m_RigidContacts.size(); i++)
+		{
+			if (m_RigidContacts[i].GetDesiredDeltaVelocity() > max)
+			{
+				max = m_RigidContacts[i].GetDesiredDeltaVelocity();
+				index = i;
+			}
+		}
+
+		if (index == m_RigidContacts.size())
+			break;
+
+		m_RigidContacts[index].MatchAwakeState();
+		m_RigidContacts[index].ApplyVelocityChange(velocityChange, rotationChange);
+
+		for (unsigned int i = 0; i < m_RigidContacts.size(); i++)
+		{
+			for (unsigned int b = 0; b < 2; b++)
+			{
+				if (m_RigidContacts[i].GetRigidBody(b))
+				{
+					for (unsigned d = 0; d < 2; d++)
+					{
+						if (m_RigidContacts[i].GetRigidBody(b) == m_RigidContacts[index].GetRigidBody(d))
+						{
+							deltaVelocity = velocityChange[d] + rotationChange[d] * m_RigidContacts[i].GetRelativeContactPosition(b);
+
+							m_RigidContacts[i].SetContactVelocity(m_RigidContacts[i].GetContactVelocity() + m_RigidContacts[i].GetContactToWorld().TransformTranspose(deltaVelocity) * (float)(b ? -1 : 1));
+							m_RigidContacts[i].CalculateDesiredDeltavelocity(deltaTime);
+						}
+					}
+				}
+			}
+		}
+		m_VelocityIterationsUsed++;
+	}
 }
 
 //-----------------------------------------------------------------------------

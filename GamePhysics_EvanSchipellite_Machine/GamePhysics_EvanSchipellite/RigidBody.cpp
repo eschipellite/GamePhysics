@@ -8,6 +8,9 @@
 //=============================================================================
 RigidBody::RigidBody()
 {
+	m_TransformationMatrix = Matrix(4, 4);
+	m_InverseInertiaTensor = Matrix(3, 3);
+	m_InverseInertiaTensorWorld = Matrix(3, 3);
 }
 
 //-----------------------------------------------------------------------------
@@ -16,7 +19,7 @@ RigidBody::~RigidBody()
 }
 
 //-----------------------------------------------------------------------------
-void RigidBody::calculateDerivedData()
+void RigidBody::CalculateDerivedData()
 {
 	m_Orientation.Normalize();
 
@@ -134,7 +137,7 @@ void RigidBody::Integrate(float duration)
 
 	m_Orientation.AddScaledVector(m_Rotation, duration);
 
-	calculateDerivedData();
+	CalculateDerivedData();
 
 	ClearAccumulators();
 }
@@ -158,6 +161,8 @@ void RigidBody::Initialize(float mass, Vector3D initialPosition, Vector3D initia
 	m_Rotation = m_InitialRotation;
 
 	m_IsAwake = false;
+
+	m_TransformationMatrix = Matrix(4, 4);
 }
 
 //-----------------------------------------------------------------------------
@@ -200,5 +205,23 @@ bool RigidBody::HasInfiniteMass()
 float RigidBody::GetMass()
 {
 	return 1.0f / m_InverseMass;
+}
+
+//-----------------------------------------------------------------------------
+void RigidBody::GetInverseInertiaTensorWorld(Matrix& inverseInertiaTensor) const
+{
+	inverseInertiaTensor = m_InverseInertiaTensorWorld;
+}
+
+//-----------------------------------------------------------------------------
+void RigidBody::AddVelocity(const Vector3D& deltaVelocity)
+{
+	m_Velocity += deltaVelocity;
+}
+
+//-----------------------------------------------------------------------------
+void RigidBody::AddRotation(const Vector3D& deltaRotation)
+{
+	m_Rotation += deltaRotation;
 }
 //=============================================================================
