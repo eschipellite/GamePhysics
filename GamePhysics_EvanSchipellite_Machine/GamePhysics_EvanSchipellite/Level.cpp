@@ -150,13 +150,21 @@ void Level::Initialize(Vector3D dimensions, Vector3D playerPosition, std::string
 
 	m_CollectibleTextureID = collectibleID;
 
-	RigidSphere* rigidRenderSphere = new RigidSphere();
-	rigidRenderSphere->Initialize(m_CollectibleTextureID, 1, 1, Vector3D(0, 10, 0));
-	mp_RigidRenders.push_back(rigidRenderSphere);
+	RigidSphere* rigidRenderSphereOne = new RigidSphere();
+	rigidRenderSphereOne->Initialize(m_CollectibleTextureID, 1, 1, Vector3D(0, 10, 0));
+	mp_RigidRenders.push_back(rigidRenderSphereOne);
 
-	//RigidBox* rigidRenderBox = new RigidBox();
-	//rigidRenderBox->Initialize(m_CollectibleTextureID, Vector3D(5, 5, 5), 1, Vector3D(0, 10, 0));
-	//mp_RigidRenders.push_back(rigidRenderBox);
+	RigidSphere* rigidRenderSphereTwo = new RigidSphere();
+	rigidRenderSphereTwo->Initialize(m_CollectibleTextureID, 1, 1, Vector3D(20, 10, 0));
+	mp_RigidRenders.push_back(rigidRenderSphereTwo);
+
+	RigidSphere* rigidRenderSphereThree = new RigidSphere();
+	rigidRenderSphereThree->Initialize(m_CollectibleTextureID, 1, 1, Vector3D(0, 10, -20));
+	mp_RigidRenders.push_back(rigidRenderSphereThree);
+
+	RigidBox* rigidRenderBox = new RigidBox();
+	rigidRenderBox->Initialize(m_CollectibleTextureID, Vector3D(5, 5, 5), 1, Vector3D(5, 10, 5));
+	mp_RigidRenders.push_back(rigidRenderBox);
 }
 
 //-----------------------------------------------------------------------------
