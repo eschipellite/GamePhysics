@@ -13,6 +13,7 @@
 #include "CollisionPlane.h"
 #include "CollisionBox.h"
 #include "CollisionHandler.h"
+#include "RigidBody.h"
 //=============================================================================
 class CollisionDetector
 {
@@ -33,6 +34,8 @@ public:
 	unsigned int BoxAndHalfSpace(const CollisionBox& box, const CollisionPlane& plane, CollisionHandler* collisionHandler);
 	unsigned int BoxAndSphere(const CollisionBox& box, const CollisionSphere& sphere, CollisionHandler* collisionHandler);
 	unsigned int BoxAndBox(const CollisionBox& boxOne, const CollisionBox& boxTwo, CollisionHandler* collisionHandler);
+
+	void CheckCollision(RigidBody* rigidBodyOne, RigidBody* rigidBodyTwo, CollisionHandler* collisionHandler);
 };
 //=============================================================================
 #endif // COLLISION_DETECTOR_H

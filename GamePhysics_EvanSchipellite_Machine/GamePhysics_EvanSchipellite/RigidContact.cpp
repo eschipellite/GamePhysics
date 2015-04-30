@@ -398,10 +398,10 @@ void RigidContact::ApplyVelocityChange(Vector3D velocityChange[2], Vector3D rota
 		Vector3D impulsiveTorque = impulse.Cross(m_RelativeContactPositionTwo);
 		rotationChange[1] = inverseInertiaTensor[1].Transform(impulsiveTorque);
 		velocityChange[1] = Vector3D::Zero;
-		velocityChange[1] += impulse * mp_RigidBodyTwo->GetInverseMass();
+		velocityChange[1] += impulse * -mp_RigidBodyTwo->GetInverseMass();
 
-		mp_RigidBodyTwo->AddVelocity(velocityChange[1] * deltaTime);
-		mp_RigidBodyTwo->AddRotation(rotationChange[1] * deltaTime);
+		mp_RigidBodyTwo->AddVelocity(velocityChange[1]);
+		mp_RigidBodyTwo->AddRotation(rotationChange[1]);
 	}
 }
 

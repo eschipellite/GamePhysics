@@ -21,7 +21,7 @@ void RigidBox::drawObject()
 {
 	glTranslatef(m_Position.X, m_Position.Y, m_Position.Z);
 	glRotatef(m_Orientation.R, m_Orientation.I, m_Orientation.J, m_Orientation.K);
-	glutSolidCube(m_HalfSize.X);
+	glutSolidCube(m_HalfSize.X * 2);
 }
 
 //-----------------------------------------------------------------------------

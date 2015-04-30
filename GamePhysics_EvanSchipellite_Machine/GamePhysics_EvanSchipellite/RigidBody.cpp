@@ -5,6 +5,7 @@
 //=============================================================================
 #include "RigidBody.h"
 #include <math.h>
+#include <iostream>
 //=============================================================================
 RigidBody::RigidBody()
 {
@@ -33,31 +34,31 @@ void RigidBody::CalculateDerivedData()
 void RigidBody::calculateTransformMatrix(Matrix &transformMatrix, const Vector3D &position, const Quaternion &orientation)
 {
 	float val1 = 1 - 2 * orientation.J * orientation.J - 2 * orientation.K * orientation.K;
-	transformMatrix.Set(0, 0, val1);
+	transformMatrix.Set(0, val1);
 	float val2 = 2 * orientation.I * orientation.J - 2 * orientation.R * orientation.K;
-	transformMatrix.Set(0, 1, val2);
+	transformMatrix.Set(0, val2);
 	float val3 = 2 * orientation.I * orientation.K + 2 * orientation.R * orientation.J;
-	transformMatrix.Set(0, 2, val3);
+	transformMatrix.Set(2, val3);
 	float val4 = position.X;
-	transformMatrix.Set(0, 3, val4);
+	transformMatrix.Set(3, val4);
 
 	float val5 = 2 * orientation.I * orientation.J + 2 * orientation.R * orientation.K;
-	transformMatrix.Set(1, 0, val5);
+	transformMatrix.Set(4, val5);
 	float val6 = 1 - 2 * orientation.I * orientation.I - 2 * orientation.K * orientation.K;
-	transformMatrix.Set(1, 1, val6);
+	transformMatrix.Set(5, val6);
 	float val7 = 2 * orientation.J * orientation.K - 2 * orientation.R * orientation.I;
-	transformMatrix.Set(1, 2, val7);
+	transformMatrix.Set(6, val7);
 	float val8 = position.Y;
-	transformMatrix.Set(1, 3, val8);
+	transformMatrix.Set(7, val8);
 
 	float val9 = 2 * orientation.I * orientation.K - 2 * orientation.R * orientation.J;
-	transformMatrix.Set(2, 0, val9);
+	transformMatrix.Set(8, val9);
 	float val10 = 2 * orientation.J * orientation.K + 2 * orientation.R * orientation.I;
-	transformMatrix.Set(2, 1, val10);
+	transformMatrix.Set(9, val10);
 	float val11 = 1 - 2 * orientation.I * orientation.I - 2 * orientation.J * orientation.J;
-	transformMatrix.Set(2, 2, val11);
+	transformMatrix.Set(10, val11);
 	float val12 = position.Z;
-	transformMatrix.Set(2, 3, val12);
+	transformMatrix.Set(11, val12);
 }
 
 //-----------------------------------------------------------------------------

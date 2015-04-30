@@ -22,7 +22,7 @@ CollisionDetector::~CollisionDetector()
 }
 
 //-----------------------------------------------------------------------------
-void fillPointFaceBoxBox(const CollisionBox& boxOne, const CollisionBox& boxTwo, const Vector3D& toCenter, CollisionHandler* collisionHandler, unsigned int best, float penetration)
+void CollisionDetector::fillPointFaceBoxBox(const CollisionBox& boxOne, const CollisionBox& boxTwo, const Vector3D& toCenter, CollisionHandler* collisionHandler, unsigned int best, float penetration)
 {
 	Vector3D normal = boxOne.GetAxis(best);
 	if (boxOne.GetAxis(best).Dot(toCenter) > 0)
@@ -39,7 +39,7 @@ void fillPointFaceBoxBox(const CollisionBox& boxOne, const CollisionBox& boxTwo,
 }
 
 //-----------------------------------------------------------------------------
-Vector3D getContactPoint(const Vector3D& pointOne, const Vector3D& directionOne, float sizeOne, const Vector3D& pointTwo, const Vector3D directionTwo, float sizeTwo, bool useOne)
+Vector3D CollisionDetector::getContactPoint(const Vector3D& pointOne, const Vector3D& directionOne, float sizeOne, const Vector3D& pointTwo, const Vector3D directionTwo, float sizeTwo, bool useOne)
 {
 	Vector3D toSt, cOne, cTwo;
 	float dpStaOne, dpStaTwo, dpOneTwo, smOne, smTwo;
@@ -158,12 +158,12 @@ unsigned int CollisionDetector::BoxAndHalfSpace(const CollisionBox& box, const C
 	for (unsigned int i = 0; i < 8; i++)
 	{
 		Vector3D vertexPos(m_Mults[i][0], m_Mults[i][1], m_Mults[i][2]);
-		vertexPos = vertexPos * box.GetHalfSize();
+		vertexPos *= box.GetHalfSize();
 		vertexPos = box.GetTransform().Transform(vertexPos);
 
 		float vertexDistance = vertexPos.Dot(plane.GetDirection());
 
-		if (vertexDistance <= plane.GetOffset())
+		if (vertexDistance <= plane.GetOffset() * -1.0f)
 		{
 			Vector3D contactPoint = plane.GetDirection();
 			contactPoint *= vertexDistance - plane.GetOffset();
@@ -180,7 +180,7 @@ unsigned int CollisionDetector::BoxAndHalfSpace(const CollisionBox& box, const C
 }
 
 //-----------------------------------------------------------------------------
-unsigned int BoxAndSphere(const CollisionBox& box, const CollisionSphere& sphere, CollisionHandler* collisionHandler)
+unsigned int CollisionDetector::BoxAndSphere(const CollisionBox& box, const CollisionSphere& sphere, CollisionHandler* collisionHandler)
 {
 	Vector3D center = sphere.GetAxis(3);
 	Vector3D relativeCenter = box.GetTransform().TransformInverse(center);
@@ -234,7 +234,7 @@ unsigned int BoxAndSphere(const CollisionBox& box, const CollisionSphere& sphere
 }
 
 //-----------------------------------------------------------------------------
-unsigned int BoxAndBox(const CollisionBox& boxOne, const CollisionBox& boxTwo, CollisionHandler* collisionHandler)
+unsigned int CollisionDetector::BoxAndBox(const CollisionBox& boxOne, const CollisionBox& boxTwo, CollisionHandler* collisionHandler)
 {
 	Vector3D toCenter = boxTwo.GetAxis(3) - boxOne.GetAxis(3);
 
@@ -314,5 +314,34 @@ unsigned int BoxAndBox(const CollisionBox& boxOne, const CollisionBox& boxTwo, C
 	}
 
 	return 0;
+}
+
+//-----------------------------------------------------------------------------
+void CollisionDetector::CheckCollision(RigidBody* rigidBodyOne, RigidBody* rigidBodyTwo, CollisionHandler* collisionHandler)
+{
+	if (rigidBodyOne->GetCollisionType() == CollisionType::SPHERE)
+	{
+		switch (rigidBodyTwo->GetCollisionType())
+		{
+		case CollisionType::SPHERE:
+			SphereAndSphere(rigidBodyOne->GetCollisionSphere(), rigidBodyTwo->GetCollisionSphere(), collisionHandler);
+			break;
+		case CollisionType::BOX:
+			BoxAndSphere(rigidBodyTwo->GetCollisionBox(), rigidBodyOne->GetCollisionSphere(), collisionHandler);
+			break;
+		}
+	}
+	else if (rigidBodyOne->GetCollisionType() == CollisionType::BOX)
+	{
+		switch (rigidBodyTwo->GetCollisionType())
+		{
+		case CollisionType::SPHERE:
+			BoxAndSphere(rigidBodyOne->GetCollisionBox(), rigidBodyTwo->GetCollisionSphere(), collisionHandler);
+			break;
+		case CollisionType::BOX:
+			BoxAndBox(rigidBodyOne->GetCollisionBox(), rigidBodyTwo->GetCollisionBox(), collisionHandler);
+			break;
+		}
+	}
 }
 //=============================================================================

@@ -270,6 +270,9 @@
     <ClCompile Include="RigidBox.cpp">
       <Filter>Source Files\Objects\RigidBodies</Filter>
     </ClCompile>
+    <ClCompile Include="RigidRenderContactGenerator.cpp">
+      <Filter>Source Files\Physics\Collision\ContactGenerators\RigidBodyContactGenerators</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameApp.h">
@@ -433,6 +436,9 @@
     </ClInclude>
     <ClInclude Include="RigidBox.h">
       <Filter>Header Files\Objects\RigidBodies</Filter>
+    </ClInclude>
+    <ClInclude Include="RigidRenderContactGenerator.h">
+      <Filter>Header Files\Physics\Collision\ContactGenerators\RigidBodyContactGenerators</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

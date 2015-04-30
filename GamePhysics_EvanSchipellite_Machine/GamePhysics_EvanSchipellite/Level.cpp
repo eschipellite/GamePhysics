@@ -8,7 +8,6 @@
 #include "Level.h"
 #include "Vector3D.h"
 #include "Ground.h"
-#include "Player.h"
 #include <vector>
 #include "PhysicsHandler.h"
 #include "PhysicsObject.h"
@@ -35,7 +34,6 @@
 Level::Level()
 {
 	mp_Ground = new Ground();
-	mp_Player = new Player();
 }
 
 //-----------------------------------------------------------------------------
@@ -146,37 +144,29 @@ std::vector<PhysicsObject*> Level::getCollectibleCollisionObjects()
 void Level::Initialize(Vector3D dimensions, Vector3D playerPosition, std::string groundID, std::string playerID, std::string collectibleID)
 {
 	mp_Ground->Initialize(dimensions, 1, Vector3D(0, -dimensions.Y, 0), groundID);
-	mp_Player->Initialize(playerPosition, playerID, 20, 400);
 
 	m_CollectibleTextureID = collectibleID;
 
-	RigidSphere* rigidRenderSphereOne = new RigidSphere();
+	/*RigidSphere* rigidRenderSphereOne = new RigidSphere();
 	rigidRenderSphereOne->Initialize(m_CollectibleTextureID, 1, 1, Vector3D(0, 10, 0));
 	mp_RigidRenders.push_back(rigidRenderSphereOne);
 
 	RigidSphere* rigidRenderSphereTwo = new RigidSphere();
-	rigidRenderSphereTwo->Initialize(m_CollectibleTextureID, 1, 1, Vector3D(20, 10, 0));
+	rigidRenderSphereTwo->Initialize(m_CollectibleTextureID, 1, 1, Vector3D(0, 1, 0));
 	mp_RigidRenders.push_back(rigidRenderSphereTwo);
 
 	RigidSphere* rigidRenderSphereThree = new RigidSphere();
-	rigidRenderSphereThree->Initialize(m_CollectibleTextureID, 1, 1, Vector3D(0, 10, -20));
-	mp_RigidRenders.push_back(rigidRenderSphereThree);
+	rigidRenderSphereThree->Initialize(m_CollectibleTextureID, 1, 1, Vector3D(0, 20, 0));
+	mp_RigidRenders.push_back(rigidRenderSphereThree);*/
 
 	RigidBox* rigidRenderBox = new RigidBox();
-	rigidRenderBox->Initialize(m_CollectibleTextureID, Vector3D(5, 5, 5), 1, Vector3D(5, 10, 5));
+	rigidRenderBox->Initialize(m_CollectibleTextureID, Vector3D(0.5f, 0.5f, 0.5f), 1, Vector3D(0, 1, 0));
 	mp_RigidRenders.push_back(rigidRenderBox);
 }
 
 //-----------------------------------------------------------------------------
 void Level::CleanUp()
 {
-	if (mp_Player != NULL)
-	{
-		mp_Player->CleanUp();
-	}
-	delete mp_Player;
-	mp_Player = nullptr;
-
 	if (mp_Ground != NULL)
 	{
 		mp_Ground->CleanUp();
@@ -206,7 +196,6 @@ void Level::CleanUp()
 void Level::Draw()
 {
 	mp_Ground->Draw();
-	mp_Player->Draw();
 	drawCollectibles();
 	drawRigidRenders();
 }
@@ -215,7 +204,6 @@ void Level::Draw()
 void Level::Update(float deltaTime)
 {
 	mp_Ground->Update(deltaTime);
-	mp_Player->Update(deltaTime);
 	updateCollectibles(deltaTime);
 }
 
@@ -223,7 +211,6 @@ void Level::Update(float deltaTime)
 void Level::Reset()
 {
 	mp_Ground->Reset();
-	mp_Player->Reset();
 	resetCollectibles();
 	resetRigidRenders();
 }
@@ -235,17 +222,9 @@ PhysicsObject* Level::GetGround()
 }
 
 //-----------------------------------------------------------------------------
-PhysicsObject* Level::GetPlayer()
-{
-	return dynamic_cast <PhysicsObject*>(mp_Player);
-}
-
-//-----------------------------------------------------------------------------
 std::vector<PhysicsObject*> Level::GetCollisionObjects()
 {
 	std::vector<PhysicsObject*> collisionObjects = getCollectibleCollisionObjects();
-
-	collisionObjects.push_back(mp_Player);
 
 	return collisionObjects;
 }
@@ -267,8 +246,6 @@ std::vector<RigidBody*> Level::GetRigidBodies()
 std::vector<ForceRegister> Level::GetForceRegisters()
 {
 	std::vector<ForceRegister> forceRegisters = getCollectibleForceRegisters();
-
-	forceRegisters.push_back(ForceRegister(new EarthGravityGenerator(Vector3D(0, -9.8f, 0)), mp_Player));
 
 	return forceRegisters;
 }
@@ -292,7 +269,6 @@ std::vector<ContactGenerator*> Level::GetContactGenerators()
 	{
 		std::vector<ContactGenerator*> collectibleContactGenerators = (*collectibleObjectIter)->GetContactGenerators();
 		contactGenerators.insert(contactGenerators.end(), collectibleContactGenerators.begin(), collectibleContactGenerators.end());
-		contactGenerators.push_back(new CollectibleContactGenerator(mp_Player, (*collectibleObjectIter), 3));
 	}
 
 	contactGenerators.push_back(new WallContactGenerator(-60, 60, -60, 60));

@@ -13,16 +13,17 @@
 #include "WallContactGenerator.h"
 #include "CollisionDetector.h"
 #include "RigidGroundContactGenerator.h"
+#include "RigidRenderContactGenerator.h"
 //=============================================================================
 CollisionHandler::CollisionHandler()
 {
 	m_MaxChecks = 4;
 	m_Collisions = 0;
 
-	m_PositionIterations = 1;
-	m_PositionEpsilon = 0.01f;
-	m_VelocityIterations = 1;
-	m_VelocityEpsilon = 0.01f;
+	m_PositionIterations = 10;
+	m_PositionEpsilon = 0.0001f;
+	m_VelocityIterations = 10;
+	m_VelocityEpsilon = 0.001f;
 
 	m_Restitution = 0.5f;
 	m_Friction = 0.5f;
@@ -210,6 +211,7 @@ void CollisionHandler::addRunTimeContactGenerators()
 //-----------------------------------------------------------------------------
 void CollisionHandler::Initialize()
 {
+	mp_ContactGenerators.push_back(new RigidRenderContactGenerator());
 }
 
 //-----------------------------------------------------------------------------
@@ -243,6 +245,8 @@ void CollisionHandler::Reset()
 	mp_ContactGenerators.clear();
 	mp_RigidContactGenerators.clear();
 	mp_ToAddContactGenerators.clear();
+
+	Initialize();
 }
 
 //-----------------------------------------------------------------------------

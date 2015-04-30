@@ -13,7 +13,6 @@
 
 class ForceGenerator;
 class Ground;
-class Player;
 class Vector3D;
 class ForceRegister;
 class PhysicsObject;
@@ -27,7 +26,6 @@ class Level
 {
 private:
 	Ground* mp_Ground;
-	Player* mp_Player;
 
 	std::vector<Collectible*> mp_CollectibleObjects;
 	std::vector<RigidRender*> mp_RigidRenders;
@@ -59,7 +57,6 @@ public:
 	void Reset();
 
 	PhysicsObject* GetGround();
-	PhysicsObject* GetPlayer();
 	std::vector<PhysicsObject*> GetCollisionObjects();
 	std::vector<RigidBody*> GetRigidBodies();
 
