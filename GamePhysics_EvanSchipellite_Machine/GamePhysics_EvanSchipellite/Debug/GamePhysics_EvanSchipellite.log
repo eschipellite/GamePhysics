@@ -1,68 +1,73 @@
-﻿Build started 4/30/2015 4:47:31 PM.
+﻿Build started 4/30/2015 5:00:13 PM.
      1>Project "C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\GamePhysics_EvanSchipellite\GamePhysics_EvanSchipellite.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\packages\nupengl.core.0.0.0.1\build\native\../..//build/native/include/ /I"C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\\Lib\glui-2.36\include" /I"C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\\Lib\Simple OpenGL Image Library\src" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Level.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\packages\nupengl.core.0.0.0.1\build\native\../..//build/native/include/ /I"C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\\Lib\glui-2.36\include" /I"C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\\Lib\Simple OpenGL Image Library\src" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt BungeeForceGenerator.cpp CableContactGenerator.cpp CollectibleContactGenerator.cpp CollisionData.cpp CollisionDetector.cpp CollisionHandler.cpp CollisionPrimitive.cpp CubeCollectible.cpp DiamondCollectible.cpp EarthGravityGenerator.cpp ForceGenerator.cpp ForceRegistration.cpp ForceRegistry.cpp GameApp.cpp GravityGenerator.cpp GroundContactGenerator.cpp Level.cpp PhysicsHandler.cpp PlanetHandler.cpp Player.cpp RigidBody.cpp RigidBodySpringForceGenerator.cpp RigidBox.cpp RigidContact.cpp RigidForceRegistration.cpp RigidGroundContactGenerator.cpp RigidRender.cpp RigidRenderContactGenerator.cpp RigidSphere.cpp RodContactGenerator.cpp Source.cpp SpringForceGenerator.cpp TetrahedronCollectible.cpp WallContactGenerator.cpp
+         BungeeForceGenerator.cpp
+         Generating Code...
+         Compiling...
+         WallContactGenerator.cpp
+         TetrahedronCollectible.cpp
+         SpringForceGenerator.cpp
+         Source.cpp
+         RodContactGenerator.cpp
+         RigidSphere.cpp
+         RigidRenderContactGenerator.cpp
+         RigidRender.cpp
+         RigidGroundContactGenerator.cpp
+         RigidForceRegistration.cpp
+         RigidContact.cpp
+         RigidBox.cpp
+         RigidBodySpringForceGenerator.cpp
+         RigidBody.cpp
+     1>c:\users\evan.schipellite\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\rigidbody.cpp(12): error C2679: binary '=' : no operator found which takes a right-hand operand of type 'Matrix' (or there is no acceptable conversion)
+                 c:\users\evan.schipellite\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\matrix44f.h(43): could be 'Matrix44f &Matrix44f::operator =(const Matrix44f &)'
+                 while trying to match the argument list '(Matrix44f, Matrix)'
+     1>c:\users\evan.schipellite\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\rigidbody.cpp(13): error C2679: binary '=' : no operator found which takes a right-hand operand of type 'Matrix' (or there is no acceptable conversion)
+                 c:\users\evan.schipellite\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\matrix33f.h(44): could be 'Matrix33f &Matrix33f::operator =(const Matrix33f &)'
+                 while trying to match the argument list '(Matrix33f, Matrix)'
+     1>c:\users\evan.schipellite\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\rigidbody.cpp(14): error C2679: binary '=' : no operator found which takes a right-hand operand of type 'Matrix' (or there is no acceptable conversion)
+                 c:\users\evan.schipellite\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\matrix33f.h(44): could be 'Matrix33f &Matrix33f::operator =(const Matrix33f &)'
+                 while trying to match the argument list '(Matrix33f, Matrix)'
+     1>c:\users\evan.schipellite\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\rigidbody.cpp(28): error C2664: 'void RigidBody::calculateTransformMatrix(Matrix &,const Vector3D &,const Quaternion &)' : cannot convert argument 1 from 'Matrix44f' to 'Matrix &'
+     1>c:\users\evan.schipellite\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\rigidbody.cpp(30): error C2664: 'void RigidBody::transformInertiaTensor(Matrix &,const Quaternion &,const Matrix &,const Matrix &)' : cannot convert argument 1 from 'Matrix33f' to 'Matrix &'
+     1>c:\users\evan.schipellite\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\rigidbody.cpp(106): error C2679: binary '=' : no operator found which takes a right-hand operand of type 'Matrix' (or there is no acceptable conversion)
+                 c:\users\evan.schipellite\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\matrix33f.h(44): could be 'Matrix33f &Matrix33f::operator =(const Matrix33f &)'
+                 while trying to match the argument list '(Matrix33f, Matrix)'
+     1>c:\users\evan.schipellite\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\rigidbody.cpp(167): error C2679: binary '=' : no operator found which takes a right-hand operand of type 'Matrix' (or there is no acceptable conversion)
+                 c:\users\evan.schipellite\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\matrix44f.h(43): could be 'Matrix44f &Matrix44f::operator =(const Matrix44f &)'
+                 while trying to match the argument list '(Matrix44f, Matrix)'
+     1>c:\users\evan.schipellite\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\rigidbody.cpp(215): error C2679: binary '=' : no operator found which takes a right-hand operand of type 'const Matrix33f' (or there is no acceptable conversion)
+                 c:\users\evan.schipellite\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\matrix.h(51): could be 'Matrix &Matrix::operator =(const Matrix &)'
+                 while trying to match the argument list '(Matrix, const Matrix33f)'
+         Player.cpp
+         PlanetHandler.cpp
+         PhysicsHandler.cpp
          Level.cpp
-       Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\Debug\GamePhysics_EvanSchipellite.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\\Lib\glui-2.36\Debug" /LIBPATH:"C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\\Lib\Simple OpenGL Image Library\Debug" C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\packages\nupengl.core.0.0.0.1\build\native\../..//build/native/lib/Win32\v120\glew32.lib C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\packages\nupengl.core.0.0.0.1\build\native\../..//build/native/lib/Win32\v120\glfw3dll.lib C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\packages\nupengl.core.0.0.0.1\build\native\../..//build/native/lib/Win32\v120\freeglut.lib glui32.lib OpenGL32.lib glu32.lib SOIL.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\Debug\GamePhysics_EvanSchipellite.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\Debug\GamePhysics_EvanSchipellite.lib" /MACHINE:X86 Debug\BungeeForceGenerator.obj
-         Debug\CableContactGenerator.obj
-         Debug\Camera.obj
-         Debug\Collectible.obj
-         Debug\CollectibleContactGenerator.obj
-         Debug\CollisionBox.obj
-         Debug\CollisionData.obj
-         Debug\CollisionDetector.obj
-         Debug\CollisionHandler.obj
-         Debug\CollisionPlane.obj
-         Debug\CollisionPrimitive.obj
-         Debug\CollisionSphere.obj
-         Debug\Contact.obj
-         Debug\ContactGenerator.obj
-         Debug\CubeCollectible.obj
-         Debug\DiamondCollectible.obj
-         Debug\EarthGravityGenerator.obj
-         Debug\Firework.obj
-         Debug\FireworkLauncher.obj
-         Debug\ForceGenerator.obj
-         Debug\ForceRegistration.obj
-         Debug\ForceRegistry.obj
-         Debug\GameApp.obj
-         Debug\GlutTime.obj
-         Debug\GravityGenerator.obj
-         Debug\Ground.obj
-         Debug\GroundContactGenerator.obj
-         Debug\ImageHandler.obj
-         Debug\IntersectionTests.obj
-         Debug\Level.obj
-         Debug\Matrix.obj
-         Debug\EditorState.obj
-         Debug\Particle.obj
-         Debug\PhysicsHandler.obj
-         Debug\PhysicsObject.obj
-         Debug\Planet.obj
-         Debug\PlanetHandler.obj
-         Debug\GameObject.obj
-         Debug\Player.obj
-         Debug\Quaternion.obj
-         Debug\RigidBody.obj
-         Debug\RigidBodySpringForceGenerator.obj
-         Debug\RigidBox.obj
-         Debug\RigidContact.obj
-         Debug\RigidForceRegistration.obj
-         Debug\RigidGroundContactGenerator.obj
-         Debug\RigidRender.obj
-         Debug\RigidRenderContactGenerator.obj
-         Debug\RigidSphere.obj
-         Debug\RodContactGenerator.obj
-         Debug\Skybox.obj
-         Debug\Source.obj
-         Debug\SpringForceGenerator.obj
-         Debug\TetrahedronCollectible.obj
-         Debug\Vector3D.obj
-         Debug\WallContactGenerator.obj
-         GamePhysics_EvanSchipellite.vcxproj -> C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\Debug\GamePhysics_EvanSchipellite.exe
-     1>Done Building Project "C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\GamePhysics_EvanSchipellite\GamePhysics_EvanSchipellite.vcxproj" (Build target(s)).
+         GroundContactGenerator.cpp
+         GravityGenerator.cpp
+         Generating Code...
+         Compiling...
+         GameApp.cpp
+         ForceRegistry.cpp
+         ForceRegistration.cpp
+         ForceGenerator.cpp
+         EarthGravityGenerator.cpp
+         DiamondCollectible.cpp
+         CubeCollectible.cpp
+         CollisionPrimitive.cpp
+     1>c:\users\evan.schipellite\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\collisionprimitive.cpp(25): error C2679: binary '*' : no operator found which takes a right-hand operand of type 'Matrix' (or there is no acceptable conversion)
+                 c:\users\evan.schipellite\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\matrix44f.h(40): could be 'Vector3D Matrix44f::operator *(const Vector3D &) const'
+                 c:\users\evan.schipellite\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\matrix44f.h(39): or       'const Matrix44f Matrix44f::operator *(const Matrix44f &) const'
+                 c:\users\evan.schipellite\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\matrix44f.h(38): or       'const Matrix44f Matrix44f::operator *(float) const'
+                 while trying to match the argument list '(Matrix44f, Matrix)'
+         CollisionHandler.cpp
+         CollisionDetector.cpp
+         CollisionData.cpp
+         CollectibleContactGenerator.cpp
+         CableContactGenerator.cpp
+         Generating Code...
+     1>Done Building Project "C:\Users\Evan.Schipellite\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\GamePhysics_EvanSchipellite\GamePhysics_EvanSchipellite.vcxproj" (Build target(s)) -- FAILED.
 
-Build succeeded.
+Build FAILED.
 
-Time Elapsed 00:00:01.56
+Time Elapsed 00:00:18.14

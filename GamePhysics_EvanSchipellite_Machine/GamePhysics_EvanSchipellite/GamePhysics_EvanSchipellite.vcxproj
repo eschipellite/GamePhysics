@@ -100,8 +100,9 @@
     <ClCompile Include="ImageHandler.cpp" />
     <ClCompile Include="IntersectionTests.cpp" />
     <ClCompile Include="Level.cpp" />
-    <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="EditorState.cpp" />
+    <ClCompile Include="Matrix33f.cpp" />
+    <ClCompile Include="Matrix44f.cpp" />
     <ClCompile Include="Particle.cpp" />
     <ClCompile Include="PhysicsHandler.cpp" />
     <ClCompile Include="PhysicsObject.cpp" />
@@ -158,8 +159,9 @@
     <ClInclude Include="ImageHandler.h" />
     <ClInclude Include="IntersectionTests.h" />
     <ClInclude Include="Level.h" />
-    <ClInclude Include="Matrix.h" />
     <ClInclude Include="EditorState.h" />
+    <ClInclude Include="Matrix33f.h" />
+    <ClInclude Include="Matrix44f.h" />
     <ClInclude Include="Particle.h" />
     <ClInclude Include="PhysicsHandler.h" />
     <ClInclude Include="PhysicsObject.h" />

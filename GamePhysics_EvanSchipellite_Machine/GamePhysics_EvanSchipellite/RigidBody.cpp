@@ -9,9 +9,9 @@
 //=============================================================================
 RigidBody::RigidBody()
 {
-	m_TransformationMatrix = Matrix(4, 4);
-	m_InverseInertiaTensor = Matrix(3, 3);
-	m_InverseInertiaTensorWorld = Matrix(3, 3);
+	m_TransformationMatrix = Matrix44f();
+	m_InverseInertiaTensor = Matrix33f();
+	m_InverseInertiaTensorWorld = Matrix33f();
 	m_CollisionType = CollisionType::SPHERE;
 }
 
@@ -31,34 +31,34 @@ void RigidBody::CalculateDerivedData()
 }
 
 //-----------------------------------------------------------------------------
-void RigidBody::calculateTransformMatrix(Matrix &transformMatrix, const Vector3D &position, const Quaternion &orientation)
+void RigidBody::calculateTransformMatrix(Matrix44f &transformMatrix, const Vector3D &position, const Quaternion &orientation)
 {
 	float val1 = 1 - 2 * orientation.J * orientation.J - 2 * orientation.K * orientation.K;
-	transformMatrix.Set(0, val1);
+	transformMatrix[0] = val1;
 	float val2 = 2 * orientation.I * orientation.J - 2 * orientation.R * orientation.K;
-	transformMatrix.Set(0, val2);
+	transformMatrix[1] = val2;
 	float val3 = 2 * orientation.I * orientation.K + 2 * orientation.R * orientation.J;
-	transformMatrix.Set(2, val3);
+	transformMatrix[2]= val3;
 	float val4 = position.X;
-	transformMatrix.Set(3, val4);
+	transformMatrix[3]  =val4;
 
 	float val5 = 2 * orientation.I * orientation.J + 2 * orientation.R * orientation.K;
-	transformMatrix.Set(4, val5);
+	transformMatrix[4] = val5;
 	float val6 = 1 - 2 * orientation.I * orientation.I - 2 * orientation.K * orientation.K;
-	transformMatrix.Set(5, val6);
+	transformMatrix[5] = val6;
 	float val7 = 2 * orientation.J * orientation.K - 2 * orientation.R * orientation.I;
-	transformMatrix.Set(6, val7);
+	transformMatrix[6] = val7;
 	float val8 = position.Y;
-	transformMatrix.Set(7, val8);
+	transformMatrix[7] = val8;
 
 	float val9 = 2 * orientation.I * orientation.K - 2 * orientation.R * orientation.J;
-	transformMatrix.Set(8, val9);
+	transformMatrix[8] = val9;
 	float val10 = 2 * orientation.J * orientation.K + 2 * orientation.R * orientation.I;
-	transformMatrix.Set(9, val10);
+	transformMatrix[9] = val10;
 	float val11 = 1 - 2 * orientation.I * orientation.I - 2 * orientation.J * orientation.J;
-	transformMatrix.Set(10, val11);
+	transformMatrix[10] = val11;
 	float val12 = position.Z;
-	transformMatrix.Set(11, val12);
+	transformMatrix[11] = val12;
 }
 
 //-----------------------------------------------------------------------------

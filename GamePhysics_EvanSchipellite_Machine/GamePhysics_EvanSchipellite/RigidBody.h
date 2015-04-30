@@ -8,7 +8,8 @@
 //=============================================================================
 #include "Vector3D.h"
 #include "Quaternion.h"
-#include "Matrix.h"
+#include "Matrix44f.h"
+#include "Matrix33f.h"
 #include "CollisionSphere.h"
 #include "CollisionBox.h"
 //=============================================================================
@@ -35,17 +36,17 @@ protected:
 
 	Quaternion m_Orientation;
 
-	Matrix m_TransformationMatrix;
-	Matrix m_InverseInertiaTensor;
-	Matrix m_InverseInertiaTensorWorld;
+	Matrix44f m_TransformationMatrix;
+	Matrix33f m_InverseInertiaTensor;
+	Matrix33f m_InverseInertiaTensorWorld;
 
 	bool m_IsAwake;
 
 	int m_CollisionType;
 
 protected:
-	static void calculateTransformMatrix(Matrix &transformMatrix, const Vector3D &position, const Quaternion &orientation);
-	static void transformInertiaTensor(Matrix &iitWorld, const Quaternion &quaternion, const Matrix &iitBody, const Matrix &rotationMatrix);
+	static void calculateTransformMatrix(Matrix44f &transformMatrix, const Vector3D &position, const Quaternion &orientation);
+	static void transformInertiaTensor(Matrix33f &iitWorld, const Quaternion &quaternion, const Matrix33f &iitBody, const Matrix44f &rotationMatrix);
 
 public:
 	RigidBody();
@@ -75,7 +76,7 @@ public:
 	Quaternion GetOrientation() { return m_Orientation; };
 
 	Vector3D GetPointInWorldSpace(const Vector3D point);
-	Matrix GetTransform() const { return m_TransformationMatrix; };
+	Matrix44f GetTransform() const { return m_TransformationMatrix; };
 	Vector3D GetPosition() { return m_Position; };
 	Vector3D GetRotation() { return m_Rotation; };
 	Vector3D GetVelocity() { return m_Velocity; };

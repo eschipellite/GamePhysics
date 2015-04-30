@@ -111,9 +111,6 @@
     <ClCompile Include="Source.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Matrix.cpp">
-      <Filter>Source Files\Utils</Filter>
-    </ClCompile>
     <ClCompile Include="Vector3D.cpp">
       <Filter>Source Files\Utils</Filter>
     </ClCompile>
@@ -273,13 +270,16 @@
     <ClCompile Include="RigidRenderContactGenerator.cpp">
       <Filter>Source Files\Physics\Collision\ContactGenerators\RigidBodyContactGenerators</Filter>
     </ClCompile>
+    <ClCompile Include="Matrix33f.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix44f.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameApp.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Matrix.h">
-      <Filter>Header Files\Utils</Filter>
     </ClInclude>
     <ClInclude Include="Vector3D.h">
       <Filter>Header Files\Utils</Filter>
@@ -439,6 +439,12 @@
     </ClInclude>
     <ClInclude Include="RigidRenderContactGenerator.h">
       <Filter>Header Files\Physics\Collision\ContactGenerators\RigidBodyContactGenerators</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix44f.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix33f.h">
+      <Filter>Header Files\Utils</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
