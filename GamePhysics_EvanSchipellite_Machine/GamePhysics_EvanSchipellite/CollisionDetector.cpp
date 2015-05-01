@@ -163,7 +163,7 @@ unsigned int CollisionDetector::BoxAndHalfSpace(const CollisionBox& box, const C
 
 		float vertexDistance = vertexPos.Dot(plane.GetDirection());
 
-		if (vertexDistance <= plane.GetOffset() * -1.0f)
+		if (vertexDistance <= plane.GetOffset())
 		{
 			Vector3D contactPoint = plane.GetDirection();
 			contactPoint *= vertexDistance - plane.GetOffset();
@@ -298,7 +298,7 @@ unsigned int CollisionDetector::BoxAndBox(const CollisionBox& boxOne, const Coll
 			if (i == axisTwoIndex)
 				pointOnEdgeTwo.SetIndex(i, 0);
 			else if (boxTwo.GetAxis(i).Dot(axis) < 0)
-				pointOnEdgeTwo.SetIndex(i, pointOnEdgeOne.GetIndex(i) * -1.0f);
+				pointOnEdgeTwo.SetIndex(i, pointOnEdgeTwo.GetIndex(i) * -1.0f);
 		}
 
 		pointOnEdgeOne = boxOne.GetTransform() * pointOnEdgeOne;

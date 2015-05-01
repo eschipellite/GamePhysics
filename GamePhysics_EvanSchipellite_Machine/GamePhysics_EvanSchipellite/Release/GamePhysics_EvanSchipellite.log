@@ -1,0 +1,75 @@
+﻿Build started 4/30/2015 8:35:38 PM.
+     1>Project "C:\Users\Evan\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\GamePhysics_EvanSchipellite\GamePhysics_EvanSchipellite.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\Users\Evan\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\packages\nupengl.core.0.0.0.1\build\native\../..//build/native/include/ /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt BungeeForceGenerator.cpp CableContactGenerator.cpp Camera.cpp Collectible.cpp CollectibleContactGenerator.cpp CollisionBox.cpp CollisionData.cpp CollisionDetector.cpp CollisionHandler.cpp CollisionPlane.cpp CollisionPrimitive.cpp CollisionSphere.cpp Contact.cpp ContactGenerator.cpp CubeCollectible.cpp DiamondCollectible.cpp EarthGravityGenerator.cpp Firework.cpp FireworkLauncher.cpp ForceGenerator.cpp ForceRegistration.cpp ForceRegistry.cpp GameApp.cpp GlutTime.cpp GravityGenerator.cpp Ground.cpp GroundContactGenerator.cpp ImageHandler.cpp IntersectionTests.cpp Level.cpp EditorState.cpp Matrix.cpp Matrix33f.cpp Matrix44f.cpp Particle.cpp PhysicsHandler.cpp PhysicsObject.cpp Planet.cpp PlanetHandler.cpp GameObject.cpp Player.cpp Quaternion.cpp RigidBody.cpp RigidBodySpringForceGenerator.cpp RigidBox.cpp RigidContact.cpp RigidForceRegistration.cpp RigidGroundContactGenerator.cpp RigidRender.cpp RigidRenderContactGenerator.cpp RigidSphere.cpp RodContactGenerator.cpp Skybox.cpp Source.cpp SpringForceGenerator.cpp TetrahedronCollectible.cpp Vector3D.cpp WallContactGenerator.cpp
+         BungeeForceGenerator.cpp
+         CableContactGenerator.cpp
+         Camera.cpp
+         Collectible.cpp
+         CollectibleContactGenerator.cpp
+         CollisionBox.cpp
+         CollisionData.cpp
+         CollisionDetector.cpp
+         CollisionHandler.cpp
+         CollisionPlane.cpp
+         CollisionPrimitive.cpp
+         CollisionSphere.cpp
+         Contact.cpp
+         ContactGenerator.cpp
+         CubeCollectible.cpp
+         DiamondCollectible.cpp
+         EarthGravityGenerator.cpp
+         Firework.cpp
+         FireworkLauncher.cpp
+         ForceGenerator.cpp
+         Compiling...
+         ForceRegistration.cpp
+         ForceRegistry.cpp
+         GameApp.cpp
+     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\GameApp.h(15): fatal error C1083: Cannot open include file: 'GL\glui.h': No such file or directory
+         GlutTime.cpp
+         GravityGenerator.cpp
+         Ground.cpp
+         GroundContactGenerator.cpp
+         ImageHandler.cpp
+     1>ImageHandler.cpp(9): fatal error C1083: Cannot open include file: 'SOIL.h': No such file or directory
+         IntersectionTests.cpp
+         Level.cpp
+         EditorState.cpp
+         Matrix.cpp
+         Matrix33f.cpp
+         Matrix44f.cpp
+         Particle.cpp
+         PhysicsHandler.cpp
+         PhysicsObject.cpp
+         Planet.cpp
+         PlanetHandler.cpp
+         GameObject.cpp
+     1>GameObject.cpp(9): fatal error C1083: Cannot open include file: 'SOIL.h': No such file or directory
+         Compiling...
+         Player.cpp
+     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\GameApp.h(15): fatal error C1083: Cannot open include file: 'GL\glui.h': No such file or directory
+         Quaternion.cpp
+         RigidBody.cpp
+         RigidBodySpringForceGenerator.cpp
+         RigidBox.cpp
+         RigidContact.cpp
+         RigidForceRegistration.cpp
+         RigidGroundContactGenerator.cpp
+         RigidRender.cpp
+         RigidRenderContactGenerator.cpp
+         RigidSphere.cpp
+         RodContactGenerator.cpp
+         Skybox.cpp
+     1>Skybox.cpp(9): fatal error C1083: Cannot open include file: 'SOIL.h': No such file or directory
+         Source.cpp
+     1>c:\users\evan\documents\gamephysics\trunk\gamephysics_evanschipellite_machine\gamephysics_evanschipellite\GameApp.h(15): fatal error C1083: Cannot open include file: 'GL\glui.h': No such file or directory
+         SpringForceGenerator.cpp
+         TetrahedronCollectible.cpp
+         Vector3D.cpp
+         WallContactGenerator.cpp
+     1>Done Building Project "C:\Users\Evan\Documents\GamePhysics\trunk\GamePhysics_EvanSchipellite_Machine\GamePhysics_EvanSchipellite\GamePhysics_EvanSchipellite.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:20.01

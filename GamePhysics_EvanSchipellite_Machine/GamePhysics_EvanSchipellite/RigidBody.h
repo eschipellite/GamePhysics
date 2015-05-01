@@ -53,7 +53,7 @@ public:
 	~RigidBody();
 
 	void CalculateDerivedData();
-	void SetIntertiaTensor(const Matrix &intertiaTensor);
+	void SetIntertiaTensor(const Matrix33f &intertiaTensor);
 	void AddForce(const Vector3D &force);
 	void ClearAccumulators();
 	void Integrate(float duration);
@@ -84,7 +84,7 @@ public:
 	virtual CollisionSphere GetCollisionSphere() { return CollisionSphere(this, 1); };
 	virtual CollisionBox GetCollisionBox() { return CollisionBox(this, Vector3D(1, 1, 1)); };
 
-	void GetInverseInertiaTensorWorld(Matrix& inverseInertiaTensor) const;
+	void GetInverseInertiaTensorWorld(Matrix33f& inverseInertiaTensor) const;
 
 	float GetInverseMass() { return m_InverseMass; };
 

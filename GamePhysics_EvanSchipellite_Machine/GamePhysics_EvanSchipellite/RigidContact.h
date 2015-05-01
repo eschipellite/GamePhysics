@@ -10,6 +10,8 @@
 //=============================================================================
 #include "Vector3D.h"
 #include "RigidBody.h"
+#include "Matrix44f.h"
+#include "Matrix33f.h"
 //=============================================================================
 class RigidContact
 {
@@ -26,7 +28,7 @@ private:
 	float m_Friction;
 	float m_DesiredDeltaVelocity;
 
-	Matrix m_ContactToWorld;
+	Matrix33f m_ContactToWorld;
 
 	Vector3D m_RelativeContactPositionOne;
 	Vector3D m_RelativeContactPositionTwo;
@@ -34,8 +36,8 @@ private:
 private:
 	void calculateContactBasis();
 	Vector3D calculateLocalVelocity(unsigned int rigidBodyIndex, float deltaTime);
-	Vector3D calculateFrictionlessImpulse(Matrix* inverseInertiaTensor);
-	Vector3D calculateFrictionImpulse(Matrix* inverseInertiaTensor);
+	Vector3D calculateFrictionlessImpulse(Matrix33f* inverseInertiaTensor);
+	Vector3D calculateFrictionImpulse(Matrix33f* inverseInertiaTensor);
 
 public:
 	RigidContact();
@@ -62,7 +64,7 @@ public:
 
 	void SetContactVelocity(Vector3D contactVelocity) { m_ContactVelocity = contactVelocity; };
 	Vector3D GetContactVelocity() { return m_ContactVelocity; };
-	Matrix GetContactToWorld() { return m_ContactToWorld; };
+	Matrix33f GetContactToWorld() { return m_ContactToWorld; };
 };
 //=============================================================================
 #endif // RIGID_CONTACT_H

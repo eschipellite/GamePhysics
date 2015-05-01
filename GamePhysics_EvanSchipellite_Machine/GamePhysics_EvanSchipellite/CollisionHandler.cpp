@@ -20,9 +20,9 @@ CollisionHandler::CollisionHandler()
 	m_MaxChecks = 4;
 	m_Collisions = 0;
 
-	m_PositionIterations = 10;
+	m_PositionIterations = 5;
 	m_PositionEpsilon = 0.0001f;
-	m_VelocityIterations = 10;
+	m_VelocityIterations = 5;
 	m_VelocityEpsilon = 0.001f;
 
 	m_Restitution = 0.5f;

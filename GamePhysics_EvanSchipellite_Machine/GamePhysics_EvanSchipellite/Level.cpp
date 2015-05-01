@@ -147,21 +147,49 @@ void Level::Initialize(Vector3D dimensions, Vector3D playerPosition, std::string
 
 	m_CollectibleTextureID = collectibleID;
 
-	/*RigidSphere* rigidRenderSphereOne = new RigidSphere();
-	rigidRenderSphereOne->Initialize(m_CollectibleTextureID, 1, 1, Vector3D(0, 10, 0));
+	RigidSphere* rigidRenderSphereOne = new RigidSphere();
+	rigidRenderSphereOne->Initialize(m_CollectibleTextureID, 1, 1, Vector3D(5, 5, 0));
 	mp_RigidRenders.push_back(rigidRenderSphereOne);
 
 	RigidSphere* rigidRenderSphereTwo = new RigidSphere();
-	rigidRenderSphereTwo->Initialize(m_CollectibleTextureID, 1, 1, Vector3D(0, 1, 0));
+	rigidRenderSphereTwo->Initialize(m_CollectibleTextureID, 1, 1, Vector3D(5, 10, 0));
 	mp_RigidRenders.push_back(rigidRenderSphereTwo);
 
 	RigidSphere* rigidRenderSphereThree = new RigidSphere();
-	rigidRenderSphereThree->Initialize(m_CollectibleTextureID, 1, 1, Vector3D(0, 20, 0));
-	mp_RigidRenders.push_back(rigidRenderSphereThree);*/
+	rigidRenderSphereThree->Initialize(m_CollectibleTextureID, 1, 1, Vector3D(10, 1, 0));
+	mp_RigidRenders.push_back(rigidRenderSphereThree);
 
-	RigidBox* rigidRenderBox = new RigidBox();
-	rigidRenderBox->Initialize(m_CollectibleTextureID, Vector3D(0.5f, 0.5f, 0.5f), 1, Vector3D(0, 1, 0));
-	mp_RigidRenders.push_back(rigidRenderBox);
+	RigidSphere* rigidRenderSphereFour = new RigidSphere();
+	rigidRenderSphereFour->Initialize(m_CollectibleTextureID, 1, 1, Vector3D(-5, 2, -2));
+	mp_RigidRenders.push_back(rigidRenderSphereFour);
+
+	RigidSphere* rigidRenderSphereFive = new RigidSphere();
+	rigidRenderSphereFive->Initialize(m_CollectibleTextureID, 1, 1, Vector3D(-5, 5, -4));
+	mp_RigidRenders.push_back(rigidRenderSphereFive);
+
+	RigidSphere* rigidRenderSphereSix = new RigidSphere();
+	rigidRenderSphereSix->Initialize(m_CollectibleTextureID, 1, 1, Vector3D(-5, 10, -3));
+	mp_RigidRenders.push_back(rigidRenderSphereSix);
+
+	RigidSphere* rigidRenderSphereSeven = new RigidSphere();
+	rigidRenderSphereSeven->Initialize(m_CollectibleTextureID, 1, 1, Vector3D(0, 10, 10));
+	mp_RigidRenders.push_back(rigidRenderSphereSeven);
+
+	RigidBox* rigidRenderBoxOne = new RigidBox();
+	rigidRenderBoxOne->Initialize(m_CollectibleTextureID, Vector3D(0.5f, 0.5f, 0.5f), 1, Vector3D(4, 1, 5));
+	mp_RigidRenders.push_back(rigidRenderBoxOne);
+
+	RigidBox* rigidRenderBoxTwo = new RigidBox();
+	rigidRenderBoxTwo->Initialize(m_CollectibleTextureID, Vector3D(0.5f, 0.5f, 0.5f), 1, Vector3D(4, 4, 5));
+	mp_RigidRenders.push_back(rigidRenderBoxTwo);
+
+	RigidBox* rigidRenderBoxThree = new RigidBox();
+	rigidRenderBoxThree->Initialize(m_CollectibleTextureID, Vector3D(0.5f, 0.5f, 0.5f), 1, Vector3D(10, 10, 0));
+	mp_RigidRenders.push_back(rigidRenderBoxThree);
+
+	RigidBox* rigidRenderBoxFour = new RigidBox();
+	rigidRenderBoxFour->Initialize(m_CollectibleTextureID, Vector3D(0.5f, 0.5f, 0.5f), 1, Vector3D(0, 3, 10));
+	mp_RigidRenders.push_back(rigidRenderBoxFour);
 }
 
 //-----------------------------------------------------------------------------

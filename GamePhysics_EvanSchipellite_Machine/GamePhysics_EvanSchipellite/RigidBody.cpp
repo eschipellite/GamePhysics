@@ -62,36 +62,36 @@ void RigidBody::calculateTransformMatrix(Matrix44f &transformMatrix, const Vecto
 }
 
 //-----------------------------------------------------------------------------
-void RigidBody::transformInertiaTensor(Matrix &iitWorld, const Quaternion &quaternion, const Matrix &iitBody, const Matrix &rotationMatrix)
+void RigidBody::transformInertiaTensor(Matrix33f &iitWorld, const Quaternion &quaternion, const Matrix33f &iitBody, const Matrix44f &rotationMatrix)
 {
-	float t4 = rotationMatrix.Get(0) * iitBody.Get(0) + rotationMatrix.Get(1) * iitBody.Get(3) + rotationMatrix.Get(2) * iitBody.Get(6);
-	float t9 = rotationMatrix.Get(0) * iitBody.Get(1) + rotationMatrix.Get(1) * iitBody.Get(4) + rotationMatrix.Get(2) * iitBody.Get(7);
-	float t14 = rotationMatrix.Get(0) * iitBody.Get(2) + rotationMatrix.Get(1) * iitBody.Get(5) + rotationMatrix.Get(2) * iitBody.Get(8);
-	float t28 = rotationMatrix.Get(4) * iitBody.Get(0) + rotationMatrix.Get(5) * iitBody.Get(3) + rotationMatrix.Get(6) * iitBody.Get(6);
-	float t33 = rotationMatrix.Get(4) * iitBody.Get(1) + rotationMatrix.Get(5) * iitBody.Get(4) + rotationMatrix.Get(6) * iitBody.Get(7);
-	float t38 = rotationMatrix.Get(4) * iitBody.Get(2) + rotationMatrix.Get(5) * iitBody.Get(5) + rotationMatrix.Get(6) * iitBody.Get(8);
-	float t52 = rotationMatrix.Get(8) * iitBody.Get(0) + rotationMatrix.Get(9) * iitBody.Get(3) + rotationMatrix.Get(10) * iitBody.Get(6);
-	float t57 = rotationMatrix.Get(8) * iitBody.Get(1) + rotationMatrix.Get(9) * iitBody.Get(4) + rotationMatrix.Get(10) * iitBody.Get(7);
-	float t62 = rotationMatrix.Get(8) * iitBody.Get(2) + rotationMatrix.Get(9) * iitBody.Get(5) + rotationMatrix.Get(10) * iitBody.Get(8);
+	float t4 = rotationMatrix[0] * iitBody[0] + rotationMatrix[1] * iitBody[3] + rotationMatrix[2] * iitBody[6];
+	float t9 = rotationMatrix[0] * iitBody[1] + rotationMatrix[1] * iitBody[4] + rotationMatrix[2] * iitBody[7];
+	float t14 = rotationMatrix[0] * iitBody[2] + rotationMatrix[1] * iitBody[5] + rotationMatrix[2] * iitBody[8];
+	float t28 = rotationMatrix[4] * iitBody[0] + rotationMatrix[5] * iitBody[3] + rotationMatrix[6] * iitBody[6];
+	float t33 = rotationMatrix[4] * iitBody[1] + rotationMatrix[5] * iitBody[4] + rotationMatrix[6] * iitBody[7];
+	float t38 = rotationMatrix[4] * iitBody[2] + rotationMatrix[5] * iitBody[5] + rotationMatrix[6] * iitBody[8];
+	float t52 = rotationMatrix[8] * iitBody[0] + rotationMatrix[9] * iitBody[3] + rotationMatrix[10] * iitBody[6];
+	float t57 = rotationMatrix[8] * iitBody[1] + rotationMatrix[9] * iitBody[4] + rotationMatrix[10] * iitBody[7];
+	float t62 = rotationMatrix[8] * iitBody[2] + rotationMatrix[9] * iitBody[5] + rotationMatrix[10] * iitBody[8];
 
-	float val0 = t4 * rotationMatrix.Get(0) + t9 * rotationMatrix.Get(1) + t14 * rotationMatrix.Get(2);
-	iitWorld.Set(0, val0);
-	float val1 = t4 * rotationMatrix.Get(4) + t9 * rotationMatrix.Get(5) + t14 * rotationMatrix.Get(6);
-	iitWorld.Set(1, val1);
-	float val2 = t4 * rotationMatrix.Get(8) + t9 * rotationMatrix.Get(9) + t14 * rotationMatrix.Get(10);
-	iitWorld.Set(2, val2);
-	float val3 = t28 * rotationMatrix.Get(0) + t33 * rotationMatrix.Get(1) + t38 * rotationMatrix.Get(2);
-	iitWorld.Set(3, val3);
-	float val4 = t28 * rotationMatrix.Get(4) + t33 * rotationMatrix.Get(5) + t38 * rotationMatrix.Get(6);
-	iitWorld.Set(4, val4);
-	float val5 = t28 * rotationMatrix.Get(8) + t33 * rotationMatrix.Get(9) + t38 * rotationMatrix.Get(10);
-	iitWorld.Set(5, val5);
-	float val6 = t52 * rotationMatrix.Get(0) + t57 * rotationMatrix.Get(1) + t62 * rotationMatrix.Get(2);
-	iitWorld.Set(6, val6);
-	float val7 = t52 * rotationMatrix.Get(4) + t57 * rotationMatrix.Get(5) + t62 * rotationMatrix.Get(6);
-	iitWorld.Set(7, val7);
-	float val8 = t52 * rotationMatrix.Get(8) + t57 * rotationMatrix.Get(9) + t62 * rotationMatrix.Get(10);
-	iitWorld.Set(8, val8);
+	float val0 = t4 * rotationMatrix[0] + t9 * rotationMatrix[1] + t14 * rotationMatrix[2];
+	iitWorld[0] = val0;
+	float val1 = t4 * rotationMatrix[4] + t9 * rotationMatrix[5] + t14 * rotationMatrix[6];
+	iitWorld[1] = val1;
+	float val2 = t4 * rotationMatrix[8] + t9 * rotationMatrix[9] + t14 * rotationMatrix[10];
+	iitWorld[2] = val2;
+	float val3 = t28 * rotationMatrix[0] + t33 * rotationMatrix[1] + t38 * rotationMatrix[2];
+	iitWorld[3] = val3;
+	float val4 = t28 * rotationMatrix[4] + t33 * rotationMatrix[5] + t38 * rotationMatrix[6];
+	iitWorld[4] = val4;
+	float val5 = t28 * rotationMatrix[8] + t33 * rotationMatrix[9] + t38 * rotationMatrix[10];
+	iitWorld[5] = val5;
+	float val6 = t52 * rotationMatrix[0] + t57 * rotationMatrix[1] + t62 * rotationMatrix[2];
+	iitWorld[6] = val6;
+	float val7 = t52 * rotationMatrix[4] + t57 * rotationMatrix[5] + t62 * rotationMatrix[6];
+	iitWorld[7] = val7;
+	float val8 = t52 * rotationMatrix[8] + t57 * rotationMatrix[9] + t62 * rotationMatrix[10];
+	iitWorld[8] = val8;
 }
 
 //-----------------------------------------------------------------------------
@@ -101,9 +101,9 @@ Vector3D RigidBody::GetPointInWorldSpace(const Vector3D point)
 }
 
 //-----------------------------------------------------------------------------
-void RigidBody::SetIntertiaTensor(const Matrix &intertiaTensor)
+void RigidBody::SetIntertiaTensor(const Matrix33f &intertiaTensor)
 {
-	m_InverseInertiaTensor = intertiaTensor.GetInverse();
+	m_InverseInertiaTensor = intertiaTensor.Inverse();
 }
 
 //-----------------------------------------------------------------------------
@@ -164,7 +164,7 @@ void RigidBody::Initialize(float mass, Vector3D initialPosition, Vector3D initia
 
 	m_IsAwake = false;
 
-	m_TransformationMatrix = Matrix(4, 4);
+	m_TransformationMatrix = Matrix44f();
 }
 
 //-----------------------------------------------------------------------------
@@ -210,7 +210,7 @@ float RigidBody::GetMass()
 }
 
 //-----------------------------------------------------------------------------
-void RigidBody::GetInverseInertiaTensorWorld(Matrix& inverseInertiaTensor) const
+void RigidBody::GetInverseInertiaTensorWorld(Matrix33f& inverseInertiaTensor) const
 {
 	inverseInertiaTensor = m_InverseInertiaTensorWorld;
 }

@@ -17,7 +17,7 @@ protected:
 	Vector3D m_Vertices[8];
 
 public:
-	CollisionBox(RigidBody* rigidBody, Vector3D halfSize, Matrix offset = Matrix());
+	CollisionBox(RigidBody* rigidBody, Vector3D halfSize, Matrix44f offset = Matrix44f());
 	~CollisionBox();
 
 	inline Vector3D GetHalfSize() const { return m_HalfSize; };
